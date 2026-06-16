@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>겜값 — 스팀 최저가 장부</title>
+<style>
+  :root{
+    --ink:#0F1320; --ink-bar:#161B2B; --paper:#F4F1E8; --paper2:#FBF9F3;
+    --rule:#E2DBC9; --ink-txt:#1C1B17; --mute:#8C8674; --gold:#C8912B;
+    --kr:'Apple SD Gothic Neo','Pretendard','Malgun Gothic','Noto Sans KR',sans-serif;
+    --num:'SF Mono','SFMono-Regular','Consolas','Roboto Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;background:var(--ink);font-family:var(--kr);color:#E7E2D4}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:680px;margin:0 auto;padding:0 16px 80px}
+  /* 상단 바 */
+  header{background:var(--ink-bar);border-bottom:1px solid rgba(255,255,255,.06)}
+  .bar{max-width:680px;margin:0 auto;height:56px;padding:0 16px;display:flex;align-items:center;justify-content:space-between}
+  .logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:18px;letter-spacing:-.5px;color:#EDE9DD}
+  .dot{width:10px;height:10px;border-radius:99px;background:var(--gold);box-shadow:0 0 10px var(--gold)}
+  .badge{font-size:12.5px;color:#C9C3B2;background:rgba(200,145,43,.14);border:1px solid var(--gold);padding:4px 10px;border-radius:99px}
+  .badge b{font-family:var(--num);color:var(--gold)}
+  /* 히어로 */
+  h1{color:#F3EFE3;font-weight:800;font-size:30px;letter-spacing:-1px;line-height:1.2;margin:36px 0 0}
+  h1 .g{color:var(--gold)}
+  .sub{color:#A7A18F;font-size:14px;margin-top:8px;line-height:1.55}
+  .searchbox{position:relative;margin-top:20px}
+  .searchbox svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--mute)}
+  #q{width:100%;border-radius:12px;border:1px solid var(--rule);background:var(--paper);color:var(--ink-txt);
+     font-family:var(--kr);font-size:16px;padding:14px 40px 14px 42px;outline:none;box-shadow:0 0 0 4px rgba(200,145,43,.10)}
+  #q::placeholder{color:#A9A492}
+  .clear{position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:0;color:var(--mute);padding:6px;cursor:pointer;display:none}
+  .chips{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px}
+  .chip{font-size:12.5px;color:#CFC9B8;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);padding:5px 11px;border-radius:99px;cursor:pointer}
+  /* 섹션 */
+  h2{display:flex;align-items:center;gap:8px;color:#E7E2D4;font-weight:700;font-size:15.5px;margin:26px 0 12px}
+  .cnt{font-family:var(--num);font-size:12.5px;color:var(--mute);background:rgba(255,255,255,.05);padding:1px 8px;border-radius:99px}
+  .list{display:flex;flex-direction:column;gap:12px}
+  /* 카드 */
+  .card{display:flex;gap:14px;align-items:stretch;width:100%;text-align:left;background:var(--paper);border:1px solid var(--rule);
+        border-radius:12px;padding:14px;cursor:pointer;box-shadow:0 1px 0 rgba(0,0,0,.25),0 10px 24px -18px rgba(0,0,0,.7);transition:transform .15s}
+  .card:active{transform:scale(.99)}
+  @media(hover:hover){.card:hover{transform:translateY(-3px)}}
+  .cover{flex:0 0 auto;width:52px;height:70px;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#F4F1E8;font-weight:800;font-size:26px;letter-spacing:-1px}
+  .mid{flex:1;min-width:0}
+  .name{font-weight:700;color:var(--ink-txt);font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .low{margin-top:4px;color:var(--mute);font-size:12.5px;display:flex;align-items:center;gap:5px}
+  .low .n{font-family:var(--num);color:var(--ink-txt)}
+  .right{flex:0 0 auto;min-width:120px;display:flex;flex-direction:column;align-items:flex-end;justify-content:space-between}
+  .pct{font-family:var(--num);color:#B5483C;font-weight:700;font-size:13px}
+  .cur{font-family:var(--num);color:var(--ink-txt);font-weight:700;font-size:21px;letter-spacing:-.5px}
+  .normal{font-family:var(--num);color:var(--mute);font-size:12px;text-decoration:line-through}
+  /* 도장 */
+  .stamp{font-family:var(--kr);border-radius:8px;padding:5px 9px;transform:rotate(-5deg);display:inline-flex;flex-direction:column;align-items:center;line-height:1.15;animation:stampIn .26s ease-out}
+  .stamp .l{font-weight:800;font-size:12.5px;letter-spacing:-.4px;white-space:nowrap}
+  .stamp .s{font-size:9.5px;opacity:.8;margin-top:2px;white-space:nowrap}
+  .stamp.big{padding:8px 12px}
+  .stamp.big .l{font-size:15px}.stamp.big .s{font-size:11px}
+  @keyframes stampIn{0%{transform:scale(1.35) rotate(-5deg);opacity:0}60%{opacity:1}100%{transform:scale(1) rotate(-5deg);opacity:1}}
+  /* 상태 */
+  .empty,.loading{color:#8E886F;font-size:14px;text-align:center;padding:26px 10px;border:1px dashed rgba(255,255,255,.12);border-radius:12px}
+  .errbox{background:#2A1A18;border:1px solid #6E3B34;color:#E9C3BC;border-radius:10px;padding:12px 14px;font-size:13.5px}
+  /* 상세 모달 */
+  .overlay{position:fixed;inset:0;background:rgba(8,10,18,.66);display:flex;align-items:flex-end;justify-content:center;padding:0;z-index:50}
+  @media(min-width:560px){.overlay{align-items:center;padding:16px}}
+  .modal{width:100%;max-width:520px;background:var(--paper);border:1px solid var(--rule);border-radius:18px 18px 0 0;overflow:hidden;max-height:92vh;display:flex;flex-direction:column}
+  @media(min-width:560px){.modal{border-radius:18px}}
+  .mhead{display:flex;align-items:flex-start;gap:12px;padding:16px;border-bottom:1px solid var(--rule);background:var(--paper2)}
+  .mtitle{font-weight:800;color:var(--ink-txt);font-size:18px;line-height:1.25}
+  .x{background:none;border:0;color:var(--mute);padding:6px;cursor:pointer}
+  .mbody{overflow-y:auto;padding:16px}
+  .chartlabel{font-size:13px;color:var(--mute);margin-bottom:6px}
+  .ledger{margin-top:14px}
+  .lrow{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px dashed var(--rule)}
+  .lrow .lab{color:var(--mute);font-size:13px}
+  .lrow .val{font-family:var(--num);font-size:15px;font-weight:700;color:var(--ink-txt)}
+  .verdict{margin-top:16px;border-radius:10px;padding:11px 13px}
+  .verdict .vt{font-weight:800;font-size:14px;margin-bottom:3px}
+  .verdict .vp{font-size:13px;line-height:1.55;opacity:.92}
+  .mfoot{padding:16px;border-top:1px solid var(--rule);background:var(--paper2)}
+  .steam{width:100%;display:flex;align-items:center;justify-content:center;gap:8px;background:var(--ink);color:var(--paper);
+         font-weight:700;font-size:14.5px;border-radius:12px;padding:13px;border:0;cursor:pointer}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+  <header><div class="bar">
+    <div class="logo"><span class="dot"></span>겜값</div>
+    <span class="badge">오늘 <b id="lowcount">·</b>개 역대 최저가</span>
+  </div></header>
+
+  <div class="wrap">
+    <h1>이 게임, <span class="g">지금</span> 사도 돼?</h1>
+    <p class="sub">스팀 게임의 역대 최저가와 ‘지금 사도 되나’를 한 줄로 알려드려요.</p>
+
+    <div class="searchbox">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4-4"/></svg>
+      <input id="q" placeholder="게임 이름을 검색하세요" autocomplete="off" />
+      <button class="clear" id="clear" aria-label="지우기"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    </div>
+    <div class="chips" id="chips"></div>
+
+    <div id="content"></div>
+  </div>
+
+  <div id="modalRoot"></div>
+
+<script>
+/* ====== 설정: 살아 있는 점원(Worker) 주소 ====== */
+var API_BASE = "https://gamgap-api.ibanisac.workers.dev";
+var POPULAR = [
+  {q:"사이버펑크", id:1091500},{q:"엘든 링", id:1245620},{q:"발더스 게이트", id:1086940},
+  {q:"하데스", id:1145360},{q:"스타듀", id:413150},{q:"할로우 나이트", id:367520},
+  {q:"세키로", id:814380},{q:"잇 테이크 투", id:1426210}
+];
+
+/* ====== 도우미 ====== */
+function won(n){ return (Number(n)||0).toLocaleString("ko-KR")+"원"; }
+function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
+function el(id){ return document.getElementById(id); }
+
+function verdict(g){
+  var low=Number(g.allTimeLow)||0, cur=Number(g.currentPrice)||0, disc=Number(g.discountPercent)||0;
+  var gap = low>0 ? (cur-low)/low : 1;
+  if(cur<=low) return {label:"지금이 역대 최저가",sub:"살 때예요",fg:"#7A560F",bg:"#F4E5BD",bd:"#C8912B",star:true,
+    tip:"기록상 가장 싼 가격이에요. 더 기다린다고 떨어진다는 보장이 없으니, 원하던 게임이면 지금이 사기 좋은 시점이에요."};
+  if(gap<=0.05) return {label:"거의 역대 최저가",sub:"사도 좋아요",fg:"#6B4E12",bg:"#EFE5C9",bd:"#B98A2C",
+    tip:"역대 최저가와 거의 차이가 없어요. 몇백 원 더 아끼려고 무한정 기다리기보단 지금 사도 아깝지 않은 가격이에요."};
+  if(disc>=50) return {label:"괜찮은 할인",sub:"더 내려간 적은 있어요",fg:"#0F5E58",bg:"#D6E8E5",bd:"#1C7C76",
+    tip:"할인폭은 괜찮지만, 과거엔 이보다 더 싸게 풀린 적이 있어요. 급하지 않다면 큰 세일(여름·겨울)을 노려도 좋아요."};
+  if(disc>0) return {label:"약한 할인",sub:"세일을 더 기다려도 OK",fg:"#3E4654",bg:"#E4E7EC",bd:"#8A93A3",
+    tip:"할인이 크지 않아요. 위시리스트에 담아두고 더 큰 세일을 기다리는 편을 추천해요."};
+  return {label:"지금은 정가",sub:"세일을 기다리세요",fg:"#7E2B22",bg:"#F0DAD6",bd:"#B5483C",
+    tip:"지금은 할인이 없어요. 스팀은 세일을 자주 하니, 위시리스트에 담아두고 알림을 기다리는 게 좋아요."};
+}
+
+function coverHTML(name){
+  var h=0; for(var i=0;i<name.length;i++) h+=name.charCodeAt(i); h=(h*37)%360;
+  var bg="linear-gradient(150deg,hsl("+h+" 38% 30%),hsl("+((h+40)%360)+" 42% 18%))";
+  return '<div class="cover" style="background:'+bg+'">'+esc(name.trim().charAt(0)||"?")+'</div>';
+}
+function stampHTML(v,big){
+  return '<div class="stamp'+(big?' big':'')+'" style="color:'+v.fg+';background:'+v.bg+';border:2px solid '+v.bd+';box-shadow:0 0 0 2px '+v.bg+',0 0 0 3px '+v.bd+'">'
+    +'<span class="l">'+(v.star?'★ ':'')+v.label+'</span><span class="s" style="color:'+v.fg+'">'+v.sub+'</span></div>';
+}
+function sparkSVG(hist,color){
+  if(!hist||hist.length<2) return '';
+  var vals=hist.map(function(p){return Number(p.p)||0;});
+  var min=Math.min.apply(null,vals),max=Math.max.apply(null,vals),span=(max-min)||1,w=96,h=30;
+  var pts=vals.map(function(v,i){return [(i/(vals.length-1))*w, h-((v-min)/span)*h];});
+  var mi=vals.indexOf(min);
+  return '<svg width="'+w+'" height="'+h+'" style="display:block;overflow:visible">'
+    +'<polyline points="'+pts.map(function(p){return p[0].toFixed(1)+","+p[1].toFixed(1);}).join(" ")+'" fill="none" stroke="'+color+'" stroke-width="1.6" stroke-linejoin="round"/>'
+    +'<circle cx="'+pts[mi][0].toFixed(1)+'" cy="'+pts[mi][1].toFixed(1)+'" r="2.6" fill="#C8912B"/></svg>';
+}
+function chartSVG(hist,low){
+  if(!hist||hist.length<2) return '<div class="empty">가격 흐름 데이터가 아직 쌓이는 중이에요.</div>';
+  var W=480,H=150,pl=44,pr=8,pt=8,pb=20;
+  var vals=hist.map(function(p){return Number(p.p)||0;}).concat([Number(low)||0]);
+  var min=Math.min.apply(null,vals),max=Math.max.apply(null,vals),span=(max-min)||1;
+  function X(i){return pl+(i/(hist.length-1))*(W-pl-pr);}
+  function Y(v){return pt+(1-((v-min)/span))*(H-pt-pb);}
+  var line=hist.map(function(p,i){return (i?'L':'M')+X(i).toFixed(1)+" "+Y(Number(p.p)||0).toFixed(1);}).join(" ");
+  var area=line+" L"+X(hist.length-1).toFixed(1)+" "+(H-pb)+" L"+X(0).toFixed(1)+" "+(H-pb)+" Z";
+  var lowY=Y(Number(low)||0).toFixed(1);
+  return '<svg viewBox="0 0 '+W+' '+H+'" width="100%" height="150" preserveAspectRatio="none" style="overflow:visible">'
+    +'<defs><linearGradient id="grad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#C8912B" stop-opacity="0.32"/><stop offset="100%" stop-color="#C8912B" stop-opacity="0.02"/></linearGradient></defs>'
+    +'<path d="'+area+'" fill="url(#grad)"/>'
+    +'<path d="'+line+'" fill="none" stroke="#C8912B" stroke-width="2"/>'
+    +'<line x1="'+pl+'" y1="'+lowY+'" x2="'+(W-pr)+'" y2="'+lowY+'" stroke="#C8912B" stroke-dasharray="4 4" stroke-width="1"/>'
+    +'<text x="'+pl+'" y="'+(Number(lowY)-4)+'" fill="#C8912B" font-size="10" font-family="'+"sans-serif"+'">역대최저</text>'
+    +'<text x="2" y="'+(pt+8)+'" fill="#8C8674" font-size="10" font-family="monospace">'+(max/10000).toFixed(0)+'만</text>'
+    +'<text x="2" y="'+(H-pb)+'" fill="#8C8674" font-size="10" font-family="monospace">'+(min/10000).toFixed(0)+'만</text>'
+    +'</svg>';
+}
+
+/* ====== 데이터 ====== */
+var STORE={}; // appid -> game
+function api(path){ return fetch(API_BASE+path).then(function(r){ if(!r.ok) throw 0; return r.json(); }); }
+function remember(arr){ (arr||[]).forEach(function(g){ if(g&&g.appid) STORE[g.appid]=g; }); return arr; }
+
+function cardHTML(g){
+  var v=verdict(g);
+  return '<button class="card" data-appid="'+g.appid+'">'
+    + coverHTML(g.name)
+    + '<div class="mid"><div class="name">'+esc(g.name)+'</div>'
+      + '<div class="low"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C8912B" stroke-width="2"><path d="M3 7l6 6 4-4 8 8"/><path d="M21 17v-4h-4"/></svg>'
+      + '역대 최저 <span class="n">'+won(g.allTimeLow)+'</span></div>'
+      + '<div style="margin-top:8px">'+sparkSVG(g.history,v.bd)+'</div></div>'
+    + '<div class="right"><div style="text-align:right">'
+      + (g.discountPercent>0?'<span class="pct">-'+g.discountPercent+'%</span>':'')
+      + '<div class="cur">'+won(g.currentPrice)+'</div>'
+      + (g.discountPercent>0?'<div class="normal">'+won(g.normalPrice)+'</div>':'')
+      + '</div><div style="margin-top:8px">'+stampHTML(v,false)+'</div></div>'
+    + '</button>';
+}
+function listHTML(items){ return '<div class="list">'+items.map(cardHTML).join("")+'</div>'; }
+
+/* ====== 렌더 ====== */
+function renderHome(){
+  var c=el("content");
+  c.innerHTML='<h2><span style="color:#C8912B">★</span> 오늘 역대 최저가 <span class="cnt" id="lc">·</span></h2><div id="lowsec" class="loading">불러오는 중…</div>'
+            +'<h2>지금 할인 중인 게임 <span class="cnt" id="pc">·</span></h2><div id="popsec" class="loading">불러오는 중…</div>';
+  api("/api/lowest-today").then(remember).then(function(rows){
+    el("lowcount").textContent=rows.length; el("lc").textContent=rows.length;
+    el("lowsec").outerHTML = rows.length ? '<div id="lowsec">'+listHTML(rows)+'</div>'
+      : '<div id="lowsec" class="empty">오늘은 아직 역대 최저가 갱신이 없어요. 내일부터 기록이 쌓이면 채워져요.</div>';
+  }).catch(function(){ el("lowcount").textContent="0"; var e=el("lowsec"); if(e) e.outerHTML='<div id="lowsec" class="empty">불러오지 못했어요.</div>'; });
+
+  api("/api/deals?limit=60").then(remember).then(function(rows){
+    el("pc").textContent=rows.length;
+    el("popsec").outerHTML = rows.length ? '<div id="popsec">'+listHTML(rows)+'</div>'
+      : '<div id="popsec" class="empty">아직 할인 데이터가 없어요. 수집 직원이 한 번 돌면 채워져요.</div>';
+  }).catch(function(){ var e=el("popsec"); if(e) e.outerHTML='<div id="popsec" class="empty">할인 목록을 불러오지 못했어요.</div>'; });
+}
+function renderSearch(q){
+  var c=el("content");
+  c.innerHTML='<h2>‘'+esc(q)+'’ 검색 결과 <span class="cnt" id="sc">·</span></h2><div id="ssec" class="loading">불러오는 중…</div>';
+  api("/api/search?q="+encodeURIComponent(q)).then(remember).then(function(rows){
+    el("sc").textContent=rows.length;
+    el("ssec").outerHTML = rows.length ? '<div id="ssec">'+listHTML(rows)+'</div>'
+      : '<div id="ssec" class="empty">찾는 게임이 없어요. 다른 이름으로 검색해 보세요.</div>';
+  }).catch(function(){ var e=el("ssec"); if(e) e.outerHTML='<div id="ssec" class="errbox">가격을 불러오지 못했어요. 잠시 후 다시 시도해 주세요.</div>'; });
+}
+
+/* ====== 상세 모달 ====== */
+function openModal(appid){
+  var g=STORE[appid]; if(!g) return;
+  var v=verdict(g);
+  el("modalRoot").innerHTML =
+    '<div class="overlay" id="overlay"><div class="modal">'
+    +'<div class="mhead">'+coverHTML(g.name)
+      +'<div style="flex:1;min-width:0"><div class="mtitle">'+esc(g.name)+'</div><div style="margin-top:6px">'+stampHTML(v,true)+'</div></div>'
+      +'<button class="x" id="closeX" aria-label="닫기"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button></div>'
+    +'<div class="mbody"><div class="chartlabel">가격 흐름</div>'+chartSVG(g.history,g.allTimeLow)
+      +'<div class="ledger">'
+        +'<div class="lrow"><span class="lab">정가</span><span class="val" style="text-decoration:'+(g.discountPercent>0?'line-through':'none')+'">'+won(g.normalPrice)+'</span></div>'
+        +'<div class="lrow"><span class="lab">현재가'+(g.discountPercent>0?' (-'+g.discountPercent+'%)':'')+'</span><span class="val">'+won(g.currentPrice)+'</span></div>'
+        +'<div class="lrow"><span class="lab">역대 최저가'+(g.allTimeLowDate?' · '+esc(g.allTimeLowDate):'')+'</span><span class="val" style="color:#C8912B">'+won(g.allTimeLow)+'</span></div>'
+      +'</div>'
+      +'<div class="verdict" style="background:'+v.bg+';border:1px solid '+v.bd+'"><div class="vt" style="color:'+v.fg+'">'+v.label+' — '+v.sub+'</div><div class="vp" style="color:'+v.fg+'">'+v.tip+'</div></div>'
+    +'</div>'
+    +'<div class="mfoot"><a class="steam" href="https://store.steampowered.com/app/'+g.appid+'/" target="_blank" rel="noreferrer">스팀에서 보기 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a></div>'
+    +'</div></div>';
+  el("overlay").addEventListener("click",function(e){ if(e.target.id==="overlay") closeModal(); });
+  el("closeX").addEventListener("click",closeModal);
+}
+function closeModal(){ el("modalRoot").innerHTML=""; }
+document.addEventListener("keydown",function(e){ if(e.key==="Escape") closeModal(); });
+
+/* ====== 이벤트 ====== */
+document.addEventListener("click",function(e){
+  var card=e.target.closest && e.target.closest(".card");
+  if(card){ openModal(Number(card.getAttribute("data-appid"))); }
+});
+var chips=el("chips");
+POPULAR.slice(0,5).forEach(function(p){
+  var b=document.createElement("button"); b.className="chip"; b.textContent=p.q;
+  b.onclick=function(){ el("q").value=p.q; onInput(); };
+  chips.appendChild(b);
+});
+var timer=null;
+function onInput(){
+  var q=el("q").value.trim();
+  el("clear").style.display = q?"block":"none";
+  clearTimeout(timer);
+  timer=setTimeout(function(){ if(q) renderSearch(q); else renderHome(); },250);
+}
+el("q").addEventListener("input",onInput);
+el("clear").addEventListener("click",function(){ el("q").value=""; onInput(); el("q").focus(); });
+
+/* 시작 */
+renderHome();
+</script>
+</body>
+</html>
