@@ -84,11 +84,18 @@ def steam_fetch(appid):
     po = d.get("price_overview")
     if not po:
         return None
+    # 장르: appdetails가 주는 한국어 장르명을 쉼표로 이어 저장(예: "액션,RPG,어드벤처").
+    # 가격을 묻는 김에 같은 응답에서 뽑으므로 추가 호출이 없다.
+    genres = ",".join(
+        g.get("description", "").strip()
+        for g in d.get("genres", []) if g.get("description")
+    )
     return {
         "name":     d.get("name", f"appid-{appid}"),
         "normal":   po["initial"] // PRICE_DIVISOR,
         "current":  po["final"]   // PRICE_DIVISOR,
         "discount": po.get("discount_percent", 0),
+        "genres":   genres,
     }
 
 
@@ -138,8 +145,8 @@ def main():
         d1(
             """INSERT INTO games
                  (appid,name,normal_price,current_price,discount_percent,
-                  all_time_low,all_time_low_date,is_low_today,last_checked)
-               VALUES (?,?,?,?,?,?,?,?,?)
+                  all_time_low,all_time_low_date,is_low_today,last_checked,genres)
+               VALUES (?,?,?,?,?,?,?,?,?,?)
                ON CONFLICT(appid) DO UPDATE SET
                  name=excluded.name,
                  normal_price=excluded.normal_price,
@@ -148,9 +155,10 @@ def main():
                  all_time_low=excluded.all_time_low,
                  all_time_low_date=COALESCE(NULLIF(excluded.all_time_low_date,''), games.all_time_low_date),
                  is_low_today=excluded.is_low_today,
-                 last_checked=excluded.last_checked""",
+                 last_checked=excluded.last_checked,
+                 genres=COALESCE(NULLIF(excluded.genres,''), games.genres)""",
             [appid, p["name"], p["normal"], p["current"], p["discount"],
-             new_low, low_date, is_low_today, NOW],
+             new_low, low_date, is_low_today, NOW, p["genres"]],
         )
 
         if prev_price is None or prev_price != p["current"]:

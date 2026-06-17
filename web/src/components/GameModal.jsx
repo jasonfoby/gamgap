@@ -4,18 +4,17 @@ import Stamp from "./Stamp";
 import StarButton from "./StarButton";
 import PriceChart from "./PriceChart";
 import { verdict } from "../lib/verdict";
-import { won } from "../lib/format";
-import { priceStats } from "../lib/stats";
+import { won, ym } from "../lib/format";
+import { priceStats, lowPoints } from "../lib/stats";
 import { getGame } from "../api";
 
-// 상세 모달: 가격 흐름(툴팁) + 정가/현재가/역대최저 장부 + 가격 통계 +
-// "지금 사도 돼?" 판정 + 찜 + 공유 링크 + 스팀/SteamDB 링크.
+// 상세 모달(개편): 데스크탑에서 좌(가격 흐름 차트) | 우(2단 가격헤더 + 판정) 2컬럼.
+// 그 아래 전폭으로 가격 통계 장부 + 이전 저점 기록 + 푸터(스팀/SteamDB/공유).
 // 오버레이 클릭 / X 버튼 / ESC 로 닫힌다.
 export default function GameModal({ game, onClose }) {
   const [full, setFull] = useState(game); // 긴 이력을 병합한 상세본
   const [copied, setCopied] = useState(false);
 
-  // 모달이 열리면 /api/game/:appid로 긴 이력까지 받아 병합.
   useEffect(() => {
     setFull(game);
     let alive = true;
@@ -40,6 +39,8 @@ export default function GameModal({ game, onClose }) {
   const g = full;
   const v = verdict(g);
   const stats = priceStats(g.history);
+  const lows = lowPoints(g.history, 5);
+  const onSale = Number(g.discountPercent) > 0;
 
   const copyLink = async () => {
     const url = window.location.origin + window.location.pathname + "?game=" + g.appid;
@@ -59,12 +60,12 @@ export default function GameModal({ game, onClose }) {
         if (e.target.classList.contains("overlay")) onClose();
       }}
     >
-      <div className="modal">
+      <div className="modal" role="dialog" aria-modal="true" aria-label={g.name}>
         <div className="mhead">
           <Cover appid={g.appid} name={g.name} />
           <div style={{ flex: 1, minWidth: 0 }}>
             <div className="mtitle">{g.name}</div>
-            <div style={{ marginTop: 6 }}>
+            <div style={{ marginTop: 8 }}>
               <Stamp v={v} big />
             </div>
           </div>
@@ -77,32 +78,38 @@ export default function GameModal({ game, onClose }) {
         </div>
 
         <div className="mbody">
-          <div className="chartlabel">가격 흐름</div>
-          <PriceChart hist={g.history} low={g.allTimeLow} />
+          <div className="mtop">
+            <div className="mtop-chart">
+              <div className="chartlabel">가격 흐름</div>
+              <PriceChart hist={g.history} low={g.allTimeLow} />
+            </div>
 
-          <div className="ledger">
-            <div className="lrow">
-              <span className="lab">정가</span>
-              <span
-                className="val"
-                style={{ textDecoration: g.discountPercent > 0 ? "line-through" : "none" }}
-              >
-                {won(g.normalPrice)}
-              </span>
-            </div>
-            <div className="lrow">
-              <span className="lab">
-                현재가{g.discountPercent > 0 ? ` (-${g.discountPercent}%)` : ""}
-              </span>
-              <span className="val">{won(g.currentPrice)}</span>
-            </div>
-            <div className="lrow">
-              <span className="lab">
-                역대 최저가{g.allTimeLowDate ? ` · ${g.allTimeLowDate}` : ""}
-              </span>
-              <span className="val" style={{ color: "#C8912B" }}>
-                {won(g.allTimeLow)}
-              </span>
+            <div className="mtop-summary">
+              {/* 2단 가격헤더: 큰 현재가 → 바로 아래 역대최저(금색 ★) */}
+              <div className="pricehead">
+                {onSale && <div className="ph-pct">-{g.discountPercent}%</div>}
+                <div className="ph-cur">{won(g.currentPrice)}</div>
+                {onSale && (
+                  <div className="ph-normal">
+                    정가 <s>{won(g.normalPrice)}</s>
+                  </div>
+                )}
+                {Number(g.allTimeLow) > 0 && (
+                  <div className="ph-atl">
+                    <span className="atl-star">★</span> 역대최저 <b>{won(g.allTimeLow)}</b>
+                    {g.allTimeLowDate && <span className="atl-date"> · {ym(g.allTimeLowDate)}</span>}
+                  </div>
+                )}
+              </div>
+
+              <div className="verdict" style={{ background: v.bg, border: `1px solid ${v.bd}` }}>
+                <div className="vt" style={{ color: v.fg }}>
+                  {v.label} — {v.sub}
+                </div>
+                <div className="vp" style={{ color: v.fg }}>
+                  {v.tip}
+                </div>
+              </div>
             </div>
           </div>
 
@@ -121,30 +128,30 @@ export default function GameModal({ game, onClose }) {
                 {stats.since && (
                   <div className="lrow">
                     <span className="lab">기록 시작</span>
-                    <span className="val">{stats.since}</span>
+                    <span className="val">{ym(stats.since)}</span>
                   </div>
                 )}
               </div>
             </>
           )}
 
-          <div className="verdict" style={{ background: v.bg, border: `1px solid ${v.bd}` }}>
-            <div className="vt" style={{ color: v.fg }}>
-              {v.label} — {v.sub}
-            </div>
-            <div className="vp" style={{ color: v.fg }}>
-              {v.tip}
-            </div>
-          </div>
+          {lows.length > 1 && (
+            <>
+              <div className="subhead">이전 저점 기록</div>
+              <div className="lows">
+                {lows.map((p, i) => (
+                  <div className={"lowchip" + (i === 0 ? " best" : "")} key={p.d + "-" + p.p}>
+                    <span className="lc-p">{won(p.p)}</span>
+                    <span className="lc-d">{ym(p.d)}</span>
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
         </div>
 
         <div className="mfoot">
-          <a
-            className="steam"
-            href={`https://store.steampowered.com/app/${g.appid}/`}
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a className="steam" href={`https://store.steampowered.com/app/${g.appid}/`} target="_blank" rel="noreferrer">
             스팀에서 보기
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
               <path d="M15 3h6v6" />
@@ -153,18 +160,14 @@ export default function GameModal({ game, onClose }) {
             </svg>
           </a>
           <div className="mfoot-row">
-            <a
-              className="ghostbtn"
-              href={`https://steamdb.info/app/${g.appid}/`}
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a className="ghostbtn" href={`https://steamdb.info/app/${g.appid}/`} target="_blank" rel="noreferrer">
               SteamDB
             </a>
             <button className="ghostbtn" onClick={copyLink}>
               {copied ? "복사됨!" : "링크 복사"}
             </button>
           </div>
+          <div className="freshness">가격은 하루 한 번 갱신돼요 · 스팀 결제 직전 최종가를 확인하세요</div>
         </div>
       </div>
     </div>

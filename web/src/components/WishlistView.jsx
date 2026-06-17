@@ -46,12 +46,12 @@ export default function WishlistView({ onCardClick }) {
 
   if (!ids.length)
     return (
-      <>
+      <section className="block">
         <h2>내 찜 목록</h2>
         <div className="empty">
           아직 찜한 게임이 없어요. 카드 왼쪽 위 ★를 눌러 찜해두면, 지금 살 때인지 여기서 한눈에 볼 수 있어요.
         </div>
-      </>
+      </section>
     );
 
   const loaded = ids.map((id) => games[id]).filter((g) => g && g !== "error");
@@ -59,7 +59,7 @@ export default function WishlistView({ onCardClick }) {
   const ordered = loaded.slice().sort((a, b) => depth(a) - depth(b));
 
   return (
-    <>
+    <section className="block">
       <h2>
         내 찜 목록 <span className="cnt">{ids.length}</span>
       </h2>
@@ -77,6 +77,6 @@ export default function WishlistView({ onCardClick }) {
           ))}
         </div>
       )}
-    </>
+    </section>
   );
 }
