@@ -1,4 +1,5 @@
 import { SORTS } from "../lib/dealSort";
+import { PRICE_PRESETS } from "../lib/filterUi";
 import { won } from "../lib/format";
 
 // "할인 중" 목록 위/옆에 붙는 정렬·필터 바.
@@ -28,8 +29,30 @@ export default function DealControls({ opts, onChange, availableGenres = [] }) {
         </button>
       </div>
 
-      <div className="ctrl-row">
-        <span className="ctrl-lab">최대 가격</span>
+      <div className="ctrl-price">
+        <div className="ctrl-genres-top">
+          <span className="ctrl-lab">가격</span>
+          <span className="ctrl-val">
+            {opts.maxPrice >= opts.maxBound ? "제한 없음" : won(opts.maxPrice) + " 이하"}
+          </span>
+        </div>
+        <div className="genre-chips">
+          {PRICE_PRESETS.filter((p) => p.max < opts.maxBound).map((p) => (
+            <button
+              key={p.max}
+              className={"toggle" + (opts.maxPrice === p.max ? " on" : "")}
+              onClick={() => set({ maxPrice: p.max })}
+            >
+              {p.label}
+            </button>
+          ))}
+          <button
+            className={"toggle" + (opts.maxPrice >= opts.maxBound ? " on" : "")}
+            onClick={() => set({ maxPrice: opts.maxBound })}
+          >
+            전체
+          </button>
+        </div>
         <input
           type="range"
           min="0"
@@ -37,10 +60,8 @@ export default function DealControls({ opts, onChange, availableGenres = [] }) {
           step="1000"
           value={opts.maxPrice}
           onChange={(e) => set({ maxPrice: Number(e.target.value) })}
+          aria-label="최대 가격"
         />
-        <span className="ctrl-val">
-          {opts.maxPrice >= opts.maxBound ? "제한 없음" : won(opts.maxPrice)}
-        </span>
       </div>
 
       {availableGenres.length > 0 && (

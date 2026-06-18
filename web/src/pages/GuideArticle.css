@@ -1,0 +1,88 @@
+/* 가이드 상세 — 어두운 잉크 배경 위 종이 카드 안 본문(가독 우선). */
+.guide-article {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  padding: 28px 22px 32px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25), 0 16px 34px -22px rgba(0, 0, 0, 0.7);
+}
+
+/* 글 제목 */
+.ga-title {
+  font-family: var(--kr);
+  font-weight: 800;
+  font-size: 27px;
+  letter-spacing: -0.6px;
+  line-height: 1.28;
+  color: var(--ink-txt);
+  margin: 0 0 12px;
+}
+
+/* 메타줄 — 날짜·읽는 시간 */
+.ga-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--kr);
+  font-size: 12.5px;
+  color: var(--mute);
+  margin-bottom: 12px;
+}
+.ga-date {
+  font-weight: 700;
+}
+.ga-sep {
+  opacity: 0.6;
+}
+
+/* 태그 칩 */
+.ga-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 20px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--rule);
+}
+.ga-tag {
+  font-family: var(--kr);
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #7a560f;
+  background: #f8efd3;
+  border: 1px solid var(--gold);
+  border-radius: 99px;
+  padding: 3px 10px;
+}
+
+/* 하단 — 다른 가이드 보기 */
+.ga-foot {
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px solid var(--rule);
+}
+.ga-back {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--kr);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+  background: var(--gold);
+  border: 1px solid var(--gold);
+  border-radius: 99px;
+  padding: 10px 20px;
+  transition: filter 0.12s;
+}
+.ga-back:hover {
+  filter: brightness(0.95);
+}
+
+@media (min-width: 720px) {
+  .guide-article {
+    padding: 36px 34px 42px;
+  }
+  .ga-title {
+    font-size: 31px;
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Lowstamp — 스팀 최저가",
+  "short_name": "Lowstamp",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0F1320",
+  "theme_color": "#0F1320",
+  "lang": "ko",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

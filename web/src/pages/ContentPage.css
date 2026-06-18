@@ -1,0 +1,39 @@
+/* 정적 콘텐츠 페이지 — 어두운 잉크 배경(PageShell) 위 종이 카드.
+   ArticleBody가 종이 배경(--paper) 위 짙은 글자색을 가정하므로 카드 배경을 종이로 둔다. */
+.content-card {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  padding: 28px 22px 32px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25), 0 16px 34px -22px rgba(0, 0, 0, 0.7);
+}
+
+/* 페이지 제목 — 종이 위 짙은 잉크 글자, 금색 괘선으로 마감 */
+.content-title {
+  font-family: var(--kr);
+  font-weight: 800;
+  font-size: 27px;
+  letter-spacing: -0.6px;
+  line-height: 1.25;
+  color: var(--ink-txt);
+  margin: 0 0 6px;
+}
+
+/* 최종 수정일 — 흐린 보조 글자 */
+.content-updated {
+  font-family: var(--kr);
+  font-size: 12.5px;
+  color: var(--mute);
+  margin: 0 0 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--rule);
+}
+
+@media (min-width: 720px) {
+  .content-card {
+    padding: 36px 34px 42px;
+  }
+  .content-title {
+    font-size: 31px;
+  }
+}

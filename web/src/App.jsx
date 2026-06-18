@@ -1,13 +1,18 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Sidebar from "./components/Sidebar";
 import GameCard from "./components/GameCard";
 import GameModal from "./components/GameModal";
 import WishlistView from "./components/WishlistView";
+import Footer from "./components/Footer";
+import { ListSkeleton } from "./components/Skeleton";
 import { getLowestToday, getDeals, searchGames, getGame } from "./api";
 import { applyDealOpts, defaultDealOpts, availableGenres } from "./lib/dealSort";
+import { activeFilterChips, clearedOpts } from "./lib/filterUi";
 import { useWishlistState, WishlistProvider } from "./lib/wishlist";
+import { setGameHead, resetHead } from "./lib/head";
+import { track } from "./lib/analytics";
 
 // 입력이 멈춘 뒤 delay(ms)가 지나야 값을 반영하는 디바운스 (원본 250ms 검색 지연).
 function useDebounce(value, delay) {
@@ -26,15 +31,22 @@ function initialTab() {
 }
 
 // 게임 목록 한 섹션. state.status: "loading" | "ok" | "error".
-function Section({ title, state, emptyMsg, errMsg, onCardClick }) {
+function Section({ title, state, emptyMsg, errMsg, onCardClick, onRetry }) {
   const count = state.status === "ok" ? state.rows.length : "·";
   return (
     <section className="block">
       <h2>
         {title} <span className="cnt">{count}</span>
       </h2>
-      {state.status === "loading" && <div className="loading">불러오는 중…</div>}
-      {state.status === "error" && <div className="empty">{errMsg}</div>}
+      {state.status === "loading" && <ListSkeleton />}
+      {state.status === "error" && (
+        <div className="empty">
+          {errMsg}
+          <button className="ghostbtn" style={{ marginTop: 10, display: "inline-flex" }} onClick={onRetry}>
+            다시 시도
+          </button>
+        </div>
+      )}
       {state.status === "ok" &&
         (state.rows.length ? (
           <div className="list">
@@ -50,16 +62,21 @@ function Section({ title, state, emptyMsg, errMsg, onCardClick }) {
 }
 
 // 검색 결과 섹션 (에러 시 .errbox 스타일을 쓰는 점만 홈 섹션과 다름).
-function SearchSection({ q, state, onCardClick }) {
+function SearchSection({ q, state, onCardClick, onRetry }) {
   const count = state.status === "ok" ? state.rows.length : "·";
   return (
     <section className="block">
       <h2>
         ‘{q}’ 검색 결과 <span className="cnt">{count}</span>
       </h2>
-      {state.status === "loading" && <div className="loading">불러오는 중…</div>}
+      {state.status === "loading" && <ListSkeleton />}
       {state.status === "error" && (
-        <div className="errbox">가격을 불러오지 못했어요. 잠시 후 다시 시도해 주세요.</div>
+        <div className="errbox">
+          가격을 불러오지 못했어요. 잠시 후 다시 시도해 주세요.
+          <button className="ghostbtn" style={{ marginTop: 10, display: "inline-flex" }} onClick={onRetry}>
+            다시 시도
+          </button>
+        </div>
       )}
       {state.status === "ok" &&
         (state.rows.length ? (
@@ -76,16 +93,41 @@ function SearchSection({ q, state, onCardClick }) {
 }
 
 // "할인 중" 섹션: 거른 목록만 렌더(정렬·필터 바는 사이드바로 이동).
-function DealsView({ state, opts, onCardClick }) {
+function DealsView({ state, opts, onCardClick, onRetry, onOptsChange }) {
   const filtered = state.status === "ok" && opts ? applyDealOpts(state.rows, opts) : [];
+  const chips = opts ? activeFilterChips(opts) : [];
   return (
     <section className="block">
       <h2>
         지금 할인 중인 게임{" "}
         <span className="cnt">{state.status === "ok" ? filtered.length : "·"}</span>
       </h2>
-      {state.status === "loading" && <div className="loading">불러오는 중…</div>}
-      {state.status === "error" && <div className="empty">할인 목록을 불러오지 못했어요.</div>}
+      {chips.length > 0 && (
+        <div className="active-filters">
+          {chips.map((c) => (
+            <button
+              key={c.id}
+              className="afchip"
+              onClick={() => onOptsChange({ ...opts, ...c.patch })}
+              aria-label={`${c.label} 필터 제거`}
+            >
+              {c.label} <span aria-hidden="true">✕</span>
+            </button>
+          ))}
+          <button className="afclear" onClick={() => onOptsChange(clearedOpts(opts))}>
+            전체 해제
+          </button>
+        </div>
+      )}
+      {state.status === "loading" && <ListSkeleton count={12} />}
+      {state.status === "error" && (
+        <div className="empty">
+          할인 목록을 불러오지 못했어요.
+          <button className="ghostbtn" style={{ marginTop: 10, display: "inline-flex" }} onClick={onRetry}>
+            다시 시도
+          </button>
+        </div>
+      )}
       {state.status === "ok" &&
         (filtered.length ? (
           <div className="list">
@@ -112,12 +154,22 @@ export default function App() {
   const [search, setSearch] = useState({ status: "loading", rows: [] });
   const [dealOpts, setDealOpts] = useState(null);
 
-  // 홈 데이터: 진입 시 한 번. 배지(오늘 역대최저 수)는 검색 중에도 보여야 하므로 항상 로드.
-  useEffect(() => {
+  // 홈 데이터 로더(재시도 가능하도록 useCallback 으로 분리).
+  // "오늘 역대최저"와 "할인 중"을 각각 로드. 반환하는 함수는 cleanup(중도 폐기)용.
+  const loadLowest = useCallback(() => {
+    setLowest({ status: "loading", rows: [] });
     let alive = true;
     getLowestToday()
       .then((rows) => alive && setLowest({ status: "ok", rows }))
       .catch(() => alive && setLowest({ status: "error", rows: [] }));
+    return () => {
+      alive = false;
+    };
+  }, []);
+
+  const loadDeals = useCallback(() => {
+    setDeals({ status: "loading", rows: [] });
+    let alive = true;
     getDeals(120)
       .then((rows) => alive && setDeals({ status: "ok", rows }))
       .catch(() => alive && setDeals({ status: "error", rows: [] }));
@@ -125,6 +177,33 @@ export default function App() {
       alive = false;
     };
   }, []);
+
+  // 디바운스된 검색어로 검색. term 이 없으면 아무 것도 안 함.
+  const loadSearch = useCallback((term) => {
+    if (!term) return;
+    setSearch({ status: "loading", rows: [] });
+    let alive = true;
+    searchGames(term)
+      .then((rows) => {
+        if (!alive) return;
+        setSearch({ status: "ok", rows });
+        if (rows.length === 0) track("search_zero", { q: term }); // 검색 0건 추적
+      })
+      .catch(() => alive && setSearch({ status: "error", rows: [] }));
+    return () => {
+      alive = false;
+    };
+  }, []);
+
+  // 홈 데이터: 진입 시 한 번. 배지(오늘 역대최저 수)는 검색 중에도 보여야 하므로 항상 로드.
+  useEffect(() => {
+    const offLow = loadLowest();
+    const offDeals = loadDeals();
+    return () => {
+      offLow && offLow();
+      offDeals && offDeals();
+    };
+  }, [loadLowest, loadDeals]);
 
   // 할인 목록을 받으면 정렬·필터 기본값(최대가격 한도 포함)을 한 번 세팅.
   useEffect(() => {
@@ -138,15 +217,9 @@ export default function App() {
   // 검색어(디바운스)가 있으면 검색.
   useEffect(() => {
     if (!debounced) return;
-    let alive = true;
-    setSearch({ status: "loading", rows: [] });
-    searchGames(debounced)
-      .then((rows) => alive && setSearch({ status: "ok", rows }))
-      .catch(() => alive && setSearch({ status: "error", rows: [] }));
-    return () => {
-      alive = false;
-    };
-  }, [debounced]);
+    const off = loadSearch(debounced);
+    return () => off && off();
+  }, [debounced, loadSearch]);
 
   // 진입 시 ?game=appid 가 있으면 그 게임 모달을 바로 연다(공유 딥링크).
   useEffect(() => {
@@ -171,6 +244,17 @@ export default function App() {
     const qs = params.toString();
     window.history.replaceState(null, "", window.location.pathname + (qs ? "?" + qs : ""));
   }, [selected, tab]);
+
+  // 선택된 게임에 맞춰 문서 제목·메타·구조화데이터 갱신(브라우저 탭/구글/공유 미리보기).
+  // 카드 클릭·공유 딥링크(?game)·인기 칩 어느 경로로 열려도 selected 변경 한 곳에서 game_view 가 잡힌다.
+  useEffect(() => {
+    if (selected) {
+      setGameHead(selected);
+      track("game_view", { appid: selected.appid }); // 게임 상세 열람 추적
+    } else {
+      resetHead();
+    }
+  }, [selected]);
 
   const searching = !!debounced;
   const lowCount =
@@ -211,7 +295,12 @@ export default function App() {
         <main className="main">
           <div id="content">
             {searching ? (
-              <SearchSection q={debounced} state={search} onCardClick={setSelected} />
+              <SearchSection
+                q={debounced}
+                state={search}
+                onCardClick={setSelected}
+                onRetry={() => loadSearch(debounced)}
+              />
             ) : tab === "lowest" ? (
               <Section
                 title={
@@ -223,15 +312,24 @@ export default function App() {
                 emptyMsg="오늘은 아직 역대 최저가 갱신이 없어요. 내일부터 기록이 쌓이면 채워져요."
                 errMsg="불러오지 못했어요."
                 onCardClick={setSelected}
+                onRetry={loadLowest}
               />
             ) : tab === "deals" ? (
-              <DealsView state={deals} opts={dealOpts} onCardClick={setSelected} />
+              <DealsView
+                state={deals}
+                opts={dealOpts}
+                onCardClick={setSelected}
+                onRetry={loadDeals}
+                onOptsChange={setDealOpts}
+              />
             ) : (
               <WishlistView onCardClick={setSelected} />
             )}
           </div>
         </main>
       </div>
+
+      <Footer />
 
       {selected && <GameModal game={selected} onClose={() => setSelected(null)} />}
     </WishlistProvider>

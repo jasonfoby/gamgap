@@ -1,0 +1,78 @@
+/* 글 본문 — 종이 영수증 톤 위 가독성 우선 타이포그래피.
+   PageShell의 어두운 배경 위 밝은 종이 카드 안에 들어간다는 가정으로,
+   글자색은 짙은 잉크(--ink-txt), 흐린 보조색은 --mute를 쓴다. */
+.article-body {
+  font-family: var(--kr);
+  color: var(--ink-txt);
+  font-size: 16px;
+  line-height: 1.7;
+  max-width: 68ch;
+}
+
+/* 문단 */
+.ab-p {
+  margin: 0 0 1.1em;
+}
+.ab-p:last-child {
+  margin-bottom: 0;
+}
+
+/* 소제목 */
+.ab-h2 {
+  display: block;
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+  color: var(--ink-txt);
+  line-height: 1.35;
+  margin: 1.9em 0 0.7em;
+  padding-bottom: 0.4em;
+  border-bottom: 1px solid var(--rule);
+}
+.ab-h2:first-child {
+  margin-top: 0;
+}
+
+/* 목록 */
+.ab-ul,
+.ab-ol {
+  margin: 0 0 1.1em;
+  padding-left: 1.5em;
+}
+.ab-ul li,
+.ab-ol li {
+  margin: 0.4em 0;
+  line-height: 1.65;
+}
+.ab-ul {
+  list-style: disc;
+}
+.ab-ol {
+  list-style: decimal;
+}
+.ab-ul li::marker,
+.ab-ol li::marker {
+  color: var(--gold);
+}
+
+/* 인용 */
+.ab-quote {
+  margin: 1.3em 0;
+  padding: 4px 0 4px 16px;
+  border-left: 3px solid var(--gold);
+  color: #5b554a;
+  font-style: italic;
+  line-height: 1.65;
+}
+
+/* 안내/주의 박스 — 금색 보더의 강조 영역 */
+.ab-note {
+  margin: 1.3em 0;
+  padding: 12px 14px;
+  background: #f8efd3;
+  border: 1px solid var(--gold);
+  border-radius: 10px;
+  color: #7a560f;
+  font-size: 14.5px;
+  line-height: 1.6;
+}

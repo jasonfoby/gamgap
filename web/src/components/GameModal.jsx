@@ -6,6 +6,7 @@ import PriceChart from "./PriceChart";
 import { verdict } from "../lib/verdict";
 import { won, ym } from "../lib/format";
 import { priceStats, lowPoints } from "../lib/stats";
+import { useFocusTrap } from "../lib/focusTrap";
 import { getGame } from "../api";
 
 // 상세 모달(개편): 데스크탑에서 좌(가격 흐름 차트) | 우(2단 가격헤더 + 판정) 2컬럼.
@@ -14,6 +15,8 @@ import { getGame } from "../api";
 export default function GameModal({ game, onClose }) {
   const [full, setFull] = useState(game); // 긴 이력을 병합한 상세본
   const [copied, setCopied] = useState(false);
+  // 모달이 열려 있는 동안 키보드 포커스를 .modal 안에 가두고, 닫힐 때 직전 포커스(연 카드)로 복원.
+  const trapRef = useFocusTrap(true);
 
   useEffect(() => {
     setFull(game);
@@ -60,7 +63,7 @@ export default function GameModal({ game, onClose }) {
         if (e.target.classList.contains("overlay")) onClose();
       }}
     >
-      <div className="modal" role="dialog" aria-modal="true" aria-label={g.name}>
+      <div className="modal" role="dialog" aria-modal="true" aria-label={g.name} ref={trapRef}>
         <div className="mhead">
           <Cover appid={g.appid} name={g.name} />
           <div style={{ flex: 1, minWidth: 0 }}>

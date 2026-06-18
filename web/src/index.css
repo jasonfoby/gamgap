@@ -233,4 +233,24 @@ input[type=range]{flex:1;accent-color:var(--gold);min-width:110px}
   .side-trust,.side-countdown{display:none}
 }
 
+/* ===== 필터 토글(모바일) + 접이식 본문 ===== */
+.filter-toggle{display:flex;align-items:center;gap:8px;width:100%;font-family:var(--kr);font-size:14px;font-weight:700;color:var(--txt);background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:10px;padding:11px 13px;cursor:pointer}
+.filter-toggle:hover{background:rgba(255,255,255,.09)}
+.filter-toggle .fbadge{font-family:var(--num);font-size:11px;color:var(--ink);background:var(--gold);border-radius:99px;padding:1px 7px;font-weight:800}
+.filter-toggle .chev{margin-left:auto;color:var(--mute);font-size:10px}
+.filter-body{display:none;margin-top:10px}
+.filter-body.open{display:block}
+/* ===== 적용된 필터 칩(결과 위, 모든 화면) ===== */
+.active-filters{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin:-2px 0 14px}
+.afchip{display:inline-flex;align-items:center;gap:6px;font-family:var(--kr);font-size:12.5px;font-weight:700;color:var(--ink);background:var(--gold);border:1px solid var(--gold);border-radius:99px;padding:5px 11px;cursor:pointer}
+.afchip:hover{filter:brightness(.95)}
+.afchip span{font-size:11px;opacity:.8}
+.afclear{font-family:var(--kr);font-size:12.5px;color:var(--txt-dim);background:none;border:0;cursor:pointer;text-decoration:underline;padding:5px 4px}
+.afclear:hover{color:var(--txt)}
+/* 가격 프리셋 묶음 */
+.ctrl-price{display:flex;flex-direction:column;gap:8px}
+@media(min-width:1024px){
+  .filter-toggle{display:none}
+  .filter-body{display:block;margin-top:0}
+}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}

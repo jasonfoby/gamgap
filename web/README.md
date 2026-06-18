@@ -1,4 +1,4 @@
-# 겜값 웹 (프런트엔드)
+# Lowstamp 웹 (프런트엔드)
 
 루트의 `index.html`(단일 HTML 화면)을 그대로 옮긴 Vite + React 앱입니다.
 백엔드(Worker `gamgap-api`, D1 `gamgap`, 크롤러)는 건드리지 않고 화면만 다시 만들었습니다.

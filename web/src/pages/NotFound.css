@@ -1,0 +1,47 @@
+/* 404 페이지 — 가운데 정렬, 큰 금색 코드 + 안내 + 홈 버튼. */
+.notfound {
+  text-align: center;
+  padding: 40px 0 20px;
+}
+.nf-code {
+  font-family: var(--num);
+  font-weight: 800;
+  font-size: 80px;
+  line-height: 1;
+  letter-spacing: -2px;
+  color: var(--gold);
+  opacity: 0.9;
+}
+.nf-title {
+  font-family: var(--kr);
+  font-weight: 800;
+  font-size: 24px;
+  letter-spacing: -0.5px;
+  color: var(--txt);
+  margin: 18px 0 10px;
+}
+.nf-desc {
+  font-family: var(--kr);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--txt-dim);
+  margin: 0 auto 26px;
+  max-width: 420px;
+}
+.nf-home {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--kr);
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--ink);
+  background: var(--gold);
+  border: 1px solid var(--gold);
+  border-radius: 99px;
+  padding: 11px 24px;
+  transition: filter 0.12s;
+}
+.nf-home:hover {
+  filter: brightness(0.95);
+}

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import GameCard from "./GameCard";
+import { ListSkeleton } from "./Skeleton";
 import { getGame } from "../api";
 import { isBuyNow } from "../lib/stats";
 import { useWishlist } from "../lib/wishlist";
@@ -69,7 +70,7 @@ export default function WishlistView({ onCardClick }) {
           <b style={{ color: "#C8912B" }}>{buyNow}</b>개가 지금 살 때예요
         </div>
       )}
-      {loading && <div className="loading">불러오는 중…</div>}
+      {loading && <ListSkeleton />}
       {ordered.length > 0 && (
         <div className="list">
           {ordered.map((g) => (

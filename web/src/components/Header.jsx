@@ -7,9 +7,9 @@ export default function Header({ lowCount, query, onQueryChange }) {
   return (
     <header>
       <div className="bar">
-        <a className="logo" href="/" aria-label="겜값 홈">
+        <a className="logo" href="/" aria-label="Lowstamp 홈">
           <span className="dot" />
-          겜값
+          Lowstamp
         </a>
 
         <div className="bar-search">
