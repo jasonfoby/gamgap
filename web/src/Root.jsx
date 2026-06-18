@@ -1,5 +1,6 @@
 import { useRoute } from "./lib/router";
 import App from "./App";
+import GamePage from "./pages/GamePage";
 import GuideIndex from "./pages/GuideIndex";
 import GuideArticle from "./pages/GuideArticle";
 import ContentPage from "./pages/ContentPage";
@@ -16,6 +17,7 @@ import contact from "./content/pages/contact";
 // useRoute()로 현재 경로(pathname)를 읽어 어떤 화면을 그릴지 분기한다.
 // CookieConsent(쿠키 동의 배너)는 어떤 경로에서도 항상 한 번 마운트되도록 맨 아래 둔다.
 const GUIDE_PREFIX = "/guide/";
+const GAME_PREFIX = "/game/";
 
 export default function Root() {
   const path = useRoute();
@@ -23,6 +25,10 @@ export default function Root() {
   let page;
   if (path === "/" || path === "") {
     page = <App />;
+  } else if (path.startsWith(GAME_PREFIX)) {
+    // "/game/1091500" → appid "1091500" (숫자만 허용, 아니면 404)
+    const appid = decodeURIComponent(path.slice(GAME_PREFIX.length)).replace(/\/+$/, "");
+    page = /^\d+$/.test(appid) ? <GamePage appid={appid} /> : <NotFound />;
   } else if (path === "/guide") {
     page = <GuideIndex />;
   } else if (path.startsWith(GUIDE_PREFIX)) {

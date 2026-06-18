@@ -12,6 +12,34 @@ function set(selector, attr, value) {
   if (el) el.setAttribute(attr, value);
 }
 
+// 정식 주소(canonical) 링크를 현재 페이지에 맞게 갱신한다(없으면 만든다).
+// 게임 페이지가 홈으로 흡수되던 문제를 막기 위해, 라우트마다 고유 canonical을 박는다.
+function setCanonical(href) {
+  let el = document.head.querySelector('link[rel="canonical"]');
+  if (!el) {
+    el = document.createElement("link");
+    el.setAttribute("rel", "canonical");
+    document.head.appendChild(el);
+  }
+  el.setAttribute("href", href);
+}
+
+// 색인 여부 제어. noindex=true면 robots 메타를 noindex로, false면 메타를 제거(=기본 색인).
+// 가격 이력이 빈약한 게임 페이지를 색인에서 빼 얇은 페이지 패널티를 방지하는 데 쓴다.
+function setRobots(noindex) {
+  let el = document.head.querySelector('meta[name="robots"]');
+  if (noindex) {
+    if (!el) {
+      el = document.createElement("meta");
+      el.setAttribute("name", "robots");
+      document.head.appendChild(el);
+    }
+    el.setAttribute("content", "noindex,follow");
+  } else if (el) {
+    el.remove();
+  }
+}
+
 function steamHeader(appid) {
   return `https://cdn.cloudflare.steamstatic.com/steam/apps/${appid}/header.jpg`;
 }
@@ -26,6 +54,8 @@ export function resetHead() {
   set('meta[name="twitter:title"]', "content", DEFAULT_TITLE);
   set('meta[name="twitter:description"]', "content", DEFAULT_DESC);
   set('meta[name="twitter:image"]', "content", "");
+  setCanonical(location.origin + "/");
+  setRobots(false);
   removeJsonLd();
 }
 
@@ -38,7 +68,7 @@ export function setGameHead(game) {
     `${game.name} 스팀 현재가 ${won(game.currentPrice)}${onSale ? ` (-${game.discountPercent}%)` : ""}.` +
     `${atl} 지금 사도 되는지 Lowstamp에서 확인하세요.`;
   const img = steamHeader(game.appid);
-  const url = `${location.origin}/?game=${game.appid}`;
+  const url = `${location.origin}/game/${game.appid}`;
 
   document.title = title;
   set('meta[name="description"]', "content", desc);
@@ -49,6 +79,10 @@ export function setGameHead(game) {
   set('meta[name="twitter:title"]', "content", title);
   set('meta[name="twitter:description"]', "content", desc);
   set('meta[name="twitter:image"]', "content", img);
+  setCanonical(url);
+  // 현재가가 없는(데이터가 빈) 페이지만 색인 제외. 현재가·역대최저·판정·고유 본문이 있으면
+  // 게임마다 다른 정보가 있으므로, 가격 이력이 짧아도 색인을 허용한다.
+  setRobots(!(Number(game.currentPrice) > 0));
   setJsonLd(game, img);
 }
 
@@ -100,6 +134,8 @@ export function setPageHead({ title, description, path, type } = {}) {
   set('meta[name="twitter:title"]', "content", docTitle);
   set('meta[name="twitter:description"]', "content", desc);
   if (type) set('meta[property="og:type"]', "content", type);
+  setCanonical(url);
+  setRobots(false);
 
   // 콘텐츠 페이지엔 상품용 구조화데이터가 남아 있으면 안 되므로 정리.
   removeJsonLd();

@@ -3,15 +3,15 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Sidebar from "./components/Sidebar";
 import GameCard from "./components/GameCard";
-import GameModal from "./components/GameModal";
 import WishlistView from "./components/WishlistView";
 import Footer from "./components/Footer";
 import { ListSkeleton } from "./components/Skeleton";
-import { getLowestToday, getDeals, searchGames, getGame } from "./api";
+import { getLowestToday, getDeals, searchGames } from "./api";
 import { applyDealOpts, defaultDealOpts, availableGenres } from "./lib/dealSort";
 import { activeFilterChips, clearedOpts } from "./lib/filterUi";
 import { useWishlistState, WishlistProvider } from "./lib/wishlist";
-import { setGameHead, resetHead } from "./lib/head";
+import { resetHead } from "./lib/head";
+import { navigate } from "./lib/router";
 import { track } from "./lib/analytics";
 
 // 입력이 멈춘 뒤 delay(ms)가 지나야 값을 반영하는 디바운스 (원본 250ms 검색 지연).
@@ -147,7 +147,6 @@ export default function App() {
   const [query, setQuery] = useState("");
   const debounced = useDebounce(query.trim(), 250);
   const [tab, setTab] = useState(initialTab);
-  const [selected, setSelected] = useState(null); // 모달에 띄울 게임 객체
 
   const [lowest, setLowest] = useState({ status: "loading", rows: [] });
   const [deals, setDeals] = useState({ status: "loading", rows: [] });
@@ -221,40 +220,20 @@ export default function App() {
     return () => off && off();
   }, [debounced, loadSearch]);
 
-  // 진입 시 ?game=appid 가 있으면 그 게임 모달을 바로 연다(공유 딥링크).
+  // 홈은 문서 제목·메타·canonical 을 기본(홈)값으로 복원한다.
+  // 게임 페이지·가이드에서 클라이언트 이동으로 돌아왔을 때 이전 메타가 남지 않도록 한 번 리셋.
   useEffect(() => {
-    const gid = new URLSearchParams(window.location.search).get("game");
-    if (!gid) return;
-    let alive = true;
-    getGame(gid)
-      .then((g) => alive && g && setSelected(g))
-      .catch(() => {});
-    return () => {
-      alive = false;
-    };
+    resetHead();
   }, []);
 
-  // 선택/탭 상태를 주소창에 반영(공유·새로고침 유지). 뒤로가기 오염 방지로 replace.
+  // 탭 상태를 주소창에 반영(공유·새로고침 유지). 뒤로가기 오염 방지로 replace.
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    if (selected) params.set("game", selected.appid);
-    else params.delete("game");
     if (tab && tab !== "lowest") params.set("tab", tab);
     else params.delete("tab");
     const qs = params.toString();
     window.history.replaceState(null, "", window.location.pathname + (qs ? "?" + qs : ""));
-  }, [selected, tab]);
-
-  // 선택된 게임에 맞춰 문서 제목·메타·구조화데이터 갱신(브라우저 탭/구글/공유 미리보기).
-  // 카드 클릭·공유 딥링크(?game)·인기 칩 어느 경로로 열려도 selected 변경 한 곳에서 game_view 가 잡힌다.
-  useEffect(() => {
-    if (selected) {
-      setGameHead(selected);
-      track("game_view", { appid: selected.appid }); // 게임 상세 열람 추적
-    } else {
-      resetHead();
-    }
-  }, [selected]);
+  }, [tab]);
 
   const searching = !!debounced;
   const lowCount =
@@ -268,18 +247,16 @@ export default function App() {
     setQuery("");
   };
 
+  // 카드 클릭 → 개별 게임 페이지(/game/:appid)로 이동(색인 가능한 독립 URL).
+  const openCard = (game) => navigate("/game/" + game.appid);
   // 인기 칩: 한글 검색어가 영문 저장명과 안 맞는 경우가 많아(예: 사이버펑크↔Cyberpunk 2077),
-  // 칩을 누르면 검색 대신 해당 appid 게임 상세를 바로 연다.
-  const openGame = (appid) => {
-    getGame(appid)
-      .then((g) => g && setSelected(g))
-      .catch(() => {});
-  };
+  // 칩을 누르면 검색 대신 해당 appid 게임 페이지로 바로 이동한다.
+  const openGameById = (appid) => navigate("/game/" + appid);
 
   return (
     <WishlistProvider value={wl}>
       <Header lowCount={lowCount} query={query} onQueryChange={setQuery} />
-      <Hero query={query} onQueryChange={setQuery} onPickGame={openGame} />
+      <Hero query={query} onQueryChange={setQuery} onPickGame={openGameById} />
 
       <div className="shell">
         <Sidebar
@@ -298,7 +275,7 @@ export default function App() {
               <SearchSection
                 q={debounced}
                 state={search}
-                onCardClick={setSelected}
+                onCardClick={openCard}
                 onRetry={() => loadSearch(debounced)}
               />
             ) : tab === "lowest" ? (
@@ -311,27 +288,25 @@ export default function App() {
                 state={lowest}
                 emptyMsg="오늘은 아직 역대 최저가 갱신이 없어요. 내일부터 기록이 쌓이면 채워져요."
                 errMsg="불러오지 못했어요."
-                onCardClick={setSelected}
+                onCardClick={openCard}
                 onRetry={loadLowest}
               />
             ) : tab === "deals" ? (
               <DealsView
                 state={deals}
                 opts={dealOpts}
-                onCardClick={setSelected}
+                onCardClick={openCard}
                 onRetry={loadDeals}
                 onOptsChange={setDealOpts}
               />
             ) : (
-              <WishlistView onCardClick={setSelected} />
+              <WishlistView onCardClick={openCard} />
             )}
           </div>
         </main>
       </div>
 
       <Footer />
-
-      {selected && <GameModal game={selected} onClose={() => setSelected(null)} />}
     </WishlistProvider>
   );
 }

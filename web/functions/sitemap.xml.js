@@ -33,7 +33,7 @@ export async function onRequest(context) {
   const locs = [
     ...STATIC_PATHS.map((p) => `${origin}${p}`),
     ...GUIDE_PATHS.map((p) => `${origin}${p}`),
-    ...rows.filter((g) => g && g.appid).map((g) => `${origin}/?game=${g.appid}`),
+    ...rows.filter((g) => g && g.appid).map((g) => `${origin}/game/${g.appid}`),
   ];
   const body =
     `<?xml version="1.0" encoding="UTF-8"?>\n` +
