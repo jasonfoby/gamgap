@@ -1,21 +1,24 @@
+import { useT } from "../lib/i18n";
+
 // 둘러보기 탭. 검색어가 비어 있을 때 어떤 목록을 볼지 고른다.
 const TABS = [
-  { key: "lowest", label: "오늘의 최저가" },
-  { key: "deals", label: "할인 중" },
-  { key: "wishlist", label: "내 찜" },
+  { key: "lowest", labelKey: "tab.lowest" },
+  { key: "deals", labelKey: "tab.deals" },
+  { key: "wishlist", labelKey: "tab.wishlist" },
 ];
 
 export default function Tabs({ active, onChange, wishCount }) {
+  const { t } = useT();
   return (
     <div className="tabs">
-      {TABS.map((t) => (
+      {TABS.map((tb) => (
         <button
-          key={t.key}
-          className={"tab" + (active === t.key ? " on" : "")}
-          onClick={() => onChange(t.key)}
+          key={tb.key}
+          className={"tab" + (active === tb.key ? " on" : "")}
+          onClick={() => onChange(tb.key)}
         >
-          {t.label}
-          {t.key === "wishlist" && wishCount > 0 && (
+          {t(tb.labelKey)}
+          {tb.key === "wishlist" && wishCount > 0 && (
             <span className="tabbadge">{wishCount}</span>
           )}
         </button>

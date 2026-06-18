@@ -3,11 +3,12 @@ import Stamp from "./Stamp";
 import StarButton from "./StarButton";
 import { verdict } from "../lib/verdict";
 import { won } from "../lib/format";
+import { useT, tNodes } from "../lib/i18n";
 
 // 게임 한 장(세로 포스터형 영수증 카드).
 // 위: 큰 표지 배너(할인율 배지) → 아래: 제목 / 현재가·정가 / 판정 도장(역대최저 함께 새김).
-// 모든 카드가 같은 구조라 제목·가격이 줄 맞춰 정렬된다. 찜 별은 오른쪽 위에 오버레이.
 export default function GameCard({ game, onClick }) {
+  const { t } = useT();
   const v = verdict(game);
   const onSale = Number(game.discountPercent) > 0;
   const hasLow = Number(game.allTimeLow) > 0;
@@ -27,7 +28,7 @@ export default function GameCard({ game, onClick }) {
           </div>
           <Stamp
             v={v}
-            note={hasLow ? <>역대최저 <span className="lcnum">{won(game.allTimeLow)}</span></> : undefined}
+            note={hasLow ? tNodes(t("card.atl"), { p: <span className="lcnum">{won(game.allTimeLow)}</span> }) : undefined}
           />
         </div>
       </button>

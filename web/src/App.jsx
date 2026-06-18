@@ -13,6 +13,7 @@ import { useWishlistState, WishlistProvider } from "./lib/wishlist";
 import { resetHead } from "./lib/head";
 import { navigate } from "./lib/router";
 import { track } from "./lib/analytics";
+import { useT } from "./lib/i18n";
 
 // 입력이 멈춘 뒤 delay(ms)가 지나야 값을 반영하는 디바운스 (원본 250ms 검색 지연).
 function useDebounce(value, delay) {
@@ -32,6 +33,7 @@ function initialTab() {
 
 // 게임 목록 한 섹션. state.status: "loading" | "ok" | "error".
 function Section({ title, state, emptyMsg, errMsg, onCardClick, onRetry }) {
+  const { t } = useT();
   const count = state.status === "ok" ? state.rows.length : "·";
   return (
     <section className="block">
@@ -43,7 +45,7 @@ function Section({ title, state, emptyMsg, errMsg, onCardClick, onRetry }) {
         <div className="empty">
           {errMsg}
           <button className="ghostbtn" style={{ marginTop: 10, display: "inline-flex" }} onClick={onRetry}>
-            다시 시도
+            {t("common.retry")}
           </button>
         </div>
       )}
@@ -63,18 +65,19 @@ function Section({ title, state, emptyMsg, errMsg, onCardClick, onRetry }) {
 
 // 검색 결과 섹션 (에러 시 .errbox 스타일을 쓰는 점만 홈 섹션과 다름).
 function SearchSection({ q, state, onCardClick, onRetry }) {
+  const { t } = useT();
   const count = state.status === "ok" ? state.rows.length : "·";
   return (
     <section className="block">
       <h2>
-        ‘{q}’ 검색 결과 <span className="cnt">{count}</span>
+        {t("search.resultsTitle", { q })} <span className="cnt">{count}</span>
       </h2>
       {state.status === "loading" && <ListSkeleton />}
       {state.status === "error" && (
         <div className="errbox">
-          가격을 불러오지 못했어요. 잠시 후 다시 시도해 주세요.
+          {t("search.err")}
           <button className="ghostbtn" style={{ marginTop: 10, display: "inline-flex" }} onClick={onRetry}>
-            다시 시도
+            {t("common.retry")}
           </button>
         </div>
       )}
@@ -86,7 +89,7 @@ function SearchSection({ q, state, onCardClick, onRetry }) {
             ))}
           </div>
         ) : (
-          <div className="empty">찾는 게임이 없어요. 다른 이름으로 검색해 보세요.</div>
+          <div className="empty">{t("search.empty")}</div>
         ))}
     </section>
   );
@@ -94,37 +97,40 @@ function SearchSection({ q, state, onCardClick, onRetry }) {
 
 // "할인 중" 섹션: 거른 목록만 렌더(정렬·필터 바는 사이드바로 이동).
 function DealsView({ state, opts, onCardClick, onRetry, onOptsChange }) {
+  const { t } = useT();
   const filtered = state.status === "ok" && opts ? applyDealOpts(state.rows, opts) : [];
   const chips = opts ? activeFilterChips(opts) : [];
   return (
     <section className="block">
       <h2>
-        지금 할인 중인 게임{" "}
-        <span className="cnt">{state.status === "ok" ? filtered.length : "·"}</span>
+        {t("deals.title")} <span className="cnt">{state.status === "ok" ? filtered.length : "·"}</span>
       </h2>
       {chips.length > 0 && (
         <div className="active-filters">
-          {chips.map((c) => (
-            <button
-              key={c.id}
-              className="afchip"
-              onClick={() => onOptsChange({ ...opts, ...c.patch })}
-              aria-label={`${c.label} 필터 제거`}
-            >
-              {c.label} <span aria-hidden="true">✕</span>
-            </button>
-          ))}
+          {chips.map((c) => {
+            const text = c.labelKey ? t(c.labelKey, c.labelVars) : c.label;
+            return (
+              <button
+                key={c.id}
+                className="afchip"
+                onClick={() => onOptsChange({ ...opts, ...c.patch })}
+                aria-label={t("chip.removeAria", { label: text })}
+              >
+                {text} <span aria-hidden="true">✕</span>
+              </button>
+            );
+          })}
           <button className="afclear" onClick={() => onOptsChange(clearedOpts(opts))}>
-            전체 해제
+            {t("deals.clearAll")}
           </button>
         </div>
       )}
       {state.status === "loading" && <ListSkeleton count={12} />}
       {state.status === "error" && (
         <div className="empty">
-          할인 목록을 불러오지 못했어요.
+          {t("deals.err")}
           <button className="ghostbtn" style={{ marginTop: 10, display: "inline-flex" }} onClick={onRetry}>
-            다시 시도
+            {t("common.retry")}
           </button>
         </div>
       )}
@@ -136,7 +142,7 @@ function DealsView({ state, opts, onCardClick, onRetry, onOptsChange }) {
             ))}
           </div>
         ) : (
-          <div className="empty">조건에 맞는 게임이 없어요. 필터를 풀어보세요.</div>
+          <div className="empty">{t("deals.empty")}</div>
         ))}
     </section>
   );
@@ -144,6 +150,7 @@ function DealsView({ state, opts, onCardClick, onRetry, onOptsChange }) {
 
 export default function App() {
   const wl = useWishlistState();
+  const { t } = useT();
   const [query, setQuery] = useState("");
   const debounced = useDebounce(query.trim(), 250);
   const [tab, setTab] = useState(initialTab);
@@ -154,7 +161,6 @@ export default function App() {
   const [dealOpts, setDealOpts] = useState(null);
 
   // 홈 데이터 로더(재시도 가능하도록 useCallback 으로 분리).
-  // "오늘 역대최저"와 "할인 중"을 각각 로드. 반환하는 함수는 cleanup(중도 폐기)용.
   const loadLowest = useCallback(() => {
     setLowest({ status: "loading", rows: [] });
     let alive = true;
@@ -221,7 +227,6 @@ export default function App() {
   }, [debounced, loadSearch]);
 
   // 홈은 문서 제목·메타·canonical 을 기본(홈)값으로 복원한다.
-  // 게임 페이지·가이드에서 클라이언트 이동으로 돌아왔을 때 이전 메타가 남지 않도록 한 번 리셋.
   useEffect(() => {
     resetHead();
   }, []);
@@ -238,19 +243,15 @@ export default function App() {
   const searching = !!debounced;
   const lowCount =
     lowest.status === "loading" ? "·" : lowest.status === "error" ? "0" : lowest.rows.length;
-  // 할인 목록에 등장하는 장르(빈도순). 데이터에 장르가 없으면 빈 배열 → 사이드바 장르 필터 자동 숨김.
   const genreOptions = deals.status === "ok" ? availableGenres(deals.rows) : [];
 
-  // 탭을 누르면 검색 모드에서 빠져나오도록 검색어를 비운다.
-  const onTabChange = (t) => {
-    setTab(t);
+  const onTabChange = (tb) => {
+    setTab(tb);
     setQuery("");
   };
 
   // 카드 클릭 → 개별 게임 페이지(/game/:appid)로 이동(색인 가능한 독립 URL).
   const openCard = (game) => navigate("/game/" + game.appid);
-  // 인기 칩: 한글 검색어가 영문 저장명과 안 맞는 경우가 많아(예: 사이버펑크↔Cyberpunk 2077),
-  // 칩을 누르면 검색 대신 해당 appid 게임 페이지로 바로 이동한다.
   const openGameById = (appid) => navigate("/game/" + appid);
 
   return (
@@ -282,12 +283,12 @@ export default function App() {
               <Section
                 title={
                   <>
-                    <span style={{ color: "#C8912B" }}>★</span> 오늘 역대 최저가
+                    <span style={{ color: "#C8912B" }}>★</span> {t("home.lowestTitle")}
                   </>
                 }
                 state={lowest}
-                emptyMsg="오늘은 아직 역대 최저가 갱신이 없어요. 내일부터 기록이 쌓이면 채워져요."
-                errMsg="불러오지 못했어요."
+                emptyMsg={t("home.lowestEmpty")}
+                errMsg={t("home.lowestErr")}
                 onCardClick={openCard}
                 onRetry={loadLowest}
               />

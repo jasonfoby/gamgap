@@ -1,15 +1,17 @@
 import { SORTS } from "../lib/dealSort";
 import { PRICE_PRESETS } from "../lib/filterUi";
 import { won } from "../lib/format";
+import { useT } from "../lib/i18n";
 
 // "할인 중" 목록 위/옆에 붙는 정렬·필터 바.
-// availableGenres(데이터에 실제 등장하는 장르)가 있을 때만 장르 칩을 보여준다 → 장르 데이터가
-// 들어오기 전엔 자동으로 숨겨진다.
+// availableGenres(데이터에 실제 등장하는 장르)가 있을 때만 장르 칩을 보여준다.
+// (장르명은 백엔드 데이터 문자열이라 그대로 노출 — 다국어 매핑은 후속 과제)
 export default function DealControls({ opts, onChange, availableGenres = [] }) {
+  const { t } = useT();
   const set = (patch) => onChange({ ...opts, ...patch });
   const selected = opts.genres || [];
-  const toggleGenre = (t) =>
-    set({ genres: selected.includes(t) ? selected.filter((x) => x !== t) : [...selected, t] });
+  const toggleGenre = (g) =>
+    set({ genres: selected.includes(g) ? selected.filter((x) => x !== g) : [...selected, g] });
 
   return (
     <div className="controls">
@@ -17,23 +19,23 @@ export default function DealControls({ opts, onChange, availableGenres = [] }) {
         <select className="sel" value={opts.sort} onChange={(e) => set({ sort: e.target.value })}>
           {SORTS.map((s) => (
             <option key={s.key} value={s.key}>
-              {s.label}
+              {t(s.labelKey)}
             </option>
           ))}
         </select>
         <button className={"toggle" + (opts.onlyLow ? " on" : "")} onClick={() => set({ onlyLow: !opts.onlyLow })}>
-          역대최저만
+          {t("ctrl.onlyLow")}
         </button>
         <button className={"toggle" + (opts.min50 ? " on" : "")} onClick={() => set({ min50: !opts.min50 })}>
-          50%+
+          {t("ctrl.min50")}
         </button>
       </div>
 
       <div className="ctrl-price">
         <div className="ctrl-genres-top">
-          <span className="ctrl-lab">가격</span>
+          <span className="ctrl-lab">{t("ctrl.priceLabel")}</span>
           <span className="ctrl-val">
-            {opts.maxPrice >= opts.maxBound ? "제한 없음" : won(opts.maxPrice) + " 이하"}
+            {opts.maxPrice >= opts.maxBound ? t("ctrl.noLimit") : t("ctrl.under", { p: won(opts.maxPrice) })}
           </span>
         </div>
         <div className="genre-chips">
@@ -43,14 +45,14 @@ export default function DealControls({ opts, onChange, availableGenres = [] }) {
               className={"toggle" + (opts.maxPrice === p.max ? " on" : "")}
               onClick={() => set({ maxPrice: p.max })}
             >
-              {p.label}
+              {t("ctrl.under", { p: won(p.max) })}
             </button>
           ))}
           <button
             className={"toggle" + (opts.maxPrice >= opts.maxBound ? " on" : "")}
             onClick={() => set({ maxPrice: opts.maxBound })}
           >
-            전체
+            {t("ctrl.all")}
           </button>
         </div>
         <input
@@ -60,28 +62,28 @@ export default function DealControls({ opts, onChange, availableGenres = [] }) {
           step="1000"
           value={opts.maxPrice}
           onChange={(e) => set({ maxPrice: Number(e.target.value) })}
-          aria-label="최대 가격"
+          aria-label={t("ctrl.maxPriceAria")}
         />
       </div>
 
       {availableGenres.length > 0 && (
         <div className="ctrl-genres">
           <div className="ctrl-genres-top">
-            <span className="ctrl-lab">장르</span>
+            <span className="ctrl-lab">{t("ctrl.genre")}</span>
             {selected.length > 0 && (
               <button className="ctrl-clear" onClick={() => set({ genres: [] })}>
-                초기화
+                {t("ctrl.reset")}
               </button>
             )}
           </div>
           <div className="genre-chips">
-            {availableGenres.map((t) => (
+            {availableGenres.map((g) => (
               <button
-                key={t}
-                className={"toggle" + (selected.includes(t) ? " on" : "")}
-                onClick={() => toggleGenre(t)}
+                key={g}
+                className={"toggle" + (selected.includes(g) ? " on" : "")}
+                onClick={() => toggleGenre(g)}
               >
-                {t}
+                {g}
               </button>
             ))}
           </div>

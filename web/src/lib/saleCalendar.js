@@ -5,10 +5,10 @@
 // 각 항목: 이름, 시작(월 sm, 일 sd), 종료(월 em, 일 ed). 월은 1~12.
 // 겨울 세일처럼 연말→연초로 넘어가는 경우 em < sm 이면 종료는 다음 해로 계산한다.
 const SALES = [
-  { name: "봄 세일", sm: 3, sd: 13, em: 3, ed: 20 },
-  { name: "여름 세일", sm: 6, sd: 26, em: 7, ed: 10 },
-  { name: "가을 세일", sm: 11, sd: 26, em: 12, ed: 3 },
-  { name: "겨울 세일", sm: 12, sd: 19, em: 1, ed: 2 },
+  { id: "spring", name: "봄 세일", sm: 3, sd: 13, em: 3, ed: 20 },
+  { id: "summer", name: "여름 세일", sm: 6, sd: 26, em: 7, ed: 10 },
+  { id: "autumn", name: "가을 세일", sm: 11, sd: 26, em: 12, ed: 3 },
+  { id: "winter", name: "겨울 세일", sm: 12, sd: 19, em: 1, ed: 2 },
 ];
 
 // 스팀 세일은 보통 한국시간 새벽~오전에 시작. 시각은 대략값(02:00)으로 둔다(예상 표기라 정밀도는 비핵심).
@@ -19,13 +19,14 @@ function occurrences(year) {
     const start = new Date(year, s.sm - 1, s.sd, HOUR, 0, 0, 0);
     const endYear = s.em < s.sm ? year + 1 : year;
     const end = new Date(endYear, s.em - 1, s.ed, HOUR, 0, 0, 0);
-    return { name: s.name, start, end };
+    return { id: s.id, name: s.name, start, end };
   });
 }
 
 function build(o, phase, target, now) {
   const totalSec = Math.max(0, Math.floor((target - now) / 1000));
   return {
+    id: o.id,
     name: o.name,
     phase, // "ongoing"(진행 중) | "upcoming"(예정)
     start: o.start,

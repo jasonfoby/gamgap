@@ -11,13 +11,12 @@ import { priceStats, lowPoints } from "../lib/stats";
 import { setGameHead, resetHead } from "../lib/head";
 import { getGame } from "../api";
 import { track } from "../lib/analytics";
+import { useT, tNodes } from "../lib/i18n";
 import "./GamePage.css";
 
-// 개별 게임 상세 "페이지"(/game/:appid). 기존 모달을 대체하는 색인 가능한 독립 URL.
-// - 검색엔진이 게임마다 독립 페이지로 색인하도록 h1·본문 텍스트·가격표를 실제 HTML로 렌더.
-// - head.js가 이 페이지의 제목·설명·canonical·OG·JSON-LD를 갱신(이력이 빈약하면 noindex).
-// - 봇(카톡/구글 미실행)용 메타는 functions/game/[appid].js 가 서버에서 같은 내용을 주입.
+// 개별 게임 상세 "페이지"(/game/:appid). 모달을 대체하는 색인 가능한 독립 URL.
 export default function GamePage({ appid }) {
+  const { t } = useT();
   const [state, setState] = useState({ status: "loading", game: null });
   const [nonce, setNonce] = useState(0); // 재시도 트리거
   const [copied, setCopied] = useState(false);
@@ -59,69 +58,86 @@ export default function GamePage({ appid }) {
   return (
     <PageShell>
       <Link to="/" className="gp-back">
-        ← 목록으로
+        {t("gp.back")}
       </Link>
 
-      {state.status === "loading" && <div className="gp-card gp-msg">불러오는 중…</div>}
+      {state.status === "loading" && <div className="gp-card gp-msg">{t("gp.loading")}</div>}
 
       {state.status === "error" && (
         <div className="gp-card gp-msg">
-          가격을 불러오지 못했어요.
+          {t("gp.error")}
           <button
             className="ghostbtn"
             style={{ marginTop: 12, display: "inline-flex" }}
             onClick={() => setNonce((n) => n + 1)}
           >
-            다시 시도
+            {t("common.retry")}
           </button>
         </div>
       )}
 
-      {state.status === "notfound" && (
-        <div className="gp-card gp-msg">
-          해당 게임을 찾을 수 없어요. 상단 검색으로 다시 찾아보세요.
-        </div>
-      )}
+      {state.status === "notfound" && <div className="gp-card gp-msg">{t("gp.notFound")}</div>}
 
       {state.status === "ok" && state.game && (
-        <GameDetail g={state.game} copied={copied} onCopy={copyLink} />
+        <GameDetail g={state.game} copied={copied} onCopy={copyLink} t={t} />
       )}
     </PageShell>
   );
 }
 
-// 가격 상세 본문(영수증 카드). 모달과 동일한 인라인 클래스를 재사용하되 페이지 맥락에 맞춤.
-function GameDetail({ g, copied, onCopy }) {
+// 가격 상세 본문(영수증 카드).
+function GameDetail({ g, copied, onCopy, t }) {
   const v = verdict(g);
   const stats = priceStats(g.history);
   const lows = lowPoints(g.history, 5);
   const onSale = Number(g.discountPercent) > 0;
   const hasLow = Number(g.allTimeLow) > 0;
 
-  // 가격 요약(현재가 헤더 + 판정). 차트가 있을 땐 2단, 없을 땐 단독으로 렌더.
+  const vLabel = t("verdict." + v.tier + ".label");
+  const vSub = t("verdict." + v.tier + ".sub");
+  const vTip = t("verdict." + v.tier + ".tip");
+
+  // 검색에 읽히는 고유 본문 문단(상황별 템플릿에 값 채움).
+  const dateStr = g.allTimeLowDate ? t("gp.proseDate", { d: ym(g.allTimeLowDate) }) : "";
+  const proseKey = onSale
+    ? hasLow
+      ? "gp.proseSaleAtl"
+      : "gp.proseSaleNoAtl"
+    : hasLow
+    ? "gp.proseNoSaleAtl"
+    : "gp.proseNoSaleNoAtl";
+  const prose = t(proseKey, {
+    name: g.name,
+    cur: won(g.currentPrice),
+    normal: won(g.normalPrice),
+    pct: g.discountPercent,
+    atl: won(g.allTimeLow),
+    date: dateStr,
+    label: vLabel,
+    tip: vTip,
+  });
+
   const summary = (
     <div className="mtop-summary">
       <div className="pricehead">
         {onSale && <div className="ph-pct">-{g.discountPercent}%</div>}
         <div className="ph-cur">{won(g.currentPrice)}</div>
-        {onSale && (
-          <div className="ph-normal">
-            정가 <s>{won(g.normalPrice)}</s>
-          </div>
-        )}
+        {onSale && <div className="ph-normal">{tNodes(t("price.normal"), { p: <s>{won(g.normalPrice)}</s> })}</div>}
         {hasLow && (
           <div className="ph-atl">
-            <span className="atl-star">★</span> 역대최저 <b>{won(g.allTimeLow)}</b>
+            <span className="atl-star">★</span> {t("price.atlLabel")} <b>{won(g.allTimeLow)}</b>
             {g.allTimeLowDate && <span className="atl-date"> · {ym(g.allTimeLowDate)}</span>}
           </div>
         )}
+        <div className="gp-basis">{t("gp.priceBasis")}</div>
       </div>
+
       <div className="verdict" style={{ background: v.bg, border: `1px solid ${v.bd}` }}>
         <div className="vt" style={{ color: v.fg }}>
-          {v.label} — {v.sub}
+          {vLabel} — {vSub}
         </div>
         <div className="vp" style={{ color: v.fg }}>
-          {v.tip}
+          {vTip}
         </div>
       </div>
     </div>
@@ -132,7 +148,7 @@ function GameDetail({ g, copied, onCopy }) {
       <div className="gp-head">
         <Cover appid={g.appid} name={g.name} />
         <div className="gp-headtext">
-          <h1 className="gp-title">{g.name} 가격 · 역대 최저가</h1>
+          <h1 className="gp-title">{t("gp.title", { name: g.name })}</h1>
           <div className="gp-stamp">
             <Stamp v={v} big />
           </div>
@@ -143,7 +159,7 @@ function GameDetail({ g, copied, onCopy }) {
       {stats ? (
         <div className="mtop">
           <div className="mtop-chart">
-            <div className="chartlabel">가격 흐름</div>
+            <div className="chartlabel">{t("gp.chartLabel")}</div>
             <PriceChart hist={g.history} low={g.allTimeLow} />
           </div>
           {summary}
@@ -152,32 +168,23 @@ function GameDetail({ g, copied, onCopy }) {
         summary
       )}
 
-      {/* 검색에 읽히는 고유 본문 한 단락 (게임마다 다른 텍스트) */}
-      <p className="gp-prose">
-        {g.name}의 스팀 한국(원화) 현재가는 <b>{won(g.currentPrice)}</b>
-        {onSale ? ` (정가 ${won(g.normalPrice)}에서 ${g.discountPercent}% 할인)` : ""}
-        이고,{" "}
-        {hasLow
-          ? `역대 최저가는 ${won(g.allTimeLow)}${g.allTimeLowDate ? ` (${ym(g.allTimeLowDate)})` : ""}입니다. `
-          : "아직 역대 최저가로 판단할 가격 이력이 충분하지 않습니다. "}
-        Lowstamp의 “지금 사도 돼?” 판정은 <b>{v.label}</b> — {v.tip}
-      </p>
+      <p className="gp-prose">{prose}</p>
 
       {stats && (
         <>
-          <div className="subhead">가격 통계</div>
+          <div className="subhead">{t("gp.statsTitle")}</div>
           <div className="ledger">
             <div className="lrow">
-              <span className="lab">역대 평균가</span>
+              <span className="lab">{t("stats.avg")}</span>
               <span className="val">{won(stats.avg)}</span>
             </div>
             <div className="lrow">
-              <span className="lab">역대 최고가</span>
+              <span className="lab">{t("stats.max")}</span>
               <span className="val">{won(stats.max)}</span>
             </div>
             {stats.since && (
               <div className="lrow">
-                <span className="lab">기록 시작</span>
+                <span className="lab">{t("stats.since")}</span>
                 <span className="val">{ym(stats.since)}</span>
               </div>
             )}
@@ -187,7 +194,7 @@ function GameDetail({ g, copied, onCopy }) {
 
       {lows.length > 1 && (
         <>
-          <div className="subhead">이전 저점 기록</div>
+          <div className="subhead">{t("gp.lowsTitle")}</div>
           <div className="lows">
             {lows.map((p, i) => (
               <div className={"lowchip" + (i === 0 ? " best" : "")} key={p.d + "-" + p.p}>
@@ -200,13 +207,8 @@ function GameDetail({ g, copied, onCopy }) {
       )}
 
       <div className="gp-foot">
-        <a
-          className="steam"
-          href={`https://store.steampowered.com/app/${g.appid}/`}
-          target="_blank"
-          rel="noreferrer"
-        >
-          스팀에서 보기
+        <a className="steam" href={`https://store.steampowered.com/app/${g.appid}/`} target="_blank" rel="noreferrer">
+          {t("gp.steam")}
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
             <path d="M15 3h6v6" />
             <path d="M10 14 21 3" />
@@ -218,10 +220,10 @@ function GameDetail({ g, copied, onCopy }) {
             SteamDB
           </a>
           <button className="ghostbtn" onClick={onCopy}>
-            {copied ? "복사됨!" : "링크 복사"}
+            {copied ? t("gp.copied") : t("gp.copy")}
           </button>
         </div>
-        <div className="freshness">가격은 하루 한 번 갱신돼요 · 스팀 결제 직전 최종가를 확인하세요</div>
+        <div className="freshness">{t("gp.freshness")}</div>
       </div>
     </article>
   );

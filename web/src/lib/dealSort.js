@@ -1,9 +1,9 @@
 // "할인 중" 목록의 정렬 기준들.
 export const SORTS = [
-  { key: "discount", label: "할인율 높은 순" },
-  { key: "price", label: "현재가 낮은 순" },
-  { key: "depth", label: "역대최저 근접 순" },
-  { key: "normal", label: "정가 높은 순" },
+  { key: "discount", labelKey: "sort.discount" },
+  { key: "price", labelKey: "sort.price" },
+  { key: "depth", labelKey: "sort.depth" },
+  { key: "normal", labelKey: "sort.normal" },
 ];
 
 // 현재가가 역대최저에 얼마나 가까운지(작을수록 지금이 쌈). 역대최저 없으면 뒤로.

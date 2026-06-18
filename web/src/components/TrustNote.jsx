@@ -1,11 +1,13 @@
-// 신뢰/포지셔닝 배너 — 한국 키샵 불신 시장을 정조준한 메시지.
-// 경쟁사(ITAD/GG.deals)가 키샵·다스토어를 섞어 사용자가 위험을 직접 판별해야 하는 마찰을,
-// Lowstamp은 "스팀 공식 원화만, 키샵 없음"으로 원천 제거한다. 일1회 갱신은 숨기지 않고 정직히 표기.
+import { useT } from "../lib/i18n";
+
+// 신뢰/포지셔닝 배너 — 키샵 불신 시장을 정조준한 메시지.
+// "스팀 공식 원화만, 키샵 없음"으로 사용자가 위험을 직접 판별해야 하는 마찰을 원천 제거한다.
 export default function TrustNote() {
+  const { t } = useT();
   const items = [
-    { k: "스팀 공식가", v: "원화 그대로" },
-    { k: "키샵 없음", v: "안전 비교" },
-    { k: "하루 1회", v: "가격 갱신" },
+    { k: t("trust.officialK"), v: t("trust.officialV") },
+    { k: t("trust.nokeyshopK"), v: t("trust.nokeyshopV") },
+    { k: t("trust.dailyK"), v: t("trust.dailyV") },
   ];
   return (
     <div className="trust">

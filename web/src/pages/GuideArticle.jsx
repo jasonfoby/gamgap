@@ -1,33 +1,51 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import PageShell from "../components/PageShell";
 import ArticleBody from "../components/ArticleBody";
 import NotFound from "./NotFound";
 import { Link } from "../lib/router";
-import { getGuide } from "../content/guides";
+import { loadGuide } from "../content/guides";
 import { setPageHead } from "../lib/head";
 import { ym } from "../lib/format";
+import { useT } from "../lib/i18n";
 import "./GuideArticle.css";
 
-// 가이드 상세 글 (/guide/<slug>).
-// props: { slug } — URL에서 디코딩된 글 식별자(예: "steam-sale-calendar").
-// getGuide(slug)로 글을 찾고, 없으면 404(NotFound)를 보여 준다.
-// 있으면 종이 카드 안에 제목 → 메타줄(날짜·읽는 시간·태그) → 본문 → 하단 "다른 가이드 보기" 순으로 그린다.
+// 가이드 상세 글 (/guide/<slug>). 현재 언어의 글을 지연 로딩하고, 없으면 404.
 export default function GuideArticle({ slug }) {
-  const guide = getGuide(slug);
+  const { t, lang } = useT();
+  const [state, setState] = useState({ status: "loading", guide: null });
 
   useEffect(() => {
-    if (!guide) return;
-    setPageHead({
-      title: guide.title,
-      description: guide.description,
-      path: `/guide/${guide.slug}`,
-      type: "article",
-    });
-  }, [guide]);
+    let alive = true;
+    setState({ status: "loading", guide: null });
+    loadGuide(lang, slug).then((g) => alive && setState({ status: g ? "ok" : "notfound", guide: g }));
+    return () => {
+      alive = false;
+    };
+  }, [lang, slug]);
 
-  // 알 수 없는 slug면 404. (제목/메타는 NotFound 쪽 흐름에 맡긴다)
-  if (!guide) return <NotFound />;
+  useEffect(() => {
+    if (state.status === "ok" && state.guide) {
+      setPageHead({
+        title: state.guide.title,
+        description: state.guide.description,
+        path: `/guide/${state.guide.slug}`,
+        type: "article",
+      });
+    }
+  }, [state]);
 
+  if (state.status === "loading")
+    return (
+      <PageShell>
+        <article className="guide-article">
+          <p className="gi-empty">{t("common.loading")}</p>
+        </article>
+      </PageShell>
+    );
+
+  if (state.status === "notfound" || !state.guide) return <NotFound />;
+
+  const guide = state.guide;
   const tags = Array.isArray(guide.tags) ? guide.tags : [];
 
   return (
@@ -42,16 +60,14 @@ export default function GuideArticle({ slug }) {
               ·
             </span>
           )}
-          {guide.readMins && (
-            <span className="ga-read">읽는 시간 {guide.readMins}분</span>
-          )}
+          {guide.readMins && <span className="ga-read">{t("guide.readMins", { n: guide.readMins })}</span>}
         </div>
 
         {tags.length > 0 && (
-          <div className="ga-tags" aria-label="태그">
-            {tags.map((t) => (
-              <span key={t} className="ga-tag">
-                #{t}
+          <div className="ga-tags" aria-label={t("guide.tagsAria")}>
+            {tags.map((tg) => (
+              <span key={tg} className="ga-tag">
+                #{tg}
               </span>
             ))}
           </div>
@@ -61,7 +77,7 @@ export default function GuideArticle({ slug }) {
 
         <div className="ga-foot">
           <Link to="/guide" className="ga-back">
-            다른 가이드 보기
+            {t("guide.back")}
           </Link>
         </div>
       </article>

@@ -4,6 +4,7 @@ import { ListSkeleton } from "./Skeleton";
 import { getGame } from "../api";
 import { isBuyNow } from "../lib/stats";
 import { useWishlist } from "../lib/wishlist";
+import { useT, tNodes } from "../lib/i18n";
 
 // 역대최저에 가까운 순(작을수록 지금이 쌈)
 const depth = (g) => {
@@ -16,6 +17,7 @@ const depth = (g) => {
 // "지금 살 때"인 게임을 위로 올려 보여준다.
 export default function WishlistView({ onCardClick }) {
   const wl = useWishlist();
+  const { t } = useT();
   const ids = wl?.ids || [];
   const [games, setGames] = useState({}); // appid -> game | "error"
   const [loading, setLoading] = useState(false);
@@ -48,10 +50,8 @@ export default function WishlistView({ onCardClick }) {
   if (!ids.length)
     return (
       <section className="block">
-        <h2>내 찜 목록</h2>
-        <div className="empty">
-          아직 찜한 게임이 없어요. 카드 왼쪽 위 ★를 눌러 찜해두면, 지금 살 때인지 여기서 한눈에 볼 수 있어요.
-        </div>
+        <h2>{t("wish.title")}</h2>
+        <div className="empty">{t("wish.empty")}</div>
       </section>
     );
 
@@ -62,12 +62,14 @@ export default function WishlistView({ onCardClick }) {
   return (
     <section className="block">
       <h2>
-        내 찜 목록 <span className="cnt">{ids.length}</span>
+        {t("wish.title")} <span className="cnt">{ids.length}</span>
       </h2>
       {loaded.length > 0 && (
         <div className="wishnote">
-          찜한 <b>{loaded.length}</b>개 중{" "}
-          <b style={{ color: "#C8912B" }}>{buyNow}</b>개가 지금 살 때예요
+          {tNodes(t("wish.note"), {
+            a: <b>{loaded.length}</b>,
+            b: <b style={{ color: "#C8912B" }}>{buyNow}</b>,
+          })}
         </div>
       )}
       {loading && <ListSkeleton />}

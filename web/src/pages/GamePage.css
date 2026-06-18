@@ -53,6 +53,12 @@
   margin-top: 10px;
 }
 
+.gp-basis {
+  margin-top: 8px;
+  font-size: 11.5px;
+  color: var(--mute);
+}
+
 .gp-prose {
   margin: 16px 0 0;
   font-size: 14px;

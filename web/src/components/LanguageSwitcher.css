@@ -1,0 +1,34 @@
+/* 언어 전환기 — 어두운 헤더 톤에 맞춘 작은 셀렉트. */
+.langsw {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex: 0 0 auto;
+  color: var(--txt-dim);
+}
+.langsw-ico {
+  flex: 0 0 auto;
+}
+.langsw select {
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--txt-dim);
+  font-family: var(--kr);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 5px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: color 0.12s, border-color 0.12s;
+}
+.langsw select:hover {
+  color: var(--gold);
+  border-color: rgba(200, 145, 43, 0.4);
+}
+/* 드롭다운 항목은 밝은 배경 위 어두운 글자로(브라우저 기본 대비 가독성). */
+.langsw option {
+  color: #1c1b17;
+  background: #fff;
+}

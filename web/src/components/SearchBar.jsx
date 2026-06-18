@@ -1,9 +1,11 @@
 import { useRef } from "react";
+import { useT } from "../lib/i18n";
 
 // 재사용 검색 입력. 헤더 상주 검색(데스크탑) / 히어로 검색 어디서나 쓴다.
 // 검색어는 부모(App)가 state로 들고 onQueryChange로 올린다. variant로 크기/여백만 달라진다.
-export default function SearchBar({ query, onQueryChange, variant = "hero", placeholder = "게임 이름을 검색하세요" }) {
+export default function SearchBar({ query, onQueryChange, variant = "hero" }) {
   const inputRef = useRef(null);
+  const { t } = useT();
 
   return (
     <div className={"searchbox sb-" + variant}>
@@ -14,16 +16,16 @@ export default function SearchBar({ query, onQueryChange, variant = "hero", plac
       <input
         ref={inputRef}
         className="q"
-        placeholder={placeholder}
+        placeholder={t("search.placeholder")}
         autoComplete="off"
         value={query}
         onChange={(e) => onQueryChange(e.target.value)}
-        aria-label="게임 검색"
+        aria-label={t("search.aria")}
       />
       {query.trim() && (
         <button
           className="clear"
-          aria-label="지우기"
+          aria-label={t("search.clear")}
           onClick={() => {
             onQueryChange("");
             inputRef.current?.focus();

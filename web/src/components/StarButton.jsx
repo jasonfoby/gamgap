@@ -1,14 +1,17 @@
 import { useWishlist } from "../lib/wishlist";
+import { useT } from "../lib/i18n";
 
 // 찜 토글 별 버튼. className으로 카드 오버레이(.star-overlay) 등 위치 변형을 받는다.
 export default function StarButton({ appid, className = "" }) {
   const wl = useWishlist();
+  const { t } = useT();
   const on = wl?.has(appid);
+  const label = on ? t("star.remove") : t("star.add");
   return (
     <button
       className={"starbtn" + (on ? " on" : "") + (className ? " " + className : "")}
-      aria-label={on ? "찜 해제" : "찜하기"}
-      title={on ? "찜 해제" : "찜하기"}
+      aria-label={label}
+      title={label}
       onClick={(e) => {
         e.stopPropagation();
         wl?.toggle(appid);

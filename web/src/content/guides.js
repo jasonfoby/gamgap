@@ -1,23 +1,42 @@
-// 가이드 글 로더 (React 앱 전용).
-// web/src/content/guides/ 폴더의 *.js 파일 하나하나가 가이드 글 한 편이다.
-// 각 파일은 default export로 글 객체 하나를 내보낸다. 모양 예시:
-//   export default {
-//     slug: "steam-sale-calendar",      // URL 조각, 예: /guide/steam-sale-calendar
-//     title: "스팀 세일 일정 총정리",     // 글 제목
-//     date: "2026-06-01",               // 정렬·표시용 날짜(YYYY-MM-DD)
-//     description: "...",               // 요약(목록 카드/메타용)
-//     body: [ { type:"p", text:"..." }, ... ]  // ArticleBody가 그리는 블록 배열
-//   }
-//
-// import.meta.glob(eager)로 빌드 시점에 모든 글을 모은다(런타임 fetch 없음).
+// 가이드 로더 (언어별 + 지연 로딩). 파일 구조: web/src/content/guides/<lang>/<slug>.js
+// import.meta.glob(비eager)로 각 글을 "필요할 때 가져오는 함수"로 받아, 보고 있는 언어의 글만
+// 동적으로 불러온다(메인 번들에서 분리 → 초기 로딩 가볍게).
+const mods = import.meta.glob("./guides/*/*.js");
 
-const mods = import.meta.glob("./guides/*.js", { eager: true });
+const FALLBACK = "ko";
 
-// 모든 가이드 글. slug 없는 잘못된 파일은 거르고, 최신 날짜가 먼저 오도록 내림차순 정렬.
-export const GUIDES = Object.values(mods)
-  .map((m) => m.default)
-  .filter((g) => g && g.slug)
-  .sort((a, b) => (a.date < b.date ? 1 : -1));
+// byLang[lang][slug] = () => Promise<{default}>
+const byLang = {};
+for (const path in mods) {
+  const m = path.match(/\.\/guides\/([^/]+)\/([^/]+)\.js$/);
+  if (!m) continue;
+  (byLang[m[1]] || (byLang[m[1]] = {}))[m[2]] = mods[path];
+}
 
-// slug로 가이드 글 하나를 찾는다. 없으면 undefined.
-export const getGuide = (slug) => GUIDES.find((g) => g.slug === slug);
+function loaderFor(lang, slug) {
+  return (
+    (byLang[lang] && byLang[lang][slug]) ||
+    (byLang.en && byLang.en[slug]) ||
+    (byLang[FALLBACK] && byLang[FALLBACK][slug])
+  );
+}
+
+// 슬러그 집합은 한국어(원본) 기준 — 동기적으로 알 수 있음.
+export function guideSlugs() {
+  return Object.keys(byLang[FALLBACK] || {});
+}
+
+// 단일 글(현재 언어, 없으면 영어→한국어 폴백). Promise<guide|null>.
+export async function loadGuide(lang, slug) {
+  const ld = loaderFor(lang, slug);
+  if (!ld) return null;
+  const m = await ld();
+  return (m && m.default) || null;
+}
+
+// 해당 언어의 전체 글 목록(날짜 내림차순). Promise<guide[]>.
+export async function loadGuides(lang) {
+  const slugs = guideSlugs();
+  const arr = await Promise.all(slugs.map((s) => loadGuide(lang, s)));
+  return arr.filter((g) => g && g.slug).sort((a, b) => (a.date < b.date ? 1 : -1));
+}
