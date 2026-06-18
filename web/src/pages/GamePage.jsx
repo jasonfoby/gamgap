@@ -129,7 +129,7 @@ function GameDetail({ g, copied, onCopy }) {
 
   return (
     <article className="gp-card">
-      <header className="gp-head">
+      <div className="gp-head">
         <Cover appid={g.appid} name={g.name} />
         <div className="gp-headtext">
           <h1 className="gp-title">{g.name} 가격 · 역대 최저가</h1>
@@ -138,7 +138,7 @@ function GameDetail({ g, copied, onCopy }) {
           </div>
         </div>
         <StarButton appid={g.appid} />
-      </header>
+      </div>
 
       {stats ? (
         <div className="mtop">
