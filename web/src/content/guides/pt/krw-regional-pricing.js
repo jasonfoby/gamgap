@@ -1,86 +1,86 @@
 export default {
   "slug": "krw-regional-pricing",
-  "title": "O segredo dos preços em won da Steam coreana: entendendo o preço regional",
-  "description": "Como os preços em won da Steam são definidos e por que eles mudam? Reunimos tudo aqui — a lógica do preço regional, o impacto do câmbio e das políticas, o que o preço em won significa em relação ao preço em dólar e como reagir a aumentos de preço — na perspectiva de quem usa a Steam coreana.",
+  "title": "Por que o mesmo jogo na Steam custa valores diferentes em cada pais: entendendo o preço regional",
+  "description": "Por que o mesmo jogo na Steam custa um preço para você e outro para um amigo em outro país? Explicamos o preço regional: como a Steam define um preço diferente por país e moeda, por que o câmbio e as políticas entram em jogo e como usar o menor preço histórico para decidir a hora de comprar.",
   "date": "2026-06-18",
-  "tags": ["Steam", "preço regional", "preço em won", "câmbio"],
+  "tags": ["Steam", "preço regional", "moeda", "câmbio"],
   "readMins": 6,
   "body": [
     {
       "type": "p",
-      "text": "É o mesmo jogo, mas o seu amigo nos EUA diz que custa US$ 19,99, enquanto no seu carrinho da Steam aparece 22.000 won. Quando você simplesmente multiplica pelo câmbio, os números muitas vezes não batem. Em alguns jogos, levando o câmbio em conta, a Coreia até sai mais barata; em outros, mais cara. Isso não é um erro: é o chamado 'preço regional', em que a Steam define preços diferentes para cada país. Neste texto, vamos explicar, do ponto de vista de quem usa a Steam na Coreia, como o preço em won é definido e por que ele de repente sobe ou desce em determinado dia."
+      "text": "É o mesmo jogo, mas um amigo em outro país fala um valor completamente diferente do que aparece no seu carrinho da Steam. Quando você converte o preço dele para a sua moeda pelo câmbio de hoje, muitas vezes os números não batem: às vezes a sua região sai mais barata, às vezes mais cara. Isso não é um erro. A Steam define preços diferentes para cada país, num sistema chamado preço regional. Neste texto, vamos explicar como esses preços por país são definidos, por que um jogo pode subir ou cair de repente em um dia e o que tudo isso significa para o preço que você de fato vê na sua própria loja."
     },
     {
       "type": "h2",
-      "text": "O que é o preço regional"
+      "text": "O que é o preço regional?"
     },
     {
       "type": "p",
-      "text": "O preço regional (regional pricing) é o esquema em que a Steam mantém preços de venda recomendados separados por país e por moeda. As desenvolvedoras e publishers que vendem jogos não definem apenas um único preço em dólar americano: com base na tabela de preços recomendados por moeda fornecida pela Steam, elas também configuram os preços de cada região, como won, iene e euro. Por isso, os 22.000 won que aparecem na loja coreana não são 'o preço em dólar convertido pelo câmbio do dia', mas sim um preço cheio próprio, calculado desde o início pensando no mercado coreano."
+      "text": "Preço regional (regional pricing) é a forma como a Steam define um preço recomendado diferente para cada país e moeda. Quando uma desenvolvedora ou distribuidora vende um jogo, ela não escolhe apenas um valor em dólar: usando as tabelas de recomendação por moeda que a Steam oferece, ela também define preços locais em euros, ienes, wons, reais e por aí vai. Por isso, o número que você vê na sua própria loja não é \"o preço em dólar convertido pelo câmbio de hoje\". É um preço de tabela próprio, definido desde o início pensando no seu mercado. O mesmo jogo pode aparecer, por exemplo, a US$ 59,99 nos EUA, cerca de 8.000 ienes no Japão e uns 66.000 wons na Coreia: três números distintos, e não um único valor passado na calculadora."
     },
     {
       "type": "p",
-      "text": "A razão para essa divisão é que o nível de renda e o poder de compra variam de país para país. Se o mesmo preço em dólar fosse aplicado igualmente a todos os países, em regiões com custo de vida mais baixo ele soaria caro na prática e as vendas cairiam. Ajustando o preço por região, mais pessoas conseguem comprar o produto original, e a desenvolvedora também consegue ampliar o mercado — é uma estrutura vantajosa para os dois lados."
+      "text": "O motivo de separar os preços assim é que o nível de renda e o poder de compra variam de país para país. Se todas as regiões pagassem exatamente o mesmo preço em dólar, nos mercados de custo de vida mais baixo o jogo pareceria, na prática, mais caro, e as vendas cairiam. Ajustar os preços região por região faz com que mais gente consiga comprar o produto original, e as desenvolvedoras ampliam seu mercado: todo mundo ganha."
     },
     {
       "type": "h2",
-      "text": "Como o preço em won é definido"
+      "text": "Como o preço da sua região é definido?"
     },
     {
       "type": "p",
-      "text": "O preço cheio em won costuma ser definido a partir do preço recomendado em dólar, somando-se a tabela de conversão recomendada da Steam para a moeda coreana e o julgamento da desenvolvedora. O ponto-chave é que, uma vez fixado, o preço cheio em won não oscila todos os dias conforme o câmbio. Um jogo que custava 22.000 won ontem não passa a custar 22.300 won só porque o câmbio subiu hoje. O preço cheio permanece um valor fixo até que a desenvolvedora o altere explicitamente."
+      "text": "O preço de tabela da sua região costuma se basear no preço recomendado em dólar, com a tabela de conversão por moeda da Steam e o critério da própria desenvolvedora por cima. O ponto principal é que, uma vez definido, o preço local não fica subindo e descendo com o câmbio todos os dias. Um jogo não fica um pouquinho mais caro da noite para o dia só porque o câmbio se mexeu. O preço de tabela permanece fixo até a desenvolvedora mudá-lo de forma explícita."
     },
     {
       "type": "note",
-      "text": "Por isso, aquela conta do tipo 'o câmbio subiu, então comprar agora dá prejuízo' geralmente não faz sentido. O preço cheio em won que aparece na tela já é um valor fixo, e a variável que realmente importa é o 'percentual de desconto' aplicado sobre ele."
+      "text": "Por isso, raciocínios do tipo \"o câmbio subiu, então comprar agora é prejuízo\" geralmente não se sustentam. O preço de tabela local que aparece na sua tela já está travado; a variável de verdade é o desconto que se soma por cima dele."
     },
     {
       "type": "p",
-      "text": "Na prática, quem determina o comportamento do preço não é o preço cheio, mas as promoções. Mesmo um jogo de 22.000 won segue vendendo pelo valor cheio no dia a dia, mas, quando entra em promoção com 50% de desconto, fica 11.000 won. Por isso, o 'momento barato' que o usuário coreano sente não vem do câmbio, e sim do tamanho do desconto. O fato de a Lowstamp mostrar, para cada jogo, o menor preço histórico ao lado do preço atual e exibir o veredito 'dá pra comprar agora?' tem exatamente esse propósito: deixar você comparar de relance esse tamanho de desconto."
+      "text": "Na prática, o que move o preço que você realmente paga é a promoção, não o preço de tabela. Um jogo normalmente é vendido pelo preço cheio, mas quando entra uma promoção de 50% ele cai de uma vez para a metade. Então a sensação de \"está barato agora\" vem do tamanho do desconto, e não do câmbio. A Lowstamp mostra o preço de cada jogo na moeda da sua própria região ao lado do menor preço histórico, com um veredito de comprar ou esperar, justamente para você avaliar esse desconto num relance."
     },
     {
       "type": "h2",
-      "text": "Preço em won x preço em dólar: como ler"
+      "text": "Como ler o seu preço local em relação ao preço em dólar"
     },
     {
       "type": "p",
-      "text": "Quando você compara o 'valor teórico' — o preço cheio em dólar multiplicado pelo câmbio — com o preço cheio real em won, surgem dois cenários. Se o preço em won for mais barato que a conversão pelo câmbio, trata-se de uma definição relativamente vantajosa para o usuário coreano; se for mais caro que o câmbio, é uma definição desvantajosa. Mas há uma armadilha aqui: pagamentos no exterior embutem taxas do cartão e spread de conversão de moeda. Então, se você sair em busca de uma compra alternativa só porque 'lá fora parece mais barato', a economia real pode ser menor do que imagina — ou até inexistente."
+      "text": "Compare o valor \"teórico\" — o preço de tabela em dólar vezes o câmbio — com o seu preço de tabela local real e surgem dois casos. Se o seu preço local for mais barato que o valor convertido, a definição é relativamente favorável à sua região; se for mais caro, é desfavorável. Há um detalhe, porém: comprar por outra região envolve taxas de cartão e spreads de câmbio. Então, se você correr para comprar lá fora só porque \"parece mais barato\", a economia real pode ser menor do que imagina, ou nenhuma."
     },
     {
       "type": "note",
-      "text": "A Steam restringe, em seus termos de uso, a compra alternativa em uma moeda diferente da região onde você reside. Tentar usar VPN e afins para mascarar a região e comprar mais barato pode levar a punições na conta, então não recomendamos. (Com base na política oficial da Steam, que pode mudar.)"
+      "text": "Os termos da Steam restringem a compra em uma moeda que não corresponde à sua região de residência. Tentar mascarar sua região com VPN ou algo parecido para conseguir um preço mais baixo pode levar a punições na conta, então não recomendamos. (Isso reflete a política oficial da Steam, que está sujeita a mudanças.)"
     },
     {
       "type": "p",
-      "text": "A conclusão realista é simples. Para a maioria dos jogos, comprar direto na loja coreana, em won, durante uma promoção, é o mais seguro e, em geral, o mais barato. Em vez de correr atrás da diferença cambial, é muito mais proveitoso usar como referência 'até quanto este jogo já chegou a baixar historicamente'."
+      "text": "A conclusão prática é simples. Para a maioria dos jogos, comprar na loja da sua própria região, na sua moeda e durante uma promoção é o caminho mais seguro e, em geral, o mais barato. Em vez de correr atrás de arbitragem de câmbio, vale muito mais se guiar por \"até quanto este jogo já chegou a cair?\""
     },
     {
       "type": "h2",
-      "text": "Por que o preço muda e como reagir a aumentos"
+      "text": "Por que os preços mudam e como lidar com aumentos"
     },
     {
       "type": "p",
-      "text": "Mesmo aquele preço cheio em won que dissemos ser fixo às vezes muda. Os motivos mais comuns são ajustes na política de preços global da desenvolvedora, atualizações da tabela de preços recomendados refletindo tendências de câmbio de longo prazo e reprecificações ligadas ao lançamento de uma sequência ou de uma grande atualização. No passado, várias publishers já elevaram ou reduziram de uma só vez o preço cheio em determinada região. O importante é que esses ajustes acontecem de vez em quando, de forma estratégica, e não todos os dias."
+      "text": "Mesmo um preço de tabela supostamente fixo muda de vez em quando. Os gatilhos mais comuns são uma desenvolvedora ajustando sua política de preços no mundo todo, uma atualização das tabelas de recomendação para refletir tendências de câmbio de longo prazo e uma reprecificação na época do lançamento de uma sequência ou de uma grande atualização. No passado, várias distribuidoras subiram ou baixaram de uma só vez os preços de tabela de uma determinada região. O importante é que esses ajustes acontecem de vez em quando e por política, não todo dia."
     },
     {
       "type": "p",
-      "text": "Quando um aumento de preço é anunciado ou percebido, a forma de reagir é surpreendentemente simples. Primeiro: se o preço cheio sobe, o valor efetivamente pago também sobe mesmo com o mesmo percentual de desconto, então vale dar mais uma olhada, antes do aumento, naquele jogo que você já tinha de olho. Segundo: por outro lado, não há por que se apressar olhando só o preço cheio. Mesmo que o preço cheio suba, se a próxima promoção trouxer um desconto maior, no fim das contas você pode comprar mais barato. Por isso, mais confiável do que observar a mudança do preço cheio em si é criar o hábito de olhar 'o preço atual em relação ao menor preço histórico'."
+      "text": "Quando um aumento no preço de tabela é anunciado ou começa a se desenhar, a forma de reagir é surpreendentemente simples. Primeiro, como um preço de tabela mais alto significa um pagamento final maior mesmo com a mesma porcentagem de desconto, vale dar mais uma olhada em qualquer jogo que você esteja de olho antes de o aumento chegar. Segundo, dito isso, não há motivo para se apressar olhando só o preço de tabela. Mesmo que ele suba, um desconto maior na próxima promoção ainda pode deixar você pagando menos no total. Por isso, o hábito de observar \"o preço atual em relação ao menor preço histórico\" é mais confiável do que reagir à mudança do preço de tabela em si."
     },
     {
       "type": "ul",
       "items": [
-        "Marque de antemão os jogos que quer comprar e acompanhe o comportamento do preço — para não perder nenhuma mudança, seja no preço cheio, seja nas promoções.",
-        "Adote como critério de compra não o câmbio, mas o 'tamanho do desconto atual em relação ao menor preço histórico'.",
-        "Tenha em mente as épocas de grandes promoções (sabe-se que costumam ocorrer mais ou menos no verão e no fim do ano, mas o calendário é uma estimativa e pode variar a cada ano) e, ao mesmo tempo, confira o histórico do menor preço de cada jogo."
+        "Adicione com antecedência à lista de desejos os jogos que você quer e acompanhe a tendência do preço, para não perder nenhuma mudança, seja uma variação no preço de tabela ou uma promoção.",
+        "Baseie a decisão de compra não no câmbio, mas em \"o desconto atual em relação ao menor preço histórico\".",
+        "Tenha em mente as grandes temporadas de promoção (mais ou menos no verão e no fim do ano, segundo o senso comum, embora as datas sejam só uma estimativa e possam variar de ano para ano) e confira também o histórico de menor preço de cada jogo."
       ]
     },
     {
       "type": "h2",
-      "text": "Para concluir"
+      "text": "Para finalizar"
     },
     {
       "type": "p",
-      "text": "Entender o preço da Steam coreana se resume a três pontos. O preço cheio em won não é um valor convertido pelo câmbio, e sim um preço próprio definido para o mercado coreano; ele não oscila todos os dias e só muda de vez em quando, de forma estratégica. E a variável que de fato pesa no seu bolso não é o preço cheio, mas o tamanho do desconto aplicado sobre ele. Então, em vez de se deixar abalar por 'ouvi dizer que o câmbio está assim ou assado', marque os jogos que escolheu, compare o menor preço histórico com o preço atual e avalie com calma 'é hora de comprar agora?'. Essa é a maneira mais sensata de o usuário coreano comprar jogos na Steam."
+      "text": "Entender os preços da Steam se resume a três coisas. O seu preço de tabela local não é um valor convertido pelo câmbio, mas um preço definido especificamente para o seu mercado; ele não oscila dia a dia e só muda de vez em quando e por política. E a variável que de fato mexe com o seu bolso não é o preço de tabela, mas o desconto que se soma por cima dele. Então, em vez de se deixar levar por \"ouvi dizer que o câmbio está assim e assado\", adicione à lista de desejos os jogos que te interessam, compare o menor preço histórico com o preço atual na sua própria moeda e avalie com calma se é hora de comprar. Essa é a maneira mais sensata de comprar jogos na Steam, onde quer que você esteja."
     }
   ]
 };

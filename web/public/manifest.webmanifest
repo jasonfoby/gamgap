@@ -1,11 +1,11 @@
 {
-  "name": "Lowstamp — 스팀 최저가",
+  "name": "Lowstamp — Steam lowest prices",
   "short_name": "Lowstamp",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0F1320",
   "theme_color": "#0F1320",
-  "lang": "ko",
+  "lang": "en",
   "icons": [
     {
       "src": "/favicon.svg",

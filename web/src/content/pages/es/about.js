@@ -22,7 +22,7 @@ export default {
     { "type": "h2", "text": "De dónde vienen los datos" },
     {
       "type": "p",
-      "text": "Todos los precios de Lowstamp se obtienen directamente de los datos oficiales de la tienda de Steam (appdetails, región cc=kr): el precio normal y el precio actual. Sin estimaciones ni conversiones de por medio, usamos tal cual el precio que Steam le ofrece realmente al usuario."
+      "text": "Todos los precios de Lowstamp se obtienen directamente de los datos oficiales de la tienda de Steam: el precio normal y el precio actual, mostrados en la moneda local de tu región. Sin estimaciones de por medio, usamos tal cual el precio que Steam le ofrece realmente al usuario en cada región."
     },
     {
       "type": "p",

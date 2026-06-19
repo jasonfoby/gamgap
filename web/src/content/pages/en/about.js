@@ -20,7 +20,7 @@ export default {
     { "type": "h2", "text": "Where the data comes from" },
     {
       "type": "p",
-      "text": "Every price on Lowstamp is the official list price and current price pulled straight from Steam's own store data (appdetails, with the region set to Korea via cc=kr). There's no guesswork or currency conversion on our end. We use the exact price Steam actually shows to shoppers."
+      "text": "Every price on Lowstamp is the official list price and current price pulled straight from Steam's own store data, shown in your region's local currency. We display the exact price Steam actually charges shoppers in each region, with no guesswork on our end."
     },
     {
       "type": "p",

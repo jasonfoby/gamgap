@@ -20,7 +20,7 @@ export default {
     { "type": "h2", "text": "数据从哪里来" },
     {
       "type": "p",
-      "text": "Lowstamp 的所有价格，都是直接从 Steam 官方商店数据（appdetails，韩国区 cc=kr）取来的原价和现价。我们不做任何估算或换算，而是原封不动地采用 Steam 实际向用户展示的价格。"
+      "text": "Lowstamp 的所有价格，都是直接从 Steam 官方商店数据取来的原价和现价，并以你所在地区的当地货币显示。我们不做任何估算，而是原封不动地采用 Steam 在各地区实际向用户展示的价格。"
     },
     {
       "type": "p",
