@@ -1,0 +1,21 @@
+# Python (크롤러)
+__pycache__/
+*.py[cod]
+
+# Node / Vite (web/)
+node_modules/
+web/node_modules/
+dist/
+web/dist/
+*.local
+
+# Cloudflare 로컬 비밀 (절대 커밋 금지 — 비밀은 GitHub Secrets에만)
+.dev.vars
+.env
+.env.*
+
+# OS / 에디터
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

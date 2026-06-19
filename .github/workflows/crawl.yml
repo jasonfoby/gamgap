@@ -8,7 +8,8 @@ on:
 jobs:
   crawl:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    # 저장소가 공개라 Actions 분 무제한 → 5개국 풀 크롤이 끊기지 않게 넉넉히(최대 6시간 한도 내).
+    timeout-minutes: 300
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

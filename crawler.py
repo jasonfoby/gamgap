@@ -38,6 +38,11 @@ REGION_MAX = 900
 # 스팀 가격 정수는 보통 1/100 단위(예: 1099=$10.99).
 #  ★ 첫 실행 때 [샘플] 줄을 보고 원화가 실제보다 100배 크면 100, 딱 맞으면 1로.
 PRICE_DIVISOR = 100
+
+# 스팀 호출 사이 대기(초). D1 일괄 선로드+batch로 호출 간격이 줄어든 만큼,
+# 5분 200회 제한을 자체적으로 안전하게 지키도록 0.7→1.0으로 올림.
+# 로그에 429/조회실패가 잦으면 이 숫자만 더 올리세요.
+STEAM_SLEEP = 1.0
 TODAY = datetime.datetime.utcnow().strftime("%Y-%m-%d")
 NOW   = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M")
 
@@ -53,6 +58,38 @@ def d1(sql, params=None):
     if not out.get("success"):
         raise RuntimeError(out)
     return out["result"][0]["results"]
+
+
+# D1 REST의 배치 형식: {"batch":[{"sql":..,"params":[..]}, ..]} —
+# 각 문장이 자기 sql과 자기 params를 들고 있어 바인딩이 명확하다(';'로 이은
+# 단일 문자열 + 평평한 params 한 벌은 매핑이 정의돼 있지 않아 쓰지 않는다).
+# 라운드트립을 줄이려고 한 게임/지역의 쓰기(upsert + 변동 시 history)를 한 번에 보낸다.
+# 오류 처리: 배치 중 한 문장이라도 실패하면 즉시 RuntimeError로 중단한다(d1()과 동일한 fail-fast).
+#  - D1 배치의 원자성(전부 성공/전부 롤백) 보장 여부는 REST 문서가 명확하지 않아 '의존하지 않는다'.
+#  - 대신 한 게임의 쓰기는 [upsert, (변동 시) history] 둘뿐이고 upsert는 ON CONFLICT라,
+#    실패로 멈춰도 다음 정기 실행이 '커밋된 현재가' 기준으로 다시 비교해 이어서 복구한다.
+# 응답 result는 보낸 순서대로 문장당 1개씩 온다.
+D1_BATCH_MAX = 50   # 한 요청에 담을 문장 수(1000/배치 가이드보다 넉넉히 아래)
+
+
+def d1_batch(statements):
+    """[{"sql":.., "params":[..]}, ..] 묶음을 D1 배치로 보낸다. 50개씩 끊어서.
+    문장당 최대 100 파라미터·100KB 제한이 있으나, 여기 upsert는 컬럼 ~11개라 여유."""
+    for start in range(0, len(statements), D1_BATCH_MAX):
+        chunk = statements[start:start + D1_BATCH_MAX]
+        body = json.dumps({"batch": chunk}).encode()
+        req = urllib.request.Request(
+            D1_URL, data=body, method="POST",
+            headers={"Authorization": f"Bearer {CF_TOKEN}", "Content-Type": "application/json"},
+        )
+        with urllib.request.urlopen(req, timeout=30) as r:
+            out = json.loads(r.read())
+        # 요청 전체 성공 여부 + 문장별 성공 여부 둘 다 확인(fail-fast).
+        if not out.get("success"):
+            raise RuntimeError(out)
+        for res in out.get("result", []):
+            if not res.get("success", True):
+                raise RuntimeError(out)
 
 
 def cheapshark_deals(target):
@@ -155,6 +192,18 @@ def main():
             break
     print(f"오늘 가격 확인할 게임 {len(to_check)}개 (할인 {len(deal_ids)} + 기존 {len(existing)})")
 
+    # ---- 일괄 선로드(bulk preload): 게임별 SELECT를 매번 보내는 대신
+    # 한국 games / region_prices 의 직전 상태를 단 두 번의 쿼리로 메모리에 올린다.
+    # 이 dict들은 '이번 실행 시작 전(committed)' 값이며 루프 중에는 갱신하지 않으므로,
+    # 각 게임의 change-only/ATL 계산이 자기 자신의 이번-실행 쓰기를 보지 않는다
+    # (read-before-write 의존성 유지). 없는 키는 None → 신규로 취급(기존 [] 케이스와 동일).
+    games_prev = {}   # appid -> {"current_price":.., "all_time_low":..}
+    for r in d1("SELECT appid, current_price, all_time_low FROM games"):
+        games_prev[r["appid"]] = r
+    region_prev = {}  # (appid, cc) -> {"current_price":.., "all_time_low":..}
+    for r in d1("SELECT appid, cc, current_price, all_time_low FROM region_prices"):
+        region_prev[(r["appid"], r["cc"])] = r
+
     d1("UPDATE games SET is_low_today = 0")  # 하루 시작: '오늘 최저' 초기화
     for reg in REGIONS:
         d1("UPDATE region_prices SET is_low_today = 0 WHERE cc=?", [reg["cc"]])
@@ -168,22 +217,25 @@ def main():
             time.sleep(1.0)
             continue
         if not p:
-            time.sleep(0.7)
+            time.sleep(STEAM_SLEEP)
             continue
 
         if i == 0:
             print(f"  [샘플] {p['name']} 정가 {p['normal']} / 현재 {p['current']} "
                   f"(단위 확인: 100배면 PRICE_DIVISOR=100, 딱 맞으면 1)")
 
-        row = d1("SELECT current_price, all_time_low FROM games WHERE appid=?", [appid])
-        prev_price = row[0]["current_price"] if row else None
-        prev_low   = row[0]["all_time_low"]  if row else None
+        # 선로드 dict에서 직전 상태를 읽음(없으면 None → 신규, 기존 [] 케이스와 동일)
+        prev = games_prev.get(appid)
+        prev_price = prev["current_price"] if prev else None
+        prev_low   = prev["all_time_low"]  if prev else None
 
         new_low = p["current"] if prev_low is None else min(prev_low, p["current"])
         low_date = TODAY if (prev_low is None or p["current"] < prev_low) else ""
         is_low_today = 1 if p["current"] <= new_low else 0
 
-        d1(
+        # 이 게임의 쓰기(upsert + 변동 시 history)를 한 배치로 묶어 라운드트립을 줄인다.
+        batch = [{
+            "sql":
             """INSERT INTO games
                  (appid,name,normal_price,current_price,discount_percent,
                   all_time_low,all_time_low_date,is_low_today,last_checked,genres)
@@ -198,14 +250,20 @@ def main():
                  is_low_today=excluded.is_low_today,
                  last_checked=excluded.last_checked,
                  genres=COALESCE(NULLIF(excluded.genres,''), games.genres)""",
+            "params":
             [appid, p["name"], p["normal"], p["current"], p["discount"],
              new_low, low_date, is_low_today, NOW, p["genres"]],
-        )
+        }]
 
+        # change-only: 가격이 바뀌었거나 신규일 때만 history 적재(+ changed 카운트)
         if prev_price is None or prev_price != p["current"]:
-            d1("INSERT INTO price_history (appid,price,discount_percent,recorded_at) VALUES (?,?,?,?)",
-               [appid, p["current"], p["discount"], TODAY])
+            batch.append({
+                "sql": "INSERT INTO price_history (appid,price,discount_percent,recorded_at) VALUES (?,?,?,?)",
+                "params": [appid, p["current"], p["discount"], TODAY],
+            })
             changed += 1
+
+        d1_batch(batch)
 
         # ---- 한국 외 지역(미국·일본 등) 가격 수집 → region_prices/region_price_history ----
         # 좋은 순 앞쪽 REGION_MAX개 게임에만 모아 크롤 시간을 제한 안에 둔다.
@@ -216,20 +274,23 @@ def main():
                 rp = steam_fetch_region(appid, cc, reg["l"])
             except Exception as e:
                 print(f"  ! [{cc}] 조회 실패", appid, e)
-                time.sleep(0.7)
+                time.sleep(STEAM_SLEEP)
                 continue
             if not rp:
-                time.sleep(0.7)
+                time.sleep(STEAM_SLEEP)
                 continue
 
-            rrow = d1("SELECT current_price, all_time_low FROM region_prices WHERE appid=? AND cc=?", [appid, cc])
-            r_prev_price = rrow[0]["current_price"] if rrow else None
-            r_prev_low   = rrow[0]["all_time_low"]  if rrow else None
+            # 선로드 dict에서 (appid,cc) 직전 상태를 읽음(없으면 None → 신규)
+            rprev = region_prev.get((appid, cc))
+            r_prev_price = rprev["current_price"] if rprev else None
+            r_prev_low   = rprev["all_time_low"]  if rprev else None
             r_new_low = rp["current"] if r_prev_low is None else min(r_prev_low, rp["current"])
             r_low_date = TODAY if (r_prev_low is None or rp["current"] < r_prev_low) else ""
             r_is_low_today = 1 if rp["current"] <= r_new_low else 0
 
-            d1(
+            # 이 지역의 쓰기(upsert + 변동 시 history)를 한 배치로 묶어 보낸다.
+            rbatch = [{
+                "sql":
                 """INSERT INTO region_prices
                      (appid,cc,name,currency,normal_price,current_price,discount_percent,
                       all_time_low,all_time_low_date,is_low_today,last_checked)
@@ -244,17 +305,21 @@ def main():
                      all_time_low_date=COALESCE(NULLIF(excluded.all_time_low_date,''), region_prices.all_time_low_date),
                      is_low_today=excluded.is_low_today,
                      last_checked=excluded.last_checked""",
+                "params":
                 [appid, cc, rp["name"], rp["currency"], rp["normal"], rp["current"], rp["discount"],
                  r_new_low, r_low_date, r_is_low_today, NOW],
-            )
+            }]
             if r_prev_price is None or r_prev_price != rp["current"]:
-                d1("INSERT INTO region_price_history (appid,cc,price,discount_percent,recorded_at) VALUES (?,?,?,?,?)",
-                   [appid, cc, rp["current"], rp["discount"], TODAY])
-            time.sleep(0.7)  # 스팀 호출 제한 — 지역 호출도 천천히
+                rbatch.append({
+                    "sql": "INSERT INTO region_price_history (appid,cc,price,discount_percent,recorded_at) VALUES (?,?,?,?,?)",
+                    "params": [appid, cc, rp["current"], rp["discount"], TODAY],
+                })
+            d1_batch(rbatch)
+            time.sleep(STEAM_SLEEP)  # 스팀 호출 제한 — 지역 호출도 천천히
 
         if i and i % 100 == 0:
             print(f"  ...{i}/{len(to_check)} 진행")
-        time.sleep(0.7)  # 스팀 호출 제한(5분 200회) 안 넘기게 천천히
+        time.sleep(STEAM_SLEEP)  # 스팀 호출 제한(5분 200회) 안 넘기게 천천히
 
     print(f"끝. 가격이 바뀐 게임 {changed}개를 기록했어요.")
 

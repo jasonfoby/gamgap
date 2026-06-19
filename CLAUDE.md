@@ -11,6 +11,7 @@
 - **DB — Cloudflare D1 `gamgap`**: 표 두 개.
   - `games`: appid(PK), name, normal_price, current_price, discount_percent, all_time_low, all_time_low_date, is_low_today, last_checked, (genres)
   - `price_history`: id(PK), appid, price, discount_percent, recorded_at  *(가격이 '바뀐 날만' 기록 — change-only)*
+  - `region_prices`(appid,cc PK) · `region_price_history`: 한국 외 지역(us·jp·cn·es·br) 가격. 스팀 원시 ×100 정수로 저장(표기는 /100 + 통화). 한국 games/price_history는 그대로 두고 추가된 표.
 - **API — Cloudflare Worker `gamgap-api`**: `https://gamgap-api.ibanisac.workers.dev`
   - `GET /api/search?q=` — 이름 LIKE 검색
   - `GET /api/lowest-today` — 오늘 역대최저 갱신 게임
@@ -18,8 +19,9 @@
   - `GET /api/game/:appid` — 단일 게임(긴 이력 포함)
   - D1 바인딩 변수명은 `DB`. CORS는 `*` 허용. 코드는 레포의 `worker.js` 참고.
 - **수집 — GitHub Actions (`.github/workflows/crawl.yml` → `crawler.py`)**: 매일 1회.
-  - CheapShark에서 '지금 스팀 할인 중인 게임'을 좋은 순으로 받아 + 기존 추적분과 합쳐 최대 3000개를, 스팀 `appdetails?cc=kr`로 원화 가격을 직접 물어 D1에 change-only 저장.
-  - GitHub Secrets: `CF_ACCOUNT_ID`, `CF_DATABASE_ID`, `CF_API_TOKEN`. **시크릿/토큰을 코드나 깃에 절대 커밋하지 말 것.**
+  - CheapShark에서 '지금 스팀 할인 중인 게임'을 좋은 순으로 받아 + 기존 추적분과 합쳐 최대 3000개를, 스팀 `appdetails?cc=kr`로 원화 가격을 직접 물어 D1에 change-only 저장. 상위 `REGION_MAX`(기본 900)개는 해외 지역(us·jp·cn·es·br) 가격도 함께 물어 region 테이블에 저장.
+  - **성능**: 시작 시 games·region_prices 직전 상태를 일괄 선로드(게임당 SELECT 제거), 쓰기는 `{"batch":[...]}`로 묶어 라운드트립 절감. 스팀 호출 간격은 `STEAM_SLEEP`(기본 1.0초, 5분 200회 제한 안전 마진).
+  - GitHub Secrets: `CF_ACCOUNT_ID`, `CF_DATABASE_ID`, `CF_API_TOKEN`. **시크릿/토큰을 코드나 깃에 절대 커밋하지 말 것.** (저장소가 공개라 더더욱 — 비밀은 GitHub Secrets에만.)
 
 ## API가 돌려주는 game 객체 모양 (프런트가 이 모양을 그대로 씀)
 
@@ -71,7 +73,7 @@ Vite + React 18(순수 JS/JSX). **추가 런타임 의존성 없음** — 차트
 - [ ] 언어별 URL(`/en/` 등) + `hreflang` — 구글이 언어별로 따로 색인하게(현재 i18n은 클라이언트 전환만, 단일 URL).
 - [ ] 가이드 글 주기적 추가(통과·유지·트래픽에 가장 효과적). 추가 절차는 아래 "주의사항" 참고.
 
-**참고(전략)**: 단일 한국 사이트만으로 애드센스 월 $500는 18~36개월 장기전(게임+한국 둘 다 저RPM). 가속 지렛대 = 영어권 진입(이미 i18n으로 일부 착수)·제휴 링크·커뮤니티 트래픽. 향후 새 수익 사이트는 저RPM 한국 유틸리티를 복제하기보다 단가 높은 영역/영어권으로.
+**참고**: 자세한 성장·수익 전략 메모는 공개 저장소에 두지 않는다(작업 환경 메모에서 관리).
 
 ## 디자인 토큰 (영수증/가격 장부 컨셉 — 유지할 것)
 
@@ -89,5 +91,5 @@ Vite + React 18(순수 JS/JSX). **추가 런타임 의존성 없음** — 차트
 - **그래프는 recharts 안 씀** — 손수 SVG(`PriceChart`/`Sparkline`). **아이콘도 lucide 안 씀** — 인라인 SVG. (불필요한 의존성 추가 지양.)
 - **`localStorage` 사용함**(찜·쿠키 동의·언어 선택 기억). 과거 "localStorage 불필요" 지침은 폐기됨.
 - 가격 단위: 스팀 정수는 보통 1/100. `crawler.py`의 `PRICE_DIVISOR`가 원화 스케일을 맞춤(현재 100). 카드 가격이 100배로 보이면 이 값을 1로.
-- D1 무료: 저장 5GB, 하루 쓰기 10만/읽기 500만. change-only라 여유 큼. 스팀은 5분에 200회 제한 → 크롤러는 호출 사이 0.7초 대기.
+- D1 무료: 저장 5GB, 하루 쓰기 10만/읽기 500만. change-only라 여유 큼. 스팀은 5분에 200회 제한 → 크롤러는 호출 사이 `STEAM_SLEEP`(기본 1.0초) 대기(로그에 429/조회실패 잦으면 올림). 저장소가 공개라 GitHub Actions 분은 무제한 → `crawl.yml` `timeout-minutes`로 완주 보장.
 - **새 가이드 글 추가 시**: ① `src/content/guides/ko/<slug>.js`에 원본 작성 → ② 각 언어 폴더(`en/ja/zh/es/pt`)에도 번역본을 같은 파일명으로 추가(없으면 영어→한국어 폴백되긴 함) → ③ `functions/sitemap.xml.js`의 `GUIDE_PATHS` 배열 갱신(함수 런타임은 `import.meta.glob` 불가).
