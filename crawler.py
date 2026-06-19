@@ -39,6 +39,10 @@ REGION_MAX = 900
 #  ★ 첫 실행 때 [샘플] 줄을 보고 원화가 실제보다 100배 크면 100, 딱 맞으면 1로.
 PRICE_DIVISOR = 100
 
+# 스팀 '종합 평가'(리뷰 등급/개수) 수집 튜닝값.
+REVIEW_REFRESH_DAYS = 7   # 리뷰는 자주 안 바뀌니 7일에 한 번만 갱신
+REVIEW_MAX = 1000         # 한 실행에서 리뷰를 새로 받을 최대 게임 수(스팀 호출 제한 보호)
+
 # 스팀 호출 사이 대기(초). D1 일괄 선로드+batch로 호출 간격이 줄어든 만큼,
 # 5분 200회 제한을 자체적으로 안전하게 지키도록 0.7→1.0으로 올림.
 # 로그에 429/조회실패가 잦으면 이 숫자만 더 올리세요.
@@ -246,6 +250,27 @@ def steam_fetch_region(appid, cc, lang):
     }
 
 
+def steam_fetch_reviews(appid):
+    """스팀 '종합 평가' 요약만 받는다(appdetails와는 별개 엔드포인트).
+    num_per_page=0 으로 리뷰 본문은 안 받아 페이로드를 최소화한다.
+    review_score_desc 는 영어 표준 문구로 저장(프런트가 i18n 라벨로 매핑).
+    유효한 평가가 있을 때만 {"desc":..,"total":..} 반환, 아니면 None.
+    호출 실패는 호출부 try/except가 처리(여기선 raise되게 둠)."""
+    url = (f"https://store.steampowered.com/appreviews/{appid}"
+           "?json=1&language=all&purchase_type=all&num_per_page=0&l=english")
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (gamgap)"})
+    with urllib.request.urlopen(req, timeout=20) as r:
+        data = json.loads(r.read())
+    if data.get("success") != 1:
+        return None
+    qs = data.get("query_summary") or {}
+    desc = (qs.get("review_score_desc") or "").strip()
+    total = int(qs.get("total_reviews") or 0)
+    if total <= 0 or desc in ("", "No user reviews"):
+        return None
+    return {"desc": desc, "total": total}
+
+
 def main():
     deal_ids = cheapshark_deals(TARGET_DEALS)
     print(f"CheapShark 할인 게임 {len(deal_ids)}개 수신")
@@ -268,8 +293,8 @@ def main():
     # 이 dict들은 '이번 실행 시작 전(committed)' 값이며 루프 중에는 갱신하지 않으므로,
     # 각 게임의 change-only/ATL 계산이 자기 자신의 이번-실행 쓰기를 보지 않는다
     # (read-before-write 의존성 유지). 없는 키는 None → 신규로 취급(기존 [] 케이스와 동일).
-    games_prev = {}   # appid -> {"current_price":.., "all_time_low":..}
-    for r in d1("SELECT appid, current_price, all_time_low FROM games"):
+    games_prev = {}   # appid -> {"current_price":.., "all_time_low":.., "reviews_checked":..}
+    for r in d1("SELECT appid, current_price, all_time_low, reviews_checked FROM games"):
         games_prev[r["appid"]] = r
     region_prev = {}  # (appid, cc) -> {"current_price":.., "all_time_low":..}
     for r in d1("SELECT appid, cc, current_price, all_time_low FROM region_prices"):
@@ -278,6 +303,12 @@ def main():
     d1("UPDATE games SET is_low_today = 0")  # 하루 시작: '오늘 최저' 초기화
     for reg in REGIONS:
         d1("UPDATE region_prices SET is_low_today = 0 WHERE cc=?", [reg["cc"]])
+
+    # 리뷰는 7일에 한 번만(REVIEW_REFRESH_DAYS), 한 실행에서 REVIEW_MAX개까지만 새로 받아
+    # 스팀 호출 제한을 보호한다. cutoff보다 오래됐거나(또는 한 번도 안 받은) 게임만 갱신 대상.
+    cutoff_date = (datetime.datetime.utcnow()
+                   - datetime.timedelta(days=REVIEW_REFRESH_DAYS)).strftime("%Y-%m-%d")
+    reviews_fetched_count = 0
 
     changed = 0
     for i, appid in enumerate(to_check):
@@ -304,14 +335,36 @@ def main():
         low_date = TODAY if (prev_low is None or p["current"] < prev_low) else ""
         is_low_today = 1 if p["current"] <= new_low else 0
 
+        # ---- 스팀 '종합 평가'(리뷰 등급/개수)를 드물게 갱신 ----
+        # 한 번도 안 받았거나(last 없음) cutoff보다 오래된 게임만, 그리고 이번 실행에서
+        # REVIEW_MAX개까지만 새로 받는다. 받으면 rdesc/rtotal/rchecked 채움, 아니면 빈값
+        #  → 아래 ON CONFLICT가 빈값을 '갱신 안 함'(기존 값 보존)으로 처리한다.
+        last = prev.get("reviews_checked") if prev else None
+        stale = (not last) or (last <= cutoff_date)
+        fetch_reviews = stale and (reviews_fetched_count < REVIEW_MAX)
+        rdesc, rtotal, rchecked = "", 0, ""
+        if fetch_reviews:
+            # 상한은 '시도' 기준으로 센다 — 리뷰 없는 게임(흔함)도 호출은 1회 일어나므로,
+            # 성공만 세면 상한이 안 걸려 첫 실행에 수천 번 호출될 수 있다.
+            reviews_fetched_count += 1
+            try:
+                rv = steam_fetch_reviews(appid)
+            except Exception as e:
+                print("  ! 리뷰 조회 실패", appid, e)
+                rv = None
+            if rv:
+                rdesc, rtotal, rchecked = rv["desc"], rv["total"], TODAY
+            time.sleep(STEAM_SLEEP)  # 리뷰는 추가 스팀 호출 → 천천히
+
         # 이 게임의 쓰기(upsert + 변동 시 history)를 한 배치로 묶어 라운드트립을 줄인다.
         batch = [{
             "sql":
             """INSERT INTO games
                  (appid,name,normal_price,current_price,discount_percent,
                   all_time_low,all_time_low_date,is_low_today,last_checked,genres,
-                  developer,release_year,metacritic,controller,platforms,dlc_count,langs,lang_count)
-               VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+                  developer,release_year,metacritic,controller,platforms,dlc_count,langs,lang_count,
+                  review_desc,review_total,reviews_checked)
+               VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
                ON CONFLICT(appid) DO UPDATE SET
                  name=excluded.name,
                  normal_price=excluded.normal_price,
@@ -329,12 +382,16 @@ def main():
                  platforms=excluded.platforms,
                  dlc_count=excluded.dlc_count,
                  langs=excluded.langs,
-                 lang_count=excluded.lang_count""",
+                 lang_count=excluded.lang_count,
+                 review_desc    = COALESCE(NULLIF(excluded.review_desc,''), games.review_desc),
+                 reviews_checked= COALESCE(NULLIF(excluded.reviews_checked,''), games.reviews_checked),
+                 review_total   = CASE WHEN excluded.reviews_checked <> '' THEN excluded.review_total ELSE games.review_total END""",
             "params":
             [appid, p["name"], p["normal"], p["current"], p["discount"],
              new_low, low_date, is_low_today, NOW, p["genres"],
              p["developer"], p["release_year"], p["metacritic"], p["controller"],
-             p["platforms"], p["dlc_count"], p["langs"], p["lang_count"]],
+             p["platforms"], p["dlc_count"], p["langs"], p["lang_count"],
+             rdesc, rtotal, rchecked],
         }]
 
         # change-only: 가격이 바뀌었거나 신규일 때만 history 적재(+ changed 카운트)

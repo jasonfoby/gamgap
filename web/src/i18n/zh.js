@@ -216,4 +216,17 @@ export default {
   "info.released": "发行",
   "info.metacritic": "Metacritic",
   "info.platforms": "平台",
+  "info.review": "评测",
+  "info.reviewCount": "{n} 篇评测",
+
+  // Steam 总体评价(英文描述 → 显示标签)
+  "review.overwhelmingly_positive": "好评如潮",
+  "review.very_positive": "特别好评",
+  "review.positive": "好评",
+  "review.mostly_positive": "多半好评",
+  "review.mixed": "褒贬不一",
+  "review.mostly_negative": "多半差评",
+  "review.negative": "差评",
+  "review.very_negative": "特别差评",
+  "review.overwhelmingly_negative": "差评如潮",
 };

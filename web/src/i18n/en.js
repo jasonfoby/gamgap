@@ -216,4 +216,17 @@ export default {
   "info.released": "Released",
   "info.metacritic": "Metacritic",
   "info.platforms": "Platforms",
+  "info.review": "Reviews",
+  "info.reviewCount": "{n} reviews",
+
+  // Steam overall review (English desc -> display label)
+  "review.overwhelmingly_positive": "Overwhelmingly Positive",
+  "review.very_positive": "Very Positive",
+  "review.positive": "Positive",
+  "review.mostly_positive": "Mostly Positive",
+  "review.mixed": "Mixed",
+  "review.mostly_negative": "Mostly Negative",
+  "review.negative": "Negative",
+  "review.very_negative": "Very Negative",
+  "review.overwhelmingly_negative": "Overwhelmingly Negative",
 };

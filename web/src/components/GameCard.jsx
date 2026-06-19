@@ -3,6 +3,7 @@ import Stamp from "./Stamp";
 import StarButton from "./StarButton";
 import { verdict } from "../lib/verdict";
 import { money } from "../lib/format";
+import { reviewKey, reviewTier } from "../lib/reviews";
 import { useT, tNodes } from "../lib/i18n";
 
 // 게임 한 장(세로 포스터형 영수증 카드).
@@ -12,6 +13,7 @@ export default function GameCard({ game, onClick }) {
   const v = verdict(game);
   const onSale = Number(game.discountPercent) > 0;
   const hasLow = Number(game.allTimeLow) > 0;
+  const rKey = game.reviewDesc ? reviewKey(game.reviewDesc) : null; // 평가 i18n 키(없으면 null)
 
   return (
     <div className="card-wrap">
@@ -22,6 +24,9 @@ export default function GameCard({ game, onClick }) {
         </div>
         <div className="card-body">
           <div className="name">{game.name}</div>
+          {rKey && (
+            <span className={"card-review review-" + reviewTier(game.reviewDesc)}>{t(rKey)}</span>
+          )}
           <div className="price-row">
             <span className="cur">{money(game.currentPrice, game.currency)}</span>
             {onSale && <span className="normal">{money(game.normalPrice, game.currency)}</span>}

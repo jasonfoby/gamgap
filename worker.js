@@ -31,7 +31,9 @@ const SUMMARY = `
          platforms,
          dlc_count         AS dlcCount,
          langs,
-         lang_count        AS langCount
+         lang_count        AS langCount,
+         review_desc       AS reviewDesc,
+         review_total      AS reviewTotal
     FROM games`;
 
 // 지역(region_prices): 원시 ×100을 ÷100 해 실가로, currency 함께. 모양은 games와 동일 + currency.
@@ -54,7 +56,9 @@ const REGION_SUMMARY = `
          g.platforms                          AS platforms,
          g.dlc_count                          AS dlcCount,
          g.langs                              AS langs,
-         g.lang_count                         AS langCount
+         g.lang_count                         AS langCount,
+         g.review_desc                        AS reviewDesc,
+         g.review_total                       AS reviewTotal
     FROM region_prices r
     LEFT JOIN games g ON g.appid = r.appid`;
 

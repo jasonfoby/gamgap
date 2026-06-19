@@ -31,6 +31,17 @@ export function availableGenres(rows) {
   return [...count.entries()].sort((a, b) => b[1] - a[1]).map(([t]) => t);
 }
 
+// 히어로 인기 칩: 현재 할인 목록 중 리뷰 수(인기) 많은 순 상위 n개를 {q,id}로 추린다.
+// 리뷰 데이터가 아직 없으면(전부 0/없음) 빈 배열 → 호출부(Hero)가 하드코딩 유명 게임으로 폴백.
+// "지금 할인 중 + 가장 반응 좋은(리뷰 많은)" 게임이라 CTA가 강하다.
+export function popularPicks(rows, n = 6) {
+  return (rows || [])
+    .filter((g) => Number(g.reviewTotal) > 0 && g.name)
+    .sort((a, b) => (Number(b.reviewTotal) || 0) - (Number(a.reviewTotal) || 0))
+    .slice(0, n)
+    .map((g) => ({ q: g.name, id: g.appid }));
+}
+
 export const defaultDealOpts = (maxBound) => ({
   sort: "discount",
   onlyLow: false, // 지금이 역대최저인 것만

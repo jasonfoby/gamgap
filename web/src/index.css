@@ -96,6 +96,11 @@ h2{display:flex;align-items:center;gap:8px;color:var(--txt);font-weight:800;font
 .card-body .stamp .l{font-size:12px}
 .card-body .stamp .s{font-size:10.5px;opacity:.95}
 .stamp .lcnum{font-family:var(--num);font-weight:800}
+/* 카드 안 종합 평가 배지(작고 은은하게, 영수증 종이 위) */
+.card-review{align-self:flex-start;font-size:11px;font-weight:700;letter-spacing:-.2px;padding:2px 7px;border-radius:5px;line-height:1.3;margin-top:-2px}
+.card-review.review-positive{color:#5a6b34;background:rgba(120,150,60,.16);border:1px solid rgba(120,150,60,.35)}
+.card-review.review-mixed{color:#8C8674;background:rgba(140,134,116,.14);border:1px solid var(--rule)}
+.card-review.review-negative{color:#9A4A40;background:rgba(154,74,64,.12);border:1px solid rgba(154,74,64,.3)}
 
 /* ===== 상태 ===== */
 .empty,.loading{color:#8E886F;font-size:14px;text-align:center;padding:30px 12px;border:1px dashed var(--line);border-radius:12px}

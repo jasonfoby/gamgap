@@ -15,6 +15,7 @@ import { useT, tNodes } from "../lib/i18n";
 import { regionForLang } from "../lib/region";
 import { gameGenres } from "../lib/dealSort";
 import { genreKey } from "../lib/genres";
+import { reviewKey } from "../lib/reviews";
 import { SUPPORTED } from "../i18n";
 import "./GamePage.css";
 
@@ -247,10 +248,13 @@ function GameInfo({ g, t }) {
   const metacritic = Number(g.metacritic) || 0;
   const platformLabel = { win: "Windows", mac: "macOS", linux: "Linux" };
   const platforms = (g.platforms || "").split(",").map((s) => s.trim()).filter(Boolean);
+  // 스팀 종합 평가: 영어 문구를 i18n 키로 매핑(없으면 null → 줄 생략)
+  const rKey = g.reviewDesc ? reviewKey(g.reviewDesc) : null;
+  const reviewTotal = Number(g.reviewTotal) || 0;
 
   // 모든 행이 비면 섹션 자체를 그리지 않는다.
   const hasAny =
-    genres.length || controller || langCodes.length || dlcCount > 0 ||
+    rKey || genres.length || controller || langCodes.length || dlcCount > 0 ||
     g.developer || releaseYear > 0 || metacritic > 0 || platforms.length;
   if (!hasAny) return null;
 
@@ -258,6 +262,15 @@ function GameInfo({ g, t }) {
     <>
       <div className="subhead">{t("info.title")}</div>
       <div className="ledger gp-info">
+        {rKey && (
+          <div className="lrow">
+            <span className="lab">{t("info.review")}</span>
+            <span className="val">
+              {t(rKey)}
+              {reviewTotal > 0 && <span className="gp-info-sub"> · {t("info.reviewCount", { n: reviewTotal.toLocaleString() })}</span>}
+            </span>
+          </div>
+        )}
         {genres.length > 0 && (
           <div className="lrow">
             <span className="lab">{t("info.genres")}</span>

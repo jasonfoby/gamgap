@@ -216,4 +216,17 @@ export default {
   "info.released": "発売",
   "info.metacritic": "メタクリティック",
   "info.platforms": "プラットフォーム",
+  "info.review": "レビュー",
+  "info.reviewCount": "{n}件のレビュー",
+
+  // スチームの総合評価(英語の説明 → 表示ラベル)
+  "review.overwhelmingly_positive": "圧倒的に好評",
+  "review.very_positive": "非常に好評",
+  "review.positive": "好評",
+  "review.mostly_positive": "やや好評",
+  "review.mixed": "賛否両論",
+  "review.mostly_negative": "やや不評",
+  "review.negative": "不評",
+  "review.very_negative": "非常に不評",
+  "review.overwhelmingly_negative": "圧倒的に不評",
 };

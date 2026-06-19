@@ -243,4 +243,17 @@ export default {
   "info.released": "출시",
   "info.metacritic": "메타크리틱",
   "info.platforms": "플랫폼",
+  "info.review": "평가",
+  "info.reviewCount": "{n}개 평가",
+
+  // 스팀 종합 평가(영어 문구 → 표시 라벨)
+  "review.overwhelmingly_positive": "압도적으로 긍정적",
+  "review.very_positive": "매우 긍정적",
+  "review.positive": "긍정적",
+  "review.mostly_positive": "대체로 긍정적",
+  "review.mixed": "복합적",
+  "review.mostly_negative": "대체로 부정적",
+  "review.negative": "부정적",
+  "review.very_negative": "매우 부정적",
+  "review.overwhelmingly_negative": "압도적으로 부정적",
 };

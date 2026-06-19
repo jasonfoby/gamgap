@@ -7,7 +7,7 @@ import WishlistView from "./components/WishlistView";
 import Footer from "./components/Footer";
 import { ListSkeleton } from "./components/Skeleton";
 import { getLowestToday, getDeals, searchGames } from "./api";
-import { applyDealOpts, defaultDealOpts, availableGenres } from "./lib/dealSort";
+import { applyDealOpts, defaultDealOpts, availableGenres, popularPicks } from "./lib/dealSort";
 import { activeFilterChips, clearedOpts } from "./lib/filterUi";
 import { useWishlistState, WishlistProvider } from "./lib/wishlist";
 import { resetHead } from "./lib/head";
@@ -254,6 +254,8 @@ export default function App() {
   const lowCount =
     lowest.status === "loading" ? "·" : lowest.status === "error" ? "0" : lowest.rows.length;
   const genreOptions = deals.status === "ok" ? availableGenres(deals.rows) : [];
+  // 히어로 인기 칩: 할인 목록 중 리뷰 많은 순 상위 6. 리뷰 데이터 없으면 [] → Hero가 하드코딩 폴백.
+  const popular = deals.status === "ok" ? popularPicks(deals.rows, 6) : [];
   // 할인 목록이 어떤 통화로 왔는지(워커가 게임마다 currency를 붙임. 없으면 원화). 필터 라벨 표기에 사용.
   const dealCurrency = (deals.status === "ok" && deals.rows[0] && deals.rows[0].currency) || "KRW";
 
@@ -269,7 +271,7 @@ export default function App() {
   return (
     <WishlistProvider value={wl}>
       <Header lowCount={lowCount} query={query} onQueryChange={setQuery} />
-      <Hero query={query} onQueryChange={setQuery} onPickGame={openGameById} />
+      <Hero query={query} onQueryChange={setQuery} onPickGame={openGameById} popular={popular} />
 
       <div className="shell">
         <Sidebar
