@@ -19,8 +19,12 @@ export const SUPPORTED = [
   { code: "pt", label: "Português" },
 ];
 
-// 기본/폴백 언어. 데이터(가격)는 한국 스팀 기준이라 한국어를 원본으로 둔다.
-export const DEFAULT_LANG = "ko";
+// 기본/폴백 UI 언어. 궁극 타깃이 글로벌이라 영어가 기본 — 브라우저가 지원 언어면 그 언어로 자동 전환되고,
+// 못 알아보는 언어면 영어로 떨어진다(과거엔 한국어였음).
+export const DEFAULT_LANG = "en";
+// 원본(소스) 언어. 모든 키가 가장 먼저·완전하게 채워지는 사전이라 최종 폴백으로 쓴다.
+// (가격 데이터는 한국 스팀 기준이라 한국어 사전이 원본.)
+export const SOURCE_LANG = "ko";
 
 // React 밖(head.js 등)에서도 현재 언어로 번역을 쓰기 위한 모듈 전역.
 // LanguageProvider가 렌더 시 setCurrentLang으로 맞춰준다.
@@ -36,7 +40,8 @@ export function getCurrentLang() {
 export function translate(lang, key, vars) {
   const d = dicts[lang] || {};
   let s = d[key];
-  if (s == null) s = (dicts[DEFAULT_LANG] || {})[key];
+  if (s == null) s = (dicts[DEFAULT_LANG] || {})[key]; // 1차 폴백: 영어
+  if (s == null) s = (dicts[SOURCE_LANG] || {})[key]; // 2차 폴백: 한국어(원본·전체 키)
   if (s == null) return key;
   if (vars) for (const k in vars) s = s.split("{" + k + "}").join(String(vars[k]));
   return s;

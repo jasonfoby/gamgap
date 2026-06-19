@@ -1,17 +1,17 @@
 import { createContext, useContext, useEffect, useState, Fragment } from "react";
-import { dicts, SUPPORTED, DEFAULT_LANG, setCurrentLang } from "../i18n";
+import { dicts, SUPPORTED, DEFAULT_LANG, SOURCE_LANG, setCurrentLang } from "../i18n";
 import { setFormatLang } from "./format";
 
 // 의존성 없는 초경량 다국어(i18n) 엔진.
 // - LanguageProvider: 현재 언어 상태를 들고 localStorage·<html lang>에 반영.
 // - useT(): { lang, setLang, t } 를 반환. t("키", {vars}) 로 문자열을 가져온다.
-// - 누락 키는 기본 언어(ko)로 폴백하고, 그래도 없으면 키 자체를 반환(개발 중 누락 감지).
+// - 누락 키는 기본 언어(en)→원본(ko) 순으로 폴백하고, 그래도 없으면 키 자체를 반환(개발 중 누락 감지).
 const KEY = "lowstamp:lang";
 const codes = SUPPORTED.map((l) => l.code);
 
 const LangContext = createContext({ lang: DEFAULT_LANG, setLang: () => {}, t: (k) => k });
 
-// 첫 진입 언어: 저장값 우선 → 브라우저 언어 매핑 → 기본(ko).
+// 첫 진입 언어: 저장값 우선 → 브라우저 언어 매핑 → 기본(en).
 function detectInitial() {
   try {
     const saved = localStorage.getItem(KEY);
@@ -48,9 +48,9 @@ export function LanguageProvider({ children }) {
 
   const t = (key, vars) => {
     const dict = dicts[lang] || {};
-    const base = dicts[DEFAULT_LANG] || {};
     let s = dict[key];
-    if (s == null) s = base[key];
+    if (s == null) s = (dicts[DEFAULT_LANG] || {})[key]; // 1차 폴백: 영어
+    if (s == null) s = (dicts[SOURCE_LANG] || {})[key]; // 2차 폴백: 한국어(원본·전체 키)
     if (s == null) return key; // 키 자체 반환(누락 표시)
     if (vars) {
       for (const k in vars) s = s.split("{" + k + "}").join(String(vars[k]));

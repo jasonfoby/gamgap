@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#0F1320" />
-  <title>Lowstamp — 스팀 게임 원화 최저가·지금 사도 돼?</title>
-  <meta name="description" content="스팀 게임의 현재 원화 가격과 역대 최저가, '지금 사도 되나' 판정을 한눈에. 키샵 없이 스팀 공식 원화가만 비교합니다." />
+  <!-- 기본(글로벌) 메타는 영어. 홈("/") 요청 시 functions/index.js 가 방문자 언어로 제목·설명·OG를 덮어쓴다. -->
+  <title>Lowstamp — Steam game lowest prices (KRW) &amp; should you buy now?</title>
+  <meta name="description" content="See a Steam game's current price and all-time low, plus a buy-or-wait verdict, at a glance. Official Steam prices only, no key shops." />
   <link rel="canonical" href="https://lowstamp.com/" />
 
   <!-- 파비콘·앱 아이콘·웹 매니페스트 (영수증 금색 ★ 도장 컨셉) -->
@@ -20,16 +21,17 @@
   <!-- Open Graph (카톡·디스코드·페북 공유 미리보기). 게임 상세에선 클라이언트/Pages 함수가 content를 덮어씀 -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Lowstamp" />
-  <meta property="og:title" content="Lowstamp — 스팀 게임 원화 최저가·지금 사도 돼?" />
-  <meta property="og:description" content="스팀 게임의 현재 원화 가격과 역대 최저가, '지금 사도 되나' 판정을 한눈에." />
+  <meta property="og:title" content="Lowstamp — Steam game lowest prices (KRW) &amp; should you buy now?" />
+  <meta property="og:description" content="A Steam game's current price, all-time low, and a buy-or-wait verdict at a glance." />
+  <meta property="og:locale" content="en_US" />
   <meta property="og:url" content="https://lowstamp.com/" />
   <!-- 기본 공유 이미지: 글로벌 타깃이라 영어판(상록·게임/가격 없음). 언어별 og-<lang>.jpg 도 있음(향후 언어별 URL에서 사용). -->
   <meta property="og:image" content="https://lowstamp.com/og-en.jpg" />
 
   <!-- Twitter / X 카드 -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Lowstamp — 스팀 게임 원화 최저가·지금 사도 돼?" />
-  <meta name="twitter:description" content="스팀 게임의 현재 원화 가격과 역대 최저가, '지금 사도 되나' 판정을 한눈에." />
+  <meta name="twitter:title" content="Lowstamp — Steam game lowest prices (KRW) &amp; should you buy now?" />
+  <meta name="twitter:description" content="A Steam game's current price, all-time low, and a buy-or-wait verdict at a glance." />
   <meta name="twitter:image" content="https://lowstamp.com/og-en.jpg" />
 
   <!-- Cloudflare Web Analytics: 대시보드에서 사이트(lowstamp.com) 추가 후 발급 토큰으로 아래 REPLACE_WITH_YOUR_CF_TOKEN 교체 -->
