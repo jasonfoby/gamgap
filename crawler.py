@@ -18,6 +18,13 @@ TARGET_DEALS = 1500   # CheapShark에서 받아올 할인 게임 수(좋은 순 
 MAX_TOTAL    = 3000   # 하루에 스팀에 물어볼 최대 게임 수(기존 추적분 포함)
 SORT_BY      = "Deal Rating"  # 'Savings'(할인율순) 또는 'Reviews'(인기순)로 바꿔도 됨
 
+# 한국(cc=kr) 외 추가로 수집할 지역. 늘릴수록 크롤 시간↑(나라당 ≈ 게임수 × 0.7초).
+#  - 한국은 기존 games/price_history 에 그대로, 여기 나라들은 region_prices/region_price_history 에 저장.
+#  - 가격은 스팀 원시 정수(×100) 그대로 저장(표기는 Worker/프런트에서 /100 + 통화 포맷).
+REGIONS = [
+    {"cc": "us", "l": "english"},
+]
+
 # 스팀 가격 정수는 보통 1/100 단위(예: 1099=$10.99).
 #  ★ 첫 실행 때 [샘플] 줄을 보고 원화가 실제보다 100배 크면 100, 딱 맞으면 1로.
 PRICE_DIVISOR = 100
@@ -99,6 +106,28 @@ def steam_fetch(appid):
     }
 
 
+def steam_fetch_region(appid, cc, lang):
+    """한국 외 지역(cc)의 가격을 스팀에서 받는다. 가격은 원시 정수(×100) 그대로 반환."""
+    url = f"https://store.steampowered.com/api/appdetails?appids={appid}&cc={cc}&l={lang}"
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (gamgap)"})
+    with urllib.request.urlopen(req, timeout=20) as r:
+        data = json.loads(r.read())
+    node = data.get(str(appid), {})
+    if not node.get("success"):
+        return None
+    d = node.get("data", {})
+    po = d.get("price_overview")
+    if not po:
+        return None
+    return {
+        "name":     d.get("name", ""),          # 해당 지역 언어 게임명(예: 영어명)
+        "currency": po.get("currency", ""),      # 'USD' 등
+        "normal":   po["initial"],               # 원시 ×100 (÷100 안 함)
+        "current":  po["final"],
+        "discount": po.get("discount_percent", 0),
+    }
+
+
 def main():
     deal_ids = cheapshark_deals(TARGET_DEALS)
     print(f"CheapShark 할인 게임 {len(deal_ids)}개 수신")
@@ -117,6 +146,8 @@ def main():
     print(f"오늘 가격 확인할 게임 {len(to_check)}개 (할인 {len(deal_ids)} + 기존 {len(existing)})")
 
     d1("UPDATE games SET is_low_today = 0")  # 하루 시작: '오늘 최저' 초기화
+    for reg in REGIONS:
+        d1("UPDATE region_prices SET is_low_today = 0 WHERE cc=?", [reg["cc"]])
 
     changed = 0
     for i, appid in enumerate(to_check):
@@ -165,6 +196,50 @@ def main():
             d1("INSERT INTO price_history (appid,price,discount_percent,recorded_at) VALUES (?,?,?,?)",
                [appid, p["current"], p["discount"], TODAY])
             changed += 1
+
+        # ---- 한국 외 지역(미국 등) 가격 수집 → region_prices/region_price_history ----
+        # 한 게임당 지역 수만큼 스팀에 더 묻는다. 실패해도 한국 수집 흐름은 멈추지 않게 try/except.
+        for reg in REGIONS:
+            cc = reg["cc"]
+            try:
+                rp = steam_fetch_region(appid, cc, reg["l"])
+            except Exception as e:
+                print(f"  ! [{cc}] 조회 실패", appid, e)
+                time.sleep(0.7)
+                continue
+            if not rp:
+                time.sleep(0.7)
+                continue
+
+            rrow = d1("SELECT current_price, all_time_low FROM region_prices WHERE appid=? AND cc=?", [appid, cc])
+            r_prev_price = rrow[0]["current_price"] if rrow else None
+            r_prev_low   = rrow[0]["all_time_low"]  if rrow else None
+            r_new_low = rp["current"] if r_prev_low is None else min(r_prev_low, rp["current"])
+            r_low_date = TODAY if (r_prev_low is None or rp["current"] < r_prev_low) else ""
+            r_is_low_today = 1 if rp["current"] <= r_new_low else 0
+
+            d1(
+                """INSERT INTO region_prices
+                     (appid,cc,name,currency,normal_price,current_price,discount_percent,
+                      all_time_low,all_time_low_date,is_low_today,last_checked)
+                   VALUES (?,?,?,?,?,?,?,?,?,?,?)
+                   ON CONFLICT(appid,cc) DO UPDATE SET
+                     name=COALESCE(NULLIF(excluded.name,''), region_prices.name),
+                     currency=excluded.currency,
+                     normal_price=excluded.normal_price,
+                     current_price=excluded.current_price,
+                     discount_percent=excluded.discount_percent,
+                     all_time_low=excluded.all_time_low,
+                     all_time_low_date=COALESCE(NULLIF(excluded.all_time_low_date,''), region_prices.all_time_low_date),
+                     is_low_today=excluded.is_low_today,
+                     last_checked=excluded.last_checked""",
+                [appid, cc, rp["name"], rp["currency"], rp["normal"], rp["current"], rp["discount"],
+                 r_new_low, r_low_date, r_is_low_today, NOW],
+            )
+            if r_prev_price is None or r_prev_price != rp["current"]:
+                d1("INSERT INTO region_price_history (appid,cc,price,discount_percent,recorded_at) VALUES (?,?,?,?,?)",
+                   [appid, cc, rp["current"], rp["discount"], TODAY])
+            time.sleep(0.7)  # 스팀 호출 제한 — 지역 호출도 천천히
 
         if i and i % 100 == 0:
             print(f"  ...{i}/{len(to_check)} 진행")
