@@ -8,7 +8,7 @@ import { useT } from "../lib/i18n";
 
 // 좌측 사이드바(데스크탑 상주 / 모바일 본문 위로 접힘).
 // 둘러보기 탭 + (할인 탭일 때) 정렬·필터 + 다음 세일 카운트다운 + 신뢰 배너.
-export default function Sidebar({ tab, onTabChange, wishCount, searching, dealOpts, onDealOptsChange, genreOptions = [] }) {
+export default function Sidebar({ tab, onTabChange, wishCount, searching, dealOpts, onDealOptsChange, genreOptions = [], currency = "KRW" }) {
   const { t } = useT();
   const showFilters = !searching && tab === "deals" && dealOpts;
   const [open, setOpen] = useState(false); // 모바일 필터 패널 펼침 여부(데스크탑은 CSS로 항상 펼침)
@@ -33,7 +33,7 @@ export default function Sidebar({ tab, onTabChange, wishCount, searching, dealOp
             <span className="chev" aria-hidden="true">{open ? "▲" : "▼"}</span>
           </button>
           <div className={"filter-body" + (open ? " open" : "")}>
-            <DealControls opts={dealOpts} onChange={onDealOptsChange} availableGenres={genreOptions} />
+            <DealControls opts={dealOpts} onChange={onDealOptsChange} availableGenres={genreOptions} currency={currency} />
           </div>
         </div>
       )}

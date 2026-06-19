@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { won } from "../lib/format";
+import { money } from "../lib/format";
 
 // 기간 프리셋. months=null 이면 전체. (이력이 change-only 월단위라 촘촘하진 않음)
 const RANGES = [
@@ -17,7 +17,7 @@ function cutoffYM(months) {
 
 // 모달 안 가격 흐름 그래프. 역대최저 금색 점선 + ★ 마커 + 면적 그라데이션 + hover 툴팁.
 // 기간 프리셋으로 보는 구간을 좁힐 수 있다(데이터가 적으면 자동으로 전체로 폴백).
-export default function PriceChart({ hist, low }) {
+export default function PriceChart({ hist, low, currency }) {
   const [hover, setHover] = useState(null);
   const [range, setRange] = useState("all");
 
@@ -134,7 +134,7 @@ export default function PriceChart({ hist, low }) {
         {hover != null && (
           <div className="charttip" style={{ left: (X(hover) / W) * 100 + "%" }}>
             <div className="tt-d">{view[hover].d}</div>
-            <div className="tt-p">{won(view[hover].p)}</div>
+            <div className="tt-p">{money(view[hover].p, currency)}</div>
           </div>
         )}
       </div>

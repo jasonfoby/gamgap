@@ -16,6 +16,19 @@ export function won(n) {
   return _lang === "ko" ? num + "원" : "₩" + num;
 }
 
+// 통화에 맞춰 가격을 표기한다. 게임 객체가 들고 온 currency 기준(없거나 KRW면 원화 표기).
+// 예: money(59.99,"USD") → "$59.99" / money(5980,"JPY") → "¥5,980" / money(62000) → "62,000원"/"₩62,000"
+export function money(n, currency) {
+  if (!currency || currency === "KRW") return won(n);
+  const v = Number(n) || 0;
+  const loc = LOCALE[_lang] || "en-US";
+  try {
+    return new Intl.NumberFormat(loc, { style: "currency", currency }).format(v);
+  } catch {
+    return v.toLocaleString(loc) + " " + currency;
+  }
+}
+
 // "2024-11" 같은 날짜 문자열을 언어에 맞게. ko: "2024년 11월" / 그 외: "Nov 2024" 등.
 export function ym(d) {
   if (!d) return "";

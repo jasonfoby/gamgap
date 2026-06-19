@@ -1,4 +1,4 @@
-import { won } from "./format";
+import { money } from "./format";
 import { defaultDealOpts } from "./dealSort";
 
 // 가격 빠른 선택(프리셋). 라벨은 번역 키로 둔다(DealControls가 t로 그린다).
@@ -23,13 +23,13 @@ export function activeFilterCount(opts) {
 // 적용된 필터를 삭제 가능한 칩 목록으로 변환. 각 칩의 patch를 opts에 합치면 그 필터가 풀린다.
 // 라벨은 번역 키(labelKey)+변수(labelVars)로 두고, 장르 칩만 장르명 그대로(label)를 쓴다.
 // (표시는 DealsView가 t(labelKey, labelVars) 또는 label 로 그린다.)
-export function activeFilterChips(opts) {
+export function activeFilterChips(opts, currency) {
   if (!opts) return [];
   const chips = [];
   if (opts.onlyLow) chips.push({ id: "onlyLow", labelKey: "chip.onlyLow", patch: { onlyLow: false } });
   if (opts.min50) chips.push({ id: "min50", labelKey: "chip.min50", patch: { min50: false } });
   if (opts.maxPrice < opts.maxBound)
-    chips.push({ id: "maxPrice", labelKey: "chip.under", labelVars: { p: won(opts.maxPrice) }, patch: { maxPrice: opts.maxBound } });
+    chips.push({ id: "maxPrice", labelKey: "chip.under", labelVars: { p: money(opts.maxPrice, currency) }, patch: { maxPrice: opts.maxBound } });
   for (const g of opts.genres || [])
     chips.push({ id: "genre:" + g, label: g, patch: { genres: (opts.genres || []).filter((x) => x !== g) } });
   return chips;

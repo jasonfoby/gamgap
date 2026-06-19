@@ -6,17 +6,19 @@ import StarButton from "../components/StarButton";
 import PriceChart from "../components/PriceChart";
 import { Link } from "../lib/router";
 import { verdict } from "../lib/verdict";
-import { won, ym } from "../lib/format";
+import { money, ym } from "../lib/format";
 import { priceStats, lowPoints } from "../lib/stats";
 import { setGameHead, resetHead } from "../lib/head";
 import { getGame } from "../api";
 import { track } from "../lib/analytics";
 import { useT, tNodes } from "../lib/i18n";
+import { regionForLang } from "../lib/region";
 import "./GamePage.css";
 
 // 개별 게임 상세 "페이지"(/game/:appid). 모달을 대체하는 색인 가능한 독립 URL.
 export default function GamePage({ appid }) {
-  const { t } = useT();
+  const { t, lang } = useT();
+  const { cc } = regionForLang(lang); // 현재 언어의 지역코드(가격 통화)
   const [state, setState] = useState({ status: "loading", game: null });
   const [nonce, setNonce] = useState(0); // 재시도 트리거
   const [copied, setCopied] = useState(false);
@@ -24,7 +26,7 @@ export default function GamePage({ appid }) {
   useEffect(() => {
     let alive = true;
     setState({ status: "loading", game: null });
-    getGame(appid)
+    getGame(appid, cc)
       .then((g) => {
         if (!alive) return;
         if (g && g.appid) setState({ status: "ok", game: g });
@@ -34,7 +36,7 @@ export default function GamePage({ appid }) {
     return () => {
       alive = false;
     };
-  }, [appid, nonce]);
+  }, [appid, nonce, cc]);
 
   // 성공 시 문서 제목·메타·canonical·JSON-LD 갱신. 페이지 이탈 시 홈 기본값으로 복원.
   useEffect(() => {
@@ -108,10 +110,10 @@ function GameDetail({ g, copied, onCopy, t }) {
     : "gp.proseNoSaleNoAtl";
   const prose = t(proseKey, {
     name: g.name,
-    cur: won(g.currentPrice),
-    normal: won(g.normalPrice),
+    cur: money(g.currentPrice, g.currency),
+    normal: money(g.normalPrice, g.currency),
     pct: g.discountPercent,
-    atl: won(g.allTimeLow),
+    atl: money(g.allTimeLow, g.currency),
     date: dateStr,
     label: vLabel,
     tip: vTip,
@@ -121,11 +123,11 @@ function GameDetail({ g, copied, onCopy, t }) {
     <div className="mtop-summary">
       <div className="pricehead">
         {onSale && <div className="ph-pct">-{g.discountPercent}%</div>}
-        <div className="ph-cur">{won(g.currentPrice)}</div>
-        {onSale && <div className="ph-normal">{tNodes(t("price.normal"), { p: <s>{won(g.normalPrice)}</s> })}</div>}
+        <div className="ph-cur">{money(g.currentPrice, g.currency)}</div>
+        {onSale && <div className="ph-normal">{tNodes(t("price.normal"), { p: <s>{money(g.normalPrice, g.currency)}</s> })}</div>}
         {hasLow && (
           <div className="ph-atl">
-            <span className="atl-star">★</span> {t("price.atlLabel")} <b>{won(g.allTimeLow)}</b>
+            <span className="atl-star">★</span> {t("price.atlLabel")} <b>{money(g.allTimeLow, g.currency)}</b>
             {g.allTimeLowDate && <span className="atl-date"> · {ym(g.allTimeLowDate)}</span>}
           </div>
         )}
@@ -160,7 +162,7 @@ function GameDetail({ g, copied, onCopy, t }) {
         <div className="mtop">
           <div className="mtop-chart">
             <div className="chartlabel">{t("gp.chartLabel")}</div>
-            <PriceChart hist={g.history} low={g.allTimeLow} />
+            <PriceChart hist={g.history} low={g.allTimeLow} currency={g.currency} />
           </div>
           {summary}
         </div>
@@ -176,11 +178,11 @@ function GameDetail({ g, copied, onCopy, t }) {
           <div className="ledger">
             <div className="lrow">
               <span className="lab">{t("stats.avg")}</span>
-              <span className="val">{won(stats.avg)}</span>
+              <span className="val">{money(stats.avg, g.currency)}</span>
             </div>
             <div className="lrow">
               <span className="lab">{t("stats.max")}</span>
-              <span className="val">{won(stats.max)}</span>
+              <span className="val">{money(stats.max, g.currency)}</span>
             </div>
             {stats.since && (
               <div className="lrow">
@@ -198,7 +200,7 @@ function GameDetail({ g, copied, onCopy, t }) {
           <div className="lows">
             {lows.map((p, i) => (
               <div className={"lowchip" + (i === 0 ? " best" : "")} key={p.d + "-" + p.p}>
-                <span className="lc-p">{won(p.p)}</span>
+                <span className="lc-p">{money(p.p, g.currency)}</span>
                 <span className="lc-d">{ym(p.d)}</span>
               </div>
             ))}

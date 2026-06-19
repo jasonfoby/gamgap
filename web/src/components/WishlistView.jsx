@@ -5,6 +5,7 @@ import { getGame } from "../api";
 import { isBuyNow } from "../lib/stats";
 import { useWishlist } from "../lib/wishlist";
 import { useT, tNodes } from "../lib/i18n";
+import { regionForLang } from "../lib/region";
 
 // 역대최저에 가까운 순(작을수록 지금이 쌈)
 const depth = (g) => {
@@ -17,10 +18,16 @@ const depth = (g) => {
 // "지금 살 때"인 게임을 위로 올려 보여준다.
 export default function WishlistView({ onCardClick }) {
   const wl = useWishlist();
-  const { t } = useT();
+  const { t, lang } = useT();
+  const { cc } = regionForLang(lang); // 현재 언어의 지역코드(가격 통화)
   const ids = wl?.ids || [];
   const [games, setGames] = useState({}); // appid -> game | "error"
   const [loading, setLoading] = useState(false);
+
+  // 언어(통화)가 바뀌면 캐시한 가격이 옛 통화이므로 비워 새 통화로 다시 불러오게 한다.
+  useEffect(() => {
+    setGames({});
+  }, [cc]);
 
   useEffect(() => {
     const missing = ids.filter((id) => games[id] === undefined);
@@ -29,7 +36,7 @@ export default function WishlistView({ onCardClick }) {
     setLoading(true);
     Promise.all(
       missing.map((id) =>
-        getGame(id)
+        getGame(id, cc)
           .then((g) => [id, g || "error"])
           .catch(() => [id, "error"])
       )

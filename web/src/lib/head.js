@@ -1,4 +1,4 @@
-import { won } from "./format";
+import { money } from "./format";
 import { translate, getCurrentLang } from "../i18n";
 
 // 문서의 제목·메타·구조화데이터를 화면 상태(+현재 언어)에 맞춰 갱신한다.
@@ -63,10 +63,10 @@ export function setGameHead(game) {
   const L = getCurrentLang();
   const onSale = Number(game.discountPercent) > 0;
   const hasLow = Number(game.allTimeLow) > 0;
-  const cur = won(game.currentPrice);
+  const cur = money(game.currentPrice, game.currency);
   const title = translate(L, "meta.gameTitle", { name: game.name, cur });
   const sale = onSale ? translate(L, "meta.gameDescSale", { pct: game.discountPercent }) : "";
-  const atl = hasLow ? translate(L, "meta.gameDescAtl", { p: won(game.allTimeLow) }) : "";
+  const atl = hasLow ? translate(L, "meta.gameDescAtl", { p: money(game.allTimeLow, game.currency) }) : "";
   const desc = translate(L, "meta.gameDesc", { name: game.name, cur, sale, atl });
   const img = steamHeader(game.appid);
   const url = `${location.origin}/game/${game.appid}`;

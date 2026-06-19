@@ -2,7 +2,7 @@ import Cover from "./Cover";
 import Stamp from "./Stamp";
 import StarButton from "./StarButton";
 import { verdict } from "../lib/verdict";
-import { won } from "../lib/format";
+import { money } from "../lib/format";
 import { useT, tNodes } from "../lib/i18n";
 
 // 게임 한 장(세로 포스터형 영수증 카드).
@@ -23,12 +23,12 @@ export default function GameCard({ game, onClick }) {
         <div className="card-body">
           <div className="name">{game.name}</div>
           <div className="price-row">
-            <span className="cur">{won(game.currentPrice)}</span>
-            {onSale && <span className="normal">{won(game.normalPrice)}</span>}
+            <span className="cur">{money(game.currentPrice, game.currency)}</span>
+            {onSale && <span className="normal">{money(game.normalPrice, game.currency)}</span>}
           </div>
           <Stamp
             v={v}
-            note={hasLow ? tNodes(t("card.atl"), { p: <span className="lcnum">{won(game.allTimeLow)}</span> }) : undefined}
+            note={hasLow ? tNodes(t("card.atl"), { p: <span className="lcnum">{money(game.allTimeLow, game.currency)}</span> }) : undefined}
           />
         </div>
       </button>
