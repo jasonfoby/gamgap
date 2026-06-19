@@ -173,4 +173,34 @@ export default {
   "meta.gameDesc": "{name} の Steam 現在価格は {cur}{sale}。{atl} 今買っていいか Lowstamp で確認しましょう。",
   "meta.gameDescSale": " (-{pct}%)",
   "meta.gameDescAtl": " 過去最安値 {p}。",
+
+  // 404
+  "nf.title": "ページが見つかりません",
+  "nf.desc": "アドレスが変わったか、削除されたページです。下からもう一度お試しください。",
+  "nf.home": "ホームへ",
+
+  // 価格チャート
+  "chart.1y": "1年",
+  "chart.3y": "3年",
+  "chart.all": "全期間",
+  "chart.empty": "価格推移データはまだ収集中です。",
+  "chart.atl": "★ 過去最安値",
+
+  // ジャンル(スチームの韓国語ジャンル名 → 表示ラベル)
+  "genre.action": "アクション",
+  "genre.adventure": "アドベンチャー",
+  "genre.indie": "インディー",
+  "genre.strategy": "ストラテジー",
+  "genre.rpg": "RPG",
+  "genre.simulation": "シミュレーション",
+  "genre.casual": "カジュアル",
+  "genre.racing": "レース",
+  "genre.sports": "スポーツ",
+  "genre.mmo": "大規模マルチプレイヤー",
+  "genre.f2p": "基本プレイ無料",
+  "genre.earlyaccess": "早期アクセス",
+  "genre.utilities": "ユーティリティ",
+  "genre.gore": "ゴア",
+  "genre.violent": "暴力的",
+  "genre.sexual": "アダルトコンテンツ",
 };

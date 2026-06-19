@@ -1,11 +1,12 @@
 import { useMemo, useState } from "react";
-import { money } from "../lib/format";
+import { money, compactMoney } from "../lib/format";
+import { useT } from "../lib/i18n";
 
 // 기간 프리셋. months=null 이면 전체. (이력이 change-only 월단위라 촘촘하진 않음)
 const RANGES = [
-  { key: "1y", label: "1년", months: 12 },
-  { key: "3y", label: "3년", months: 36 },
-  { key: "all", label: "전체", months: null },
+  { key: "1y", labelKey: "chart.1y", months: 12 },
+  { key: "3y", labelKey: "chart.3y", months: 36 },
+  { key: "all", labelKey: "chart.all", months: null },
 ];
 
 // "YYYY-MM" 형태의 컷오프 문자열을 만든다(현재 기준 months개월 전). 문자열 비교로 필터.
@@ -18,6 +19,7 @@ function cutoffYM(months) {
 // 모달 안 가격 흐름 그래프. 역대최저 금색 점선 + ★ 마커 + 면적 그라데이션 + hover 툴팁.
 // 기간 프리셋으로 보는 구간을 좁힐 수 있다(데이터가 적으면 자동으로 전체로 폴백).
 export default function PriceChart({ hist, low, currency }) {
+  const { t } = useT();
   const [hover, setHover] = useState(null);
   const [range, setRange] = useState("all");
 
@@ -31,7 +33,7 @@ export default function PriceChart({ hist, low, currency }) {
   }, [hist, range]);
 
   if (!hist || hist.length < 2)
-    return <div className="empty">가격 흐름 데이터가 아직 쌓이는 중이에요.</div>;
+    return <div className="empty">{t("chart.empty")}</div>;
 
   const W = 480,
     H = 160,
@@ -76,7 +78,7 @@ export default function PriceChart({ hist, low, currency }) {
               setHover(null);
             }}
           >
-            {r.label}
+            {t(r.labelKey)}
           </button>
         ))}
       </div>
@@ -104,13 +106,13 @@ export default function PriceChart({ hist, low, currency }) {
           <path d={line} fill="none" stroke="#C8912B" strokeWidth="2" vectorEffect="non-scaling-stroke" />
           <line x1={pl} y1={lowY} x2={W - pr} y2={lowY} stroke="#C8912B" strokeDasharray="4 4" strokeWidth="1" vectorEffect="non-scaling-stroke" />
           <text x={pl} y={Number(lowY) - 5} fill="#C8912B" fontSize="10" fontFamily="sans-serif">
-            ★ 역대최저
+            {t("chart.atl")}
           </text>
           <text x="2" y={pt + 8} fill="#8C8674" fontSize="10" fontFamily="monospace">
-            {(max / 10000).toFixed(0)}만
+            {compactMoney(max, currency)}
           </text>
           <text x="2" y={H - pb} fill="#8C8674" fontSize="10" fontFamily="monospace">
-            {(min / 10000).toFixed(0)}만
+            {compactMoney(min, currency)}
           </text>
           {/* 구간 최저점 ★ 마커 */}
           {minIdx >= 0 && (

@@ -1,5 +1,6 @@
 import { SORTS } from "../lib/dealSort";
 import { PRICE_PRESETS } from "../lib/filterUi";
+import { genreKey } from "../lib/genres";
 import { money } from "../lib/format";
 import { useT } from "../lib/i18n";
 
@@ -80,15 +81,18 @@ export default function DealControls({ opts, onChange, availableGenres = [], cur
             )}
           </div>
           <div className="genre-chips">
-            {availableGenres.map((g) => (
-              <button
-                key={g}
-                className={"toggle" + (selected.includes(g) ? " on" : "")}
-                onClick={() => toggleGenre(g)}
-              >
-                {g}
-              </button>
-            ))}
+            {availableGenres.map((g) => {
+              const gk = genreKey(g);
+              return (
+                <button
+                  key={g}
+                  className={"toggle" + (selected.includes(g) ? " on" : "")}
+                  onClick={() => toggleGenre(g)}
+                >
+                  {gk ? t(gk) : g}
+                </button>
+              );
+            })}
           </div>
         </div>
       )}

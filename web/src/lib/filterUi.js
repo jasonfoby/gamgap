@@ -1,5 +1,6 @@
 import { money } from "./format";
 import { defaultDealOpts } from "./dealSort";
+import { genreKey } from "./genres";
 
 // 가격 빠른 선택(프리셋). 라벨은 번역 키로 둔다(DealControls가 t로 그린다).
 export const PRICE_PRESETS = [
@@ -30,8 +31,14 @@ export function activeFilterChips(opts, currency) {
   if (opts.min50) chips.push({ id: "min50", labelKey: "chip.min50", patch: { min50: false } });
   if (opts.maxPrice < opts.maxBound)
     chips.push({ id: "maxPrice", labelKey: "chip.under", labelVars: { p: money(opts.maxPrice, currency) }, patch: { maxPrice: opts.maxBound } });
-  for (const g of opts.genres || [])
-    chips.push({ id: "genre:" + g, label: g, patch: { genres: (opts.genres || []).filter((x) => x !== g) } });
+  for (const g of opts.genres || []) {
+    const gk = genreKey(g);
+    chips.push({
+      id: "genre:" + g,
+      ...(gk ? { labelKey: gk } : { label: g }), // 매핑되면 번역 키, 아니면 원문(한국어) 폴백
+      patch: { genres: (opts.genres || []).filter((x) => x !== g) },
+    });
+  }
   return chips;
 }
 

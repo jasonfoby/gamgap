@@ -173,4 +173,34 @@ export default {
   "meta.gameDesc": "Preço atual de {name} na Steam: {cur}{sale}.{atl} Veja na Lowstamp se vale a pena comprar agora.",
   "meta.gameDescSale": " (-{pct}%)",
   "meta.gameDescAtl": " Menor histórico {p}.",
+
+  // 404
+  "nf.title": "Página não encontrada",
+  "nf.desc": "O endereço pode ter mudado ou a página não existe mais. Recomece abaixo.",
+  "nf.home": "Voltar ao início",
+
+  // Gráfico de preços
+  "chart.1y": "1A",
+  "chart.3y": "3A",
+  "chart.all": "Tudo",
+  "chart.empty": "O histórico de preços ainda está sendo coletado.",
+  "chart.atl": "★ Menor preço histórico",
+
+  // Gêneros (nome de gênero coreano da Steam → rótulo exibido)
+  "genre.action": "Ação",
+  "genre.adventure": "Aventura",
+  "genre.indie": "Indie",
+  "genre.strategy": "Estratégia",
+  "genre.rpg": "RPG",
+  "genre.simulation": "Simulação",
+  "genre.casual": "Casual",
+  "genre.racing": "Corrida",
+  "genre.sports": "Esportes",
+  "genre.mmo": "Multijogador massivo",
+  "genre.f2p": "Gratuito",
+  "genre.earlyaccess": "Acesso antecipado",
+  "genre.utilities": "Utilitários",
+  "genre.gore": "Sangue",
+  "genre.violent": "Violento",
+  "genre.sexual": "Conteúdo adulto",
 };

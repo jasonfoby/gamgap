@@ -173,4 +173,34 @@ export default {
   "meta.gameDesc": "{name} 在 Steam 的现价为 {cur}{sale}。{atl} 到 Lowstamp 看看现在该不该买。",
   "meta.gameDescSale": "（-{pct}%）",
   "meta.gameDescAtl": " 历史最低 {p}。",
+
+  // 404
+  "nf.title": "找不到页面",
+  "nf.desc": "网址可能已更改或页面已不存在。请从下方重新开始。",
+  "nf.home": "返回首页",
+
+  // 价格走势图
+  "chart.1y": "1年",
+  "chart.3y": "3年",
+  "chart.all": "全部",
+  "chart.empty": "价格走势数据仍在收集中。",
+  "chart.atl": "★ 历史最低价",
+
+  // 类型(Steam 韩语类型名 → 显示标签)
+  "genre.action": "动作",
+  "genre.adventure": "冒险",
+  "genre.indie": "独立",
+  "genre.strategy": "策略",
+  "genre.rpg": "角色扮演",
+  "genre.simulation": "模拟",
+  "genre.casual": "休闲",
+  "genre.racing": "竞速",
+  "genre.sports": "体育",
+  "genre.mmo": "大型多人在线",
+  "genre.f2p": "免费游玩",
+  "genre.earlyaccess": "抢先体验",
+  "genre.utilities": "实用工具",
+  "genre.gore": "血腥",
+  "genre.violent": "暴力",
+  "genre.sexual": "成人内容",
 };

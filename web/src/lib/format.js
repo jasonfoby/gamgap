@@ -29,6 +29,17 @@ export function money(n, currency) {
   }
 }
 
+// 차트 y축 등 좁은 자리에 쓰는 짧은 가격 표기.
+//   한국어+원화: "6만"처럼 만 단위로 압축 / 그 외 언어·통화: money()로 통화 포맷.
+//   예: compactMoney(66000) → (ko)"7만" (en)"₩66,000" / compactMoney(59.99,"USD") → "$59.99"
+export function compactMoney(n, currency) {
+  const v = Number(n) || 0;
+  if ((!currency || currency === "KRW") && _lang === "ko") {
+    return Math.round(v / 10000) + "만";
+  }
+  return money(v, currency);
+}
+
 // "2024-11" 같은 날짜 문자열을 언어에 맞게. ko: "2024년 11월" / 그 외: "Nov 2024" 등.
 export function ym(d) {
   if (!d) return "";

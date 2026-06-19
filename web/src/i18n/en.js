@@ -173,4 +173,34 @@ export default {
   "meta.gameDesc": "{name} is {cur} on Steam right now{sale}.{atl} See whether it's worth buying now on Lowstamp.",
   "meta.gameDescSale": " (-{pct}%)",
   "meta.gameDescAtl": " All-time low {p}.",
+
+  // 404
+  "nf.title": "Page not found",
+  "nf.desc": "The address may have changed or the page no longer exists. Start again below.",
+  "nf.home": "Back to home",
+
+  // Price chart
+  "chart.1y": "1Y",
+  "chart.3y": "3Y",
+  "chart.all": "All",
+  "chart.empty": "Price history is still being collected.",
+  "chart.atl": "★ All-time low",
+
+  // Genres (Steam Korean genre name → display label)
+  "genre.action": "Action",
+  "genre.adventure": "Adventure",
+  "genre.indie": "Indie",
+  "genre.strategy": "Strategy",
+  "genre.rpg": "RPG",
+  "genre.simulation": "Simulation",
+  "genre.casual": "Casual",
+  "genre.racing": "Racing",
+  "genre.sports": "Sports",
+  "genre.mmo": "Massively Multiplayer",
+  "genre.f2p": "Free to Play",
+  "genre.earlyaccess": "Early Access",
+  "genre.utilities": "Utilities",
+  "genre.gore": "Gore",
+  "genre.violent": "Violent",
+  "genre.sexual": "Mature Content",
 };

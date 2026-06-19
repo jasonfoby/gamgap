@@ -172,5 +172,35 @@ export default {
   "meta.gameTitle": "Precio de {name} — ahora {cur} · Lowstamp",
   "meta.gameDesc": "Precio actual de {name} en Steam: {cur}{sale}.{atl} Comprueba en Lowstamp si conviene comprarlo ahora.",
   "meta.gameDescSale": " (-{pct}%)",
-  "meta.gameDescAtl": " Mínimo histórico {p}."
+  "meta.gameDescAtl": " Mínimo histórico {p}.",
+
+  // 404
+  "nf.title": "Página no encontrada",
+  "nf.desc": "Es posible que la dirección haya cambiado o que la página ya no exista. Vuelve a empezar abajo.",
+  "nf.home": "Volver al inicio",
+
+  // Gráfico de precios
+  "chart.1y": "1A",
+  "chart.3y": "3A",
+  "chart.all": "Todo",
+  "chart.empty": "Aún se está recopilando el historial de precios.",
+  "chart.atl": "★ Mínimo histórico",
+
+  // Géneros (nombre de género coreano de Steam → etiqueta mostrada)
+  "genre.action": "Acción",
+  "genre.adventure": "Aventura",
+  "genre.indie": "Indie",
+  "genre.strategy": "Estrategia",
+  "genre.rpg": "RPG",
+  "genre.simulation": "Simulación",
+  "genre.casual": "Casual",
+  "genre.racing": "Carreras",
+  "genre.sports": "Deportes",
+  "genre.mmo": "Multijugador masivo",
+  "genre.f2p": "Free to Play",
+  "genre.earlyaccess": "Acceso anticipado",
+  "genre.utilities": "Utilidades",
+  "genre.gore": "Sangre",
+  "genre.violent": "Violento",
+  "genre.sexual": "Contenido adulto",
 };

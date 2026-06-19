@@ -23,19 +23,40 @@
   <meta property="og:title" content="Lowstamp — 스팀 게임 원화 최저가·지금 사도 돼?" />
   <meta property="og:description" content="스팀 게임의 현재 원화 가격과 역대 최저가, '지금 사도 되나' 판정을 한눈에." />
   <meta property="og:url" content="https://lowstamp.com/" />
-  <meta property="og:image" content="" />
+  <meta property="og:image" content="https://lowstamp.com/og-default.jpg" />
 
   <!-- Twitter / X 카드 -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Lowstamp — 스팀 게임 원화 최저가·지금 사도 돼?" />
   <meta name="twitter:description" content="스팀 게임의 현재 원화 가격과 역대 최저가, '지금 사도 되나' 판정을 한눈에." />
-  <meta name="twitter:image" content="" />
+  <meta name="twitter:image" content="https://lowstamp.com/og-default.jpg" />
 
   <!-- Cloudflare Web Analytics: 대시보드에서 사이트(lowstamp.com) 추가 후 발급 토큰으로 아래 REPLACE_WITH_YOUR_CF_TOKEN 교체 -->
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "REPLACE_WITH_YOUR_CF_TOKEN"}'></script>
 
-  <!-- Google AdSense: 승인/사이트 추가 후 발급된 ca-pub-XXXX 로 교체 -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+  <!-- Google 동의 모드 v2: 광고 쿠키는 사용자가 하단 쿠키 배너에서 '동의'하기 전까지 기본 '거부'. -->
+  <!-- 이전 방문에서 동의했으면 그 값으로 시작. 동의 시점에 src/lib/consent.js 가 gtag로 'granted' 갱신. -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    window.gtag = gtag;
+    (function () {
+      var c = null;
+      try { c = localStorage.getItem('gamgap:consent'); } catch (e) {}
+      var g = c === 'granted' ? 'granted' : 'denied';
+      gtag('consent', 'default', {
+        ad_storage: g,
+        ad_user_data: g,
+        ad_personalization: g,
+        analytics_storage: g,
+        wait_for_update: 500
+      });
+    })();
+  </script>
+
+  <!-- Google AdSense (게시자 ID: ca-pub-6033148215263757). 메타태그는 사이트 소유권 확인용. -->
+  <meta name="google-adsense-account" content="ca-pub-6033148215263757" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6033148215263757" crossorigin="anonymous"></script>
 </head>
 <body>
   <div id="root"></div>

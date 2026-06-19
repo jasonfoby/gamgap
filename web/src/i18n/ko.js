@@ -200,4 +200,34 @@ export default {
   "meta.gameDesc": "{name} 스팀 현재가 {cur}{sale}.{atl} 지금 사도 되는지 Lowstamp에서 확인하세요.",
   "meta.gameDescSale": " (-{pct}%)",
   "meta.gameDescAtl": " 역대최저 {p}.",
+
+  // 404
+  "nf.title": "페이지를 찾을 수 없어요",
+  "nf.desc": "주소가 바뀌었거나 사라진 페이지예요. 아래에서 다시 시작해 보세요.",
+  "nf.home": "홈으로",
+
+  // 가격 차트
+  "chart.1y": "1년",
+  "chart.3y": "3년",
+  "chart.all": "전체",
+  "chart.empty": "가격 흐름 데이터가 아직 쌓이는 중이에요.",
+  "chart.atl": "★ 역대최저",
+
+  // 장르(스팀 한국어 장르명 → 표시 라벨)
+  "genre.action": "액션",
+  "genre.adventure": "어드벤처",
+  "genre.indie": "인디",
+  "genre.strategy": "전략",
+  "genre.rpg": "RPG",
+  "genre.simulation": "시뮬레이션",
+  "genre.casual": "캐주얼",
+  "genre.racing": "레이싱",
+  "genre.sports": "스포츠",
+  "genre.mmo": "대규모 멀티플레이어",
+  "genre.f2p": "무료 플레이",
+  "genre.earlyaccess": "앞서 해보기",
+  "genre.utilities": "유틸리티",
+  "genre.gore": "고어",
+  "genre.violent": "폭력적",
+  "genre.sexual": "성인 콘텐츠",
 };

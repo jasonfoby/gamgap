@@ -40,6 +40,22 @@ export async function onRequest(context) {
   // 현재가가 없는(빈) 페이지만 색인 제외. 현재가·역대최저·판정이 있으면 게임마다 고유 정보가
   // 있으므로(얇은 자동생성 페이지가 아님), 이력이 짧아도 색인을 허용한다.
   const thin = !(Number(game.currentPrice) > 0);
+
+  // 봇용 본문: 빈 <div id="root"> 대신 실제 텍스트(게임명·가격·역대최저·스팀 링크)를 서버에서 채운다.
+  // JS를 돌리는 사람 브라우저에서는 React(createRoot)가 이 내용을 즉시 덮어 그리므로 화면엔 영향 없음.
+  // JS를 안 돌리는 봇/초기 크롤은 빈 페이지 대신 이 고유 본문을 보게 되어 '얇은/빈 페이지' 판정을 피한다.
+  const nameE = esc(game.name);
+  const saleClause = onSale ? ` (정가 ${won(game.normalPrice)}에서 ${Number(game.discountPercent) || 0}% 할인)` : "";
+  const atlDate = game.allTimeLowDate ? ` (${esc(game.allTimeLowDate)})` : "";
+  const atlClause = Number(game.allTimeLow) > 0 ? `, 역대 최저가는 ${won(game.allTimeLow)}${atlDate}` : "";
+  const bodyHtml =
+    `<main style="max-width:880px;margin:0 auto;padding:24px;font-family:sans-serif">` +
+    `<h1>${nameE} 가격 · 역대 최저가</h1>` +
+    `<p>${nameE}의 스팀 한국(원화) 현재가는 ${won(game.currentPrice)}입니다${saleClause}${atlClause}. ` +
+    `Lowstamp에서 지금이 살 때인지 ‘지금 사도 돼?’ 판정과 가격 흐름을 확인하세요.</p>` +
+    `<p><a href="https://store.steampowered.com/app/${game.appid}/">스팀에서 ${nameE} 보기</a></p>` +
+    `</main>`;
+
   const jsonld = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Product",
@@ -65,6 +81,7 @@ export async function onRequest(context) {
     .on('meta[name="twitter:title"]', { element(e) { e.setAttribute("content", title); } })
     .on('meta[name="twitter:description"]', { element(e) { e.setAttribute("content", desc); } })
     .on('meta[name="twitter:image"]', { element(e) { e.setAttribute("content", img); } })
+    .on("#root", { element(e) { e.setInnerContent(bodyHtml, { html: true }); } })
     .on("head", {
       element(e) {
         e.append(`<script type="application/ld+json">${esc(jsonld).replace(/&quot;/g, '"')}</script>`, { html: true });

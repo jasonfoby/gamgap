@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!-- Lowstamp 기본 공유 이미지(OG). 영수증/가격 장부 컨셉. 편집은 이 SVG에서 → og-default.png 로 다시 래스터화. -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#141A2B"/>
+      <stop offset="100%" stop-color="#0F1320"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="0" y="0" width="1200" height="8" fill="#C8912B"/>
+
+  <!-- 왼쪽 텍스트 블록 -->
+  <g font-family="'Segoe UI','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif">
+    <circle cx="92" cy="118" r="15" fill="#C8912B"/>
+    <text x="120" y="135" fill="#F4F1E8" font-size="62" font-weight="700">Lowstamp</text>
+
+    <text x="90" y="250" fill="#F4F1E8" font-size="54" font-weight="700">Should you buy</text>
+    <text x="90" y="316" fill="#F4F1E8" font-size="54" font-weight="700">this game <tspan fill="#C8912B">now?</tspan></text>
+
+    <text x="92" y="392" fill="#A7A091" font-size="27">Steam prices · all-time lows · a buy-or-wait verdict</text>
+    <text x="92" y="432" fill="#A7A091" font-size="27">스팀 게임 원화 최저가 · 지금 사도 돼?</text>
+
+    <text x="92" y="540" fill="#8C8674" font-size="23">lowstamp.com · 키샵 없이 스팀 공식 원화가만</text>
+  </g>
+
+  <!-- 오른쪽 영수증 카드(살짝 기움) -->
+  <g transform="rotate(-5 935 315)">
+    <rect x="745" y="95" width="380" height="430" rx="16" fill="#F4F1E8"/>
+    <text x="775" y="150" fill="#C8912B" font-size="20" font-weight="700" letter-spacing="3">LOWSTAMP</text>
+    <line x1="775" y1="170" x2="1095" y2="170" stroke="#E2DBC9" stroke-width="2" stroke-dasharray="3 5"/>
+
+    <text x="775" y="220" fill="#1C1B17" font-size="30" font-weight="700" font-family="'Segoe UI','Malgun Gothic',sans-serif">Cyberpunk 2077</text>
+
+    <text x="775" y="300" fill="#1C1B17" font-size="58" font-weight="700" font-family="'DejaVu Sans Mono','Consolas',monospace">₩19,800</text>
+    <text x="775" y="342" fill="#8C8674" font-size="26" font-family="'Consolas',monospace" text-decoration="line-through">₩66,000</text>
+    <rect x="985" y="318" width="110" height="36" rx="8" fill="#C8912B"/>
+    <text x="1040" y="343" fill="#0F1320" font-size="24" font-weight="700" text-anchor="middle" font-family="'Consolas',monospace">-70%</text>
+
+    <line x1="775" y1="378" x2="1095" y2="378" stroke="#E2DBC9" stroke-width="2" stroke-dasharray="3 5"/>
+    <text x="775" y="420" fill="#C8912B" font-size="26" font-weight="700">★ 역대 최저가</text>
+
+    <!-- 시그니처 스탬프 -->
+    <g transform="rotate(-9 935 478)">
+      <rect x="800" y="448" width="270" height="60" rx="10" fill="none" stroke="#C04A2B" stroke-width="3"/>
+      <text x="935" y="488" fill="#C04A2B" font-size="30" font-weight="700" text-anchor="middle" font-family="'Apple SD Gothic Neo','Malgun Gothic',sans-serif">지금이 살 때!</text>
+    </g>
+  </g>
+</svg>
