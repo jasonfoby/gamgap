@@ -12,7 +12,7 @@ export default {
 
   "hero.title": "Should you buy this game {hl}?",
   "hero.titleHl": "now",
-  "hero.sub": "We tell you a Steam game's {b} and whether it's a good time to buy, in one line. Real Steam prices, no key shops.",
+  "hero.sub": "See a Steam game's {b} and whether now's a good time to buy — in one line. Real store prices, no sketchy key shops.",
   "hero.subB": "all-time low",
 
   "search.placeholder": "Search for a game",
@@ -74,12 +74,12 @@ export default {
 
   "skel.listAria": "Loading list",
 
-  "trust.officialK": "Official Steam price",
-  "trust.officialV": "Real currency",
-  "trust.nokeyshopK": "No key shops",
-  "trust.nokeyshopV": "Safe comparison",
-  "trust.dailyK": "Once a day",
-  "trust.dailyV": "Price refresh",
+  "trust.officialK": "Real Steam prices",
+  "trust.officialV": "No resellers",
+  "trust.nokeyshopK": "No sketchy key shops",
+  "trust.nokeyshopV": "Safe to buy",
+  "trust.dailyK": "Updated daily",
+  "trust.dailyV": "Always fresh",
 
   "cd.ongoing": "Live now",
   "cd.upcoming": "Upcoming",
@@ -141,7 +141,7 @@ export default {
   "verdict.full.sub": "Wait for a sale",
   "verdict.full.tip": "There's no discount right now. Steam runs sales often, so it's best to wishlist it and wait for an alert.",
 
-  "footer.tagline": "Official Steam prices only — safe comparison, no key shops",
+  "footer.tagline": "Real Steam store prices and all-time lows — no sketchy key shops.",
   "footer.about": "About",
   "footer.privacy": "Privacy Policy",
   "footer.terms": "Terms of Service",
@@ -203,4 +203,17 @@ export default {
   "genre.gore": "Gore",
   "genre.violent": "Violent",
   "genre.sexual": "Mature Content",
+  "info.title": "Game info",
+  "info.genres": "Genres",
+  "info.controller": "Controller",
+  "info.controllerFull": "Full support",
+  "info.controllerPartial": "Partial support",
+  "info.languages": "Languages",
+  "info.langCount": "{n} languages total",
+  "info.dlc": "DLC",
+  "info.dlcCount": "{n} DLC",
+  "info.developer": "Developer",
+  "info.released": "Released",
+  "info.metacritic": "Metacritic",
+  "info.platforms": "Platforms",
 };

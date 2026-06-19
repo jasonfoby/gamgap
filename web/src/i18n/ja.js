@@ -12,7 +12,7 @@ export default {
 
   "hero.title": "このゲーム、{hl} 買っていい?",
   "hero.titleHl": "今",
-  "hero.sub": "Steam ゲームの {b} と「今が買い時か」をひと言でお知らせ。表示価格そのまま、キーショップ抜きで。",
+  "hero.sub": "Steam ゲームの{b}と「今が買い時か」を一行で。ストアの実価格だけ、怪しいキー販売はなし。",
   "hero.subB": "過去最安値",
 
   "search.placeholder": "ゲーム名で検索",
@@ -74,12 +74,12 @@ export default {
 
   "skel.listAria": "一覧を読み込み中",
 
-  "trust.officialK": "Steam 公式価格",
-  "trust.officialV": "表示価格そのまま",
-  "trust.nokeyshopK": "キーショップなし",
-  "trust.nokeyshopV": "安全に比較",
-  "trust.dailyK": "1日1回",
-  "trust.dailyV": "価格を更新",
+  "trust.officialK": "ストアの実価格",
+  "trust.officialV": "転売なし",
+  "trust.nokeyshopK": "怪しいキー販売なし",
+  "trust.nokeyshopV": "安心して購入",
+  "trust.dailyK": "毎日更新",
+  "trust.dailyV": "常に最新",
 
   "cd.ongoing": "開催中",
   "cd.upcoming": "予定",
@@ -141,7 +141,7 @@ export default {
   "verdict.full.sub": "セールを待ちましょう",
   "verdict.full.tip": "今は割引がありません。Steam はセールが頻繁にあるので、ウィッシュリストに入れて通知を待つのがおすすめです。",
 
-  "footer.tagline": "Steam 公式の表示価格だけを、キーショップ抜きで安全に比較",
+  "footer.tagline": "Steam ストアの実価格と過去最安値だけ — 怪しいキー販売はなし。",
   "footer.about": "紹介",
   "footer.privacy": "プライバシーポリシー",
   "footer.terms": "利用規約",
@@ -203,4 +203,17 @@ export default {
   "genre.gore": "ゴア",
   "genre.violent": "暴力的",
   "genre.sexual": "アダルトコンテンツ",
+  "info.title": "ゲーム情報",
+  "info.genres": "ジャンル",
+  "info.controller": "コントローラー",
+  "info.controllerFull": "フル対応",
+  "info.controllerPartial": "一部対応",
+  "info.languages": "対応言語",
+  "info.langCount": "全{n}言語",
+  "info.dlc": "DLC",
+  "info.dlcCount": "{n}個",
+  "info.developer": "開発元",
+  "info.released": "発売",
+  "info.metacritic": "メタクリティック",
+  "info.platforms": "プラットフォーム",
 };

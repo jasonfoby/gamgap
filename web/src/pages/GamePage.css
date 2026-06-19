@@ -66,6 +66,19 @@
   color: var(--ink-txt);
 }
 
+/* "게임 정보" 섹션 — 기존 .ledger/.lrow/.lab/.val 영수증 스타일 재사용.
+   값이 길 수 있어(언어 목록 등) 줄바꿈 허용하고, 부가 텍스트는 흐리게. */
+.gp-info .val {
+  text-align: right;
+  white-space: normal;
+  word-break: keep-all;
+  line-height: 1.5;
+}
+.gp-info-sub {
+  color: var(--mute);
+  font-size: 12px;
+}
+
 .gp-foot {
   margin-top: 22px;
   padding-top: 18px;

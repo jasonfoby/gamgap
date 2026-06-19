@@ -6,7 +6,7 @@
 #       ③ 값이 바뀐 것만 D1 장부에 쌓고 역대 최저가도 갱신.
 #  seed_appids.txt 는 이제 안 씁니다(지워도 됩니다).
 # ============================================================
-import os, json, time, datetime, urllib.request, urllib.parse
+import os, re, json, time, datetime, urllib.request, urllib.parse
 
 CF_ACCOUNT = os.environ["CF_ACCOUNT_ID"]
 CF_DB      = os.environ["CF_DATABASE_ID"]
@@ -126,6 +126,74 @@ def cheapshark_deals(target):
     return appids[:target]
 
 
+# 우리가 지원하는 6개 UI 언어를 한국어(l=koreana) supported_languages 문자열에서 부분일치로 감지.
+# 키 순서가 곧 langs 컬럼의 고정 출력 순서(ko,en,ja,zh,es,pt)다.
+LANG_TOKENS = [
+    ("ko", "한국어"),
+    ("en", "영어"),
+    ("ja", "일본어"),
+    ("zh", "중국어"),
+    ("es", "스페인어"),
+    ("pt", "포르투갈어"),
+]
+
+
+def extract_meta(d):
+    """가격을 묻는 같은 appdetails 응답(d=data 노드)에서 '언어 중립' 메타데이터를 뽑는다.
+    추가 네트워크 호출 없음. 없는 키는 .get 기본값으로 안전하게 처리."""
+    # 개발사(첫 번째만)
+    developer = (d.get("developers") or [""])[0] or ""
+
+    # 출시연도: release_date.date 문자열에서 첫 4자리 숫자(예: "2020년 12월 10일" → 2020)
+    rd = (d.get("release_date") or {}).get("date", "") or ""
+    ym = re.search(r"\d{4}", rd)
+    release_year = int(ym.group()) if ym else 0
+
+    # 메타크리틱 점수(없으면 0)
+    metacritic = int((d.get("metacritic") or {}).get("score") or 0)
+
+    # 컨트롤러 지원: full(완전) / partial(부분) / "" (없음)
+    controller = ""
+    if d.get("controller_support") == "full":
+        controller = "full"
+    else:
+        for c in d.get("categories", []) or []:
+            desc = str(c.get("description", ""))
+            if c.get("id") == 18 or ("부분" in desc and "컨트롤러" in desc) or ("Partial Controller" in desc):
+                controller = "partial"
+                break
+
+    # 플랫폼: platforms dict에서 true인 것만 win/mac/linux로 매핑
+    plat = d.get("platforms") or {}
+    platforms = ",".join(
+        code for key, code in (("windows", "win"), ("mac", "mac"), ("linux", "linux"))
+        if plat.get(key)
+    )
+
+    # DLC 개수
+    dlc_count = len(d.get("dlc", []) or [])
+
+    # 지원 언어: 한국어 명칭(l=koreana)을 부분일치로 우리 6개 감지 → 고정 순서로 코드 결합
+    sl = d.get("supported_languages", "") or ""
+    langs = ",".join(code for code, token in LANG_TOKENS if token in sl)
+
+    # 총 지원 언어 수: HTML 태그 제거 + "<br>" 뒤(주석) 잘라내고 쉼표로 split해 비지 않은 항목 수
+    head = re.split(r"<br\s*/?>", sl, maxsplit=1)[0]
+    head = re.sub(r"<[^>]+>", "", head)
+    lang_count = sum(1 for part in head.split(",") if part.strip()) if head.strip() else 0
+
+    return {
+        "developer":    developer,
+        "release_year": release_year,
+        "metacritic":   metacritic,
+        "controller":   controller,
+        "platforms":    platforms,
+        "dlc_count":    dlc_count,
+        "langs":        langs,
+        "lang_count":   lang_count,
+    }
+
+
 def steam_fetch(appid):
     url = f"https://store.steampowered.com/api/appdetails?appids={appid}&cc=kr&l=koreana"
     req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (gamgap)"})
@@ -144,13 +212,16 @@ def steam_fetch(appid):
         g.get("description", "").strip()
         for g in d.get("genres", []) if g.get("description")
     )
-    return {
+    out = {
         "name":     d.get("name", f"appid-{appid}"),
         "normal":   po["initial"] // PRICE_DIVISOR,
         "current":  po["final"]   // PRICE_DIVISOR,
         "discount": po.get("discount_percent", 0),
         "genres":   genres,
     }
+    # 같은 응답에서 '언어 중립' 메타데이터도 함께 뽑아 합친다(추가 호출 없음).
+    out.update(extract_meta(d))
+    return out
 
 
 def steam_fetch_region(appid, cc, lang):
@@ -238,8 +309,9 @@ def main():
             "sql":
             """INSERT INTO games
                  (appid,name,normal_price,current_price,discount_percent,
-                  all_time_low,all_time_low_date,is_low_today,last_checked,genres)
-               VALUES (?,?,?,?,?,?,?,?,?,?)
+                  all_time_low,all_time_low_date,is_low_today,last_checked,genres,
+                  developer,release_year,metacritic,controller,platforms,dlc_count,langs,lang_count)
+               VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
                ON CONFLICT(appid) DO UPDATE SET
                  name=excluded.name,
                  normal_price=excluded.normal_price,
@@ -249,10 +321,20 @@ def main():
                  all_time_low_date=COALESCE(NULLIF(excluded.all_time_low_date,''), games.all_time_low_date),
                  is_low_today=excluded.is_low_today,
                  last_checked=excluded.last_checked,
-                 genres=COALESCE(NULLIF(excluded.genres,''), games.genres)""",
+                 genres=COALESCE(NULLIF(excluded.genres,''), games.genres),
+                 developer=excluded.developer,
+                 release_year=excluded.release_year,
+                 metacritic=excluded.metacritic,
+                 controller=excluded.controller,
+                 platforms=excluded.platforms,
+                 dlc_count=excluded.dlc_count,
+                 langs=excluded.langs,
+                 lang_count=excluded.lang_count""",
             "params":
             [appid, p["name"], p["normal"], p["current"], p["discount"],
-             new_low, low_date, is_low_today, NOW, p["genres"]],
+             new_low, low_date, is_low_today, NOW, p["genres"],
+             p["developer"], p["release_year"], p["metacritic"], p["controller"],
+             p["platforms"], p["dlc_count"], p["langs"], p["lang_count"]],
         }]
 
         # change-only: 가격이 바뀌었거나 신규일 때만 history 적재(+ changed 카운트)

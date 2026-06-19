@@ -12,7 +12,7 @@ export default {
 
   "hero.title": "Este juego, ¿conviene comprarlo {hl}?",
   "hero.titleHl": "ahora",
-  "hero.sub": "Te decimos en una línea el {b} de los juegos de Steam y si conviene comprarlos ahora. Precio oficial, sin tiendas de claves.",
+  "hero.sub": "Te decimos el {b} de un juego de Steam y si conviene comprarlo ahora, en una línea. Solo precios reales de la tienda, sin tiendas de claves.",
   "hero.subB": "mínimo histórico",
 
   "search.placeholder": "Busca un juego por su nombre",
@@ -74,12 +74,12 @@ export default {
 
   "skel.listAria": "Cargando la lista",
 
-  "trust.officialK": "Precio oficial de Steam",
-  "trust.officialV": "Precio oficial sin recargo",
+  "trust.officialK": "Precios reales de Steam",
+  "trust.officialV": "Sin reventa",
   "trust.nokeyshopK": "Sin tiendas de claves",
-  "trust.nokeyshopV": "Comparación segura",
-  "trust.dailyK": "Una vez al día",
-  "trust.dailyV": "Precios actualizados",
+  "trust.nokeyshopV": "Compra segura",
+  "trust.dailyK": "Actualizado a diario",
+  "trust.dailyV": "Siempre al día",
 
   "cd.ongoing": "En curso",
   "cd.upcoming": "Próximamente",
@@ -141,7 +141,7 @@ export default {
   "verdict.full.sub": "Espera una oferta",
   "verdict.full.tip": "Ahora mismo no tiene descuento. Steam hace ofertas con frecuencia, así que conviene agregarlo a tu lista de favoritos y esperar el aviso.",
 
-  "footer.tagline": "Solo el precio oficial de Steam, comparación segura sin tiendas de claves",
+  "footer.tagline": "Solo precios reales de Steam y mínimos históricos — sin tiendas de claves.",
   "footer.about": "Acerca de",
   "footer.privacy": "Política de privacidad",
   "footer.terms": "Términos de uso",
@@ -203,4 +203,17 @@ export default {
   "genre.gore": "Sangre",
   "genre.violent": "Violento",
   "genre.sexual": "Contenido adulto",
+  "info.title": "Información del juego",
+  "info.genres": "Géneros",
+  "info.controller": "Mando",
+  "info.controllerFull": "Compatibilidad total",
+  "info.controllerPartial": "Compatibilidad parcial",
+  "info.languages": "Idiomas",
+  "info.langCount": "{n} idiomas en total",
+  "info.dlc": "DLC",
+  "info.dlcCount": "{n} DLC",
+  "info.developer": "Desarrollador",
+  "info.released": "Lanzamiento",
+  "info.metacritic": "Metacritic",
+  "info.platforms": "Plataformas",
 };

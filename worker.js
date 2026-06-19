@@ -23,7 +23,15 @@ const SUMMARY = `
          all_time_low      AS allTimeLow,
          all_time_low_date AS allTimeLowDate,
          is_low_today      AS isLowToday,
-         genres
+         genres,
+         developer,
+         release_year      AS releaseYear,
+         metacritic,
+         controller,
+         platforms,
+         dlc_count         AS dlcCount,
+         langs,
+         lang_count        AS langCount
     FROM games`;
 
 // 지역(region_prices): 원시 ×100을 ÷100 해 실가로, currency 함께. 모양은 games와 동일 + currency.
@@ -38,7 +46,15 @@ const REGION_SUMMARY = `
          r.all_time_low_date                  AS allTimeLowDate,
          r.is_low_today                       AS isLowToday,
          r.currency                           AS currency,
-         g.genres                             AS genres
+         g.genres                             AS genres,
+         g.developer                          AS developer,
+         g.release_year                       AS releaseYear,
+         g.metacritic                         AS metacritic,
+         g.controller                         AS controller,
+         g.platforms                          AS platforms,
+         g.dlc_count                          AS dlcCount,
+         g.langs                              AS langs,
+         g.lang_count                         AS langCount
     FROM region_prices r
     LEFT JOIN games g ON g.appid = r.appid`;
 

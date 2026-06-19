@@ -13,6 +13,9 @@ import { getGame } from "../api";
 import { track } from "../lib/analytics";
 import { useT, tNodes } from "../lib/i18n";
 import { regionForLang } from "../lib/region";
+import { gameGenres } from "../lib/dealSort";
+import { genreKey } from "../lib/genres";
+import { SUPPORTED } from "../i18n";
 import "./GamePage.css";
 
 // 개별 게임 상세 "페이지"(/game/:appid). 모달을 대체하는 색인 가능한 독립 URL.
@@ -172,6 +175,8 @@ function GameDetail({ g, copied, onCopy, t }) {
 
       <p className="gp-prose">{prose}</p>
 
+      <GameInfo g={g} t={t} />
+
       {stats && (
         <>
           <div className="subhead">{t("gp.statsTitle")}</div>
@@ -228,5 +233,83 @@ function GameDetail({ g, copied, onCopy, t }) {
         <div className="freshness">{t("gp.freshness")}</div>
       </div>
     </article>
+  );
+}
+
+// "게임 정보" 섹션 — 언어 중립 메타데이터(개발사·출시연도·플랫폼·언어 등)를
+// 영수증 장부 스타일 행으로 보여준다(데이터 있는 항목만). 체류 시간/SEO용.
+function GameInfo({ g, t }) {
+  const genres = gameGenres(g);
+  const controller = g.controller === "full" ? t("info.controllerFull") : g.controller === "partial" ? t("info.controllerPartial") : "";
+  const langCodes = (g.langs || "").split(",").map((s) => s.trim()).filter(Boolean);
+  const dlcCount = Number(g.dlcCount) || 0;
+  const releaseYear = Number(g.releaseYear) || 0;
+  const metacritic = Number(g.metacritic) || 0;
+  const platformLabel = { win: "Windows", mac: "macOS", linux: "Linux" };
+  const platforms = (g.platforms || "").split(",").map((s) => s.trim()).filter(Boolean);
+
+  // 모든 행이 비면 섹션 자체를 그리지 않는다.
+  const hasAny =
+    genres.length || controller || langCodes.length || dlcCount > 0 ||
+    g.developer || releaseYear > 0 || metacritic > 0 || platforms.length;
+  if (!hasAny) return null;
+
+  return (
+    <>
+      <div className="subhead">{t("info.title")}</div>
+      <div className="ledger gp-info">
+        {genres.length > 0 && (
+          <div className="lrow">
+            <span className="lab">{t("info.genres")}</span>
+            <span className="val">{genres.map((x) => (genreKey(x) ? t(genreKey(x)) : x)).join(", ")}</span>
+          </div>
+        )}
+        {controller && (
+          <div className="lrow">
+            <span className="lab">{t("info.controller")}</span>
+            <span className="val">{controller}</span>
+          </div>
+        )}
+        {langCodes.length > 0 && (
+          <div className="lrow">
+            <span className="lab">{t("info.languages")}</span>
+            <span className="val">
+              {SUPPORTED.filter((s) => langCodes.includes(s.code)).map((s) => "✓ " + s.label).join("  ")}
+              {Number(g.langCount) > 0 && <span className="gp-info-sub"> · {t("info.langCount", { n: g.langCount })}</span>}
+            </span>
+          </div>
+        )}
+        {dlcCount > 0 && (
+          <div className="lrow">
+            <span className="lab">{t("info.dlc")}</span>
+            <span className="val">{t("info.dlcCount", { n: dlcCount })}</span>
+          </div>
+        )}
+        {g.developer && (
+          <div className="lrow">
+            <span className="lab">{t("info.developer")}</span>
+            <span className="val">{g.developer}</span>
+          </div>
+        )}
+        {releaseYear > 0 && (
+          <div className="lrow">
+            <span className="lab">{t("info.released")}</span>
+            <span className="val">{releaseYear}</span>
+          </div>
+        )}
+        {metacritic > 0 && (
+          <div className="lrow">
+            <span className="lab">{t("info.metacritic")}</span>
+            <span className="val">{metacritic}</span>
+          </div>
+        )}
+        {platforms.length > 0 && (
+          <div className="lrow">
+            <span className="lab">{t("info.platforms")}</span>
+            <span className="val">{platforms.map((p) => platformLabel[p] || p).join(", ")}</span>
+          </div>
+        )}
+      </div>
+    </>
   );
 }

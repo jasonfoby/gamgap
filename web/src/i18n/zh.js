@@ -12,7 +12,7 @@ export default {
 
   "hero.title": "这款游戏，{hl} 入手合适吗？",
   "hero.titleHl": "现在",
-  "hero.sub": "一句话告诉你 Steam 游戏的{b}，以及现在该不该买。直接显示韩元价，不走第三方激活码站。",
+  "hero.sub": "一行看懂 Steam 游戏的{b}和现在该不该买。只看商店真实价格，不走第三方激活码。",
   "hero.subB": "历史最低价",
 
   "search.placeholder": "搜索游戏名称",
@@ -74,12 +74,12 @@ export default {
 
   "skel.listAria": "列表加载中",
 
-  "trust.officialK": "Steam 官方价",
-  "trust.officialV": "直接显示韩元",
-  "trust.nokeyshopK": "不走激活码站",
-  "trust.nokeyshopV": "安全比价",
-  "trust.dailyK": "每天 1 次",
-  "trust.dailyV": "价格更新",
+  "trust.officialK": "商店真实价格",
+  "trust.officialV": "无转售",
+  "trust.nokeyshopK": "不走第三方激活码",
+  "trust.nokeyshopV": "放心购买",
+  "trust.dailyK": "每日更新",
+  "trust.dailyV": "始终最新",
 
   "cd.ongoing": "进行中",
   "cd.upcoming": "即将开始",
@@ -141,7 +141,7 @@ export default {
   "verdict.full.sub": "等等特卖吧",
   "verdict.full.tip": "现在没有折扣。Steam 经常做特卖，建议加入愿望单并等待提醒。",
 
-  "footer.tagline": "只看 Steam 官方韩元价，不走激活码站，安全比价",
+  "footer.tagline": "只看 Steam 商店真实价格和历史最低价 —— 不走第三方激活码。",
   "footer.about": "关于",
   "footer.privacy": "隐私政策",
   "footer.terms": "使用条款",
@@ -203,4 +203,17 @@ export default {
   "genre.gore": "血腥",
   "genre.violent": "暴力",
   "genre.sexual": "成人内容",
+  "info.title": "游戏信息",
+  "info.genres": "类型",
+  "info.controller": "手柄",
+  "info.controllerFull": "完全支持",
+  "info.controllerPartial": "部分支持",
+  "info.languages": "支持语言",
+  "info.langCount": "共 {n} 种语言",
+  "info.dlc": "DLC",
+  "info.dlcCount": "{n} 个",
+  "info.developer": "开发商",
+  "info.released": "发行",
+  "info.metacritic": "Metacritic",
+  "info.platforms": "平台",
 };
