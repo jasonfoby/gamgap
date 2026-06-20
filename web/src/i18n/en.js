@@ -12,7 +12,7 @@ export default {
 
   "hero.title": "Should you buy this game {hl}?",
   "hero.titleHl": "now",
-  "hero.sub": "See a Steam game's {b} and whether now's a good time to buy — in one line. Real store prices, no sketchy key shops.",
+  "hero.sub": "We check a Steam game against its {b} and tell you, in one line, whether to buy now — so you don't overpay.",
   "hero.subB": "all-time low",
 
   "search.placeholder": "Search for a game",
@@ -74,10 +74,10 @@ export default {
 
   "skel.listAria": "Loading list",
 
-  "trust.officialK": "Real Steam prices",
-  "trust.officialV": "No resellers",
-  "trust.nokeyshopK": "No sketchy key shops",
-  "trust.nokeyshopV": "Safe to buy",
+  "trust.officialK": "Buy now or wait?",
+  "trust.officialV": "Checked vs all-time low",
+  "trust.nokeyshopK": "Spot fake sales",
+  "trust.nokeyshopV": "See if it's really cheap",
   "trust.dailyK": "Updated daily",
   "trust.dailyV": "Always fresh",
 
@@ -145,7 +145,7 @@ export default {
   "verdict.full.sub": "Wait for a sale",
   "verdict.full.tip": "There's no discount right now. Steam runs sales often, so it's best to wishlist it and wait for an alert.",
 
-  "footer.tagline": "Real Steam store prices and all-time lows — no sketchy key shops.",
+  "footer.tagline": "Is it a good price right now? We check it against the all-time low, in one line.",
   "footer.about": "About",
   "footer.privacy": "Privacy Policy",
   "footer.terms": "Terms of Service",
@@ -171,8 +171,8 @@ export default {
   "cookie.allow": "Accept",
   "cookie.aria": "Cookie consent",
 
-  "meta.defaultTitle": "Lowstamp — Steam game lowest prices (KRW) & should you buy now?",
-  "meta.defaultDesc": "See a Steam game's current price and all-time low, plus a buy-or-wait verdict, at a glance. Official Steam prices only, no key shops.",
+  "meta.defaultTitle": "Lowstamp — Steam game lowest prices & should you buy now?",
+  "meta.defaultDesc": "Is a Steam game a good price right now, or should you wait? We check it against its all-time low and tell you in one line — so you don't overpay.",
   "meta.gameTitle": "{name} price — now {cur} · Lowstamp",
   "meta.gameDesc": "{name} is {cur} on Steam right now{sale}.{atl} See whether it's worth buying now on Lowstamp.",
   "meta.gameDescSale": " (-{pct}%)",

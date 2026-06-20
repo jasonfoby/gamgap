@@ -1,7 +1,7 @@
 export default {
   "slug": "about",
   "title": "About Lowstamp",
-  "description": "Lowstamp tracks Steam game prices honestly, using only official store prices and skipping shady key shops. Here's why we built it, where our data comes from, and how the Buy or Wait verdict works.",
+  "description": "Lowstamp tells you whether a Steam game is a good price right now by checking it against its all-time low — so you don't overpay. Here's why we built it, where our data comes from, and how the Buy or Wait verdict works.",
   "updated": "2026-06-18",
   "body": [
     {

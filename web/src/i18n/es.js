@@ -12,7 +12,7 @@ export default {
 
   "hero.title": "Este juego, ¿conviene comprarlo {hl}?",
   "hero.titleHl": "ahora",
-  "hero.sub": "Te decimos el {b} de un juego de Steam y si conviene comprarlo ahora, en una línea. Solo precios reales de la tienda, sin tiendas de claves.",
+  "hero.sub": "Comparamos un juego de Steam con su {b} y te decimos en una línea si conviene comprarlo ahora, para que no pagues de más.",
   "hero.subB": "mínimo histórico",
 
   "search.placeholder": "Busca un juego por su nombre",
@@ -74,10 +74,10 @@ export default {
 
   "skel.listAria": "Cargando la lista",
 
-  "trust.officialK": "Precios reales de Steam",
-  "trust.officialV": "Sin reventa",
-  "trust.nokeyshopK": "Sin tiendas de claves",
-  "trust.nokeyshopV": "Compra segura",
+  "trust.officialK": "¿Comprar o esperar?",
+  "trust.officialV": "Comparado con el mínimo histórico",
+  "trust.nokeyshopK": "Detecta ofertas falsas",
+  "trust.nokeyshopV": "Mira si de verdad es barato",
   "trust.dailyK": "Actualizado a diario",
   "trust.dailyV": "Siempre al día",
 
@@ -145,7 +145,7 @@ export default {
   "verdict.full.sub": "Espera una oferta",
   "verdict.full.tip": "Ahora mismo no tiene descuento. Steam hace ofertas con frecuencia, así que conviene agregarlo a tu lista de favoritos y esperar el aviso.",
 
-  "footer.tagline": "Solo precios reales de Steam y mínimos históricos — sin tiendas de claves.",
+  "footer.tagline": "¿Es buen precio ahora? Lo comparamos con el mínimo histórico y te lo decimos en una línea.",
   "footer.about": "Acerca de",
   "footer.privacy": "Política de privacidad",
   "footer.terms": "Términos de uso",
@@ -172,7 +172,7 @@ export default {
   "cookie.aria": "Consentimiento de cookies",
 
   "meta.defaultTitle": "Lowstamp — Mínimos de juegos de Steam y ¿conviene comprar ahora?",
-  "meta.defaultDesc": "El precio actual de los juegos de Steam, su mínimo histórico y el veredicto de “¿conviene comprar ahora?” de un vistazo. Solo el precio oficial de Steam, sin tiendas de claves.",
+  "meta.defaultDesc": "¿Es buen precio ahora un juego de Steam o conviene esperar? Lo comparamos con su mínimo histórico y te decimos en una línea si conviene comprarlo, para que no pagues de más.",
   "meta.gameTitle": "Precio de {name} — ahora {cur} · Lowstamp",
   "meta.gameDesc": "Precio actual de {name} en Steam: {cur}{sale}.{atl} Comprueba en Lowstamp si conviene comprarlo ahora.",
   "meta.gameDescSale": " (-{pct}%)",

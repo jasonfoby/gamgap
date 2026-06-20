@@ -18,7 +18,7 @@ export default {
   // 히어로
   "hero.title": "이 게임, {hl} 사도 돼?",
   "hero.titleHl": "지금",
-  "hero.sub": "스팀 게임의 {b}와 ‘지금 사도 되나’를 한 줄로 알려드려요. 원화 그대로, 키샵 없이.",
+  "hero.sub": "이 게임 {b}랑 비교해서 지금 사도 되는지 한 줄로 알려드려요. 비싸게 주고 사지 않게.",
   "hero.subB": "역대 최저가",
 
   // 검색
@@ -92,10 +92,10 @@ export default {
   "skel.listAria": "목록 불러오는 중",
 
   // 신뢰 배너
-  "trust.officialK": "스팀 공식가",
-  "trust.officialV": "원화 그대로",
-  "trust.nokeyshopK": "키샵 없음",
-  "trust.nokeyshopV": "안전 비교",
+  "trust.officialK": "지금 살 때인지",
+  "trust.officialV": "역대 최저가로 판단",
+  "trust.nokeyshopK": "가짜 세일도 구별",
+  "trust.nokeyshopV": "진짜 싼지 한눈에",
   "trust.dailyK": "하루 1회",
   "trust.dailyV": "가격 갱신",
 
@@ -168,7 +168,7 @@ export default {
   "verdict.full.tip": "지금은 할인이 없어요. 스팀은 세일을 자주 하니, 위시리스트에 담아두고 알림을 기다리는 게 좋아요.",
 
   // 푸터
-  "footer.tagline": "스팀 공식 원화가만, 키샵 없이 안전 비교",
+  "footer.tagline": "지금 사도 되는 가격인지, 역대 최저가와 비교해 한 줄로.",
   "footer.about": "소개",
   "footer.privacy": "개인정보처리방침",
   "footer.terms": "이용약관",
@@ -198,8 +198,8 @@ export default {
   "cookie.aria": "쿠키 동의",
 
   // 문서 메타(브라우저 탭 제목·검색·공유 설명). 브랜드명 Lowstamp는 유지.
-  "meta.defaultTitle": "Lowstamp — 스팀 게임 원화 최저가·지금 사도 돼?",
-  "meta.defaultDesc": "스팀 게임의 현재 원화 가격과 역대 최저가, '지금 사도 되나' 판정을 한눈에. 키샵 없이 스팀 공식 원화가만 비교합니다.",
+  "meta.defaultTitle": "Lowstamp — 스팀 게임 최저가·지금 사도 돼?",
+  "meta.defaultDesc": "스팀 게임이 지금 살 만한 가격인지, 역대 최저가와 비교해 '지금 사도 돼?'를 한 줄로. 비싸게 사지 않게 도와드려요.",
   "meta.gameTitle": "{name} 가격 — 현재 {cur} · Lowstamp",
   "meta.gameDesc": "{name} 스팀 현재가 {cur}{sale}.{atl} 지금 사도 되는지 Lowstamp에서 확인하세요.",
   "meta.gameDescSale": " (-{pct}%)",

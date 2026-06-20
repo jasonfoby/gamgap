@@ -1,7 +1,7 @@
 export default {
   "slug": "about",
   "title": "关于 Lowstamp",
-  "description": "Lowstamp 是一款只看 Steam 官方定价、不掺杂第三方密钥商、诚实比价的游戏价格追踪服务。这里介绍我们为什么做这件事、数据从哪里来，以及“现在该买吗”的判定逻辑。",
+  "description": "Lowstamp 会把 Steam 游戏和它的历史最低价一比，告诉你现在这个价该不该买，帮你别买贵了。这里介绍我们为什么做这件事、数据从哪里来，以及“现在该买吗”的判定逻辑。",
   "updated": "2026-06-18",
   "body": [
     {

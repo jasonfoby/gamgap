@@ -1,7 +1,7 @@
 export default {
   "slug": "about",
   "title": "Sobre o Lowstamp",
-  "description": "O Lowstamp é um serviço de monitoramento de preços de jogos que compara apenas o preço oficial da Steam, sem lojas de chaves, de forma honesta. Conheça por que ele foi criado, de onde vêm os dados e o veredito \"Vale a pena comprar agora?\".",
+  "description": "O Lowstamp diz se um jogo da Steam está num bom preço agora comparando com o menor preço histórico dele, pra você não pagar caro. Conheça por que ele foi criado, de onde vêm os dados e o veredito \"Vale a pena comprar agora?\".",
   "updated": "2026-06-18",
   "body": [
     {

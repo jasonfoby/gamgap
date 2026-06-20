@@ -12,7 +12,7 @@ export default {
 
   "hero.title": "このゲーム、{hl} 買っていい?",
   "hero.titleHl": "今",
-  "hero.sub": "Steam ゲームの{b}と「今が買い時か」を一行で。ストアの実価格だけ、怪しいキー販売はなし。",
+  "hero.sub": "Steam ゲームを{b}と比べて、今買っていいかを一行で。高く買って損しないように。",
   "hero.subB": "過去最安値",
 
   "search.placeholder": "ゲーム名で検索",
@@ -74,10 +74,10 @@ export default {
 
   "skel.listAria": "一覧を読み込み中",
 
-  "trust.officialK": "ストアの実価格",
-  "trust.officialV": "転売なし",
-  "trust.nokeyshopK": "怪しいキー販売なし",
-  "trust.nokeyshopV": "安心して購入",
+  "trust.officialK": "今が買い時?",
+  "trust.officialV": "過去最安値と比較",
+  "trust.nokeyshopK": "見せかけセールも見抜く",
+  "trust.nokeyshopV": "本当に安いか一目で",
   "trust.dailyK": "毎日更新",
   "trust.dailyV": "常に最新",
 
@@ -145,7 +145,7 @@ export default {
   "verdict.full.sub": "セールを待ちましょう",
   "verdict.full.tip": "今は割引がありません。Steam はセールが頻繁にあるので、ウィッシュリストに入れて通知を待つのがおすすめです。",
 
-  "footer.tagline": "Steam ストアの実価格と過去最安値だけ — 怪しいキー販売はなし。",
+  "footer.tagline": "今が買い時かを、過去最安値と比べて一行で。",
   "footer.about": "紹介",
   "footer.privacy": "プライバシーポリシー",
   "footer.terms": "利用規約",
@@ -172,7 +172,7 @@ export default {
   "cookie.aria": "Cookie 同意",
 
   "meta.defaultTitle": "Lowstamp — Steam ゲームの最安値・今買っていい?",
-  "meta.defaultDesc": "Steam ゲームの現在価格と過去最安値、「今が買い時か」の判定をひと目で。キーショップ抜きで Steam 公式価格だけを比較します。",
+  "meta.defaultDesc": "Steam ゲームが今買い時か、それとも待つべきか。過去最安値と比べて「今買っていい?」を一行で。高く買って損しないように。",
   "meta.gameTitle": "{name} の価格 — 現在 {cur} · Lowstamp",
   "meta.gameDesc": "{name} の Steam 現在価格は {cur}{sale}。{atl} 今買っていいか Lowstamp で確認しましょう。",
   "meta.gameDescSale": " (-{pct}%)",

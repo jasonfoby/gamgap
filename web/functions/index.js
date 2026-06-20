@@ -14,28 +14,28 @@ const LOCALE = { ko: "ko_KR", en: "en_US", ja: "ja_JP", zh: "zh_CN", es: "es_ES"
 // 홈 메타(제목·설명). src/i18n/<lang>.js 의 meta.defaultTitle / meta.defaultDesc 와 동기화 유지.
 const META = {
   ko: {
-    t: "Lowstamp — 스팀 게임 원화 최저가·지금 사도 돼?",
-    d: "스팀 게임의 현재 원화 가격과 역대 최저가, '지금 사도 되나' 판정을 한눈에. 키샵 없이 스팀 공식 원화가만 비교합니다.",
+    t: "Lowstamp — 스팀 게임 최저가·지금 사도 돼?",
+    d: "스팀 게임이 지금 살 만한 가격인지, 역대 최저가와 비교해 '지금 사도 돼?'를 한 줄로. 비싸게 사지 않게 도와드려요.",
   },
   en: {
-    t: "Lowstamp — Steam game lowest prices (KRW) & should you buy now?",
-    d: "See a Steam game's current price and all-time low, plus a buy-or-wait verdict, at a glance. Official Steam prices only, no key shops.",
+    t: "Lowstamp — Steam game lowest prices & should you buy now?",
+    d: "Is a Steam game a good price right now, or should you wait? We check it against its all-time low and tell you in one line — so you don't overpay.",
   },
   ja: {
     t: "Lowstamp — Steam ゲームの最安値・今買っていい?",
-    d: "Steam ゲームの現在価格と過去最安値、「今が買い時か」の判定をひと目で。キーショップ抜きで Steam 公式価格だけを比較します。",
+    d: "Steam ゲームが今買い時か、それとも待つべきか。過去最安値と比べて「今買っていい?」を一行で。高く買って損しないように。",
   },
   zh: {
-    t: "Lowstamp —— Steam 游戏韩元最低价 · 现在入手合适吗？",
-    d: "一眼看清 Steam 游戏的当前韩元价格、历史最低价，以及现在该不该买。不走激活码站，只比较 Steam 官方韩元价。",
+    t: "Lowstamp —— Steam 游戏最低价 · 现在入手合适吗？",
+    d: "Steam 游戏现在这个价该不该买，还是再等等？对比历史最低价，一行告诉你“现在入手合适吗”，帮你别买贵了。",
   },
   es: {
     t: "Lowstamp — Mínimos de juegos de Steam y ¿conviene comprar ahora?",
-    d: "El precio actual de los juegos de Steam, su mínimo histórico y el veredicto de “¿conviene comprar ahora?” de un vistazo. Solo el precio oficial de Steam, sin tiendas de claves.",
+    d: "¿Es buen precio ahora un juego de Steam o conviene esperar? Lo comparamos con su mínimo histórico y te decimos en una línea si conviene comprarlo, para que no pagues de más.",
   },
   pt: {
     t: "Lowstamp — menor preço de jogos da Steam e vale a pena comprar agora?",
-    d: "Veja de relance o preço atual e o menor preço histórico de jogos da Steam, além do veredito “vale a pena comprar agora”. Comparamos só o preço oficial da Steam, sem sites de chave.",
+    d: "Um jogo da Steam está num bom preço agora ou é melhor esperar? Comparamos com o menor preço histórico e dizemos em uma linha se vale a pena comprar, pra você não pagar caro.",
   },
 };
 

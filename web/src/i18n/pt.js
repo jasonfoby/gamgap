@@ -12,7 +12,7 @@ export default {
 
   "hero.title": "Vale a pena comprar este jogo {hl}?",
   "hero.titleHl": "agora",
-  "hero.sub": "Dizemos o {b} de um jogo da Steam e se vale a pena comprar agora, em uma linha. Só preços reais da loja, sem sites de chave.",
+  "hero.sub": "Comparamos um jogo da Steam com o {b} dele e dizemos em uma linha se vale a pena comprar agora, pra você não pagar caro.",
   "hero.subB": "menor preço histórico",
 
   "search.placeholder": "Busque o nome de um jogo",
@@ -74,10 +74,10 @@ export default {
 
   "skel.listAria": "Carregando a lista",
 
-  "trust.officialK": "Preços reais da Steam",
-  "trust.officialV": "Sem revenda",
-  "trust.nokeyshopK": "Sem sites de chave",
-  "trust.nokeyshopV": "Compra segura",
+  "trust.officialK": "Comprar ou esperar?",
+  "trust.officialV": "Comparado ao menor histórico",
+  "trust.nokeyshopK": "Identifica promoção falsa",
+  "trust.nokeyshopV": "Veja se está mesmo barato",
   "trust.dailyK": "Atualizado todo dia",
   "trust.dailyV": "Sempre atual",
 
@@ -145,7 +145,7 @@ export default {
   "verdict.full.sub": "Espere uma promoção",
   "verdict.full.tip": "Agora não há desconto. A Steam faz promoções com frequência, então o melhor é colocar na lista de desejos e esperar o alerta.",
 
-  "footer.tagline": "Só preços reais da Steam e menores preços históricos — sem sites de chave.",
+  "footer.tagline": "É um bom preço agora? A gente compara com o menor preço histórico e diz em uma linha.",
   "footer.about": "Sobre",
   "footer.privacy": "Política de Privacidade",
   "footer.terms": "Termos de Uso",
@@ -172,7 +172,7 @@ export default {
   "cookie.aria": "Consentimento de cookies",
 
   "meta.defaultTitle": "Lowstamp — menor preço de jogos da Steam e vale a pena comprar agora?",
-  "meta.defaultDesc": "Veja de relance o preço atual e o menor preço histórico de jogos da Steam, além do veredito “vale a pena comprar agora”. Comparamos só o preço oficial da Steam, sem sites de chave.",
+  "meta.defaultDesc": "Um jogo da Steam está num bom preço agora ou é melhor esperar? Comparamos com o menor preço histórico e dizemos em uma linha se vale a pena comprar, pra você não pagar caro.",
   "meta.gameTitle": "Preço de {name} — agora {cur} · Lowstamp",
   "meta.gameDesc": "Preço atual de {name} na Steam: {cur}{sale}.{atl} Veja na Lowstamp se vale a pena comprar agora.",
   "meta.gameDescSale": " (-{pct}%)",

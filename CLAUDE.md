@@ -99,6 +99,7 @@ Vite + React 18(순수 JS/JSX). **추가 런타임 의존성 없음** — 차트
 
 - 백엔드(Worker/D1/크롤러)와 `src/api.js`·`src/lib/verdict.js`의 **판정 로직**은 건드리지 말 것. (단, 판정의 **표시 문구**는 `verdict.js`의 단계(tier)만 두고 `src/i18n/<lang>.js`의 `verdict.*` 키에서 가져오므로, 문구 수정은 사전에서.)
 - **브랜드 표기 = `Lowstamp`(화면), 기술 내부명 = `gamgap`(Worker·D1·localStorage 키 등).** 화면 문구에 "겜값"을 다시 넣지 말 것. 백엔드 주소 `gamgap-api.ibanisac.workers.dev`는 그대로.
+- **카피 톤 = 캐주얼 구매자 눈높이(파워유저·"스팀 죽돌이"용 아님).** UI 문구(hero·trust 배지·footer·meta 등 반복 노출 카피)에 **인사이더 용어 금지** — "키샵/key shop/원화가/공식 원화가만/reseller/転売/激活码/tiendas de claves" 등. 대신 "지금 사도 돼? · 역대 최저가랑 비교 · 비싸게 사지 않게 · 가짜 세일 구별"처럼 누구나 아는 쉬운 말로. (가이드·About **본문**에서 키샵을 교육적으로 설명·경고하는 건 허용 — 초보에게 도움.)
 - **다국어**: 새 UI 문구는 `src/i18n/ko.js`에 키를 추가하고 컴포넌트에서 `useT()`의 `t("키")`로 쓴 뒤, 나머지 5개 언어 사전에도 같은 키로 번역을 채울 것(빈 키는 한국어로 폴백). `{placeholder}`는 모든 언어에서 그대로 유지. 가격·날짜 표기는 `src/lib/format.js`의 `won`/`ym`가 현재 언어에 맞춰 처리(원화 값 자체는 불변).
 - **새 게임 페이지는 모달이 아니라 `/game/:appid` 라우트**. 카드 클릭은 `navigate("/game/:appid")`.
 - **그래프는 recharts 안 씀** — 손수 SVG(`PriceChart`/`Sparkline`). **아이콘도 lucide 안 씀** — 인라인 SVG. (불필요한 의존성 추가 지양.)

@@ -12,7 +12,7 @@ export default {
 
   "hero.title": "这款游戏，{hl} 入手合适吗？",
   "hero.titleHl": "现在",
-  "hero.sub": "一行看懂 Steam 游戏的{b}和现在该不该买。只看商店真实价格，不走第三方激活码。",
+  "hero.sub": "把 Steam 游戏和它的{b}一比，一行告诉你现在该不该买，别买贵了。",
   "hero.subB": "历史最低价",
 
   "search.placeholder": "搜索游戏名称",
@@ -74,10 +74,10 @@ export default {
 
   "skel.listAria": "列表加载中",
 
-  "trust.officialK": "商店真实价格",
-  "trust.officialV": "无转售",
-  "trust.nokeyshopK": "不走第三方激活码",
-  "trust.nokeyshopV": "放心购买",
+  "trust.officialK": "现在该不该买",
+  "trust.officialV": "对比历史最低价",
+  "trust.nokeyshopK": "识破假打折",
+  "trust.nokeyshopV": "是否真便宜一眼看清",
   "trust.dailyK": "每日更新",
   "trust.dailyV": "始终最新",
 
@@ -145,7 +145,7 @@ export default {
   "verdict.full.sub": "等等特卖吧",
   "verdict.full.tip": "现在没有折扣。Steam 经常做特卖，建议加入愿望单并等待提醒。",
 
-  "footer.tagline": "只看 Steam 商店真实价格和历史最低价 —— 不走第三方激活码。",
+  "footer.tagline": "现在这个价该不该买？对比历史最低价，一行告诉你。",
   "footer.about": "关于",
   "footer.privacy": "隐私政策",
   "footer.terms": "使用条款",
@@ -171,8 +171,8 @@ export default {
   "cookie.allow": "同意",
   "cookie.aria": "Cookie 同意",
 
-  "meta.defaultTitle": "Lowstamp —— Steam 游戏韩元最低价 · 现在入手合适吗？",
-  "meta.defaultDesc": "一眼看清 Steam 游戏的当前韩元价格、历史最低价，以及现在该不该买。不走激活码站，只比较 Steam 官方韩元价。",
+  "meta.defaultTitle": "Lowstamp —— Steam 游戏最低价 · 现在入手合适吗？",
+  "meta.defaultDesc": "Steam 游戏现在这个价该不该买，还是再等等？对比历史最低价，一行告诉你“现在入手合适吗”，帮你别买贵了。",
   "meta.gameTitle": "{name} 价格 —— 现价 {cur} · Lowstamp",
   "meta.gameDesc": "{name} 在 Steam 的现价为 {cur}{sale}。{atl} 到 Lowstamp 看看现在该不该买。",
   "meta.gameDescSale": "（-{pct}%）",
