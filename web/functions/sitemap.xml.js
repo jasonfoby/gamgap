@@ -1,5 +1,5 @@
 // Cloudflare Pages 함수: /sitemap.xml — 구글이 정적 페이지·가이드 글·개별 게임 페이지를
-// 모두 발견하도록, 고정 경로 + 가이드 글 + 현재 할인 목록(최대 200개)을 사이트맵으로 내보낸다.
+// 모두 발견하도록, 고정 경로 + 가이드 글 + (현재가 있는) 모든 게임 페이지를 사이트맵으로 내보낸다.
 const API = "https://gamgap-api.ibanisac.workers.dev";
 
 // 고정 정적 경로(라우터에 등록된 페이지).
@@ -30,10 +30,15 @@ export async function onRequest(context) {
   const { request } = context;
   const origin = new URL(request.url).origin;
 
-  let rows = [];
+  // 현재가가 있는 모든 게임의 appid 목록(가벼운 엔드포인트). 실패하면 게임 URL 없이
+  // 정적 경로/가이드만 내보낸다(사이트맵이 깨지지 않게). ~3000개라 단일 사이트맵(5만 한도) 안.
+  let appids = [];
   try {
-    const r = await fetch(`${API}/api/deals?limit=200`);
-    if (r.ok) rows = await r.json();
+    const r = await fetch(`${API}/api/appids`);
+    if (r.ok) {
+      const data = await r.json();
+      if (Array.isArray(data)) appids = data;
+    }
   } catch {
     /* 실패해도 정적 경로/가이드는 포함 */
   }
@@ -41,10 +46,10 @@ export async function onRequest(context) {
   const locs = [
     ...STATIC_PATHS.map((p) => `${origin}${p}`),
     ...GUIDE_PATHS.map((p) => `${origin}${p}`),
-    // 사이트맵엔 색인 대상(검증 신호 있는 게임)만 — 빈약 페이지 noindex 기준과 일치시킨다.
-    ...rows
-      .filter((g) => g && g.appid && (Number(g.reviewTotal) >= 300 || Number(g.metacritic) > 0))
-      .map((g) => `${origin}/game/${g.appid}`),
+    // 현재가 있는 모든 게임 페이지를 색인 대상으로 내보낸다.
+    ...appids
+      .filter((id) => Number(id) > 0)
+      .map((id) => `${origin}/game/${id}`),
   ];
   const body =
     `<?xml version="1.0" encoding="UTF-8"?>\n` +

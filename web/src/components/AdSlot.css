@@ -1,0 +1,19 @@
+/* 광고 자리 — 영수증/장부 톤에 맞춰 조용히 끼워넣는다. */
+.adslot {
+  margin: 20px 0;
+  text-align: center;
+}
+
+/* 작은 흐린 "광고" 라벨 (애드센스 규정: 광고는 라벨로 구분). */
+.adslot-label {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted, #8c8674);
+  margin-bottom: 4px;
+}
+
+.adslot .adsbygoogle {
+  display: block;
+  min-height: 90px;
+}

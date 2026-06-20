@@ -1,10 +1,11 @@
-import { useCallback, useEffect, useState } from "react";
+import { Fragment, useCallback, useEffect, useState } from "react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Sidebar from "./components/Sidebar";
 import GameCard from "./components/GameCard";
 import WishlistView from "./components/WishlistView";
 import Footer from "./components/Footer";
+import AdSlot from "./components/AdSlot";
 import { ListSkeleton } from "./components/Skeleton";
 import { getLowestToday, getDeals, searchGames } from "./api";
 import { applyDealOpts, defaultDealOpts, availableGenres, popularPicks } from "./lib/dealSort";
@@ -28,8 +29,19 @@ function useDebounce(value, delay) {
 
 const VALID_TABS = ["lowest", "deals", "wishlist"];
 function initialTab() {
-  const t = new URLSearchParams(window.location.search).get("tab");
+  const params = new URLSearchParams(window.location.search);
+  // genre 링크(게임 페이지의 장르 칩)로 들어오면 자동으로 "할인 중" 탭을 연다.
+  if (params.get("genre")) return "deals";
+  const t = params.get("tab");
   return VALID_TABS.includes(t) ? t : "lowest";
+}
+// 게임 페이지 장르 칩에서 넘어온 장르 문자열(데이터 원본 그대로). 없으면 "".
+function initialGenre() {
+  return new URLSearchParams(window.location.search).get("genre") || "";
+}
+// 개발사 칩 등에서 넘어온 검색어(?q=). 없으면 "".
+function initialQuery() {
+  return new URLSearchParams(window.location.search).get("q") || "";
 }
 
 // 게임 목록 한 섹션. state.status: "loading" | "ok" | "error".
@@ -138,8 +150,12 @@ function DealsView({ state, opts, onCardClick, onRetry, onOptsChange, currency }
       {state.status === "ok" &&
         (filtered.length ? (
           <div className="list">
-            {filtered.map((g) => (
-              <GameCard key={g.appid} game={g} onClick={onCardClick} />
+            {filtered.map((g, i) => (
+              <Fragment key={g.appid}>
+                <GameCard game={g} onClick={onCardClick} />
+                {/* 첫 6장 뒤에 인라인 광고 한 자리(슬롯 ID 없으면 안 보임). */}
+                {i === 5 && <AdSlot slot="dealsInline" />}
+              </Fragment>
             ))}
           </div>
         ) : (
@@ -153,9 +169,11 @@ export default function App() {
   const wl = useWishlistState();
   const { t, lang } = useT();
   const { cc } = regionForLang(lang); // 현재 언어의 스팀 지역코드(원화면 'kr')
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState(initialQuery);
   const debounced = useDebounce(query.trim(), 250);
   const [tab, setTab] = useState(initialTab);
+  // 진입 URL에 genre가 있으면 첫 dealOpts에 미리 적용(한 번만 소비).
+  const [pendingGenre, setPendingGenre] = useState(initialGenre);
 
   const [lowest, setLowest] = useState({ status: "loading", rows: [] });
   const [deals, setDeals] = useState({ status: "loading", rows: [] });
@@ -220,9 +238,15 @@ export default function App() {
     if (deals.status === "ok" && !dealOpts) {
       const prices = deals.rows.map((g) => Number(g.currentPrice) || 0);
       const maxBound = prices.length ? Math.max(...prices) : 100000;
-      setDealOpts(defaultDealOpts(maxBound));
+      const base = defaultDealOpts(maxBound);
+      // 게임 페이지 장르 칩에서 넘어왔다면 그 장르를 미리 선택해 둔다(한 번만).
+      if (pendingGenre) {
+        base.genres = [pendingGenre];
+        setPendingGenre("");
+      }
+      setDealOpts(base);
     }
-  }, [deals, dealOpts]);
+  }, [deals, dealOpts, pendingGenre]);
 
   // 언어(통화)가 바뀌면 가격 단위가 달라지므로(원→달러 등) 정렬·필터 한도를 다시 잡게 초기화.
   useEffect(() => {

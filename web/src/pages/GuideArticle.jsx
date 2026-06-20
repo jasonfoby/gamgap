@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import PageShell from "../components/PageShell";
 import ArticleBody from "../components/ArticleBody";
+import AdSlot from "../components/AdSlot";
 import NotFound from "./NotFound";
 import { Link } from "../lib/router";
 import { loadGuide } from "../content/guides";
@@ -73,7 +74,29 @@ export default function GuideArticle({ slug }) {
           </div>
         )}
 
-        <ArticleBody blocks={guide.body} />
+        {(() => {
+          // 본문을 두 토막으로 나눠 사이에 광고 한 자리를 끼운다(슬롯 ID 없으면 안 보임).
+          // 글이 너무 짧으면(블록 3개 미만) 나누지 않고 광고는 본문 뒤로.
+          const body = Array.isArray(guide.body) ? guide.body : [];
+          if (body.length < 3) {
+            return (
+              <>
+                <ArticleBody blocks={body} />
+                <AdSlot slot="guideMid" />
+              </>
+            );
+          }
+          // 첫 소제목 다음(없으면 두 번째 블록 뒤)에서 자른다.
+          let cut = body.findIndex((b, i) => i > 0 && b && b.type === "h2");
+          if (cut < 1) cut = Math.min(2, body.length - 1);
+          return (
+            <>
+              <ArticleBody blocks={body.slice(0, cut)} />
+              <AdSlot slot="guideMid" />
+              <ArticleBody blocks={body.slice(cut)} />
+            </>
+          );
+        })()}
 
         <div className="ga-foot">
           <Link to="/guide" className="ga-back">

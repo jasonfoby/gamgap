@@ -85,6 +85,46 @@
   border-top: 1px solid var(--rule);
 }
 
+/* 클릭 가능한 장르/개발사 — 종이 위 텍스트 링크처럼 보이게(밑줄·금색 호버). */
+.gp-genrelink {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: var(--rule);
+  text-underline-offset: 2px;
+}
+.gp-genrelink:hover {
+  color: var(--gold);
+  text-decoration-color: var(--gold);
+}
+
+/* 관련작 레일 — 같은 list 그리드를 재사용하되 위에 여백. */
+.gp-related {
+  margin-top: 10px;
+}
+
+/* 가이드로 가는 안내 링크. */
+.gp-guides {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--rule);
+  text-align: center;
+}
+.gp-guides-link {
+  font-family: var(--kr);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gold);
+}
+.gp-guides-link:hover {
+  text-decoration: underline;
+}
+
 @media (max-width: 520px) {
   .gp-head .cover {
     width: 104px;

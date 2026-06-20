@@ -142,6 +142,17 @@ export default {
         return json(await withHistory(env, results));
       }
 
+      // 사이트맵용 경량 엔드포인트: '색인 허용된' 게임의 appid 배열.
+      // ⚠ functions/game/[appid].js 의 noindex 기준과 반드시 일치시킨다 —
+      //   거기서 (review_total>=300 OR metacritic>0)가 아니면 noindex 를 붙이므로,
+      //   여기서도 같은 조건만 내보내야 "사이트맵엔 넣고 페이지엔 noindex" 모순이 안 생긴다.
+      //   (얇은 양산형 페이지 수천 개를 색인시켜 사이트 품질을 떨어뜨리는 것도 방지.)
+      if (path === "/api/appids") {
+        const { results } = await env.DB
+          .prepare("SELECT appid FROM games WHERE current_price > 0 AND (review_total >= 300 OR metacritic > 0) ORDER BY last_checked DESC").all();
+        return json((results || []).map((r) => r.appid));
+      }
+
       const m = path.match(/^\/api\/game\/(\d+)$/);
       if (m) {
         const appid = Number(m[1]);

@@ -4,12 +4,14 @@ import Cover from "../components/Cover";
 import Stamp from "../components/Stamp";
 import StarButton from "../components/StarButton";
 import PriceChart from "../components/PriceChart";
-import { Link } from "../lib/router";
+import GameCard from "../components/GameCard";
+import AdSlot from "../components/AdSlot";
+import { Link, navigate } from "../lib/router";
 import { verdict } from "../lib/verdict";
 import { money, ym } from "../lib/format";
 import { priceStats, lowPoints, chartSeries } from "../lib/stats";
 import { setGameHead, resetHead } from "../lib/head";
-import { getGame } from "../api";
+import { getGame, getDeals } from "../api";
 import { track } from "../lib/analytics";
 import { useT, tNodes } from "../lib/i18n";
 import { regionForLang } from "../lib/region";
@@ -85,14 +87,51 @@ export default function GamePage({ appid }) {
       {state.status === "notfound" && <div className="gp-card gp-msg">{t("gp.notFound")}</div>}
 
       {state.status === "ok" && state.game && (
-        <GameDetail g={state.game} copied={copied} onCopy={copyLink} t={t} />
+        <GameDetail g={state.game} copied={copied} onCopy={copyLink} t={t} cc={cc} />
       )}
     </PageShell>
   );
 }
 
+// 같은 장르의 "지금 할인 중" 게임을 모아 내부 링크 레일을 만든다(체류·페이지뷰↑).
+// 충분히(3개 이상) 못 모으면 그냥 상위 할인작으로 채워서라도 내부 링크를 남긴다.
+function useRelated(g, cc) {
+  const [related, setRelated] = useState([]);
+  useEffect(() => {
+    let alive = true;
+    setRelated([]);
+    getDeals(60, cc)
+      .then((rows) => {
+        if (!alive || !Array.isArray(rows)) return;
+        const myGenres = new Set(gameGenres(g));
+        const others = rows.filter((x) => x.appid !== g.appid);
+        let pick = others.filter((x) => gameGenres(x).some((t) => myGenres.has(t)));
+        if (pick.length < 3) {
+          // 같은 장르가 부족하면 상위 할인작으로 보충(중복 제외).
+          const seen = new Set(pick.map((x) => x.appid));
+          for (const x of others) {
+            if (pick.length >= 8) break;
+            if (!seen.has(x.appid)) {
+              pick.push(x);
+              seen.add(x.appid);
+            }
+          }
+        }
+        setRelated(pick.slice(0, 8));
+      })
+      .catch(() => {
+        /* 실패하면 레일을 그냥 숨긴다 */
+      });
+    return () => {
+      alive = false;
+    };
+  }, [g.appid, cc]);
+  return related;
+}
+
 // 가격 상세 본문(영수증 카드).
-function GameDetail({ g, copied, onCopy, t }) {
+function GameDetail({ g, copied, onCopy, t, cc }) {
+  const related = useRelated(g, cc);
   const v = verdict(g);
   const stats = priceStats(g.history);
   const lows = lowPoints(g.history, 5);
@@ -181,6 +220,9 @@ function GameDetail({ g, copied, onCopy, t }) {
 
       <GameInfo g={g} t={t} />
 
+      {/* 본문 안 광고(가격 위쪽이 아닌, 정보 아래). 슬롯 ID 없으면 아무것도 안 그림. */}
+      <AdSlot slot="gameTop" />
+
       {stats && (
         <>
           <div className="subhead">{t("gp.statsTitle")}</div>
@@ -233,10 +275,68 @@ function GameDetail({ g, copied, onCopy, t }) {
           <button className="ghostbtn" onClick={onCopy}>
             {copied ? t("gp.copied") : t("gp.copy")}
           </button>
+          <ShareButtons g={g} t={t} />
         </div>
         <div className="freshness">{t("gp.freshness")}</div>
       </div>
+
+      <RelatedRail related={related} t={t} />
+
+      <div className="gp-guides">
+        <Link to="/guide" className="gp-guides-link">
+          {t("gp.moreGuides")}
+        </Link>
+      </div>
     </article>
+  );
+}
+
+// 공유 버튼들 — 네이티브 공유(navigator.share, 지원 기기만) + X·레딧 공유 인텐트 링크.
+function ShareButtons({ g, t }) {
+  const url = (typeof window !== "undefined" ? window.location.origin : "https://lowstamp.com") + "/game/" + g.appid;
+  const title = g.name;
+  const canNative = typeof navigator !== "undefined" && !!navigator.share;
+
+  const onNative = () => {
+    try {
+      navigator.share({ title, url });
+    } catch {
+      /* 사용자가 취소하거나 미지원이면 무시 */
+    }
+  };
+
+  const xHref = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(title) + "&url=" + encodeURIComponent(url);
+  const redditHref = "https://www.reddit.com/submit?url=" + encodeURIComponent(url) + "&title=" + encodeURIComponent(title);
+
+  return (
+    <>
+      {canNative && (
+        <button className="ghostbtn" onClick={onNative}>
+          {t("gp.share")}
+        </button>
+      )}
+      <a className="ghostbtn" href={xHref} target="_blank" rel="noreferrer">
+        X
+      </a>
+      <a className="ghostbtn" href={redditHref} target="_blank" rel="noreferrer">
+        Reddit
+      </a>
+    </>
+  );
+}
+
+// 같은 장르(없으면 인기) 할인작 레일 — 카드 클릭 시 그 게임 페이지로 이동.
+function RelatedRail({ related, t }) {
+  if (!related || related.length === 0) return null;
+  return (
+    <>
+      <div className="subhead">{t("gp.relatedTitle")}</div>
+      <div className="list gp-related">
+        {related.map((rg) => (
+          <GameCard key={rg.appid} game={rg} onClick={(game) => navigate("/game/" + game.appid)} />
+        ))}
+      </div>
+    </>
   );
 }
 
@@ -277,7 +377,20 @@ function GameInfo({ g, t }) {
         {genres.length > 0 && (
           <div className="lrow">
             <span className="lab">{t("info.genres")}</span>
-            <span className="val">{genres.map((x) => (genreKey(x) ? t(genreKey(x)) : x)).join(", ")}</span>
+            <span className="val gp-genrelinks">
+              {genres.map((x, i) => (
+                <span key={x}>
+                  {i > 0 && ", "}
+                  <button
+                    type="button"
+                    className="gp-genrelink"
+                    onClick={() => navigate("/?tab=deals&genre=" + encodeURIComponent(x))}
+                  >
+                    {genreKey(x) ? t(genreKey(x)) : x}
+                  </button>
+                </span>
+              ))}
+            </span>
           </div>
         )}
         {controller && (
@@ -304,7 +417,15 @@ function GameInfo({ g, t }) {
         {g.developer && (
           <div className="lrow">
             <span className="lab">{t("info.developer")}</span>
-            <span className="val">{g.developer}</span>
+            <span className="val">
+              <button
+                type="button"
+                className="gp-genrelink"
+                onClick={() => navigate("/?q=" + encodeURIComponent(g.developer))}
+              >
+                {g.developer}
+              </button>
+            </span>
           </div>
         )}
         {releaseYear > 0 && (

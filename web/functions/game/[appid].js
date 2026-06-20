@@ -42,6 +42,8 @@ const STR = {
     descTail: " 지금 사도 되는지 Lowstamp에서 확인하세요.",
     bodyCur: (n, cur, sale, atl) => `${n}의 스팀 현재가는 ${cur}입니다${sale}${atl}. Lowstamp에서 지금이 살 때인지 ‘지금 사도 돼?’ 판정과 가격 흐름을 확인하세요.`,
     steamLink: (n) => `스팀에서 ${n} 보기`,
+    homeLink: "Lowstamp 홈 — 오늘의 역대 최저가",
+    guideLink: "게임 싸게 사는 가이드",
   },
   en: {
     titleSuffix: " price — now ",
@@ -53,6 +55,8 @@ const STR = {
     descTail: " Check on Lowstamp whether now is a good time to buy.",
     bodyCur: (n, cur, sale, atl) => `${n}'s current Steam price is ${cur}${sale}${atl}. See Lowstamp's buy-or-wait verdict and price history to decide if now is the time.`,
     steamLink: (n) => `View ${n} on Steam`,
+    homeLink: "Lowstamp home — today's all-time lows",
+    guideLink: "Guide: how to buy games cheap",
   },
   ja: {
     titleSuffix: " 価格 — 現在 ",
@@ -64,6 +68,8 @@ const STR = {
     descTail: " 今が買い時か Lowstamp で確認しましょう。",
     bodyCur: (n, cur, sale, atl) => `${n} の Steam 現在価格は ${cur} です${sale}${atl}。Lowstamp で「今買っていい?」判定と価格推移を確認しましょう。`,
     steamLink: (n) => `Steam で ${n} を見る`,
+    homeLink: "Lowstamp ホーム — 本日の過去最安値",
+    guideLink: "ガイド: ゲームを安く買う方法",
   },
   zh: {
     titleSuffix: " 价格 — 现价 ",
@@ -75,6 +81,8 @@ const STR = {
     descTail: " 到 Lowstamp 看看现在是不是入手的好时机。",
     bodyCur: (n, cur, sale, atl) => `${n} 的 Steam 当前价格为 ${cur}${sale}${atl}。在 Lowstamp 查看“现在入手合适吗？”判定和价格走势。`,
     steamLink: (n) => `在 Steam 查看 ${n}`,
+    homeLink: "Lowstamp 首页 — 今日历史最低价",
+    guideLink: "指南：如何便宜买游戏",
   },
   es: {
     titleSuffix: " precio — ahora ",
@@ -86,6 +94,8 @@ const STR = {
     descTail: " Comprueba en Lowstamp si ahora es buen momento para comprar.",
     bodyCur: (n, cur, sale, atl) => `El precio actual de ${n} en Steam es ${cur}${sale}${atl}. Consulta en Lowstamp el veredicto de comprar o esperar y el historial de precios.`,
     steamLink: (n) => `Ver ${n} en Steam`,
+    homeLink: "Inicio de Lowstamp — mínimos históricos de hoy",
+    guideLink: "Guía: cómo comprar juegos baratos",
   },
   pt: {
     titleSuffix: " preço — agora ",
@@ -97,6 +107,8 @@ const STR = {
     descTail: " Veja no Lowstamp se vale a pena comprar agora.",
     bodyCur: (n, cur, sale, atl) => `O preço atual de ${n} na Steam é ${cur}${sale}${atl}. Veja no Lowstamp o veredito de comprar ou esperar e o histórico de preços.`,
     steamLink: (n) => `Ver ${n} na Steam`,
+    homeLink: "Início do Lowstamp — menores preços de hoje",
+    guideLink: "Guia: como comprar jogos barato",
   },
 };
 
@@ -184,11 +196,13 @@ export async function onRequest(context) {
   const saleClause = onSale ? s.saleClause(fmt(game.normalPrice), Number(game.discountPercent) || 0) : "";
   const atlDate = game.allTimeLowDate ? ` (${esc(game.allTimeLowDate)})` : "";
   const atlClause = atlVal ? s.atlClause(atlVal, atlDate) : "";
+  // 봇이 사이트를 돌아다닐 수 있게(개별 게임 페이지가 고아가 되지 않게) 홈·가이드 내부 링크를 함께 넣는다.
   const bodyHtml =
     `<main style="max-width:880px;margin:0 auto;padding:24px;font-family:sans-serif">` +
     `<h1>${s.h1(nameE)}</h1>` +
     `<p>${s.bodyCur(nameE, cur, saleClause, atlClause)}</p>` +
     `<p><a href="https://store.steampowered.com/app/${game.appid}/">${s.steamLink(nameE)}</a></p>` +
+    `<nav><a href="/">${esc(s.homeLink)}</a> · <a href="/guide">${esc(s.guideLink)}</a></nav>` +
     `</main>`;
 
   const jsonld = JSON.stringify({
