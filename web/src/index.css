@@ -45,6 +45,9 @@ header{position:sticky;top:0;z-index:40;background:rgba(22,27,43,.92);backdrop-f
 .chips{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px}
 .chip{font-size:12.5px;color:#CFC9B8;background:rgba(255,255,255,.05);border:1px solid var(--line);padding:6px 12px;border-radius:99px;cursor:pointer;transition:background .12s,border-color .12s}
 .chip:hover{background:rgba(200,145,43,.12);border-color:rgba(200,145,43,.4)}
+/* 인기 칩 로딩 자리표시(스켈레톤) — 유명작→동적 깜빡임 대신 잠깐 회색 칩 */
+.chip-skel{display:inline-block;height:31px;border-radius:99px;background:rgba(255,255,255,.06);border:1px solid var(--line);animation:chipPulse 1.1s ease-in-out infinite}
+@keyframes chipPulse{0%,100%{opacity:.4}50%{opacity:.75}}
 
 /* ===== 셸 (사이드바 | 본문) ===== */
 .shell{max-width:var(--max);margin:0 auto;padding:10px 20px 90px;display:block}

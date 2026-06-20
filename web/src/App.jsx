@@ -273,7 +273,13 @@ export default function App() {
   return (
     <WishlistProvider value={wl}>
       <Header lowCount={lowCount} query={query} onQueryChange={setQuery} />
-      <Hero query={query} onQueryChange={setQuery} onPickGame={openGameById} popular={popular} />
+      <Hero
+        query={query}
+        onQueryChange={setQuery}
+        onPickGame={openGameById}
+        popular={popular}
+        popularLoading={deals.status === "loading"}
+      />
 
       <div className="shell">
         <Sidebar

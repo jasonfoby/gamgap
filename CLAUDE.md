@@ -49,7 +49,7 @@
   "history": [ { "d": "2024-11", "p": 19800 }, ... ]
 }
 ```
-가격은 모두 **원(KRW) 정수**. 화면에선 `src/lib/format.js`의 `won`으로 표시하되 **언어별 표기**가 다름 — 한국어 `62,000원`, 그 외 `₩62,000`(값은 항상 한국 스팀 원화). `genres`는 쉼표 문자열 또는 배열(둘 다 `src/lib/dealSort.js`의 `gameGenres`가 정규화).
+기본(한국) game 객체 가격은 **원(KRW) 정수**. **워커에 `?cc=us`(jp·cn·es·br) 를 주면 해당 지역 가격**을 `currency` 필드와 함께 같은 모양으로 돌려준다(region 테이블). 또 `developer·release_year(releaseYear)·metacritic·controller·platforms·dlc_count(dlcCount)·langs·lang_count(langCount)`(게임 정보)와 `review_desc(reviewDesc)·review_total(reviewTotal)`(스팀 평가)도 함께 내려준다. 화면 표기는 `src/lib/format.js`의 `won`/`money`가 통화에 맞춰 처리(한국어 `62,000원`, 그 외 `₩62,000`·`$59.99` 등). `genres`는 쉼표 문자열/배열(`src/lib/dealSort.js`의 `gameGenres`가 정규화, `lib/genres.js`가 번역).
 
 ## 현재 상태 (구현 완료, 위치: `web/`)
 
@@ -62,31 +62,29 @@ Vite + React 18(순수 JS/JSX). **추가 런타임 의존성 없음** — 차트
 - **정렬·필터(할인 중 탭)**: 정렬(할인율/현재가/역대최저 근접/정가) · 가격 프리셋+슬라이더 · "역대최저만/50%+" 토글 · **장르 칩**(genres 데이터 기반). 결과 위 **적용 필터 칩(삭제·전체해제)**. 데스크탑은 사이드바 상주, 모바일은 "필터·정렬" 버튼으로 접이식. (`DealControls`, `Sidebar`, `lib/dealSort.js`, `lib/filterUi.js`)
 - **찜(위시리스트)**: `localStorage`(`lib/wishlist.js`)에 appid 저장 → `/api/game/:appid`로 최신가 재조회, "찜한 N개 중 M개가 지금 살 때" 요약.
 - **개별 게임 페이지(`/game/:appid`)**: 모달을 대체한 **색인 가능한 실제 페이지**(`src/pages/GamePage.jsx`). 가격 흐름 차트(`PriceChart`, 이력 2점 이상일 때만), 2단 가격헤더 + "한국 스팀 기준" 라벨, 판정, 검색에 읽히는 고유 본문 문단, 가격 통계·이전 저점(`lib/stats.js`), 스팀/SteamDB/링크복사. 카드 클릭 시 `navigate("/game/:appid")`로 이동.
-- **게임 페이지 SEO**: 페이지마다 고유 canonical(`lib/head.js`), 봇용 서버 메타·JSON-LD 주입(`functions/game/[appid].js`), 옛 `/?game=appid`는 301로 `/game/:appid`에 합침(`functions/index.js`), `functions/sitemap.xml.js`도 `/game/:appid` 사용. 현재가 없는 빈 페이지만 `noindex`(이력 짧아도 색인 허용 — 크롤러 데이터가 아직 어려서).
-- **다국어(i18n) — 6개 언어(ko·en·ja·zh·es·pt)**: 자체 경량 엔진(`src/lib/i18n.jsx` + 언어별 사전 `src/i18n/<lang>.js`, 새 라이브러리 없음). `useT()`의 `t("키", {vars})`·`tNodes`로 렌더. 헤더·콘텐츠 페이지에 언어 전환 버튼(`LanguageSwitcher`), 브라우저 언어 자동 감지 + `localStorage`(`lowstamp:lang`) 저장, `<html lang>` 반영. **판정 문구는 `verdict.js`의 단계(tier)만 쓰고 표시 문구는 사전에서**(로직 불변). 가격은 원화 유지(표기만 언어별).
-- **콘텐츠 다국어**: 가이드 8편·법적 4종을 `src/content/<guides|pages>/<lang>/<slug>.js`로 언어별 분리, 로더(`content/guides.js`·`content/pages.js`)가 **지연 로딩**으로 현재 언어 글만 가져옴(없으면 영어→한국어 폴백 / 메인 번들 경량 유지).
+- **게임 페이지 SEO**: 페이지마다 고유 canonical(`lib/head.js`), 봇용 서버 메타·**본문·JSON-LD를 방문자 언어/통화에 맞춰 주입**(`functions/game/[appid].js` — Accept-Language로 언어·지역·통화 선택), 옛 `/?game=appid`는 301로 `/game/:appid`에 합침(`functions/index.js`), `functions/sitemap.xml.js`도 `/game/:appid` 사용. **가이드·법적 페이지(`/guide`·`/privacy` 등)도 자기 canonical + 본문을 봇에 주입**(`functions/_shared/content.js` + 라우트별 함수). 현재가 없는/없는 게임은 **HTTP 404 + noindex**(소프트 404 방지).
+- **다국어(i18n) — 6개 언어(ko·en·ja·zh·es·pt)**: 자체 경량 엔진(`src/lib/i18n.jsx` + 언어별 사전 `src/i18n/<lang>.js`, 새 라이브러리 없음). `useT()`의 `t("키", {vars})`·`tNodes`로 렌더. 헤더·콘텐츠 페이지에 언어 전환 버튼(`LanguageSwitcher`), 브라우저 언어 자동 감지 + `localStorage`(`lowstamp:lang`) 저장, `<html lang>` 반영. **판정 문구는 `verdict.js`의 단계(tier)만 쓰고 표시 문구는 사전에서**(로직 불변). **기본 UI 언어는 영어(`DEFAULT_LANG="en"`)**, 한국어는 폴백 소스. **가격은 언어별 지역 통화로 표시** — 한국어 원화, 그 외 언어는 해당 지역 통화(en→USD·ja→JPY·zh→CNY·es→EUR·pt→BRL, `lib/region.js`가 언어→cc 매핑). 해외 데이터 없는 게임(상위 `REGION_MAX` 밖)은 원화로 폴백.
+- **콘텐츠 다국어**: 가이드 **15편**·법적 4종을 `src/content/<guides|pages>/<lang>/<slug>.js`로 6개 언어 분리, 로더(`content/guides.js`·`content/pages.js`)가 **지연 로딩**으로 현재 언어 글만 가져옴(없으면 영어→한국어 폴백 / 메인 번들 경량 유지).
+- **다지역 가격·게임정보·스팀평가(최근 추가)**: 언어별로 그 지역 스팀 가격을 통화까지 맞춰 표시(워커 `?cc=`). 게임 상세에 **게임 정보** 섹션(개발사·출시연도·메타크리틱·컨트롤러·플랫폼·DLC·지원언어 — `appdetails`에서 함께 수집) + **스팀 종합 평가** 배지(압도적 긍정적 등 9단계, `lib/reviews.js` 라벨 매핑, 카드+상세). 히어로 인기 칩은 **'지금 할인 중 + 리뷰 많은 유명작'** 동적 선정(`popularPicks`, 리뷰 5천+ 기준, 로딩 중 스켈레톤).
 - **체감 품질**: 스켈레톤 로더(`Skeleton`), 에러 시 "다시 시도" 버튼, `preconnect`, `public/_headers`(에셋 캐시 + 보안 헤더).
 - **라우팅(애드센스 대비)**: 자체 라우터(`src/lib/router.jsx`)로 `/`, `/game/:appid`, `/guide`, `/guide/:slug`, `/privacy`, `/terms`, `/about`, `/contact`, 404(`src/Root.jsx`에서 분기). 콘텐츠는 `ArticleBody`/`PageShell`로 렌더(`src/pages/`). 콘텐츠 페이지(`ContentPage`)는 slug만 받고 언어별 데이터를 직접 로드.
-- **광고·동의·분석**: 쿠키 동의 배너(`CookieConsent`), `index.html`의 AdSense 스니펫(플레이스홀더), `public/ads.txt`(플레이스홀더), 개인정보처리방침에 애드센스 고지 포함, Cloudflare Web Analytics 비콘(플레이스홀더 토큰) + `lib/analytics.js`.
+- **광고·동의·분석**: 쿠키 동의 배너(`CookieConsent`)가 **Google 동의 모드 v2**(`lib/consent.js`)와 연동(동의 전 광고 쿠키 거부, 기본 denied). `index.html`에 **실제 게시자 ID `ca-pub-6033148215263757`** 애드센스 스니펫 + 소유권 메타, `public/ads.txt`도 **실제 ID**, 개인정보처리방침에 애드센스/DART 쿠키 고지. 방문자 분석은 **Cloudflare Web Analytics 자동 설정**(엣지 주입 — 페이지에 비콘 스니펫 없음).
 
 ## 해야 할 일 (TODO)
 
-**완료됨**: Lowstamp 리브랜딩, lowstamp.com 연결(Cloudflare Registrar + Pages 라이브·SSL), canonical/robots 실제 도메인 반영, 개별 게임 페이지(`/game/:appid`) 색인화, UI 버그 수정(헤더 배경·검색 아이콘·홈 가이드 내비), 6개 언어 다국어, 구글 Search Console 등록 + 사이트맵 제출.
+**완료됨 (개발·애드센스 준비 — 사실상 완성)**: Lowstamp 리브랜딩·lowstamp.com 라이브(SSL), 개별 게임 페이지(`/game/:appid`) 색인화, 6개 언어 다국어, Search Console+사이트맵, **쿠키 동의→Google 동의 모드 v2**, **실제 애드센스 게시자 ID·ads.txt 라이브**, **언어별 OG 공유 이미지**, **봇용 SSR**(게임·가이드·법적 페이지 본문/자기 canonical/404), **기본 영어화**, **다지역 가격(USD·JPY 등)**, **게임 상세 정보(#3a)·스팀 평가(#3b)·동적 인기칩(#2)**, 현지 자연스러운 문구, 화폐 표기 모순 수정, 가이드 8→15편, Cloudflare Web Analytics(자동), 저장소 공개 전환 + 크롤러 D1 최적화(선로드+batch).
 
-**애드센스 심사까지 (우선):**
-- [ ] 다국어 변경분을 GitHub `main`에 푸시 → 자동 배포 확인(브라우저 강력 새로고침으로 검증).
-- [ ] Cloudflare 대시보드 → Web Analytics 토큰 발급 → `web/index.html`의 `REPLACE_WITH_YOUR_CF_TOKEN` 교체.
-- [ ] 대표 OG 공유 이미지(1200×630 PNG) + PNG 앱 아이콘 제작 → `web/index.html`의 `og:image`(현재 빈값)·매니페스트·파비콘에 반영.
-- [ ] **구글 애드센스 심사 신청** → 승인되면 `web/index.html`의 `ca-pub-XXXX`와 `web/public/ads.txt`의 `pub-0000…`을 발급 ID로 교체.
-- [ ] (참고) Search Console 사이트맵 "가져올 수 없음"은 제출 직후 정상 — 며칠 내 자동 해결, 재제출 불필요.
+**남은 일 — 심사/승인:**
+- [ ] 구글 애드센스 **검토 요청(Request review)** 제출 → 결과 대기(보통 며칠~2주). 거절 시 적힌 사유만 보정.
+- [ ] (승인 후) 유럽(EEA) 맞춤광고용 **Google 인증 CMP**(동의 도구) 켜기 — 승인 블로커 아님, 한국 중심이라 후순위.
 
 **성장(트래픽·수익) — 심사 블로커 아님:**
-- [ ] 한글↔영문 검색 불일치 개선("사이버펑크"→"Cyberpunk 2077"). 별칭/현지화 이름 layer 필요.
-- [ ] 네이버/커뮤니티 채널: 주간 "오늘의 역대최저가"를 아카라이브·펨코·루리웹·레딧 등에 올려 백링크·직접 방문 확보(도메인 혼자선 SEO로 못 뚫음).
-- [ ] 공식 리셀러 제휴(어필리에이트) 링크 — 광고 외 둘째 수익원, 구매 전환 좋음.
+- [ ] 한글↔영문 검색 별칭("사이버펑크"→"Cyberpunk 2077"). 별칭/현지화 이름 layer.
+- [ ] 네이버/커뮤니티 채널(아카라이브·펨코·루리웹·레딧 등)에 주간 "오늘의 역대최저가" → 백링크·직접 방문.
+- [ ] 공식 리셀러 제휴(어필리에이트) 링크 — 광고 외 둘째 수익원.
 - [ ] 가격 알림(목표가/할인율 도달 시) — 재방문 장치.
-- [ ] 언어별 URL(`/en/` 등) + `hreflang` — 구글이 언어별로 따로 색인하게(현재 i18n은 클라이언트 전환만, 단일 URL).
-- [ ] 가이드 글 주기적 추가(통과·유지·트래픽에 가장 효과적). 추가 절차는 아래 "주의사항" 참고.
+- [ ] 언어별 URL(`/en/` 등) + `hreflang` — 언어별 색인(현재는 단일 URL).
+- [ ] 가이드 글 주기적 추가(현재 15편 — 통과·유지·트래픽에 가장 효과적).
 
 **참고**: 자세한 성장·수익 전략 메모는 공개 저장소에 두지 않는다(작업 환경 메모에서 관리).
 

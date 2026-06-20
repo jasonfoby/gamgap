@@ -31,15 +31,33 @@ export function availableGenres(rows) {
   return [...count.entries()].sort((a, b) => b[1] - a[1]).map(([t]) => t);
 }
 
-// 히어로 인기 칩: 현재 할인 목록 중 리뷰 수(인기) 많은 순 상위 n개를 {q,id}로 추린다.
-// 리뷰 데이터가 아직 없으면(전부 0/없음) 빈 배열 → 호출부(Hero)가 하드코딩 유명 게임으로 폴백.
-// "지금 할인 중 + 가장 반응 좋은(리뷰 많은)" 게임이라 CTA가 강하다.
-export function popularPicks(rows, n = 6) {
-  return (rows || [])
-    .filter((g) => Number(g.reviewTotal) > 0 && g.name)
+// 폴백/패딩용 — 누구나 아는 유명작(영문 정식명). 리뷰 데이터가 없거나 인기작이 부족할 때 채운다.
+export const FAMOUS = [
+  { q: "Cyberpunk 2077", id: 1091500 },
+  { q: "Elden Ring", id: 1245620 },
+  { q: "Baldur's Gate 3", id: 1086940 },
+  { q: "Hades", id: 1145360 },
+  { q: "Stardew Valley", id: 413150 },
+  { q: "Hollow Knight", id: 367520 },
+];
+
+// 히어로 인기 칩: 현재 할인 목록 중 '리뷰 수가 충분히 많은(=유명한)' 게임만 리뷰 많은 순으로 고른다.
+// minReviews 미만(잘 모르는 게임)은 제외해 CTA 품질을 지키고, 모자라면 FAMOUS로 채워 항상 최대 n개.
+// "지금 할인 중 + 유명한(반응 많은)" 게임이라 클릭 유인이 강하다.
+export function popularPicks(rows, n = 6, minReviews = 5000) {
+  const picks = (rows || [])
+    .filter((g) => g.name && (Number(g.reviewTotal) || 0) >= minReviews)
     .sort((a, b) => (Number(b.reviewTotal) || 0) - (Number(a.reviewTotal) || 0))
-    .slice(0, n)
     .map((g) => ({ q: g.name, id: g.appid }));
+  const seen = new Set(picks.map((p) => p.id));
+  for (const f of FAMOUS) {
+    if (picks.length >= n) break;
+    if (!seen.has(f.id)) {
+      picks.push(f);
+      seen.add(f.id);
+    }
+  }
+  return picks.slice(0, n);
 }
 
 export const defaultDealOpts = (maxBound) => ({
