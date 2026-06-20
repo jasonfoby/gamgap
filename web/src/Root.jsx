@@ -15,6 +15,16 @@ const GUIDE_PREFIX = "/guide/";
 const GAME_PREFIX = "/game/";
 const CONTENT_SLUGS = ["privacy", "terms", "about", "contact"];
 
+// 잘못된 퍼센트 인코딩(예: /game/%E0)이 와도 decodeURIComponent가 던지는 URIError로
+// 라우팅이 통째로 깨지지 않게 안전하게 디코드한다.
+function safeDecode(s) {
+  try {
+    return decodeURIComponent(s);
+  } catch {
+    return s;
+  }
+}
+
 export default function Root() {
   const path = useRoute();
 
@@ -23,13 +33,13 @@ export default function Root() {
     page = <App />;
   } else if (path.startsWith(GAME_PREFIX)) {
     // "/game/1091500" → appid "1091500" (숫자만 허용, 아니면 404)
-    const appid = decodeURIComponent(path.slice(GAME_PREFIX.length)).replace(/\/+$/, "");
+    const appid = safeDecode(path.slice(GAME_PREFIX.length)).replace(/\/+$/, "");
     page = /^\d+$/.test(appid) ? <GamePage appid={appid} /> : <NotFound />;
   } else if (path === "/guide") {
     page = <GuideIndex />;
   } else if (path.startsWith(GUIDE_PREFIX)) {
     // "/guide/steam-sale-calendar" → slug "steam-sale-calendar"
-    const slug = decodeURIComponent(path.slice(GUIDE_PREFIX.length));
+    const slug = safeDecode(path.slice(GUIDE_PREFIX.length));
     page = <GuideArticle slug={slug} />;
   } else if (CONTENT_SLUGS.includes(path.slice(1))) {
     page = <ContentPage slug={path.slice(1)} />;

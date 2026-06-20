@@ -83,11 +83,12 @@ export function setGameHead(game) {
   setCanonical(url);
   // 현재가가 없는(빈) 페이지만 색인 제외. 가격·역대최저·판정·고유 본문이 있으면 색인 허용.
   setRobots(!(Number(game.currentPrice) > 0));
-  setJsonLd(game, img);
+  setJsonLd(game, img, game.currency || "KRW");
 }
 
 // 구글 리치 결과용 Product/Offer 구조화데이터(JSON-LD).
-function setJsonLd(game, img) {
+// 통화는 화면 통화(game.currency)를 따른다 — 영어/일본어 등에서 가격·통화가 어긋나지 않게.
+function setJsonLd(game, img, currency) {
   removeJsonLd();
   const data = {
     "@context": "https://schema.org",
@@ -96,12 +97,15 @@ function setJsonLd(game, img) {
     image: img,
     offers: {
       "@type": "Offer",
-      priceCurrency: "KRW",
+      priceCurrency: currency || "KRW",
       price: Number(game.currentPrice) || 0,
       availability: "https://schema.org/InStock",
       url: `https://store.steampowered.com/app/${game.appid}/`,
     },
   };
+  // 개발사가 있으면 brand로(유효·안전). 별점은 메타크리틱(점수)과 리뷰수(개수)가 출처가 달라
+  // aggregateRating으로 묶으면 잘못된 마크업이 되므로 넣지 않는다.
+  if (game.developer) data.brand = { "@type": "Organization", name: game.developer };
   const s = document.createElement("script");
   s.type = "application/ld+json";
   s.id = "ld-game";

@@ -7,7 +7,7 @@ export function priceStats(hist) {
   if (vals.length < 2) return null;
   const sum = vals.reduce((a, b) => a + b, 0);
   return {
-    avg: Math.round(sum / vals.length), // 역대 평균가
+    avg: sum / vals.length, // 역대 평균가(반올림 안 함 — 통화별 자릿수는 money()/Intl가 처리. 원화는 0자리로 동일)
     max: Math.max(...vals), // 역대 최고가
     min: Math.min(...vals), // 역대 최저가(이력 기준)
     since: hist[0]?.d || null, // 기록 시작 시점

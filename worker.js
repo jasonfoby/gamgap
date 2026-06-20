@@ -40,7 +40,7 @@ const SUMMARY = `
 // 이름은 지역 언어명 우선(영문명 등), 장르는 한국 games에서 가져온다.
 const REGION_SUMMARY = `
   SELECT r.appid                              AS appid,
-         COALESCE(NULLIF(r.name,''), g.name)  AS name,
+         COALESCE(NULLIF(r.name,''), g.name, '')  AS name,
          r.normal_price  / 100.0              AS normalPrice,
          r.current_price / 100.0              AS currentPrice,
          r.discount_percent                   AS discountPercent,
@@ -97,17 +97,18 @@ export default {
       if (path === "/api/search") {
         const q = (url.searchParams.get("q") || "").trim();
         if (!q) return json([]);
+        const esc = q.replace(/[\\%_]/g, (c) => "\\" + c); // LIKE 와일드카드(%,_) 이스케이프
         if (cc) {
           try {
             const { results } = await env.DB
-              .prepare(`${REGION_SUMMARY} WHERE r.cc=? AND (g.name LIKE ? OR r.name LIKE ?) ORDER BY r.discount_percent DESC LIMIT 30`)
-              .bind(cc, `%${q}%`, `%${q}%`).all();
+              .prepare(`${REGION_SUMMARY} WHERE r.cc=? AND (g.name LIKE ? ESCAPE '\\' OR r.name LIKE ? ESCAPE '\\') ORDER BY r.discount_percent DESC LIMIT 30`)
+              .bind(cc, `%${esc}%`, `%${esc}%`).all();
             if (results && results.length) return json(await withHistory(env, results, cc));
           } catch (e) { /* 지역 테이블 없음/오류 → 한국 폴백 */ }
         }
         const { results } = await env.DB
-          .prepare(`${SUMMARY} WHERE name LIKE ? ORDER BY discount_percent DESC LIMIT 30`)
-          .bind(`%${q}%`).all();
+          .prepare(`${SUMMARY} WHERE name LIKE ? ESCAPE '\\' ORDER BY discount_percent DESC LIMIT 30`)
+          .bind(`%${esc}%`).all();
         return json(await withHistory(env, results));
       }
 
@@ -115,13 +116,13 @@ export default {
         if (cc) {
           try {
             const { results } = await env.DB
-              .prepare(`${REGION_SUMMARY} WHERE r.cc=? AND r.is_low_today=1 ORDER BY r.discount_percent DESC LIMIT 40`)
+              .prepare(`${REGION_SUMMARY} WHERE r.cc=? AND r.current_price <= r.all_time_low ORDER BY r.discount_percent DESC LIMIT 40`)
               .bind(cc).all();
             if (results && results.length) return json(await withHistory(env, results, cc));
           } catch (e) { /* 폴백 */ }
         }
         const { results } = await env.DB
-          .prepare(`${SUMMARY} WHERE is_low_today=1 ORDER BY discount_percent DESC LIMIT 40`).all();
+          .prepare(`${SUMMARY} WHERE current_price <= all_time_low ORDER BY discount_percent DESC LIMIT 40`).all();
         return json(await withHistory(env, results));
       }
 

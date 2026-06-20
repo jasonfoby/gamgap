@@ -55,14 +55,16 @@ export function ym(d) {
 }
 
 // 게임 이름 글자 합으로 표지 그라데이션 배경색을 정한다 (이름마다 고정 색).
+// 이름이 비거나 null이어도(해외 지역 단독 행 등) 죽지 않게 방어.
 export function coverGradient(name) {
+  const s = String(name || "");
   let h = 0;
-  for (let i = 0; i < name.length; i++) h += name.charCodeAt(i);
+  for (let i = 0; i < s.length; i++) h += s.charCodeAt(i);
   h = (h * 37) % 360;
   return `linear-gradient(150deg,hsl(${h} 38% 30%),hsl(${(h + 40) % 360} 42% 18%))`;
 }
 
 // 표지에 크게 박을 첫 글자.
 export function coverInitial(name) {
-  return name.trim().charAt(0) || "?";
+  return String(name || "").trim().charAt(0) || "?";
 }

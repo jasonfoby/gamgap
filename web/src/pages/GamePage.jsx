@@ -287,7 +287,7 @@ function GameInfo({ g, t }) {
           <div className="lrow">
             <span className="lab">{t("info.languages")}</span>
             <span className="val">
-              {SUPPORTED.filter((s) => langCodes.includes(s.code)).map((s) => "✓ " + s.label).join("  ")}
+              {SUPPORTED.filter((s) => langCodes.includes(s.code)).map((s) => "✓ " + s.label).join(" · ")}
               {Number(g.langCount) > 0 && <span className="gp-info-sub"> · {t("info.langCount", { n: g.langCount })}</span>}
             </span>
           </div>
