@@ -51,12 +51,16 @@ header{position:sticky;top:0;z-index:40;background:rgba(22,27,43,.92);backdrop-f
 
 /* ===== 셸 (사이드바 | 본문) ===== */
 .shell{max-width:var(--max);margin:0 auto;padding:10px 20px 90px;display:block}
+/* 히어로 아래 가로 띠 광고: 칩/셸과 같은 폭으로 정렬. 광고 없으면(AdSlot이 null) :empty 로 숨김. */
+.home-ad{max-width:var(--max);margin:0 auto;padding:2px 20px}
+.home-ad:empty{display:none}
 .main{min-width:0}
 .block{margin:0 0 8px}
 
 /* ===== 사이드바 ===== */
 .side{display:flex;flex-direction:column;gap:14px;margin-bottom:8px}
 .side-block{display:flex;flex-direction:column;gap:10px}
+.side-ad:empty{display:none} /* 슬롯 ID 없으면 사이드바 광고 자리 숨김(빈칸 방지) */
 .side-label{display:none;font-size:11.5px;font-weight:800;letter-spacing:.3px;color:var(--mute)}
 
 /* ===== 섹션 헤더 ===== */
@@ -241,7 +245,7 @@ input[type=range]{flex:1;accent-color:var(--gold);min-width:110px}
 
 /* 좁은 화면에선 사이드바의 보조 패널을 숨겨 본문을 먼저 보이게 */
 @media(max-width:1023px){
-  .side-trust,.side-countdown{display:none}
+  .side-trust,.side-countdown,.side-ad{display:none}
 }
 
 /* ===== 필터 토글(모바일) + 접이식 본문 ===== */

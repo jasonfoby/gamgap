@@ -305,6 +305,11 @@ export default function App() {
         popularLoading={deals.status === "loading"}
       />
 
+      {/* 히어로(칩) 아래 · 본문 위 가로 띠 배너. 슬롯 ID 없거나 광고 없으면 :empty 로 자리 접힘. */}
+      <div className="home-ad">
+        <AdSlot slot="homeTop" format="horizontal" />
+      </div>
+
       <div className="shell">
         <Sidebar
           tab={tab}

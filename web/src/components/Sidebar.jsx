@@ -3,6 +3,7 @@ import Tabs from "./Tabs";
 import DealControls from "./DealControls";
 import SaleCountdown from "./SaleCountdown";
 import TrustNote from "./TrustNote";
+import AdSlot from "./AdSlot";
 import { activeFilterCount } from "../lib/filterUi";
 import { useT } from "../lib/i18n";
 
@@ -41,6 +42,11 @@ export default function Sidebar({ tab, onTabChange, wishCount, searching, dealOp
       <div className="side-block side-countdown">
         <div className="side-label">{t("side.nextSale")}</div>
         <SaleCountdown />
+      </div>
+
+      {/* 사이드바 광고(데스크탑 전용). 슬롯 ID 없으면 AdSlot이 null → :empty 로 자리 숨김. */}
+      <div className="side-ad">
+        <AdSlot slot="sidebar" />
       </div>
 
       <div className="side-block side-trust">
