@@ -16,6 +16,14 @@ const GUIDE_PATHS = [
   "/guide/best-value-indies",
   "/guide/wishlist-alerts",
   "/guide/avoid-fake-discounts",
+  // 2026-06-20 증편
+  "/guide/historical-low-meaning",
+  "/guide/when-to-buy-or-wait",
+  "/guide/steam-bundles-guide",
+  "/guide/reviews-metacritic-guide",
+  "/guide/price-history-reading",
+  "/guide/seasonal-sale-strategy",
+  "/guide/first-steam-purchase-guide",
 ];
 
 export async function onRequest(context) {
@@ -33,7 +41,10 @@ export async function onRequest(context) {
   const locs = [
     ...STATIC_PATHS.map((p) => `${origin}${p}`),
     ...GUIDE_PATHS.map((p) => `${origin}${p}`),
-    ...rows.filter((g) => g && g.appid).map((g) => `${origin}/game/${g.appid}`),
+    // 사이트맵엔 색인 대상(검증 신호 있는 게임)만 — 빈약 페이지 noindex 기준과 일치시킨다.
+    ...rows
+      .filter((g) => g && g.appid && (Number(g.reviewTotal) >= 300 || Number(g.metacritic) > 0))
+      .map((g) => `${origin}/game/${g.appid}`),
   ];
   const body =
     `<?xml version="1.0" encoding="UTF-8"?>\n` +

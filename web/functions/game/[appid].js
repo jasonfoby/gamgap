@@ -162,6 +162,10 @@ export async function onRequest(context) {
   const currency = game.currency || "KRW";
   const fmt = (n) => fmtMoney(n, currency, lang);
 
+  // 빈약·양산형 페이지는 색인 제외(클라이언트 head.js 와 같은 기준). 페이지는 정상(200)으로 보여주되
+  // 검증 신호(리뷰 300개↑ 또는 메타크리틱)가 없으면 robots noindex 만 덧붙인다.
+  const thin = !(Number(game.reviewTotal) >= 300 || Number(game.metacritic) > 0);
+
   const onSale = Number(game.discountPercent) > 0;
   const cur = fmt(game.currentPrice);
   const atlVal = Number(game.allTimeLow) > 0 ? fmt(game.allTimeLow) : "";
@@ -217,6 +221,7 @@ export async function onRequest(context) {
     .on("#root", { element(e) { e.setInnerContent(bodyHtml, { html: true }); } })
     .on("head", {
       element(e) {
+        if (thin) e.append(`<meta name="robots" content="noindex,follow">`, { html: true });
         e.append(`<script type="application/ld+json">${esc(jsonld).replace(/&quot;/g, '"')}</script>`, { html: true });
       },
     })
