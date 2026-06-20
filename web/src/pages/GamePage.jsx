@@ -7,7 +7,7 @@ import PriceChart from "../components/PriceChart";
 import { Link } from "../lib/router";
 import { verdict } from "../lib/verdict";
 import { money, ym } from "../lib/format";
-import { priceStats, lowPoints } from "../lib/stats";
+import { priceStats, lowPoints, chartSeries } from "../lib/stats";
 import { setGameHead, resetHead } from "../lib/head";
 import { getGame } from "../api";
 import { track } from "../lib/analytics";
@@ -96,6 +96,9 @@ function GameDetail({ g, copied, onCopy, t }) {
   const v = verdict(g);
   const stats = priceStats(g.history);
   const lows = lowPoints(g.history, 5);
+  // 차트용 시리즈: 실제 이력이 부족하면(해외 지역 등) 정가→현재가로 합성해 모든 언어에서 그래프가 보이게.
+  const chartHist = chartSeries(g);
+  const hasChart = chartHist.length >= 2;
   const onSale = Number(g.discountPercent) > 0;
   const hasLow = Number(g.allTimeLow) > 0;
 
@@ -162,11 +165,11 @@ function GameDetail({ g, copied, onCopy, t }) {
         <StarButton appid={g.appid} />
       </div>
 
-      {stats ? (
+      {hasChart ? (
         <div className="mtop">
           <div className="mtop-chart">
             <div className="chartlabel">{t("gp.chartLabel")}</div>
-            <PriceChart hist={g.history} low={g.allTimeLow} currency={g.currency} />
+            <PriceChart hist={chartHist} low={g.allTimeLow} currency={g.currency} />
           </div>
           {summary}
         </div>

@@ -15,6 +15,21 @@ export function priceStats(hist) {
   };
 }
 
+// 차트에 그릴 가격 시리즈. 실제 이력이 2점 이상이면 그대로 쓴다.
+// 부족하면(해외 지역은 수집이 짧아 1점인 경우가 많음) '정가 → 현재가' 2점으로 합성해
+// 모든 언어에서 가격 흐름 그래프가 일관되게 보이게 한다(정가>현재가, 즉 할인 중일 때만).
+export function chartSeries(game) {
+  const h = (game.history || []).filter((p) => Number(p.p) > 0);
+  if (h.length >= 2) return h;
+  const normal = Number(game.normalPrice) || 0;
+  const cur = Number(game.currentPrice) || 0;
+  if (normal > cur && cur > 0) {
+    const curDate = (h[0] && h[0].d) || game.allTimeLowDate || "";
+    return [{ d: "", p: normal }, { d: curDate, p: cur }];
+  }
+  return h; // 합성도 불가(정가=현재가 등)면 그대로 → 차트는 빈 상태로 폴백
+}
+
 // 이력에서 "과거 저점" 모음 — 가격 오름차순, 같은 가격은 가장 이른 기록만, 상위 n개.
 // 그래프를 못 읽는 사용자도 "평소 얼마까지 떨어졌나"를 한눈에 보게 하는 보조 리스트용.
 export function lowPoints(hist, n = 5) {

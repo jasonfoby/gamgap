@@ -237,9 +237,11 @@ export default function App() {
   }, [debounced, loadSearch]);
 
   // 홈은 문서 제목·메타·canonical 을 기본(홈)값으로 복원한다.
+  // lang을 의존성에 넣어 언어를 바꾸면 탭 제목·메타도 그 언어로 다시 설정되게 한다
+  // (안 그러면 다른 언어로 보다가 전환해도 제목이 옛 언어에 멈춤).
   useEffect(() => {
     resetHead();
-  }, []);
+  }, [lang]);
 
   // 탭 상태를 주소창에 반영(공유·새로고침 유지). 뒤로가기 오염 방지로 replace.
   useEffect(() => {
