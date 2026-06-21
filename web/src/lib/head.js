@@ -67,7 +67,14 @@ export function setGameHead(game) {
   const title = translate(L, "meta.gameTitle", { name: game.name, cur });
   const sale = onSale ? translate(L, "meta.gameDescSale", { pct: game.discountPercent }) : "";
   const atl = hasLow ? translate(L, "meta.gameDescAtl", { p: money(game.allTimeLow, game.currency) }) : "";
-  const desc = translate(L, "meta.gameDesc", { name: game.name, cur, sale, atl });
+  // 메타 설명 끝에 게임별로 다른 사실(메타크리틱 또는 평가 수)을 덧붙여 페이지마다 다르게(중복 메타 방지).
+  // 기존 번역키(info.metacritic·info.reviewCount) 재활용 — 새 번역 불필요.
+  const mc = Number(game.metacritic) || 0;
+  const rt = Number(game.reviewTotal) || 0;
+  let fact = "";
+  if (mc > 0) fact = ` ${translate(L, "info.metacritic")} ${mc}.`;
+  else if (rt > 0) fact = ` ${translate(L, "info.reviewCount", { n: rt.toLocaleString() })}.`;
+  const desc = translate(L, "meta.gameDesc", { name: game.name, cur, sale, atl }) + fact;
   const img = steamHeader(game.appid);
   const url = `${location.origin}/game/${game.appid}`;
 

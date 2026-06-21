@@ -44,6 +44,7 @@ const STR = {
     steamLink: (n) => `스팀에서 ${n} 보기`,
     homeLink: "Lowstamp 홈 — 오늘의 역대 최저가",
     guideLink: "게임 싸게 사는 가이드",
+    descFact: (reviews, meta) => meta ? ` 메타크리틱 ${meta}점.` : (reviews ? ` 스팀 평가 ${reviews}개+.` : ""),
     meta2: (n, { dev, year, reviews, meta }) => {
       let a = "";
       if (dev && year) a = `${n}, ${dev}가 ${year}년에 출시한 게임입니다.`;
@@ -68,6 +69,7 @@ const STR = {
     steamLink: (n) => `View ${n} on Steam`,
     homeLink: "Lowstamp home — today's all-time lows",
     guideLink: "Guide: how to buy games cheap",
+    descFact: (reviews, meta) => meta ? ` Metacritic ${meta}.` : (reviews ? ` ${reviews}+ Steam reviews.` : ""),
     meta2: (n, { dev, year, reviews, meta }) => {
       let a = "";
       if (dev && year) a = `${n} was developed by ${dev} and released in ${year}.`;
@@ -92,6 +94,7 @@ const STR = {
     steamLink: (n) => `Steam で ${n} を見る`,
     homeLink: "Lowstamp ホーム — 本日の過去最安値",
     guideLink: "ガイド: ゲームを安く買う方法",
+    descFact: (reviews, meta) => meta ? ` メタスコア ${meta}。` : (reviews ? ` Steam レビュー ${reviews}件+。` : ""),
     meta2: (n, { dev, year, reviews, meta }) => {
       let a = "";
       if (dev && year) a = `${n} は ${dev} が ${year} 年にリリースしたゲームです。`;
@@ -116,6 +119,7 @@ const STR = {
     steamLink: (n) => `在 Steam 查看 ${n}`,
     homeLink: "Lowstamp 首页 — 今日历史最低价",
     guideLink: "指南：如何便宜买游戏",
+    descFact: (reviews, meta) => meta ? ` Metacritic ${meta}。` : (reviews ? ` Steam 评测 ${reviews}+。` : ""),
     meta2: (n, { dev, year, reviews, meta }) => {
       let a = "";
       if (dev && year) a = `${n} 由 ${dev} 开发，${year} 年发行。`;
@@ -140,6 +144,7 @@ const STR = {
     steamLink: (n) => `Ver ${n} en Steam`,
     homeLink: "Inicio de Lowstamp — mínimos históricos de hoy",
     guideLink: "Guía: cómo comprar juegos baratos",
+    descFact: (reviews, meta) => meta ? ` Metacritic ${meta}.` : (reviews ? ` ${reviews}+ reseñas en Steam.` : ""),
     meta2: (n, { dev, year, reviews, meta }) => {
       let a = "";
       if (dev && year) a = `${n} fue desarrollado por ${dev} y se lanzó en ${year}.`;
@@ -164,6 +169,7 @@ const STR = {
     steamLink: (n) => `Ver ${n} na Steam`,
     homeLink: "Início do Lowstamp — menores preços de hoje",
     guideLink: "Guia: como comprar jogos barato",
+    descFact: (reviews, meta) => meta ? ` Metacritic ${meta}.` : (reviews ? ` ${reviews}+ avaliações na Steam.` : ""),
     meta2: (n, { dev, year, reviews, meta }) => {
       let a = "";
       if (dev && year) a = `${n} foi desenvolvido por ${dev} e lançado em ${year}.`;
@@ -239,6 +245,7 @@ export async function onRequest(context) {
   // 잘못 표기하게 된다 → KRW로 폴백해 클라이언트(money())와 표기를 일치시킨다.
   const currency = game.currency || "KRW";
   const fmt = (n) => fmtMoney(n, currency, lang);
+  const grp = (x) => String(x).replace(/\B(?=(\d{3})+(?!\d))/g, ","); // 천단위 콤마
 
   // 빈약·양산형 페이지는 색인 제외(클라이언트 head.js 와 같은 기준). 페이지는 정상(200)으로 보여주되
   // 검증 신호(리뷰 300개↑ 또는 메타크리틱)가 없으면 robots noindex 만 덧붙인다.
@@ -250,9 +257,13 @@ export async function onRequest(context) {
 
   const title = `${game.name}${s.titleSuffix}${cur} · Lowstamp`;
   const descAtl = atlVal ? s.descAtl(atlVal) : "";
+  // 메타 설명 끝에 게임별로 다른 '사실'(메타크리틱 또는 평가 수)을 덧붙여 페이지마다 다르게 한다(중복 메타 방지).
+  const descReviews = Number(game.reviewTotal) > 0 ? grp(Number(game.reviewTotal)) : "";
+  const descMeta = Number(game.metacritic) > 0 ? Number(game.metacritic) : 0;
+  const fact = s.descFact ? s.descFact(descReviews, descMeta) : "";
   const desc =
     `${game.name} ${cur}${onSale ? s.descSale(game.discountPercent) : ""}.` +
-    `${descAtl}${s.descTail}`;
+    `${descAtl}${s.descTail}${fact}`;
   const img = `https://cdn.cloudflare.steamstatic.com/steam/apps/${game.appid}/header.jpg`;
   const pageUrl = `${url.origin}/game/${game.appid}`;
 
@@ -264,7 +275,6 @@ export async function onRequest(context) {
   const atlClause = atlVal ? s.atlClause(atlVal, atlDate) : "";
   // 게임별로 달라지는 '사실' 문장 한 줄 더(개발사·출시연도·스팀 평가 수·메타크리틱) →
   // 봇이 보는 본문이 가격 한 문장만 돌려쓰는 양산형으로 보이지 않게 한다. 데이터 없는 항목은 자동 생략.
-  const grp = (x) => String(x).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   const info2 = s.meta2 ? s.meta2(nameE, {
     dev: game.developer ? esc(game.developer) : "",
     year: Number(game.releaseYear) || 0,
