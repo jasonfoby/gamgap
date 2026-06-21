@@ -125,6 +125,13 @@ import GUIDE_pt_price_history_reading from "../../src/content/guides/pt/price-hi
 import GUIDE_pt_seasonal_sale_strategy from "../../src/content/guides/pt/seasonal-sale-strategy.js";
 import GUIDE_pt_first_steam_purchase_guide from "../../src/content/guides/pt/first-steam-purchase-guide.js";
 import GUIDE_pt_dlc_season_pass_guide from "../../src/content/guides/pt/dlc-season-pass-guide.js";
+// 2026-06-22 증편
+import GUIDE_ko_avoid_impulse_buys from "../../src/content/guides/ko/avoid-impulse-buys.js";
+import GUIDE_en_avoid_impulse_buys from "../../src/content/guides/en/avoid-impulse-buys.js";
+import GUIDE_ja_avoid_impulse_buys from "../../src/content/guides/ja/avoid-impulse-buys.js";
+import GUIDE_zh_avoid_impulse_buys from "../../src/content/guides/zh/avoid-impulse-buys.js";
+import GUIDE_es_avoid_impulse_buys from "../../src/content/guides/es/avoid-impulse-buys.js";
+import GUIDE_pt_avoid_impulse_buys from "../../src/content/guides/pt/avoid-impulse-buys.js";
 
 const SUPPORTED = ["ko", "en", "ja", "zh", "es", "pt"];
 const DEFAULT = "en";
@@ -188,7 +195,8 @@ const GUIDES = {
     "price-history-reading": GUIDE_ko_price_history_reading,
     "seasonal-sale-strategy": GUIDE_ko_seasonal_sale_strategy,
     "first-steam-purchase-guide": GUIDE_ko_first_steam_purchase_guide,
-    "dlc-season-pass-guide": GUIDE_ko_dlc_season_pass_guide
+    "dlc-season-pass-guide": GUIDE_ko_dlc_season_pass_guide,
+    "avoid-impulse-buys": GUIDE_ko_avoid_impulse_buys
   },
   "en": {
     "steam-sale-calendar": GUIDE_en_steam_sale_calendar,
@@ -206,7 +214,8 @@ const GUIDES = {
     "price-history-reading": GUIDE_en_price_history_reading,
     "seasonal-sale-strategy": GUIDE_en_seasonal_sale_strategy,
     "first-steam-purchase-guide": GUIDE_en_first_steam_purchase_guide,
-    "dlc-season-pass-guide": GUIDE_en_dlc_season_pass_guide
+    "dlc-season-pass-guide": GUIDE_en_dlc_season_pass_guide,
+    "avoid-impulse-buys": GUIDE_en_avoid_impulse_buys
   },
   "ja": {
     "steam-sale-calendar": GUIDE_ja_steam_sale_calendar,
@@ -224,7 +233,8 @@ const GUIDES = {
     "price-history-reading": GUIDE_ja_price_history_reading,
     "seasonal-sale-strategy": GUIDE_ja_seasonal_sale_strategy,
     "first-steam-purchase-guide": GUIDE_ja_first_steam_purchase_guide,
-    "dlc-season-pass-guide": GUIDE_ja_dlc_season_pass_guide
+    "dlc-season-pass-guide": GUIDE_ja_dlc_season_pass_guide,
+    "avoid-impulse-buys": GUIDE_ja_avoid_impulse_buys
   },
   "zh": {
     "steam-sale-calendar": GUIDE_zh_steam_sale_calendar,
@@ -242,7 +252,8 @@ const GUIDES = {
     "price-history-reading": GUIDE_zh_price_history_reading,
     "seasonal-sale-strategy": GUIDE_zh_seasonal_sale_strategy,
     "first-steam-purchase-guide": GUIDE_zh_first_steam_purchase_guide,
-    "dlc-season-pass-guide": GUIDE_zh_dlc_season_pass_guide
+    "dlc-season-pass-guide": GUIDE_zh_dlc_season_pass_guide,
+    "avoid-impulse-buys": GUIDE_zh_avoid_impulse_buys
   },
   "es": {
     "steam-sale-calendar": GUIDE_es_steam_sale_calendar,
@@ -260,7 +271,8 @@ const GUIDES = {
     "price-history-reading": GUIDE_es_price_history_reading,
     "seasonal-sale-strategy": GUIDE_es_seasonal_sale_strategy,
     "first-steam-purchase-guide": GUIDE_es_first_steam_purchase_guide,
-    "dlc-season-pass-guide": GUIDE_es_dlc_season_pass_guide
+    "dlc-season-pass-guide": GUIDE_es_dlc_season_pass_guide,
+    "avoid-impulse-buys": GUIDE_es_avoid_impulse_buys
   },
   "pt": {
     "steam-sale-calendar": GUIDE_pt_steam_sale_calendar,
@@ -278,7 +290,8 @@ const GUIDES = {
     "price-history-reading": GUIDE_pt_price_history_reading,
     "seasonal-sale-strategy": GUIDE_pt_seasonal_sale_strategy,
     "first-steam-purchase-guide": GUIDE_pt_first_steam_purchase_guide,
-    "dlc-season-pass-guide": GUIDE_pt_dlc_season_pass_guide
+    "dlc-season-pass-guide": GUIDE_pt_dlc_season_pass_guide,
+    "avoid-impulse-buys": GUIDE_pt_avoid_impulse_buys
   }
 };
 
