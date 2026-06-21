@@ -113,10 +113,18 @@ h2{display:flex;align-items:center;gap:8px;color:var(--txt);font-weight:800;font
 .empty,.loading{color:#8E886F;font-size:14px;text-align:center;padding:30px 12px;border:1px dashed var(--line);border-radius:12px}
 .errbox{background:#2A1A18;border:1px solid #6E3B34;color:#E9C3BC;border-radius:10px;padding:12px 14px;font-size:13.5px}
 
-/* ===== '더 보기'(무한 스크롤 끝) ===== */
-.loadmore{display:flex;justify-content:center;margin-top:18px}
-.loadmore-btn{flex:0 0 auto;min-width:160px;padding:11px 22px}
-.loadmore-btn:disabled{opacity:.6;cursor:default}
+/* ===== '더 보기'(무한 스크롤) ===== */
+.loadmore{display:flex;justify-content:center;margin-top:18px;min-height:44px}
+/* 어두운 배경 위에서도 잘 보이는 버튼(영수증용 ghostbtn 과 별개) */
+.loadmore-btn{display:inline-flex;align-items:center;justify-content:center;min-width:180px;
+  padding:12px 26px;border-radius:99px;background:rgba(255,255,255,.04);color:var(--txt);
+  border:1px solid var(--txt-dim);font-family:var(--kr);font-size:14px;font-weight:700;cursor:pointer;transition:all .12s}
+.loadmore-btn:hover{background:rgba(200,145,43,.14);border-color:var(--gold);color:#F3EFE3}
+/* 불러오는 중 표시(빙글 도는 원 + 글자) */
+.loadmore-status{display:inline-flex;align-items:center;gap:9px;color:var(--txt-dim);font-size:14px;font-weight:600}
+.spinner{width:16px;height:16px;border-radius:50%;border:2px solid rgba(255,255,255,.18);
+  border-top-color:var(--gold);animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
 
 /* ===== 탭 (사이드바에선 세로) ===== */
 .tabs{display:flex;gap:8px;flex-wrap:wrap}

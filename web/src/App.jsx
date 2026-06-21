@@ -123,6 +123,7 @@ function usePagedList(fetchPage) {
 }
 
 // 목록 맨 아래에 두는 '더 보기' 영역. 화면에 들어오면(스크롤 끝 근처) 자동으로 다음 묶음을 부른다.
+// 불러오는 동안엔 카드 자리표시(스켈레톤) + 빙글 도는 표시로 '오고 있다'는 느낌을 준다.
 // 자동 감지가 막힌 환경을 위해 버튼도 함께 둔다. 더 없으면 아무것도 안 그린다.
 function LoadMore({ hasMore, loading, onLoadMore }) {
   const { t } = useT();
@@ -142,11 +143,22 @@ function LoadMore({ hasMore, loading, onLoadMore }) {
   }, [hasMore, onLoadMore]);
   if (!hasMore) return null;
   return (
-    <div ref={ref} className="loadmore">
-      <button className="ghostbtn loadmore-btn" onClick={onLoadMore} disabled={loading}>
-        {loading ? t("common.loading") : t("common.more")}
-      </button>
-    </div>
+    <>
+      {/* 불러오는 중: 다음 게임들이 들어올 자리를 미리 카드 모양으로 깔아 '갑자기 툭' 튀어나오는 느낌을 줄인다. */}
+      {loading && <ListSkeleton count={4} />}
+      <div ref={ref} className="loadmore">
+        {loading ? (
+          <span className="loadmore-status" role="status" aria-busy="true">
+            <span className="spinner" aria-hidden="true" />
+            {t("common.loading")}
+          </span>
+        ) : (
+          <button className="loadmore-btn" onClick={onLoadMore}>
+            {t("common.more")}
+          </button>
+        )}
+      </div>
+    </>
   );
 }
 
