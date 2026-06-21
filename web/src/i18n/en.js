@@ -2,6 +2,7 @@ export default {
   "common.retry": "Try again",
   "common.menu": "Site menu",
   "common.loading": "Loading…",
+  "common.more": "Show more",
   "lang.label": "Language",
 
   "nav.home": "Home",

@@ -1,4 +1,4 @@
-import { Fragment, useCallback, useEffect, useState } from "react";
+import { Fragment, useCallback, useEffect, useRef, useState } from "react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Sidebar from "./components/Sidebar";
@@ -27,6 +27,129 @@ function useDebounce(value, delay) {
   return v;
 }
 
+// 한 번에 받아오는 묶음 크기. 첫 화면은 이만큼만 받고, 스크롤 끝에 닿으면 다음 묶음을 이어 받는다.
+const PAGE_SIZE = 60;
+
+// 서버에서 한 페이지씩 받아 누적하는(무한 스크롤) 목록 상태 관리 훅.
+// fetchPage(offset, limit) → Promise<rows>. fetchPage 가 바뀌면(예: 언어/지역 변경) 처음부터 다시 받는다.
+// 이미 받은 게임(appid)은 거르고, 새로 들어온 게 하나도 없으면 거기서 멈춘다 — 서버가 옛 버전이라
+// offset 을 무시하고 같은 묶음을 다시 줘도 중복이 쌓이거나 같은 요청을 무한히 반복하지 않게 한다.
+function usePagedList(fetchPage) {
+  const [rows, setRows] = useState([]);
+  const [status, setStatus] = useState("loading"); // "loading" | "ok" | "error"
+  const [hasMore, setHasMore] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
+  const loadingRef = useRef(false); // 요청 진행 중이면 true(중복 호출 방지)
+  const epochRef = useRef(0); // 재시작(reload)마다 증가 — 옛 요청 결과를 버리는 표식
+  const offsetRef = useRef(0); // 서버가 지금까지 돌려준 누적 개수(=다음 offset)
+  const seenRef = useRef(new Set()); // 이미 화면에 있는 appid (중복 방지)
+  const hasMoreRef = useRef(true);
+
+  // 받은 묶음에서 처음 보는 것만 골라낸다(중복 제거 + seen 갱신).
+  const pickFresh = (r) => {
+    const fresh = [];
+    for (const g of r || []) {
+      const id = g && g.appid;
+      if (id == null || seenRef.current.has(id)) continue;
+      seenRef.current.add(id);
+      fresh.push(g);
+    }
+    return fresh;
+  };
+
+  const reload = useCallback(() => {
+    const epoch = ++epochRef.current;
+    loadingRef.current = true;
+    hasMoreRef.current = true;
+    offsetRef.current = 0;
+    seenRef.current = new Set();
+    setStatus("loading");
+    setRows([]);
+    setHasMore(true);
+    setLoadingMore(false);
+    fetchPage(0, PAGE_SIZE)
+      .then((r) => {
+        if (epoch !== epochRef.current) return; // 그 사이 다시 시작됨 → 버림
+        loadingRef.current = false;
+        offsetRef.current = (r || []).length;
+        const fresh = pickFresh(r);
+        const more = (r || []).length >= PAGE_SIZE;
+        hasMoreRef.current = more;
+        setRows(fresh);
+        setStatus("ok");
+        setHasMore(more);
+      })
+      .catch(() => {
+        if (epoch !== epochRef.current) return;
+        loadingRef.current = false;
+        hasMoreRef.current = false;
+        setStatus("error");
+        setHasMore(false);
+      });
+  }, [fetchPage]);
+
+  const loadMore = useCallback(() => {
+    if (loadingRef.current || !hasMoreRef.current) return; // 진행 중이거나 더 없으면 무시
+    const epoch = epochRef.current;
+    loadingRef.current = true;
+    setLoadingMore(true);
+    fetchPage(offsetRef.current, PAGE_SIZE)
+      .then((r) => {
+        if (epoch !== epochRef.current) return;
+        loadingRef.current = false;
+        setLoadingMore(false);
+        offsetRef.current += (r || []).length;
+        const fresh = pickFresh(r);
+        // 한 페이지를 꽉 채워 받았고(=뒤에 더 있을 수 있고) 새로 들어온 게 있을 때만 계속.
+        const more = (r || []).length >= PAGE_SIZE && fresh.length > 0;
+        hasMoreRef.current = more;
+        if (fresh.length) setRows((cur) => cur.concat(fresh));
+        setHasMore(more);
+      })
+      .catch(() => {
+        if (epoch !== epochRef.current) return;
+        loadingRef.current = false;
+        setLoadingMore(false);
+        hasMoreRef.current = false;
+        setHasMore(false);
+      });
+  }, [fetchPage]);
+
+  useEffect(() => {
+    reload();
+  }, [reload]);
+
+  return { rows, status, hasMore, loadingMore, reload, loadMore };
+}
+
+// 목록 맨 아래에 두는 '더 보기' 영역. 화면에 들어오면(스크롤 끝 근처) 자동으로 다음 묶음을 부른다.
+// 자동 감지가 막힌 환경을 위해 버튼도 함께 둔다. 더 없으면 아무것도 안 그린다.
+function LoadMore({ hasMore, loading, onLoadMore }) {
+  const { t } = useT();
+  const ref = useRef(null);
+  useEffect(() => {
+    if (!hasMore) return;
+    const el = ref.current;
+    if (!el || typeof IntersectionObserver === "undefined") return;
+    const ob = new IntersectionObserver(
+      (entries) => {
+        if (entries[0] && entries[0].isIntersecting) onLoadMore();
+      },
+      { rootMargin: "600px" } // 바닥에 닿기 600px 전에 미리 불러와 끊김 줄임
+    );
+    ob.observe(el);
+    return () => ob.disconnect();
+  }, [hasMore, onLoadMore]);
+  if (!hasMore) return null;
+  return (
+    <div ref={ref} className="loadmore">
+      <button className="ghostbtn loadmore-btn" onClick={onLoadMore} disabled={loading}>
+        {loading ? t("common.loading") : t("common.more")}
+      </button>
+    </div>
+  );
+}
+
 const VALID_TABS = ["lowest", "deals", "wishlist"];
 function initialTab() {
   const params = new URLSearchParams(window.location.search);
@@ -45,7 +168,8 @@ function initialQuery() {
 }
 
 // 게임 목록 한 섹션. state.status: "loading" | "ok" | "error".
-function Section({ title, state, emptyMsg, errMsg, onCardClick, onRetry }) {
+// hasMore/loadingMore/onLoadMore 가 오면 목록 끝에 '더 보기'(무한 스크롤)를 단다.
+function Section({ title, state, emptyMsg, errMsg, onCardClick, onRetry, hasMore, loadingMore, onLoadMore }) {
   const { t } = useT();
   const count = state.status === "ok" ? state.rows.length : "·";
   return (
@@ -64,11 +188,16 @@ function Section({ title, state, emptyMsg, errMsg, onCardClick, onRetry }) {
       )}
       {state.status === "ok" &&
         (state.rows.length ? (
-          <div className="list">
-            {state.rows.map((g) => (
-              <GameCard key={g.appid} game={g} onClick={onCardClick} />
-            ))}
-          </div>
+          <>
+            <div className="list">
+              {state.rows.map((g) => (
+                <GameCard key={g.appid} game={g} onClick={onCardClick} />
+              ))}
+            </div>
+            {onLoadMore && (
+              <LoadMore hasMore={hasMore} loading={loadingMore} onLoadMore={onLoadMore} />
+            )}
+          </>
         ) : (
           <div className="empty">{emptyMsg}</div>
         ))}
@@ -109,7 +238,7 @@ function SearchSection({ q, state, onCardClick, onRetry }) {
 }
 
 // "할인 중" 섹션: 거른 목록만 렌더(정렬·필터 바는 사이드바로 이동).
-function DealsView({ state, opts, onCardClick, onRetry, onOptsChange, currency }) {
+function DealsView({ state, opts, onCardClick, onRetry, onOptsChange, currency, hasMore, loadingMore, onLoadMore }) {
   const { t } = useT();
   const filtered = state.status === "ok" && opts ? applyDealOpts(state.rows, opts) : [];
   const chips = opts ? activeFilterChips(opts, currency) : [];
@@ -149,15 +278,20 @@ function DealsView({ state, opts, onCardClick, onRetry, onOptsChange, currency }
       )}
       {state.status === "ok" &&
         (filtered.length ? (
-          <div className="list">
-            {filtered.map((g, i) => (
-              <Fragment key={g.appid}>
-                <GameCard game={g} onClick={onCardClick} />
-                {/* 첫 6장 뒤에 인라인 광고 한 자리(슬롯 ID 없으면 안 보임). */}
-                {i === 5 && <AdSlot slot="dealsInline" />}
-              </Fragment>
-            ))}
-          </div>
+          <>
+            <div className="list">
+              {filtered.map((g, i) => (
+                <Fragment key={g.appid}>
+                  <GameCard game={g} onClick={onCardClick} />
+                  {/* 첫 6장 뒤에 인라인 광고 한 자리(슬롯 ID 없으면 안 보임). */}
+                  {i === 5 && <AdSlot slot="dealsInline" />}
+                </Fragment>
+              ))}
+            </div>
+            {onLoadMore && (
+              <LoadMore hasMore={hasMore} loading={loadingMore} onLoadMore={onLoadMore} />
+            )}
+          </>
         ) : (
           <div className="empty">{t("deals.empty")}</div>
         ))}
@@ -175,33 +309,16 @@ export default function App() {
   // 진입 URL에 genre가 있으면 첫 dealOpts에 미리 적용(한 번만 소비).
   const [pendingGenre, setPendingGenre] = useState(initialGenre);
 
-  const [lowest, setLowest] = useState({ status: "loading", rows: [] });
-  const [deals, setDeals] = useState({ status: "loading", rows: [] });
   const [search, setSearch] = useState({ status: "loading", rows: [] });
   const [dealOpts, setDealOpts] = useState(null);
+  // 히어로 인기 칩·장르 목록·통화: 첫 묶음을 받은 순간 한 번 고정한다(스크롤로 더 받아도 안 흔들리게).
+  const [dealsMeta, setDealsMeta] = useState({ popular: [], genres: [], currency: "KRW" });
 
-  // 홈 데이터 로더(재시도 가능하도록 useCallback 으로 분리).
-  const loadLowest = useCallback(() => {
-    setLowest({ status: "loading", rows: [] });
-    let alive = true;
-    getLowestToday(cc)
-      .then((rows) => alive && setLowest({ status: "ok", rows }))
-      .catch(() => alive && setLowest({ status: "error", rows: [] }));
-    return () => {
-      alive = false;
-    };
-  }, [cc]);
-
-  const loadDeals = useCallback(() => {
-    setDeals({ status: "loading", rows: [] });
-    let alive = true;
-    getDeals(120, cc)
-      .then((rows) => alive && setDeals({ status: "ok", rows }))
-      .catch(() => alive && setDeals({ status: "error", rows: [] }));
-    return () => {
-      alive = false;
-    };
-  }, [cc]);
+  // 홈 두 탭은 한 페이지씩 받아 누적(무한 스크롤). 언어/지역(cc)이 바뀌면 fetch 함수가 바뀌어 처음부터 다시 받는다.
+  const fetchLowest = useCallback((offset, limit) => getLowestToday(cc, limit, offset), [cc]);
+  const fetchDeals = useCallback((offset, limit) => getDeals(limit, cc, offset), [cc]);
+  const lowest = usePagedList(fetchLowest);
+  const deals = usePagedList(fetchDeals);
 
   // 디바운스된 검색어로 검색. term 이 없으면 아무 것도 안 함.
   const loadSearch = useCallback(
@@ -223,17 +340,7 @@ export default function App() {
     [cc]
   );
 
-  // 홈 데이터: 진입 시 한 번. 배지(오늘 역대최저 수)는 검색 중에도 보여야 하므로 항상 로드.
-  useEffect(() => {
-    const offLow = loadLowest();
-    const offDeals = loadDeals();
-    return () => {
-      offLow && offLow();
-      offDeals && offDeals();
-    };
-  }, [loadLowest, loadDeals]);
-
-  // 할인 목록을 받으면 정렬·필터 기본값(최대가격 한도 포함)을 한 번 세팅.
+  // 할인 첫 묶음을 받으면 ① 정렬·필터 기본값(최대가격 한도 포함)과 ② 히어로 칩·장르·통화를 한 번 고정.
   useEffect(() => {
     if (deals.status === "ok" && !dealOpts) {
       const prices = deals.rows.map((g) => Number(g.currentPrice) || 0);
@@ -245,8 +352,13 @@ export default function App() {
         setPendingGenre("");
       }
       setDealOpts(base);
+      setDealsMeta({
+        popular: popularPicks(deals.rows, 6),
+        genres: availableGenres(deals.rows),
+        currency: (deals.rows[0] && deals.rows[0].currency) || "KRW",
+      });
     }
-  }, [deals, dealOpts, pendingGenre]);
+  }, [deals.status, deals.rows, dealOpts, pendingGenre]);
 
   // 언어(통화)가 바뀌면 가격 단위가 달라지므로(원→달러 등) 정렬·필터 한도를 다시 잡게 초기화.
   useEffect(() => {
@@ -279,11 +391,10 @@ export default function App() {
   const searching = !!debounced;
   const lowCount =
     lowest.status === "loading" ? "·" : lowest.status === "error" ? "0" : lowest.rows.length;
-  const genreOptions = deals.status === "ok" ? availableGenres(deals.rows) : [];
-  // 히어로 인기 칩: 할인 목록 중 리뷰 많은 순 상위 6. 리뷰 데이터 없으면 [] → Hero가 하드코딩 폴백.
-  const popular = deals.status === "ok" ? popularPicks(deals.rows, 6) : [];
-  // 할인 목록이 어떤 통화로 왔는지(워커가 게임마다 currency를 붙임. 없으면 원화). 필터 라벨 표기에 사용.
-  const dealCurrency = (deals.status === "ok" && deals.rows[0] && deals.rows[0].currency) || "KRW";
+  // 첫 묶음에서 고정해 둔 값들(스크롤로 더 받아도 히어로 칩·장르·통화가 흔들리지 않게).
+  const genreOptions = dealsMeta.genres;
+  const popular = dealsMeta.popular;
+  const dealCurrency = dealsMeta.currency;
 
   const onTabChange = (tb) => {
     setTab(tb);
@@ -342,16 +453,22 @@ export default function App() {
                 emptyMsg={t("home.lowestEmpty")}
                 errMsg={t("home.lowestErr")}
                 onCardClick={openCard}
-                onRetry={loadLowest}
+                onRetry={lowest.reload}
+                hasMore={lowest.hasMore}
+                loadingMore={lowest.loadingMore}
+                onLoadMore={lowest.loadMore}
               />
             ) : tab === "deals" ? (
               <DealsView
                 state={deals}
                 opts={dealOpts}
                 onCardClick={openCard}
-                onRetry={loadDeals}
+                onRetry={deals.reload}
                 onOptsChange={setDealOpts}
                 currency={dealCurrency}
+                hasMore={deals.hasMore}
+                loadingMore={deals.loadingMore}
+                onLoadMore={deals.loadMore}
               />
             ) : (
               <WishlistView onCardClick={openCard} />

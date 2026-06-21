@@ -2,6 +2,7 @@ export default {
   "common.retry": "重试",
   "common.menu": "网站菜单",
   "common.loading": "加载中…",
+  "common.more": "加载更多",
   "lang.label": "语言",
 
   "nav.home": "首页",

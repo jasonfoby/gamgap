@@ -113,6 +113,11 @@ h2{display:flex;align-items:center;gap:8px;color:var(--txt);font-weight:800;font
 .empty,.loading{color:#8E886F;font-size:14px;text-align:center;padding:30px 12px;border:1px dashed var(--line);border-radius:12px}
 .errbox{background:#2A1A18;border:1px solid #6E3B34;color:#E9C3BC;border-radius:10px;padding:12px 14px;font-size:13.5px}
 
+/* ===== '더 보기'(무한 스크롤 끝) ===== */
+.loadmore{display:flex;justify-content:center;margin-top:18px}
+.loadmore-btn{flex:0 0 auto;min-width:160px;padding:11px 22px}
+.loadmore-btn:disabled{opacity:.6;cursor:default}
+
 /* ===== 탭 (사이드바에선 세로) ===== */
 .tabs{display:flex;gap:8px;flex-wrap:wrap}
 .tab{font-family:var(--kr);font-size:13.5px;font-weight:700;color:var(--txt-dim);background:rgba(255,255,255,.05);border:1px solid var(--line);padding:9px 14px;border-radius:99px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:background .12s,color .12s}

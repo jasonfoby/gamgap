@@ -5,6 +5,7 @@ export default {
   "common.retry": "다시 시도",
   "common.menu": "사이트 메뉴",
   "common.loading": "불러오는 중…",
+  "common.more": "더 보기",
   "lang.label": "언어",
 
   // 내비

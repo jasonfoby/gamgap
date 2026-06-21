@@ -2,6 +2,7 @@ export default {
   "common.retry": "再試行",
   "common.menu": "サイトメニュー",
   "common.loading": "読み込み中…",
+  "common.more": "もっと見る",
   "lang.label": "言語",
 
   "nav.home": "ホーム",

@@ -113,32 +113,41 @@ export default {
       }
 
       if (path === "/api/lowest-today") {
+        // limit(한 페이지 개수, 최대 100)·offset(건너뛸 개수)로 페이지네이션(무한 스크롤).
+        const limit = Math.min(Number(url.searchParams.get("limit")) || 60, 100);
+        const offset = Math.max(Number(url.searchParams.get("offset")) || 0, 0);
         if (cc) {
           try {
             const { results } = await env.DB
-              .prepare(`${REGION_SUMMARY} WHERE r.cc=? AND r.current_price <= r.all_time_low ORDER BY r.discount_percent DESC LIMIT 40`)
-              .bind(cc).all();
+              .prepare(`${REGION_SUMMARY} WHERE r.cc=? AND r.current_price <= r.all_time_low ORDER BY r.discount_percent DESC LIMIT ? OFFSET ?`)
+              .bind(cc, limit, offset).all();
             if (results && results.length) return json(await withHistory(env, results, cc));
-          } catch (e) { /* 폴백 */ }
+            // 지역 데이터가 있는데 이 페이지가 비었다면 '목록 끝'이므로 한국으로 폴백하지 않는다(끝 페이지에 한국 게임이 섞이는 것 방지).
+            if (offset > 0) return json([]);
+          } catch (e) { /* 지역 테이블 없음/오류 → 한국 폴백 */ }
         }
         const { results } = await env.DB
-          .prepare(`${SUMMARY} WHERE current_price <= all_time_low ORDER BY discount_percent DESC LIMIT 40`).all();
+          .prepare(`${SUMMARY} WHERE current_price <= all_time_low ORDER BY discount_percent DESC LIMIT ? OFFSET ?`)
+          .bind(limit, offset).all();
         return json(await withHistory(env, results));
       }
 
       if (path === "/api/deals") {
-        const limit = Math.min(Number(url.searchParams.get("limit")) || 60, 120);
+        // limit(한 페이지 개수, 최대 100)·offset(건너뛸 개수)로 페이지네이션(무한 스크롤).
+        const limit = Math.min(Number(url.searchParams.get("limit")) || 60, 100);
+        const offset = Math.max(Number(url.searchParams.get("offset")) || 0, 0);
         if (cc) {
           try {
             const { results } = await env.DB
-              .prepare(`${REGION_SUMMARY} WHERE r.cc=? AND r.discount_percent > 0 ORDER BY r.discount_percent DESC, r.current_price ASC LIMIT ?`)
-              .bind(cc, limit).all();
+              .prepare(`${REGION_SUMMARY} WHERE r.cc=? AND r.discount_percent > 0 ORDER BY r.discount_percent DESC, r.current_price ASC LIMIT ? OFFSET ?`)
+              .bind(cc, limit, offset).all();
             if (results && results.length) return json(await withHistory(env, results, cc));
+            if (offset > 0) return json([]); // 지역 목록 끝 — 한국 폴백 안 함
           } catch (e) { /* 폴백 */ }
         }
         const { results } = await env.DB
-          .prepare(`${SUMMARY} WHERE discount_percent > 0 ORDER BY discount_percent DESC, current_price ASC LIMIT ?`)
-          .bind(limit).all();
+          .prepare(`${SUMMARY} WHERE discount_percent > 0 ORDER BY discount_percent DESC, current_price ASC LIMIT ? OFFSET ?`)
+          .bind(limit, offset).all();
         return json(await withHistory(env, results));
       }
 
