@@ -22,6 +22,7 @@ export default function Cover({ appid, name }) {
         src={urls[idx]}
         alt={name}
         loading="lazy"
+        decoding="async"
         onError={() => setIdx((i) => i + 1)}
         style={{ background: coverGradient(name) }}
       />
