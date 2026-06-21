@@ -62,6 +62,14 @@ const REGION_SUMMARY = `
     FROM region_prices r
     LEFT JOIN games g ON g.appid = r.appid`;
 
+// '진짜 게임' 품질 기준 — 리뷰가 300개 이상이거나 메타크리틱 점수가 있는 게임만.
+// 정가 42,000원을 95% 깎아 2,100원에 파는 양산형(에셋만 갈아끼운 저품질) 떨이는 보통 리뷰가
+// 100~120개 안팎이라 이 기준에서 걸러져, 할인·최저가 목록 상단을 점령하지 못한다.
+// ⚠ /api/appids(사이트맵)·functions/game/[appid].js 의 noindex 기준과 반드시 같게 유지할 것
+//   (사이트 전체가 "진짜 게임"을 한 가지 잣대로 판별하도록). 기준을 바꾸려면 세 곳을 함께 바꾼다.
+const QUALITY_KR = "(review_total >= 300 OR metacritic > 0)"; // 한국(games) 쿼리용
+const QUALITY_RG = "(g.review_total >= 300 OR g.metacritic > 0)"; // 지역(region+games join) 쿼리용
+
 // ?cc= 가 한국이 아닌 2글자 지역코드면 그걸, 아니면 null(=한국).
 function regionCC(url) {
   const cc = (url.searchParams.get("cc") || "").trim().toLowerCase();
@@ -119,7 +127,7 @@ export default {
         if (cc) {
           try {
             const { results } = await env.DB
-              .prepare(`${REGION_SUMMARY} WHERE r.cc=? AND r.current_price <= r.all_time_low ORDER BY r.discount_percent DESC LIMIT ? OFFSET ?`)
+              .prepare(`${REGION_SUMMARY} WHERE r.cc=? AND r.current_price <= r.all_time_low AND ${QUALITY_RG} ORDER BY r.discount_percent DESC LIMIT ? OFFSET ?`)
               .bind(cc, limit, offset).all();
             if (results && results.length) return json(await withHistory(env, results, cc));
             // 지역 데이터가 있는데 이 페이지가 비었다면 '목록 끝'이므로 한국으로 폴백하지 않는다(끝 페이지에 한국 게임이 섞이는 것 방지).
@@ -127,7 +135,7 @@ export default {
           } catch (e) { /* 지역 테이블 없음/오류 → 한국 폴백 */ }
         }
         const { results } = await env.DB
-          .prepare(`${SUMMARY} WHERE current_price <= all_time_low ORDER BY discount_percent DESC LIMIT ? OFFSET ?`)
+          .prepare(`${SUMMARY} WHERE current_price <= all_time_low AND ${QUALITY_KR} ORDER BY discount_percent DESC LIMIT ? OFFSET ?`)
           .bind(limit, offset).all();
         return json(await withHistory(env, results));
       }
@@ -139,14 +147,14 @@ export default {
         if (cc) {
           try {
             const { results } = await env.DB
-              .prepare(`${REGION_SUMMARY} WHERE r.cc=? AND r.discount_percent > 0 ORDER BY r.discount_percent DESC, r.current_price ASC LIMIT ? OFFSET ?`)
+              .prepare(`${REGION_SUMMARY} WHERE r.cc=? AND r.discount_percent > 0 AND ${QUALITY_RG} ORDER BY r.discount_percent DESC, r.current_price ASC LIMIT ? OFFSET ?`)
               .bind(cc, limit, offset).all();
             if (results && results.length) return json(await withHistory(env, results, cc));
             if (offset > 0) return json([]); // 지역 목록 끝 — 한국 폴백 안 함
           } catch (e) { /* 폴백 */ }
         }
         const { results } = await env.DB
-          .prepare(`${SUMMARY} WHERE discount_percent > 0 ORDER BY discount_percent DESC, current_price ASC LIMIT ? OFFSET ?`)
+          .prepare(`${SUMMARY} WHERE discount_percent > 0 AND ${QUALITY_KR} ORDER BY discount_percent DESC, current_price ASC LIMIT ? OFFSET ?`)
           .bind(limit, offset).all();
         return json(await withHistory(env, results));
       }
