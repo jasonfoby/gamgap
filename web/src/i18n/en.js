@@ -13,7 +13,7 @@ export default {
 
   "hero.title": "Should you grab this game {hl}?",
   "hero.titleHl": "right now",
-  "hero.sub": "We stack a Steam game's price against its {b} and give you a one-line call: buy now or hold out. No more overpaying.",
+  "hero.sub": "We check a Steam game's price against its {b} and tell you straight up: buy now or wait. Stop overpaying.",
   "hero.subB": "all-time low",
 
   "search.placeholder": "Search for a game",
@@ -58,12 +58,12 @@ export default {
   "chip.removeAria": "Remove {label} filter",
 
   "home.lowestTitle": "New all-time lows today",
-  "home.lowestEmpty": "No fresh all-time lows yet today. Check back — this fills up as price history builds starting tomorrow.",
+  "home.lowestEmpty": "No new all-time lows yet today. Check back tomorrow — this fills up as we track more prices.",
   "home.lowestErr": "Couldn't load.",
   "deals.title": "Games on sale now",
   "deals.clearAll": "Clear all",
   "deals.err": "Couldn't load the deals.",
-  "deals.empty": "Nothing fits those filters. Try easing up a little.",
+  "deals.empty": "Nothing matched those filters. Try loosening them a bit.",
 
   "wish.title": "My wishlist",
   "wish.empty": "Your wishlist is empty. Tap the ★ in the top-left of any card to add a game, and you'll see at a glance when it's the right time to buy.",
@@ -80,7 +80,7 @@ export default {
   "trust.nokeyshopK": "Spot fake sales",
   "trust.nokeyshopV": "Know if it's actually cheap",
   "trust.dailyK": "Updated daily",
-  "trust.dailyV": "Always fresh",
+  "trust.dailyV": "Prices stay current",
 
   "cd.ongoing": "Live now",
   "cd.upcoming": "Upcoming",
@@ -109,7 +109,7 @@ export default {
   "gp.copied": "Copied!",
   "gp.share": "Share",
   "gp.relatedTitle": "Same genre, on sale now",
-  "gp.moreGuides": "Want to pay less? Read up on cheaper buying",
+  "gp.moreGuides": "Want to pay less? Tips for buying games cheaper",
   "ad.label": "Advertisement",
   "gp.freshness": "Prices refresh once a day · double-check the final price on Steam before you pay",
   "gp.proseSaleAtl": "{name} is currently {cur} on Steam ({pct}% off the {normal} list price), and its all-time low is {atl}{date}. Lowstamp's call: {label} — {tip}",
@@ -132,7 +132,7 @@ export default {
   "verdict.low.tip": "This is the lowest price on record. Waiting won't guarantee a better deal, so if you want it, now's a fantastic time to grab it.",
   "verdict.near.label": "Near its all-time low",
   "verdict.near.sub": "Go for it",
-  "verdict.near.tip": "It's a hair above the all-time low. Rather than waiting forever to save pocket change, this price is well worth it — just buy it.",
+  "verdict.near.tip": "It's barely above the all-time low. Not worth waiting forever to save pocket change — this price is great, just grab it.",
   "verdict.recent.label": "Around its recent low",
   "verdict.recent.sub": "Safe to buy",
   "verdict.recent.tip": "This is close to the all-time low. Grab it now if you can't wait, or hold out for a big sale to maybe shave off a touch more.",

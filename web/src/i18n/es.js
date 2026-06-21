@@ -76,11 +76,11 @@ export default {
   "skel.listAria": "Cargando la lista",
 
   "trust.officialK": "¿Comprar o esperar?",
-  "trust.officialV": "Te lo decimos comparándolo con su mínimo histórico",
+  "trust.officialV": "Lo comparamos con su mínimo histórico y te lo decimos",
   "trust.nokeyshopK": "Pilla las ofertas de verdad",
   "trust.nokeyshopV": "Verás si de verdad está barato o no",
   "trust.dailyK": "Al día cada día",
-  "trust.dailyV": "Precios siempre frescos",
+  "trust.dailyV": "Precios siempre al día",
 
   "cd.ongoing": "En marcha",
   "cd.upcoming": "Próximamente",
@@ -122,7 +122,7 @@ export default {
   "price.atlLabel": "Mínimo histórico",
   "stats.avg": "Precio medio histórico",
   "stats.max": "Precio máximo histórico",
-  "stats.since": "Registro desde",
+  "stats.since": "Datos desde",
 
   "verdict.low-new.label": "Nuevo mínimo histórico hoy",
   "verdict.low-new.sub": "Más barato imposible",

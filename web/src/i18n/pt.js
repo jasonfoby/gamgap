@@ -21,7 +21,7 @@ export default {
   "search.clear": "Limpar",
   "search.resultsTitle": "Resultados para “{q}”",
   "search.err": "Não rolou carregar os preços. Tenta de novo daqui a pouco.",
-  "search.empty": "Não achamos esse jogo. Tenta escrever o nome de outro jeito.",
+  "search.empty": "Não achamos esse jogo. Tenta escrever o nome de outra forma.",
 
   "tab.lowest": "Recordes de hoje",
   "tab.deals": "Em promoção",
@@ -63,7 +63,7 @@ export default {
   "deals.title": "Jogos em promoção agora",
   "deals.clearAll": "Limpar tudo",
   "deals.err": "Não rolou carregar a lista de promoções.",
-  "deals.empty": "Nenhum jogo bate com esses filtros. Tenta soltar um pouco eles.",
+  "deals.empty": "Nenhum jogo bate com esses filtros. Tenta afrouxar um pouco.",
 
   "wish.title": "Meus favoritos",
   "wish.empty": "Você ainda não favoritou nenhum jogo. Toca na ★ no canto de cima de um card pra favoritar e veja aqui, num piscar de olhos, se é hora de comprar.",
@@ -77,10 +77,10 @@ export default {
 
   "trust.officialK": "Comprar ou esperar?",
   "trust.officialV": "Comparado com o menor preço de sempre",
-  "trust.nokeyshopK": "Pega desconto falso",
+  "trust.nokeyshopK": "Foge de desconto falso",
   "trust.nokeyshopV": "Veja se tá barato de verdade",
   "trust.dailyK": "Atualizado todo dia",
-  "trust.dailyV": "Sempre fresquinho",
+  "trust.dailyV": "Preço sempre atual",
 
   "cd.ongoing": "Rolando",
   "cd.upcoming": "Em breve",
@@ -112,9 +112,9 @@ export default {
   "gp.moreGuides": "Aprenda mais: como comprar jogos pagando menos",
   "ad.label": "Publicidade",
   "gp.freshness": "Os preços são atualizados uma vez por dia · confira o valor final na Steam antes de pagar",
-  "gp.proseSaleAtl": "O preço atual de {name} na Steam é {cur} ({pct}% de desconto sobre o preço cheio de {normal}), e o menor preço de todos os tempos é {atl}{date}. O veredito “Vale a pena comprar agora?” da Lowstamp é: {label} — {tip}",
+  "gp.proseSaleAtl": "O preço atual de {name} na Steam é {cur} ({pct}% de desconto sobre o preço cheio de {normal}), e o menor preço de todos os tempos foi {atl}{date}. O veredito “Vale a pena comprar agora?” da Lowstamp é: {label} — {tip}",
   "gp.proseSaleNoAtl": "O preço atual de {name} na Steam é {cur} ({pct}% de desconto sobre o preço cheio de {normal}), mas ainda não há histórico suficiente pra cravar um menor preço de todos os tempos. O veredito “Vale a pena comprar agora?” da Lowstamp é: {label} — {tip}",
-  "gp.proseNoSaleAtl": "O preço atual de {name} na Steam é {cur}, e o menor preço de todos os tempos é {atl}{date}. O veredito “Vale a pena comprar agora?” da Lowstamp é: {label} — {tip}",
+  "gp.proseNoSaleAtl": "O preço atual de {name} na Steam é {cur}, e o menor preço de todos os tempos foi {atl}{date}. O veredito “Vale a pena comprar agora?” da Lowstamp é: {label} — {tip}",
   "gp.proseNoSaleNoAtl": "O preço atual de {name} na Steam é {cur}, mas ainda não há histórico suficiente pra cravar um menor preço de todos os tempos. O veredito “Vale a pena comprar agora?” da Lowstamp é: {label} — {tip}",
   "gp.proseDate": " ({d})",
 
@@ -135,7 +135,7 @@ export default {
   "verdict.near.tip": "A diferença pro recorde é mínima. Em vez de esperar uma eternidade pra economizar uns trocados, esse preço já vale a pena.",
   "verdict.recent.label": "Perto dos mínimos recentes",
   "verdict.recent.sub": "Pode comprar tranquilo",
-  "verdict.recent.tip": "O preço tá bem coladinho no recorde. Se tá com pressa, manda ver; se dá pra esperar, talvez caia mais um pouquinho numa promoção grande.",
+  "verdict.recent.tip": "O preço tá bem perto do recorde. Se tá com pressa, manda ver; se dá pra esperar, talvez caia mais um pouco numa promoção grande.",
   "verdict.ok.label": "Desconto ok",
   "verdict.ok.sub": "Já saiu mais barato antes",
   "verdict.ok.tip": "O desconto é bacana, mas já rolou por menos. Se você não tá com pressa, pode valer a pena segurar e esperar uma promoção grande (verão ou inverno).",
