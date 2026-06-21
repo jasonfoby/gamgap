@@ -44,6 +44,17 @@ const STR = {
     steamLink: (n) => `스팀에서 ${n} 보기`,
     homeLink: "Lowstamp 홈 — 오늘의 역대 최저가",
     guideLink: "게임 싸게 사는 가이드",
+    meta2: (n, { dev, year, reviews, meta }) => {
+      let a = "";
+      if (dev && year) a = `${n}, ${dev}가 ${year}년에 출시한 게임입니다.`;
+      else if (dev) a = `${n}, ${dev}가 만든 게임입니다.`;
+      else if (year) a = `${n}, ${year}년에 출시된 게임입니다.`;
+      let b = "";
+      if (reviews && meta) b = ` 스팀 이용자 평가 ${reviews}개, 메타크리틱 점수는 ${meta}점입니다.`;
+      else if (reviews) b = ` 스팀 이용자 평가가 ${reviews}개 쌓였습니다.`;
+      else if (meta) b = ` 메타크리틱 점수는 ${meta}점입니다.`;
+      return (a + b).trim();
+    },
   },
   en: {
     titleSuffix: " price — now ",
@@ -57,6 +68,17 @@ const STR = {
     steamLink: (n) => `View ${n} on Steam`,
     homeLink: "Lowstamp home — today's all-time lows",
     guideLink: "Guide: how to buy games cheap",
+    meta2: (n, { dev, year, reviews, meta }) => {
+      let a = "";
+      if (dev && year) a = `${n} was developed by ${dev} and released in ${year}.`;
+      else if (dev) a = `${n} was developed by ${dev}.`;
+      else if (year) a = `${n} was released in ${year}.`;
+      let b = "";
+      if (reviews && meta) b = ` It has ${reviews}+ Steam user reviews and a Metacritic score of ${meta}.`;
+      else if (reviews) b = ` It has ${reviews}+ Steam user reviews.`;
+      else if (meta) b = ` It has a Metacritic score of ${meta}.`;
+      return (a + b).trim();
+    },
   },
   ja: {
     titleSuffix: " 価格 — 現在 ",
@@ -70,6 +92,17 @@ const STR = {
     steamLink: (n) => `Steam で ${n} を見る`,
     homeLink: "Lowstamp ホーム — 本日の過去最安値",
     guideLink: "ガイド: ゲームを安く買う方法",
+    meta2: (n, { dev, year, reviews, meta }) => {
+      let a = "";
+      if (dev && year) a = `${n} は ${dev} が ${year} 年にリリースしたゲームです。`;
+      else if (dev) a = `${n} は ${dev} が手がけたゲームです。`;
+      else if (year) a = `${n} は ${year} 年にリリースされたゲームです。`;
+      let b = "";
+      if (reviews && meta) b = ` Steam のユーザーレビューは ${reviews} 件、メタスコアは ${meta} です。`;
+      else if (reviews) b = ` Steam のユーザーレビューは ${reviews} 件です。`;
+      else if (meta) b = ` メタスコアは ${meta} です。`;
+      return (a + b).trim();
+    },
   },
   zh: {
     titleSuffix: " 价格 — 现价 ",
@@ -83,6 +116,17 @@ const STR = {
     steamLink: (n) => `在 Steam 查看 ${n}`,
     homeLink: "Lowstamp 首页 — 今日历史最低价",
     guideLink: "指南：如何便宜买游戏",
+    meta2: (n, { dev, year, reviews, meta }) => {
+      let a = "";
+      if (dev && year) a = `${n} 由 ${dev} 开发，${year} 年发行。`;
+      else if (dev) a = `${n} 由 ${dev} 开发。`;
+      else if (year) a = `${n} 于 ${year} 年发行。`;
+      let b = "";
+      if (reviews && meta) b = ` Steam 上有 ${reviews}+ 条用户评测，Metacritic 评分 ${meta}。`;
+      else if (reviews) b = ` Steam 上有 ${reviews}+ 条用户评测。`;
+      else if (meta) b = ` Metacritic 评分 ${meta}。`;
+      return (a + b).trim();
+    },
   },
   es: {
     titleSuffix: " precio — ahora ",
@@ -96,6 +140,17 @@ const STR = {
     steamLink: (n) => `Ver ${n} en Steam`,
     homeLink: "Inicio de Lowstamp — mínimos históricos de hoy",
     guideLink: "Guía: cómo comprar juegos baratos",
+    meta2: (n, { dev, year, reviews, meta }) => {
+      let a = "";
+      if (dev && year) a = `${n} fue desarrollado por ${dev} y se lanzó en ${year}.`;
+      else if (dev) a = `${n} fue desarrollado por ${dev}.`;
+      else if (year) a = `${n} se lanzó en ${year}.`;
+      let b = "";
+      if (reviews && meta) b = ` Tiene ${reviews}+ reseñas de usuarios en Steam y una puntuación Metacritic de ${meta}.`;
+      else if (reviews) b = ` Tiene ${reviews}+ reseñas de usuarios en Steam.`;
+      else if (meta) b = ` Tiene una puntuación Metacritic de ${meta}.`;
+      return (a + b).trim();
+    },
   },
   pt: {
     titleSuffix: " preço — agora ",
@@ -109,6 +164,17 @@ const STR = {
     steamLink: (n) => `Ver ${n} na Steam`,
     homeLink: "Início do Lowstamp — menores preços de hoje",
     guideLink: "Guia: como comprar jogos barato",
+    meta2: (n, { dev, year, reviews, meta }) => {
+      let a = "";
+      if (dev && year) a = `${n} foi desenvolvido por ${dev} e lançado em ${year}.`;
+      else if (dev) a = `${n} foi desenvolvido por ${dev}.`;
+      else if (year) a = `${n} foi lançado em ${year}.`;
+      let b = "";
+      if (reviews && meta) b = ` Tem ${reviews}+ avaliações de usuários na Steam e uma nota Metacritic de ${meta}.`;
+      else if (reviews) b = ` Tem ${reviews}+ avaliações de usuários na Steam.`;
+      else if (meta) b = ` Tem uma nota Metacritic de ${meta}.`;
+      return (a + b).trim();
+    },
   },
 };
 
@@ -196,11 +262,22 @@ export async function onRequest(context) {
   const saleClause = onSale ? s.saleClause(fmt(game.normalPrice), Number(game.discountPercent) || 0) : "";
   const atlDate = game.allTimeLowDate ? ` (${esc(game.allTimeLowDate)})` : "";
   const atlClause = atlVal ? s.atlClause(atlVal, atlDate) : "";
+  // 게임별로 달라지는 '사실' 문장 한 줄 더(개발사·출시연도·스팀 평가 수·메타크리틱) →
+  // 봇이 보는 본문이 가격 한 문장만 돌려쓰는 양산형으로 보이지 않게 한다. 데이터 없는 항목은 자동 생략.
+  const grp = (x) => String(x).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  const info2 = s.meta2 ? s.meta2(nameE, {
+    dev: game.developer ? esc(game.developer) : "",
+    year: Number(game.releaseYear) || 0,
+    reviews: Number(game.reviewTotal) > 0 ? grp(Number(game.reviewTotal)) : "",
+    meta: Number(game.metacritic) > 0 ? Number(game.metacritic) : 0,
+  }) : "";
+
   // 봇이 사이트를 돌아다닐 수 있게(개별 게임 페이지가 고아가 되지 않게) 홈·가이드 내부 링크를 함께 넣는다.
   const bodyHtml =
     `<main style="max-width:880px;margin:0 auto;padding:24px;font-family:sans-serif">` +
     `<h1>${s.h1(nameE)}</h1>` +
     `<p>${s.bodyCur(nameE, cur, saleClause, atlClause)}</p>` +
+    (info2 ? `<p>${info2}</p>` : "") +
     `<p><a href="https://store.steampowered.com/app/${game.appid}/">${s.steamLink(nameE)}</a></p>` +
     `<nav><a href="/">${esc(s.homeLink)}</a> · <a href="/guide">${esc(s.guideLink)}</a></nav>` +
     `</main>`;
