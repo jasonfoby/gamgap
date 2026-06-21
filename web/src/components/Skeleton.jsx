@@ -10,7 +10,7 @@ export function Skeleton({ w = "100%", h = 12, br = 6, style }) {
 }
 
 // 카드 한 장 자리표시: 실제 GameCard 의 골격을 그대로 흉내 낸다.
-function SkelCard() {
+export function SkelCard() {
   return (
     <div className="skel-card" aria-hidden="true">
       <div className="skel-img" />
@@ -24,6 +24,12 @@ function SkelCard() {
       </div>
     </div>
   );
+}
+
+// 카드 낱장 묶음(감싸는 .list 없음). 이미 있는 목록 그리드 '안에' 이어 붙여
+// 진짜 카드와 같은 간격·열 정렬로 보이게 할 때 쓴다(무한 스크롤의 다음 묶음 자리표시).
+export function SkelCards({ count = 4 }) {
+  return Array.from({ length: count }, (_, i) => <SkelCard key={"skel" + i} />);
 }
 
 // 카드 그리드 자리표시. count: 깔아둘 카드 수(기본 8).

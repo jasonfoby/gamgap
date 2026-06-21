@@ -6,7 +6,7 @@ import GameCard from "./components/GameCard";
 import WishlistView from "./components/WishlistView";
 import Footer from "./components/Footer";
 import AdSlot from "./components/AdSlot";
-import { ListSkeleton } from "./components/Skeleton";
+import { ListSkeleton, SkelCards } from "./components/Skeleton";
 import { getLowestToday, getDeals, searchGames } from "./api";
 import { applyDealOpts, defaultDealOpts, availableGenres, popularPicks } from "./lib/dealSort";
 import { activeFilterChips, clearedOpts } from "./lib/filterUi";
@@ -143,22 +143,18 @@ function LoadMore({ hasMore, loading, onLoadMore }) {
   }, [hasMore, onLoadMore]);
   if (!hasMore) return null;
   return (
-    <>
-      {/* 불러오는 중: 다음 게임들이 들어올 자리를 미리 카드 모양으로 깔아 '갑자기 툭' 튀어나오는 느낌을 줄인다. */}
-      {loading && <ListSkeleton count={4} />}
-      <div ref={ref} className="loadmore">
-        {loading ? (
-          <span className="loadmore-status" role="status" aria-busy="true">
-            <span className="spinner" aria-hidden="true" />
-            {t("common.loading")}
-          </span>
-        ) : (
-          <button className="loadmore-btn" onClick={onLoadMore}>
-            {t("common.more")}
-          </button>
-        )}
-      </div>
-    </>
+    <div ref={ref} className="loadmore">
+      {loading ? (
+        <span className="loadmore-status" role="status" aria-busy="true">
+          <span className="spinner" aria-hidden="true" />
+          {t("common.loading")}
+        </span>
+      ) : (
+        <button className="loadmore-btn" onClick={onLoadMore}>
+          {t("common.more")}
+        </button>
+      )}
+    </div>
   );
 }
 
@@ -205,6 +201,8 @@ function Section({ title, state, emptyMsg, errMsg, onCardClick, onRetry, hasMore
               {state.rows.map((g) => (
                 <GameCard key={g.appid} game={g} onClick={onCardClick} />
               ))}
+              {/* 다음 묶음 자리표시 — 같은 격자 안에 넣어 진짜 카드와 간격·정렬을 맞춘다. */}
+              {loadingMore && <SkelCards count={4} />}
             </div>
             {onLoadMore && (
               <LoadMore hasMore={hasMore} loading={loadingMore} onLoadMore={onLoadMore} />
@@ -299,6 +297,8 @@ function DealsView({ state, opts, onCardClick, onRetry, onOptsChange, currency, 
                   {i === 5 && <AdSlot slot="dealsInline" />}
                 </Fragment>
               ))}
+              {/* 다음 묶음 자리표시 — 같은 격자 안에 넣어 진짜 카드와 간격·정렬을 맞춘다. */}
+              {loadingMore && <SkelCards count={4} />}
             </div>
             {onLoadMore && (
               <LoadMore hasMore={hasMore} loading={loadingMore} onLoadMore={onLoadMore} />
