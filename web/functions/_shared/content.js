@@ -76,6 +76,55 @@ import GUIDE_pt_steam_refund_policy from "../../src/content/guides/pt/steam-refu
 import GUIDE_pt_best_value_indies from "../../src/content/guides/pt/best-value-indies.js";
 import GUIDE_pt_wishlist_alerts from "../../src/content/guides/pt/wishlist-alerts.js";
 import GUIDE_pt_avoid_fake_discounts from "../../src/content/guides/pt/avoid-fake-discounts.js";
+// 2026-06-20 증편분 + 2026-06-21 DLC 가이드 (봇 SSR 본문 주입용 — 사이트맵/클라이언트와 함께 갱신)
+import GUIDE_ko_historical_low_meaning from "../../src/content/guides/ko/historical-low-meaning.js";
+import GUIDE_ko_when_to_buy_or_wait from "../../src/content/guides/ko/when-to-buy-or-wait.js";
+import GUIDE_ko_steam_bundles_guide from "../../src/content/guides/ko/steam-bundles-guide.js";
+import GUIDE_ko_reviews_metacritic_guide from "../../src/content/guides/ko/reviews-metacritic-guide.js";
+import GUIDE_ko_price_history_reading from "../../src/content/guides/ko/price-history-reading.js";
+import GUIDE_ko_seasonal_sale_strategy from "../../src/content/guides/ko/seasonal-sale-strategy.js";
+import GUIDE_ko_first_steam_purchase_guide from "../../src/content/guides/ko/first-steam-purchase-guide.js";
+import GUIDE_ko_dlc_season_pass_guide from "../../src/content/guides/ko/dlc-season-pass-guide.js";
+import GUIDE_en_historical_low_meaning from "../../src/content/guides/en/historical-low-meaning.js";
+import GUIDE_en_when_to_buy_or_wait from "../../src/content/guides/en/when-to-buy-or-wait.js";
+import GUIDE_en_steam_bundles_guide from "../../src/content/guides/en/steam-bundles-guide.js";
+import GUIDE_en_reviews_metacritic_guide from "../../src/content/guides/en/reviews-metacritic-guide.js";
+import GUIDE_en_price_history_reading from "../../src/content/guides/en/price-history-reading.js";
+import GUIDE_en_seasonal_sale_strategy from "../../src/content/guides/en/seasonal-sale-strategy.js";
+import GUIDE_en_first_steam_purchase_guide from "../../src/content/guides/en/first-steam-purchase-guide.js";
+import GUIDE_en_dlc_season_pass_guide from "../../src/content/guides/en/dlc-season-pass-guide.js";
+import GUIDE_ja_historical_low_meaning from "../../src/content/guides/ja/historical-low-meaning.js";
+import GUIDE_ja_when_to_buy_or_wait from "../../src/content/guides/ja/when-to-buy-or-wait.js";
+import GUIDE_ja_steam_bundles_guide from "../../src/content/guides/ja/steam-bundles-guide.js";
+import GUIDE_ja_reviews_metacritic_guide from "../../src/content/guides/ja/reviews-metacritic-guide.js";
+import GUIDE_ja_price_history_reading from "../../src/content/guides/ja/price-history-reading.js";
+import GUIDE_ja_seasonal_sale_strategy from "../../src/content/guides/ja/seasonal-sale-strategy.js";
+import GUIDE_ja_first_steam_purchase_guide from "../../src/content/guides/ja/first-steam-purchase-guide.js";
+import GUIDE_ja_dlc_season_pass_guide from "../../src/content/guides/ja/dlc-season-pass-guide.js";
+import GUIDE_zh_historical_low_meaning from "../../src/content/guides/zh/historical-low-meaning.js";
+import GUIDE_zh_when_to_buy_or_wait from "../../src/content/guides/zh/when-to-buy-or-wait.js";
+import GUIDE_zh_steam_bundles_guide from "../../src/content/guides/zh/steam-bundles-guide.js";
+import GUIDE_zh_reviews_metacritic_guide from "../../src/content/guides/zh/reviews-metacritic-guide.js";
+import GUIDE_zh_price_history_reading from "../../src/content/guides/zh/price-history-reading.js";
+import GUIDE_zh_seasonal_sale_strategy from "../../src/content/guides/zh/seasonal-sale-strategy.js";
+import GUIDE_zh_first_steam_purchase_guide from "../../src/content/guides/zh/first-steam-purchase-guide.js";
+import GUIDE_zh_dlc_season_pass_guide from "../../src/content/guides/zh/dlc-season-pass-guide.js";
+import GUIDE_es_historical_low_meaning from "../../src/content/guides/es/historical-low-meaning.js";
+import GUIDE_es_when_to_buy_or_wait from "../../src/content/guides/es/when-to-buy-or-wait.js";
+import GUIDE_es_steam_bundles_guide from "../../src/content/guides/es/steam-bundles-guide.js";
+import GUIDE_es_reviews_metacritic_guide from "../../src/content/guides/es/reviews-metacritic-guide.js";
+import GUIDE_es_price_history_reading from "../../src/content/guides/es/price-history-reading.js";
+import GUIDE_es_seasonal_sale_strategy from "../../src/content/guides/es/seasonal-sale-strategy.js";
+import GUIDE_es_first_steam_purchase_guide from "../../src/content/guides/es/first-steam-purchase-guide.js";
+import GUIDE_es_dlc_season_pass_guide from "../../src/content/guides/es/dlc-season-pass-guide.js";
+import GUIDE_pt_historical_low_meaning from "../../src/content/guides/pt/historical-low-meaning.js";
+import GUIDE_pt_when_to_buy_or_wait from "../../src/content/guides/pt/when-to-buy-or-wait.js";
+import GUIDE_pt_steam_bundles_guide from "../../src/content/guides/pt/steam-bundles-guide.js";
+import GUIDE_pt_reviews_metacritic_guide from "../../src/content/guides/pt/reviews-metacritic-guide.js";
+import GUIDE_pt_price_history_reading from "../../src/content/guides/pt/price-history-reading.js";
+import GUIDE_pt_seasonal_sale_strategy from "../../src/content/guides/pt/seasonal-sale-strategy.js";
+import GUIDE_pt_first_steam_purchase_guide from "../../src/content/guides/pt/first-steam-purchase-guide.js";
+import GUIDE_pt_dlc_season_pass_guide from "../../src/content/guides/pt/dlc-season-pass-guide.js";
 
 const SUPPORTED = ["ko", "en", "ja", "zh", "es", "pt"];
 const DEFAULT = "en";
@@ -131,7 +180,15 @@ const GUIDES = {
     "steam-refund-policy": GUIDE_ko_steam_refund_policy,
     "best-value-indies": GUIDE_ko_best_value_indies,
     "wishlist-alerts": GUIDE_ko_wishlist_alerts,
-    "avoid-fake-discounts": GUIDE_ko_avoid_fake_discounts
+    "avoid-fake-discounts": GUIDE_ko_avoid_fake_discounts,
+    "historical-low-meaning": GUIDE_ko_historical_low_meaning,
+    "when-to-buy-or-wait": GUIDE_ko_when_to_buy_or_wait,
+    "steam-bundles-guide": GUIDE_ko_steam_bundles_guide,
+    "reviews-metacritic-guide": GUIDE_ko_reviews_metacritic_guide,
+    "price-history-reading": GUIDE_ko_price_history_reading,
+    "seasonal-sale-strategy": GUIDE_ko_seasonal_sale_strategy,
+    "first-steam-purchase-guide": GUIDE_ko_first_steam_purchase_guide,
+    "dlc-season-pass-guide": GUIDE_ko_dlc_season_pass_guide
   },
   "en": {
     "steam-sale-calendar": GUIDE_en_steam_sale_calendar,
@@ -141,7 +198,15 @@ const GUIDES = {
     "steam-refund-policy": GUIDE_en_steam_refund_policy,
     "best-value-indies": GUIDE_en_best_value_indies,
     "wishlist-alerts": GUIDE_en_wishlist_alerts,
-    "avoid-fake-discounts": GUIDE_en_avoid_fake_discounts
+    "avoid-fake-discounts": GUIDE_en_avoid_fake_discounts,
+    "historical-low-meaning": GUIDE_en_historical_low_meaning,
+    "when-to-buy-or-wait": GUIDE_en_when_to_buy_or_wait,
+    "steam-bundles-guide": GUIDE_en_steam_bundles_guide,
+    "reviews-metacritic-guide": GUIDE_en_reviews_metacritic_guide,
+    "price-history-reading": GUIDE_en_price_history_reading,
+    "seasonal-sale-strategy": GUIDE_en_seasonal_sale_strategy,
+    "first-steam-purchase-guide": GUIDE_en_first_steam_purchase_guide,
+    "dlc-season-pass-guide": GUIDE_en_dlc_season_pass_guide
   },
   "ja": {
     "steam-sale-calendar": GUIDE_ja_steam_sale_calendar,
@@ -151,7 +216,15 @@ const GUIDES = {
     "steam-refund-policy": GUIDE_ja_steam_refund_policy,
     "best-value-indies": GUIDE_ja_best_value_indies,
     "wishlist-alerts": GUIDE_ja_wishlist_alerts,
-    "avoid-fake-discounts": GUIDE_ja_avoid_fake_discounts
+    "avoid-fake-discounts": GUIDE_ja_avoid_fake_discounts,
+    "historical-low-meaning": GUIDE_ja_historical_low_meaning,
+    "when-to-buy-or-wait": GUIDE_ja_when_to_buy_or_wait,
+    "steam-bundles-guide": GUIDE_ja_steam_bundles_guide,
+    "reviews-metacritic-guide": GUIDE_ja_reviews_metacritic_guide,
+    "price-history-reading": GUIDE_ja_price_history_reading,
+    "seasonal-sale-strategy": GUIDE_ja_seasonal_sale_strategy,
+    "first-steam-purchase-guide": GUIDE_ja_first_steam_purchase_guide,
+    "dlc-season-pass-guide": GUIDE_ja_dlc_season_pass_guide
   },
   "zh": {
     "steam-sale-calendar": GUIDE_zh_steam_sale_calendar,
@@ -161,7 +234,15 @@ const GUIDES = {
     "steam-refund-policy": GUIDE_zh_steam_refund_policy,
     "best-value-indies": GUIDE_zh_best_value_indies,
     "wishlist-alerts": GUIDE_zh_wishlist_alerts,
-    "avoid-fake-discounts": GUIDE_zh_avoid_fake_discounts
+    "avoid-fake-discounts": GUIDE_zh_avoid_fake_discounts,
+    "historical-low-meaning": GUIDE_zh_historical_low_meaning,
+    "when-to-buy-or-wait": GUIDE_zh_when_to_buy_or_wait,
+    "steam-bundles-guide": GUIDE_zh_steam_bundles_guide,
+    "reviews-metacritic-guide": GUIDE_zh_reviews_metacritic_guide,
+    "price-history-reading": GUIDE_zh_price_history_reading,
+    "seasonal-sale-strategy": GUIDE_zh_seasonal_sale_strategy,
+    "first-steam-purchase-guide": GUIDE_zh_first_steam_purchase_guide,
+    "dlc-season-pass-guide": GUIDE_zh_dlc_season_pass_guide
   },
   "es": {
     "steam-sale-calendar": GUIDE_es_steam_sale_calendar,
@@ -171,7 +252,15 @@ const GUIDES = {
     "steam-refund-policy": GUIDE_es_steam_refund_policy,
     "best-value-indies": GUIDE_es_best_value_indies,
     "wishlist-alerts": GUIDE_es_wishlist_alerts,
-    "avoid-fake-discounts": GUIDE_es_avoid_fake_discounts
+    "avoid-fake-discounts": GUIDE_es_avoid_fake_discounts,
+    "historical-low-meaning": GUIDE_es_historical_low_meaning,
+    "when-to-buy-or-wait": GUIDE_es_when_to_buy_or_wait,
+    "steam-bundles-guide": GUIDE_es_steam_bundles_guide,
+    "reviews-metacritic-guide": GUIDE_es_reviews_metacritic_guide,
+    "price-history-reading": GUIDE_es_price_history_reading,
+    "seasonal-sale-strategy": GUIDE_es_seasonal_sale_strategy,
+    "first-steam-purchase-guide": GUIDE_es_first_steam_purchase_guide,
+    "dlc-season-pass-guide": GUIDE_es_dlc_season_pass_guide
   },
   "pt": {
     "steam-sale-calendar": GUIDE_pt_steam_sale_calendar,
@@ -181,7 +270,15 @@ const GUIDES = {
     "steam-refund-policy": GUIDE_pt_steam_refund_policy,
     "best-value-indies": GUIDE_pt_best_value_indies,
     "wishlist-alerts": GUIDE_pt_wishlist_alerts,
-    "avoid-fake-discounts": GUIDE_pt_avoid_fake_discounts
+    "avoid-fake-discounts": GUIDE_pt_avoid_fake_discounts,
+    "historical-low-meaning": GUIDE_pt_historical_low_meaning,
+    "when-to-buy-or-wait": GUIDE_pt_when_to_buy_or_wait,
+    "steam-bundles-guide": GUIDE_pt_steam_bundles_guide,
+    "reviews-metacritic-guide": GUIDE_pt_reviews_metacritic_guide,
+    "price-history-reading": GUIDE_pt_price_history_reading,
+    "seasonal-sale-strategy": GUIDE_pt_seasonal_sale_strategy,
+    "first-steam-purchase-guide": GUIDE_pt_first_steam_purchase_guide,
+    "dlc-season-pass-guide": GUIDE_pt_dlc_season_pass_guide
   }
 };
 

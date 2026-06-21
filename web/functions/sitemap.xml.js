@@ -24,6 +24,8 @@ const GUIDE_PATHS = [
   "/guide/price-history-reading",
   "/guide/seasonal-sale-strategy",
   "/guide/first-steam-purchase-guide",
+  // 2026-06-21 증편
+  "/guide/dlc-season-pass-guide",
 ];
 
 export async function onRequest(context) {
