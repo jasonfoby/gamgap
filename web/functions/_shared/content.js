@@ -316,21 +316,59 @@ function pick(table, lang, slug) {
 export function getPage(lang, slug) { return pick(PAGES, lang, slug); }
 export function getGuide(lang, slug) { return pick(GUIDES, lang, slug); }
 
-// 콘텐츠 body 배열에서 첫 문단(type:"p")을 찾아 평문으로 돌려준다(봇 본문/설명 폴백용).
+// 콘텐츠 body 배열에서 첫 문단(type:"p")을 찾아 평문으로 돌려준다(메타 설명 폴백용).
 function firstParagraph(mod) {
   if (!mod || !Array.isArray(mod.body)) return "";
   const p = mod.body.find((b) => b && b.type === "p" && b.text);
   return p ? String(p.text) : "";
 }
 
+// 콘텐츠 body 배열 전체를 HTML로 그린다(클라이언트 ArticleBody.jsx 와 같은 블록 → 태그 매핑).
+// JS 안 돌리는 봇에게도 글 전문이 보이게 해서 '얇은 콘텐츠' 오판을 막는다.
+function renderBody(mod) {
+  if (!mod || !Array.isArray(mod.body)) return "";
+  const li = (items) => (items || []).map((it) => `<li>${esc(it)}</li>`).join("");
+  return mod.body
+    .map((b) => {
+      if (!b || !b.type) return "";
+      switch (b.type) {
+        case "h2": return `<h2>${esc(b.text)}</h2>`;
+        case "ul": return `<ul>${li(b.items)}</ul>`;
+        case "ol": return `<ol>${li(b.items)}</ol>`;
+        case "quote": return `<blockquote>${esc(b.text)}</blockquote>`;
+        default: return `<p>${esc(b.text)}</p>`; // p, note → 문단
+      }
+    })
+    .join("");
+}
+
+// 가이드 목록(현재 언어, 없으면 영어→한국어 폴백). 날짜 내림차순. [{slug,title,description,date}]
+export function listGuides(lang) {
+  const slugs = Object.keys(GUIDES.ko || {}); // ko = 전체 슬러그 집합
+  const out = [];
+  for (const slug of slugs) {
+    const mod = pick(GUIDES, lang, slug);
+    if (mod && mod.slug) out.push({ slug: mod.slug, title: mod.title || mod.slug, description: mod.description || "", date: mod.date || "" });
+  }
+  out.sort((a, b) => (a.date < b.date ? 1 : -1));
+  return out;
+}
+
+// 가이드 목록 페이지의 #root 본문(제목 + 각 글 링크·설명). renderContent 의 bodyHtml 로 넘긴다.
+export function guideIndexBody(lang, heading, intro) {
+  const items = listGuides(lang)
+    .map((g) => `<li><a href="/guide/${esc(g.slug)}">${esc(g.title)}</a>${g.description ? " — " + esc(g.description) : ""}</li>`)
+    .join("");
+  return `<h1>${esc(heading)}</h1>${intro ? `<p>${esc(intro)}</p>` : ""}<ul>${items}</ul>`;
+}
+
 // 공통 렌더: shell(index.html) 위에 self-canonical + 제목/설명/og + (가능하면) #root 첫 문단을 주입.
 // mod 가 없으면(콘텐츠를 못 찾으면) canonical 만 self 로 바로잡고 끝낸다(본문 주입은 생략).
-export function renderContent(shell, { lang, pathname, mod, fallbackTitle }) {
+export function renderContent(shell, { lang, pathname, mod, fallbackTitle, bodyHtml }) {
   const self = SITE + pathname;
   const locale = LOCALE[lang] || "en_US";
   const title = (mod && mod.title) ? `${mod.title} · Lowstamp` : (fallbackTitle || "Lowstamp");
   const desc = mod && mod.description ? String(mod.description) : "";
-  const lead = firstParagraph(mod);
 
   let rw = new HTMLRewriter()
     .on("html", { element(e) { e.setAttribute("lang", lang); } })
@@ -348,14 +386,16 @@ export function renderContent(shell, { lang, pathname, mod, fallbackTitle }) {
       .on('meta[name="twitter:description"]', { element(e) { e.setAttribute("content", desc); } });
   }
 
-  // 베스트에포트 본문 주입: 제목(h1) + 첫 문단을 #root 에 채워 빈 페이지/얇은 본문 판정을 피한다.
-  if (mod && (mod.title || lead)) {
-    const bodyHtml =
-      `<main style="max-width:760px;margin:0 auto;padding:24px;font-family:sans-serif">` +
-      (mod.title ? `<h1>${esc(mod.title)}</h1>` : "") +
-      (lead ? `<p>${esc(lead)}</p>` : "") +
-      `</main>`;
-    rw = rw.on("#root", { element(e) { e.setInnerContent(bodyHtml, { html: true }); } });
+  // 본문 주입: JS 안 돌리는 봇에게도 글 '전문'이 보이게 #root 를 채운다(얇은 콘텐츠 판정 방지).
+  //  - bodyHtml 을 직접 주면(가이드 목록·홈 등) 그걸 쓰고,
+  //  - 아니면 콘텐츠 모듈의 제목(h1) + 본문 전체(renderBody)를 그린다.
+  const inner = bodyHtml || (mod && (mod.title || (mod.body && mod.body.length))
+    ? (mod.title ? `<h1>${esc(mod.title)}</h1>` : "") + renderBody(mod)
+    : "");
+  if (inner) {
+    const wrapped =
+      `<main style="max-width:760px;margin:0 auto;padding:24px;font-family:sans-serif;line-height:1.6">${inner}</main>`;
+    rw = rw.on("#root", { element(e) { e.setInnerContent(wrapped, { html: true }); } });
   }
 
   return rw.transform(shell);
