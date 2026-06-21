@@ -128,23 +128,11 @@ function usePagedList(fetchPage) {
 // 자동 감지가 막힌 환경을 위해 버튼도 함께 둔다. 더 없으면 아무것도 안 그린다.
 function LoadMore({ hasMore, loading, onLoadMore }) {
   const { t } = useT();
-  const ref = useRef(null);
-  useEffect(() => {
-    if (!hasMore) return;
-    const el = ref.current;
-    if (!el || typeof IntersectionObserver === "undefined") return;
-    const ob = new IntersectionObserver(
-      (entries) => {
-        if (entries[0] && entries[0].isIntersecting) onLoadMore();
-      },
-      { rootMargin: "600px" } // 바닥에 닿기 600px 전에 미리 불러와 끊김 줄임
-    );
-    ob.observe(el);
-    return () => ob.disconnect();
-  }, [hasMore, onLoadMore]);
+  // 자동(스크롤 끝 감지) 로드는 쓰지 않는다 — 자동이면 푸터가 계속 밀려 닿기 어렵다.
+  // 사용자가 '더 보기' 버튼을 직접 누를 때만 다음 묶음을 불러온다(수동).
   if (!hasMore) return null;
   return (
-    <div ref={ref} className="loadmore">
+    <div className="loadmore">
       {loading ? (
         <span className="loadmore-status" role="status" aria-busy="true">
           <span className="spinner" aria-hidden="true" />
