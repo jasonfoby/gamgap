@@ -43,6 +43,19 @@ PRICE_DIVISOR = 100
 REVIEW_REFRESH_DAYS = 7   # 리뷰는 자주 안 바뀌니 7일에 한 번만 갱신
 REVIEW_MAX = 1000         # 한 실행에서 리뷰를 새로 받을 최대 게임 수(스팀 호출 제한 보호)
 
+# 검색용 '언어별 게임 제목' backfill 튜닝값.
+#  - 제목은 거의 안 바뀌므로 '아직 안 받은' 양질 게임만 한 번씩 받아 채운다(names_checked로 추적).
+#  - 한 실행에서 NAMES_MAX개까지만(게임당 아래 5개 언어 호출 → 5×NAMES_MAX 호출).
+#  - 리뷰 많은(자주 검색되는) 순으로 우선 채워, 인기작부터 자국어 검색이 되게 한다.
+NAMES_MAX = 120
+NAME_LANGS = [   # (DB 칼럼 코드, 스팀 l= 값)
+    ("en", "english"),
+    ("ja", "japanese"),
+    ("zh", "schinese"),
+    ("es", "spanish"),
+    ("pt", "brazilian"),
+]
+
 # 스팀 호출 사이 대기(초). D1 일괄 선로드+batch로 호출 간격이 줄어든 만큼,
 # 5분 200회 제한을 자체적으로 안전하게 지키도록 0.7→1.0으로 올림.
 # 로그에 429/조회실패가 잦으면 이 숫자만 더 올리세요.
@@ -271,6 +284,59 @@ def steam_fetch_reviews(appid):
     return {"desc": desc, "total": total}
 
 
+def steam_fetch_name(appid, lang):
+    """해당 언어(l=)의 게임 제목만 받는다(검색용). filters=basic 으로 페이로드 최소화.
+    그 언어 제목이 없으면 스팀이 영어명을 그대로 주는데(예: 西구권 게임의 일본어 제목),
+    그건 그대로 저장해도 검색에 무해하다. 실패는 호출부에서 처리."""
+    url = (f"https://store.steampowered.com/api/appdetails"
+           f"?appids={appid}&l={lang}&filters=basic")
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (gamgap)"})
+    with urllib.request.urlopen(req, timeout=20) as r:
+        data = json.loads(r.read())
+    node = data.get(str(appid), {})
+    if not node.get("success"):
+        return ""
+    return (node.get("data", {}).get("name") or "").strip()
+
+
+def backfill_localized_names():
+    """검색용 '언어별 제목'을 드물게 채운다(제목은 거의 안 바뀌므로 한 번만).
+    아직 안 받은(names_checked 빈) 양질 게임을 리뷰 많은 순으로 NAMES_MAX개까지.
+    games 표에 name_en/ja/zh/es/pt 칼럼이 없으면(=마이그레이션 전) 조용히 건너뛴다."""
+    try:
+        rows = d1(
+            "SELECT appid FROM games "
+            "WHERE (names_checked IS NULL OR names_checked='') "
+            "AND (review_total >= 300 OR metacritic > 0) "
+            "ORDER BY review_total DESC LIMIT ?",
+            [NAMES_MAX],
+        )
+    except Exception as e:
+        print("  ! 언어별 제목 backfill 건너뜀(마이그레이션 0005 필요?)", e)
+        return
+    if not rows:
+        print("언어별 제목 backfill: 채울 게임 없음(이미 다 받음)")
+        return
+    print(f"언어별 제목 backfill 대상 {len(rows)}개 (리뷰 많은 순)")
+    done = 0
+    for r in rows:
+        appid = r["appid"]
+        names = {code: "" for code, _ in NAME_LANGS}
+        for code, lang in NAME_LANGS:
+            try:
+                names[code] = steam_fetch_name(appid, lang)
+            except Exception as e:
+                print(f"  ! [{code}] 제목 조회 실패", appid, e)
+            time.sleep(STEAM_SLEEP)
+        # 제목은 안 바뀌니 한 번 채우면 names_checked로 다시 안 받는다.
+        d1_batch([{
+            "sql": "UPDATE games SET name_en=?, name_ja=?, name_zh=?, name_es=?, name_pt=?, names_checked=? WHERE appid=?",
+            "params": [names["en"], names["ja"], names["zh"], names["es"], names["pt"], TODAY, appid],
+        }])
+        done += 1
+    print(f"언어별 제목 backfill 끝: {done}개 채움")
+
+
 def main():
     deal_ids = cheapshark_deals(TARGET_DEALS)
     print(f"CheapShark 할인 게임 {len(deal_ids)}개 수신")
@@ -461,6 +527,12 @@ def main():
         time.sleep(STEAM_SLEEP)  # 스팀 호출 제한(5분 200회) 안 넘기게 천천히
 
     print(f"끝. 가격이 바뀐 게임 {changed}개를 기록했어요.")
+
+    # 검색용 언어별 제목을 드물게 backfill(가격 수집 끝난 뒤). 실패해도 본 수집엔 영향 없음.
+    try:
+        backfill_localized_names()
+    except Exception as e:
+        print("  ! 언어별 제목 backfill 중 오류(무시하고 종료):", e)
 
 
 if __name__ == "__main__":

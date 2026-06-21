@@ -106,18 +106,32 @@ export default {
         const q = (url.searchParams.get("q") || "").trim();
         if (!q) return json([]);
         const esc = q.replace(/[\\%_]/g, (c) => "\\" + c); // LIKE 와일드카드(%,_) 이스케이프
+        const like = `%${esc}%`;
+        // 게임 이름 + 언어별 제목(name_en/ja/zh/es/pt)을 함께 뒤진다 → "巫师"·"ウィッチャー"로 쳐도 매칭.
+        // 마이그레이션 0005 전이면 이 칼럼들이 없어 throw → catch 에서 name 만으로 폴백.
+        const NAME_COLS = ["name", "name_en", "name_ja", "name_zh", "name_es", "name_pt"];
+        const orLike = (col) => NAME_COLS.map((c) => `${col ? col + "." : ""}${c} LIKE ? ESCAPE '\\'`).join(" OR ");
+        const likeArgs = NAME_COLS.map(() => like);
         if (cc) {
           try {
             const { results } = await env.DB
-              .prepare(`${REGION_SUMMARY} WHERE r.cc=? AND (g.name LIKE ? ESCAPE '\\' OR r.name LIKE ? ESCAPE '\\') ORDER BY r.discount_percent DESC LIMIT 30`)
-              .bind(cc, `%${esc}%`, `%${esc}%`).all();
+              .prepare(`${REGION_SUMMARY} WHERE r.cc=? AND (${orLike("g")} OR r.name LIKE ? ESCAPE '\\') ORDER BY r.discount_percent DESC LIMIT 30`)
+              .bind(cc, ...likeArgs, like).all();
             if (results && results.length) return json(await withHistory(env, results, cc));
-          } catch (e) { /* 지역 테이블 없음/오류 → 한국 폴백 */ }
+          } catch (e) { /* 지역 테이블/칼럼 없음 → 한국 폴백 */ }
         }
-        const { results } = await env.DB
-          .prepare(`${SUMMARY} WHERE name LIKE ? ESCAPE '\\' ORDER BY discount_percent DESC LIMIT 30`)
-          .bind(`%${esc}%`).all();
-        return json(await withHistory(env, results));
+        try {
+          const { results } = await env.DB
+            .prepare(`${SUMMARY} WHERE (${orLike("")}) ORDER BY discount_percent DESC LIMIT 30`)
+            .bind(...likeArgs).all();
+          return json(await withHistory(env, results));
+        } catch (e) {
+          // 언어별 제목 칼럼이 아직 없을 때(마이그레이션 0005 전): 기존처럼 name 만으로 검색.
+          const { results } = await env.DB
+            .prepare(`${SUMMARY} WHERE name LIKE ? ESCAPE '\\' ORDER BY discount_percent DESC LIMIT 30`)
+            .bind(like).all();
+          return json(await withHistory(env, results));
+        }
       }
 
       if (path === "/api/lowest-today") {
