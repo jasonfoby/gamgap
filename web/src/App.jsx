@@ -16,6 +16,7 @@ import { navigate } from "./lib/router";
 import { track } from "./lib/analytics";
 import { useT } from "./lib/i18n";
 import { regionForLang } from "./lib/region";
+import { expandQuery } from "./lib/searchAlias";
 
 // 입력이 멈춘 뒤 delay(ms)가 지나야 값을 반영하는 디바운스 (원본 250ms 검색 지연).
 function useDebounce(value, delay) {
@@ -338,7 +339,9 @@ export default function App() {
       if (!term) return;
       setSearch({ status: "loading", rows: [] });
       let alive = true;
-      searchGames(term, cc)
+      // 줄임말·현지어("위처"·"갓오워")는 영어 핵심어("Witcher"·"God of War")로 바꿔 검색.
+      // 화면에 보이는 검색어(헤더)는 사용자가 친 그대로 두고, API 호출만 보정한다.
+      searchGames(expandQuery(term), cc)
         .then((rows) => {
           if (!alive) return;
           setSearch({ status: "ok", rows });
