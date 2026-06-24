@@ -62,6 +62,11 @@
 </head>
 <body>
   <div id="root"></div>
+  <!-- 봇용 SSR 본문(Pages 함수가 #root에 주입)은 JS 미실행 크롤러용 폴백이다.
+       JS가 실행되면 React가 #root를 처음부터 그리므로, 첫 페인트 '전에' 폴백을 비워
+       'SSR 본문 → React 앱' 교체로 생기던 레이아웃 이동(CLS)을 없앤다.
+       (비JS 크롤러는 이 스크립트가 안 돌아 SSR 본문을 그대로 본다 = 콘텐츠 손실 없음.) -->
+  <script>(function(){var r=document.getElementById('root');if(r)r.textContent='';})();</script>
   <script type="module" src="/src/main.jsx"></script>
 </body>
 </html>
