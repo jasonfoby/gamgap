@@ -117,20 +117,20 @@ export default {
             const { results } = await env.DB
               .prepare(`${REGION_SUMMARY} WHERE r.cc=? AND (${orLike("g")} OR r.name LIKE ? ESCAPE '\\') ORDER BY r.discount_percent DESC LIMIT 30`)
               .bind(cc, ...likeArgs, like).all();
-            if (results && results.length) return json(await withHistory(env, results, cc));
+            if (results && results.length) return json(results); // 목록은 이력 불필요(홈 카드가 안 씀) → 게임당 이력 조회 생략으로 응답 가속
           } catch (e) { /* 지역 테이블/칼럼 없음 → 한국 폴백 */ }
         }
         try {
           const { results } = await env.DB
             .prepare(`${SUMMARY} WHERE (${orLike("")}) ORDER BY discount_percent DESC LIMIT 30`)
             .bind(...likeArgs).all();
-          return json(await withHistory(env, results));
+          return json(results); // 목록은 이력 불필요(홈 카드가 안 씀) → 게임당 이력 조회 생략으로 응답 가속
         } catch (e) {
           // 언어별 제목 칼럼이 아직 없을 때(마이그레이션 0005 전): 기존처럼 name 만으로 검색.
           const { results } = await env.DB
             .prepare(`${SUMMARY} WHERE name LIKE ? ESCAPE '\\' ORDER BY discount_percent DESC LIMIT 30`)
             .bind(like).all();
-          return json(await withHistory(env, results));
+          return json(results); // 목록은 이력 불필요(홈 카드가 안 씀) → 게임당 이력 조회 생략으로 응답 가속
         }
       }
 
@@ -143,7 +143,7 @@ export default {
             const { results } = await env.DB
               .prepare(`${REGION_SUMMARY} WHERE r.cc=? AND r.current_price <= r.all_time_low AND ${QUALITY_RG} ORDER BY r.discount_percent DESC LIMIT ? OFFSET ?`)
               .bind(cc, limit, offset).all();
-            if (results && results.length) return json(await withHistory(env, results, cc));
+            if (results && results.length) return json(results); // 목록은 이력 불필요(홈 카드가 안 씀) → 게임당 이력 조회 생략으로 응답 가속
             // 지역 데이터가 있는데 이 페이지가 비었다면 '목록 끝'이므로 한국으로 폴백하지 않는다(끝 페이지에 한국 게임이 섞이는 것 방지).
             if (offset > 0) return json([]);
           } catch (e) { /* 지역 테이블 없음/오류 → 한국 폴백 */ }
@@ -151,7 +151,7 @@ export default {
         const { results } = await env.DB
           .prepare(`${SUMMARY} WHERE current_price <= all_time_low AND ${QUALITY_KR} ORDER BY discount_percent DESC LIMIT ? OFFSET ?`)
           .bind(limit, offset).all();
-        return json(await withHistory(env, results));
+        return json(results); // 목록은 이력 불필요(홈 카드가 안 씀) → 게임당 이력 조회 생략으로 응답 가속
       }
 
       if (path === "/api/deals") {
@@ -163,14 +163,14 @@ export default {
             const { results } = await env.DB
               .prepare(`${REGION_SUMMARY} WHERE r.cc=? AND r.discount_percent > 0 AND ${QUALITY_RG} ORDER BY r.discount_percent DESC, r.current_price ASC LIMIT ? OFFSET ?`)
               .bind(cc, limit, offset).all();
-            if (results && results.length) return json(await withHistory(env, results, cc));
+            if (results && results.length) return json(results); // 목록은 이력 불필요(홈 카드가 안 씀) → 게임당 이력 조회 생략으로 응답 가속
             if (offset > 0) return json([]); // 지역 목록 끝 — 한국 폴백 안 함
           } catch (e) { /* 폴백 */ }
         }
         const { results } = await env.DB
           .prepare(`${SUMMARY} WHERE discount_percent > 0 AND ${QUALITY_KR} ORDER BY discount_percent DESC, current_price ASC LIMIT ? OFFSET ?`)
           .bind(limit, offset).all();
-        return json(await withHistory(env, results));
+        return json(results); // 목록은 이력 불필요(홈 카드가 안 씀) → 게임당 이력 조회 생략으로 응답 가속
       }
 
       // 사이트맵용 경량 엔드포인트: '색인 허용된' 게임의 appid 배열.

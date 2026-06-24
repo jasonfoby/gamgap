@@ -39,16 +39,6 @@ const META = {
   },
 };
 
-// 홈 #root 에 넣을 링크 라벨(봇/무JS 방문자용 내부 링크).
-const LABELS = {
-  ko: { guide: "가이드", about: "소개" },
-  en: { guide: "Guides", about: "About" },
-  ja: { guide: "ガイド", about: "紹介" },
-  zh: { guide: "指南", about: "关于" },
-  es: { guide: "Guías", about: "Acerca de" },
-  pt: { guide: "Guias", about: "Sobre" },
-};
-
 // Accept-Language 헤더에서 지원 언어 하나를 고른다. 예: "ja,en-US;q=0.9" → "ja". 못 찾으면 영어.
 function pickLang(al) {
   if (!al) return DEFAULT;
@@ -75,17 +65,10 @@ export async function onRequest(context) {
   const img = `${url.origin}/og-${lang}.jpg`;
   const locale = LOCALE[lang] || "en_US";
 
-  // JS 안 돌리는 봇/크롤러가 홈을 '빈 페이지(주차/미완성)'로 오판하지 않게 #root 에 소개 본문 주입.
-  const lbl = LABELS[lang] || LABELS[DEFAULT];
-  const homeBody =
-    `<main style="max-width:760px;margin:0 auto;padding:24px;font-family:sans-serif;line-height:1.6">` +
-    `<h1>${m.t}</h1><p>${m.d}</p>` +
-    `<p><a href="/guide">${lbl.guide}</a> · <a href="/about">${lbl.about}</a></p>` +
-    `</main>`;
-
+  // (홈 #root 봇용 본문 주입은 제거함 — 구글봇은 JS를 렌더해 실제 홈을 보므로 SEO 손실 없고,
+  //  SSR 본문 → React 앱 교체가 레이아웃 이동(CLS)을 일으켜서. 메타·OG·canonical 만 주입.)
   const res = new HTMLRewriter()
     .on("html", { element(e) { e.setAttribute("lang", lang); } })
-    .on("#root", { element(e) { e.setInnerContent(homeBody, { html: true }); } })
     .on("title", { element(e) { e.setInnerContent(m.t); } })
     .on('meta[name="description"]', { element(e) { e.setAttribute("content", m.d); } })
     .on('meta[property="og:title"]', { element(e) { e.setAttribute("content", m.t); } })
