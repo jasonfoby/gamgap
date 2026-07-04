@@ -126,6 +126,18 @@ h2{display:flex;align-items:center;gap:8px;color:var(--txt);font-weight:800;font
   border-top-color:var(--gold);animation:spin .7s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 
+/* ===== 홈 '가이드' 섹션 (콘텐츠 앞세우기) ===== */
+.home-guides{max-width:var(--max);margin:6px auto 0;padding:22px 20px 6px}
+.hg-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:14px}
+.hg-head h2{font-size:19px;font-weight:800;color:#F3EFE3;letter-spacing:-.4px;margin:0}
+.hg-all{font-size:13.5px;font-weight:700;color:var(--gold);white-space:nowrap}
+.hg-all:hover{text-decoration:underline}
+.hg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:14px}
+.hg-card{display:block;background:var(--paper);border:1px solid var(--rule);border-radius:12px;padding:15px 16px 17px;transition:transform .12s,box-shadow .12s}
+.hg-card:hover{transform:translateY(-3px);box-shadow:0 18px 30px -18px rgba(0,0,0,.7)}
+.hg-card h3{font-size:15px;font-weight:800;color:var(--ink-txt);margin:0 0 7px;line-height:1.35;letter-spacing:-.3px}
+.hg-card p{font-size:13px;color:#6E6A59;margin:0;line-height:1.55;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+
 /* ===== 탭 (사이드바에선 세로) ===== */
 .tabs{display:flex;gap:8px;flex-wrap:wrap}
 .tab{font-family:var(--kr);font-size:13.5px;font-weight:700;color:var(--txt-dim);background:rgba(255,255,255,.05);border:1px solid var(--line);padding:9px 14px;border-radius:99px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:background .12s,color .12s}

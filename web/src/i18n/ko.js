@@ -6,6 +6,8 @@ export default {
   "common.menu": "사이트 메뉴",
   "common.loading": "불러오는 중…",
   "common.more": "더 보기",
+  "home.guidesTitle": "게임 싸게 사는 법 — 가이드",
+  "home.guidesMore": "전체 보기",
   "lang.label": "언어",
 
   // 내비

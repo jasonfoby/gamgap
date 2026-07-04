@@ -3,6 +3,8 @@ export default {
   "common.menu": "Menú del sitio",
   "common.loading": "Cargando…",
   "common.more": "Ver más",
+  "home.guidesTitle": "Guías: cómo comprar juegos por menos",
+  "home.guidesMore": "Ver todas",
   "lang.label": "Idioma",
 
   "nav.home": "Inicio",

@@ -3,6 +3,8 @@ export default {
   "common.menu": "サイトメニュー",
   "common.loading": "読み込み中…",
   "common.more": "もっと見る",
+  "home.guidesTitle": "ゲームを安く買うためのガイド",
+  "home.guidesMore": "すべて見る",
   "lang.label": "言語",
 
   "nav.home": "ホーム",

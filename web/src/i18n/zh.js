@@ -3,6 +3,8 @@ export default {
   "common.menu": "网站菜单",
   "common.loading": "加载中…",
   "common.more": "加载更多",
+  "home.guidesTitle": "省钱买游戏的攻略指南",
+  "home.guidesMore": "查看全部",
   "lang.label": "语言",
 
   "nav.home": "首页",

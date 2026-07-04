@@ -17,6 +17,7 @@ import { track } from "./lib/analytics";
 import { useT } from "./lib/i18n";
 import { regionForLang } from "./lib/region";
 import { expandQuery } from "./lib/searchAlias";
+import { loadGuide } from "./content/guides";
 
 // 입력이 멈춘 뒤 delay(ms)가 지나야 값을 반영하는 디바운스 (원본 250ms 검색 지연).
 function useDebounce(value, delay) {
@@ -300,6 +301,65 @@ function DealsView({ state, opts, onCardClick, onRetry, onOptsChange, currency, 
   );
 }
 
+// 홈 하단 '가이드' 섹션 — 사이트가 가격 도구뿐 아니라 읽을거리가 많은 콘텐츠 사이트임을 앞세운다
+// (심사·SEO의 '콘텐츠 가치' 신호 + 체류·내부링크). 대표 글 6편만 가볍게 불러온다.
+const FEATURED_GUIDES = [
+  "how-to-buy-cheap",
+  "when-to-buy-or-wait",
+  "avoid-fake-discounts",
+  "dlc-season-pass-guide",
+  "reviews-metacritic-guide",
+  "steam-refund-policy",
+];
+
+function HomeGuides() {
+  const { t, lang } = useT();
+  const [items, setItems] = useState([]);
+  useEffect(() => {
+    let alive = true;
+    Promise.all(FEATURED_GUIDES.map((s) => loadGuide(lang, s)))
+      .then((gs) => alive && setItems((gs || []).filter(Boolean)))
+      .catch(() => {});
+    return () => {
+      alive = false;
+    };
+  }, [lang]);
+  if (!items.length) return null;
+  return (
+    <section className="home-guides" aria-label={t("home.guidesTitle")}>
+      <div className="hg-head">
+        <h2>{t("home.guidesTitle")}</h2>
+        <a
+          className="hg-all"
+          href="/guide"
+          onClick={(e) => {
+            e.preventDefault();
+            navigate("/guide");
+          }}
+        >
+          {t("home.guidesMore")} →
+        </a>
+      </div>
+      <div className="hg-grid">
+        {items.map((g) => (
+          <a
+            key={g.slug}
+            className="hg-card"
+            href={"/guide/" + g.slug}
+            onClick={(e) => {
+              e.preventDefault();
+              navigate("/guide/" + g.slug);
+            }}
+          >
+            <h3>{g.title}</h3>
+            <p>{g.description}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 export default function App() {
   const wl = useWishlistState();
   const { t, lang } = useT();
@@ -480,6 +540,7 @@ export default function App() {
         </main>
       </div>
 
+      <HomeGuides />
       <Footer />
     </WishlistProvider>
   );
