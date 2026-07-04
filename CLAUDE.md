@@ -64,7 +64,7 @@ Vite + React 18(순수 JS/JSX). **추가 런타임 의존성 없음** — 차트
 - **개별 게임 페이지(`/game/:appid`)**: 모달을 대체한 **색인 가능한 실제 페이지**(`src/pages/GamePage.jsx`). 가격 흐름 차트(`PriceChart`, 이력 2점 이상일 때만), 2단 가격헤더 + "한국 스팀 기준" 라벨, 판정, 검색에 읽히는 고유 본문 문단, 가격 통계·이전 저점(`lib/stats.js`), 스팀/SteamDB/링크복사. 카드 클릭 시 `navigate("/game/:appid")`로 이동.
 - **게임 페이지 SEO**: 페이지마다 고유 canonical(`lib/head.js`), 봇용 서버 메타·**본문·JSON-LD를 방문자 언어/통화에 맞춰 주입**(`functions/game/[appid].js` — Accept-Language로 언어·지역·통화 선택), 옛 `/?game=appid`는 301로 `/game/:appid`에 합침(`functions/index.js`), `functions/sitemap.xml.js`도 `/game/:appid` 사용. **가이드·법적 페이지(`/guide`·`/privacy` 등)도 자기 canonical + 본문을 봇에 주입**(`functions/_shared/content.js` + 라우트별 함수). 현재가 없는/없는 게임은 **HTTP 404 + noindex**(소프트 404 방지).
 - **다국어(i18n) — 6개 언어(ko·en·ja·zh·es·pt)**: 자체 경량 엔진(`src/lib/i18n.jsx` + 언어별 사전 `src/i18n/<lang>.js`, 새 라이브러리 없음). `useT()`의 `t("키", {vars})`·`tNodes`로 렌더. 헤더·콘텐츠 페이지에 언어 전환 버튼(`LanguageSwitcher`), 브라우저 언어 자동 감지 + `localStorage`(`lowstamp:lang`) 저장, `<html lang>` 반영. **판정 문구는 `verdict.js`의 단계(tier)만 쓰고 표시 문구는 사전에서**(로직 불변). **기본 UI 언어는 영어(`DEFAULT_LANG="en"`)**, 한국어는 폴백 소스. **가격은 언어별 지역 통화로 표시** — 한국어 원화, 그 외 언어는 해당 지역 통화(en→USD·ja→JPY·zh→CNY·es→EUR·pt→BRL, `lib/region.js`가 언어→cc 매핑). 해외 데이터 없는 게임(상위 `REGION_MAX` 밖)은 원화로 폴백.
-- **콘텐츠 다국어**: 가이드 **17편**·법적 4종을 `src/content/<guides|pages>/<lang>/<slug>.js`로 6개 언어 분리, 로더(`content/guides.js`·`content/pages.js`)가 **지연 로딩**으로 현재 언어 글만 가져옴(없으면 영어→한국어 폴백 / 메인 번들 경량 유지).
+- **콘텐츠 다국어**: 가이드 **22편**·법적 4종을 `src/content/<guides|pages>/<lang>/<slug>.js`로 6개 언어 분리, 로더(`content/guides.js`·`content/pages.js`)가 **지연 로딩**으로 현재 언어 글만 가져옴(없으면 영어→한국어 폴백 / 메인 번들 경량 유지).
 - **다지역 가격·게임정보·스팀평가(최근 추가)**: 언어별로 그 지역 스팀 가격을 통화까지 맞춰 표시(워커 `?cc=`). 게임 상세에 **게임 정보** 섹션(개발사·출시연도·메타크리틱·컨트롤러·플랫폼·DLC·지원언어 — `appdetails`에서 함께 수집) + **스팀 종합 평가** 배지(압도적 긍정적 등 9단계, `lib/reviews.js` 라벨 매핑, 카드+상세). 히어로 인기 칩은 **'지금 할인 중 + 리뷰 많은 유명작'** 동적 선정(`popularPicks`, 리뷰 5천+ 기준, 로딩 중 스켈레톤).
 - **체감 품질**: 스켈레톤 로더(`Skeleton`), 에러 시 "다시 시도" 버튼, `preconnect`, `public/_headers`(에셋 캐시 + 보안 헤더).
 - **라우팅(애드센스 대비)**: 자체 라우터(`src/lib/router.jsx`)로 `/`, `/game/:appid`, `/guide`, `/guide/:slug`, `/privacy`, `/terms`, `/about`, `/contact`, 404(`src/Root.jsx`에서 분기). 콘텐츠는 `ArticleBody`/`PageShell`로 렌더(`src/pages/`). 콘텐츠 페이지(`ContentPage`)는 slug만 받고 언어별 데이터를 직접 로드.
@@ -84,7 +84,7 @@ Vite + React 18(순수 JS/JSX). **추가 런타임 의존성 없음** — 차트
 - [ ] 공식 리셀러 제휴(어필리에이트) 링크 — 광고 외 둘째 수익원.
 - [ ] 가격 알림(목표가/할인율 도달 시) — 재방문 장치.
 - [ ] 언어별 URL(`/en/` 등) + `hreflang` — 언어별 색인(현재는 단일 URL).
-- [ ] 가이드 글 주기적 추가(현재 15편 — 통과·유지·트래픽에 가장 효과적).
+- [ ] 가이드 글 주기적 추가(현재 22편 — 통과·유지·트래픽에 가장 효과적).
 
 **참고**: 자세한 성장·수익 전략 메모는 공개 저장소에 두지 않는다(작업 환경 메모에서 관리).
 

@@ -28,6 +28,12 @@ const GUIDE_PATHS = [
   "/guide/dlc-season-pass-guide",
   // 2026-06-22 증편
   "/guide/avoid-impulse-buys",
+  // 2026-07-05 증편
+  "/guide/early-access-guide",
+  "/guide/steam-store-page-checklist",
+  "/guide/free-games-guide",
+  "/guide/review-bomb-guide",
+  "/guide/steam-family-sharing",
 ];
 
 export async function onRequest(context) {

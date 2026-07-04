@@ -132,6 +132,37 @@ import GUIDE_ja_avoid_impulse_buys from "../../src/content/guides/ja/avoid-impul
 import GUIDE_zh_avoid_impulse_buys from "../../src/content/guides/zh/avoid-impulse-buys.js";
 import GUIDE_es_avoid_impulse_buys from "../../src/content/guides/es/avoid-impulse-buys.js";
 import GUIDE_pt_avoid_impulse_buys from "../../src/content/guides/pt/avoid-impulse-buys.js";
+// 2026-07-05 증편 (5편)
+import GUIDE_ko_early_access_guide from "../../src/content/guides/ko/early-access-guide.js";
+import GUIDE_ko_steam_store_page_checklist from "../../src/content/guides/ko/steam-store-page-checklist.js";
+import GUIDE_ko_free_games_guide from "../../src/content/guides/ko/free-games-guide.js";
+import GUIDE_ko_review_bomb_guide from "../../src/content/guides/ko/review-bomb-guide.js";
+import GUIDE_ko_steam_family_sharing from "../../src/content/guides/ko/steam-family-sharing.js";
+import GUIDE_en_early_access_guide from "../../src/content/guides/en/early-access-guide.js";
+import GUIDE_en_steam_store_page_checklist from "../../src/content/guides/en/steam-store-page-checklist.js";
+import GUIDE_en_free_games_guide from "../../src/content/guides/en/free-games-guide.js";
+import GUIDE_en_review_bomb_guide from "../../src/content/guides/en/review-bomb-guide.js";
+import GUIDE_en_steam_family_sharing from "../../src/content/guides/en/steam-family-sharing.js";
+import GUIDE_ja_early_access_guide from "../../src/content/guides/ja/early-access-guide.js";
+import GUIDE_ja_steam_store_page_checklist from "../../src/content/guides/ja/steam-store-page-checklist.js";
+import GUIDE_ja_free_games_guide from "../../src/content/guides/ja/free-games-guide.js";
+import GUIDE_ja_review_bomb_guide from "../../src/content/guides/ja/review-bomb-guide.js";
+import GUIDE_ja_steam_family_sharing from "../../src/content/guides/ja/steam-family-sharing.js";
+import GUIDE_zh_early_access_guide from "../../src/content/guides/zh/early-access-guide.js";
+import GUIDE_zh_steam_store_page_checklist from "../../src/content/guides/zh/steam-store-page-checklist.js";
+import GUIDE_zh_free_games_guide from "../../src/content/guides/zh/free-games-guide.js";
+import GUIDE_zh_review_bomb_guide from "../../src/content/guides/zh/review-bomb-guide.js";
+import GUIDE_zh_steam_family_sharing from "../../src/content/guides/zh/steam-family-sharing.js";
+import GUIDE_es_early_access_guide from "../../src/content/guides/es/early-access-guide.js";
+import GUIDE_es_steam_store_page_checklist from "../../src/content/guides/es/steam-store-page-checklist.js";
+import GUIDE_es_free_games_guide from "../../src/content/guides/es/free-games-guide.js";
+import GUIDE_es_review_bomb_guide from "../../src/content/guides/es/review-bomb-guide.js";
+import GUIDE_es_steam_family_sharing from "../../src/content/guides/es/steam-family-sharing.js";
+import GUIDE_pt_early_access_guide from "../../src/content/guides/pt/early-access-guide.js";
+import GUIDE_pt_steam_store_page_checklist from "../../src/content/guides/pt/steam-store-page-checklist.js";
+import GUIDE_pt_free_games_guide from "../../src/content/guides/pt/free-games-guide.js";
+import GUIDE_pt_review_bomb_guide from "../../src/content/guides/pt/review-bomb-guide.js";
+import GUIDE_pt_steam_family_sharing from "../../src/content/guides/pt/steam-family-sharing.js";
 
 const SUPPORTED = ["ko", "en", "ja", "zh", "es", "pt"];
 const DEFAULT = "en";
@@ -196,7 +227,12 @@ const GUIDES = {
     "seasonal-sale-strategy": GUIDE_ko_seasonal_sale_strategy,
     "first-steam-purchase-guide": GUIDE_ko_first_steam_purchase_guide,
     "dlc-season-pass-guide": GUIDE_ko_dlc_season_pass_guide,
-    "avoid-impulse-buys": GUIDE_ko_avoid_impulse_buys
+    "avoid-impulse-buys": GUIDE_ko_avoid_impulse_buys,
+    "early-access-guide": GUIDE_ko_early_access_guide,
+    "steam-store-page-checklist": GUIDE_ko_steam_store_page_checklist,
+    "free-games-guide": GUIDE_ko_free_games_guide,
+    "review-bomb-guide": GUIDE_ko_review_bomb_guide,
+    "steam-family-sharing": GUIDE_ko_steam_family_sharing
   },
   "en": {
     "steam-sale-calendar": GUIDE_en_steam_sale_calendar,
@@ -215,7 +251,12 @@ const GUIDES = {
     "seasonal-sale-strategy": GUIDE_en_seasonal_sale_strategy,
     "first-steam-purchase-guide": GUIDE_en_first_steam_purchase_guide,
     "dlc-season-pass-guide": GUIDE_en_dlc_season_pass_guide,
-    "avoid-impulse-buys": GUIDE_en_avoid_impulse_buys
+    "avoid-impulse-buys": GUIDE_en_avoid_impulse_buys,
+    "early-access-guide": GUIDE_en_early_access_guide,
+    "steam-store-page-checklist": GUIDE_en_steam_store_page_checklist,
+    "free-games-guide": GUIDE_en_free_games_guide,
+    "review-bomb-guide": GUIDE_en_review_bomb_guide,
+    "steam-family-sharing": GUIDE_en_steam_family_sharing
   },
   "ja": {
     "steam-sale-calendar": GUIDE_ja_steam_sale_calendar,
@@ -234,7 +275,12 @@ const GUIDES = {
     "seasonal-sale-strategy": GUIDE_ja_seasonal_sale_strategy,
     "first-steam-purchase-guide": GUIDE_ja_first_steam_purchase_guide,
     "dlc-season-pass-guide": GUIDE_ja_dlc_season_pass_guide,
-    "avoid-impulse-buys": GUIDE_ja_avoid_impulse_buys
+    "avoid-impulse-buys": GUIDE_ja_avoid_impulse_buys,
+    "early-access-guide": GUIDE_ja_early_access_guide,
+    "steam-store-page-checklist": GUIDE_ja_steam_store_page_checklist,
+    "free-games-guide": GUIDE_ja_free_games_guide,
+    "review-bomb-guide": GUIDE_ja_review_bomb_guide,
+    "steam-family-sharing": GUIDE_ja_steam_family_sharing
   },
   "zh": {
     "steam-sale-calendar": GUIDE_zh_steam_sale_calendar,
@@ -253,7 +299,12 @@ const GUIDES = {
     "seasonal-sale-strategy": GUIDE_zh_seasonal_sale_strategy,
     "first-steam-purchase-guide": GUIDE_zh_first_steam_purchase_guide,
     "dlc-season-pass-guide": GUIDE_zh_dlc_season_pass_guide,
-    "avoid-impulse-buys": GUIDE_zh_avoid_impulse_buys
+    "avoid-impulse-buys": GUIDE_zh_avoid_impulse_buys,
+    "early-access-guide": GUIDE_zh_early_access_guide,
+    "steam-store-page-checklist": GUIDE_zh_steam_store_page_checklist,
+    "free-games-guide": GUIDE_zh_free_games_guide,
+    "review-bomb-guide": GUIDE_zh_review_bomb_guide,
+    "steam-family-sharing": GUIDE_zh_steam_family_sharing
   },
   "es": {
     "steam-sale-calendar": GUIDE_es_steam_sale_calendar,
@@ -272,7 +323,12 @@ const GUIDES = {
     "seasonal-sale-strategy": GUIDE_es_seasonal_sale_strategy,
     "first-steam-purchase-guide": GUIDE_es_first_steam_purchase_guide,
     "dlc-season-pass-guide": GUIDE_es_dlc_season_pass_guide,
-    "avoid-impulse-buys": GUIDE_es_avoid_impulse_buys
+    "avoid-impulse-buys": GUIDE_es_avoid_impulse_buys,
+    "early-access-guide": GUIDE_es_early_access_guide,
+    "steam-store-page-checklist": GUIDE_es_steam_store_page_checklist,
+    "free-games-guide": GUIDE_es_free_games_guide,
+    "review-bomb-guide": GUIDE_es_review_bomb_guide,
+    "steam-family-sharing": GUIDE_es_steam_family_sharing
   },
   "pt": {
     "steam-sale-calendar": GUIDE_pt_steam_sale_calendar,
@@ -291,7 +347,12 @@ const GUIDES = {
     "seasonal-sale-strategy": GUIDE_pt_seasonal_sale_strategy,
     "first-steam-purchase-guide": GUIDE_pt_first_steam_purchase_guide,
     "dlc-season-pass-guide": GUIDE_pt_dlc_season_pass_guide,
-    "avoid-impulse-buys": GUIDE_pt_avoid_impulse_buys
+    "avoid-impulse-buys": GUIDE_pt_avoid_impulse_buys,
+    "early-access-guide": GUIDE_pt_early_access_guide,
+    "steam-store-page-checklist": GUIDE_pt_steam_store_page_checklist,
+    "free-games-guide": GUIDE_pt_free_games_guide,
+    "review-bomb-guide": GUIDE_pt_review_bomb_guide,
+    "steam-family-sharing": GUIDE_pt_steam_family_sharing
   }
 };
 
