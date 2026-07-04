@@ -188,8 +188,8 @@ function Section({ title, state, emptyMsg, errMsg, onCardClick, onRetry, hasMore
         (state.rows.length ? (
           <>
             <div className="list">
-              {state.rows.map((g) => (
-                <GameCard key={g.appid} game={g} onClick={onCardClick} />
+              {state.rows.map((g, i) => (
+                <GameCard key={g.appid} game={g} onClick={onCardClick} priority={i < 4} />
               ))}
               {/* 다음 묶음 자리표시 — 같은 격자 안에 넣어 진짜 카드와 간격·정렬을 맞춘다. */}
               {loadingMore && <SkelCards count={4} />}
@@ -226,8 +226,8 @@ function SearchSection({ q, state, onCardClick, onRetry }) {
       {state.status === "ok" &&
         (state.rows.length ? (
           <div className="list">
-            {state.rows.map((g) => (
-              <GameCard key={g.appid} game={g} onClick={onCardClick} />
+            {state.rows.map((g, i) => (
+              <GameCard key={g.appid} game={g} onClick={onCardClick} priority={i < 4} />
             ))}
           </div>
         ) : (
@@ -282,7 +282,7 @@ function DealsView({ state, opts, onCardClick, onRetry, onOptsChange, currency, 
             <div className="list">
               {filtered.map((g, i) => (
                 <Fragment key={g.appid}>
-                  <GameCard game={g} onClick={onCardClick} />
+                  <GameCard game={g} onClick={onCardClick} priority={i < 4} />
                   {/* 첫 6장 뒤에 인라인 광고 한 자리(슬롯 ID 없으면 안 보임). */}
                   {i === 5 && <AdSlot slot="dealsInline" />}
                 </Fragment>
@@ -315,7 +315,26 @@ const FEATURED_GUIDES = [
 function HomeGuides() {
   const { t, lang } = useT();
   const [items, setItems] = useState([]);
+  const [near, setNear] = useState(false); // 섹션이 화면에 가까워졌나(그때만 글을 불러온다)
+  const ref = useRef(null);
+
+  // 섹션이 뷰포트 300px 이내로 다가오면 그때 로드 — 첫 화면 로딩 때 6편 받기(대역폭·메인스레드
+  // 경쟁)를 미뤄 LCP 를 지킨다. 접힌 영역이라 사용자가 스크롤로 닿기 직전 채워진다.
   useEffect(() => {
+    if (near) return;
+    const el = ref.current;
+    if (!el) return;
+    if (typeof IntersectionObserver === "undefined") { setNear(true); return; }
+    const io = new IntersectionObserver(
+      (ents) => { if (ents.some((e) => e.isIntersecting)) { setNear(true); io.disconnect(); } },
+      { rootMargin: "300px" }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [near]);
+
+  useEffect(() => {
+    if (!near) return;
     let alive = true;
     Promise.all(FEATURED_GUIDES.map((s) => loadGuide(lang, s)))
       .then((gs) => alive && setItems((gs || []).filter(Boolean)))
@@ -323,10 +342,10 @@ function HomeGuides() {
     return () => {
       alive = false;
     };
-  }, [lang]);
-  if (!items.length) return null;
+  }, [near, lang]);
+
   return (
-    <section className="home-guides" aria-label={t("home.guidesTitle")}>
+    <section className="home-guides" aria-label={t("home.guidesTitle")} ref={ref}>
       <div className="hg-head">
         <h2>{t("home.guidesTitle")}</h2>
         <a
@@ -340,22 +359,24 @@ function HomeGuides() {
           {t("home.guidesMore")} →
         </a>
       </div>
-      <div className="hg-grid">
-        {items.map((g) => (
-          <a
-            key={g.slug}
-            className="hg-card"
-            href={"/guide/" + g.slug}
-            onClick={(e) => {
-              e.preventDefault();
-              navigate("/guide/" + g.slug);
-            }}
-          >
-            <h3>{g.title}</h3>
-            <p>{g.description}</p>
-          </a>
-        ))}
-      </div>
+      {items.length > 0 && (
+        <div className="hg-grid">
+          {items.map((g) => (
+            <a
+              key={g.slug}
+              className="hg-card"
+              href={"/guide/" + g.slug}
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("/guide/" + g.slug);
+              }}
+            >
+              <h3>{g.title}</h3>
+              <p>{g.description}</p>
+            </a>
+          ))}
+        </div>
+      )}
     </section>
   );
 }

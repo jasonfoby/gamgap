@@ -11,7 +11,9 @@ const candidates = (appid) => [
 ];
 
 // 게임 표지. 크기/모양은 쓰는 곳(.card-img / .mhead)의 CSS가 정한다.
-export default function Cover({ appid, name }) {
+// priority=true 면(첫 화면 위쪽 카드) 지연 로딩을 끄고 우선 가져온다 — LCP(가장 큰 요소=첫 카드
+// 표지 이미지) 단축용. 아래쪽/접힌 카드는 기본 lazy 로 대역폭을 아낀다.
+export default function Cover({ appid, name, priority = false }) {
   const [idx, setIdx] = useState(0); // 시도 중인 후보 이미지 인덱스
   const urls = appid ? candidates(appid) : [];
 
@@ -21,7 +23,8 @@ export default function Cover({ appid, name }) {
         className="cover"
         src={urls[idx]}
         alt={name}
-        loading="lazy"
+        loading={priority ? "eager" : "lazy"}
+        fetchpriority={priority ? "high" : undefined}
         decoding="async"
         onError={() => setIdx((i) => i + 1)}
         style={{ background: coverGradient(name) }}

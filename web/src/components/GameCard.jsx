@@ -8,7 +8,7 @@ import { useT, tNodes } from "../lib/i18n";
 
 // 게임 한 장(세로 포스터형 영수증 카드).
 // 위: 큰 표지 배너(할인율 배지) → 아래: 제목 / 현재가·정가 / 판정 도장(역대최저 함께 새김).
-export default function GameCard({ game, onClick }) {
+export default function GameCard({ game, onClick, priority = false }) {
   const { t } = useT();
   const v = verdict(game);
   const onSale = Number(game.discountPercent) > 0;
@@ -19,7 +19,7 @@ export default function GameCard({ game, onClick }) {
     <div className="card-wrap">
       <button className="card" onClick={() => onClick(game)}>
         <div className="card-img">
-          <Cover appid={game.appid} name={game.name} />
+          <Cover appid={game.appid} name={game.name} priority={priority} />
           {onSale && <span className="card-disc">-{game.discountPercent}%</span>}
         </div>
         <div className="card-body">
