@@ -1,11 +1,17 @@
+import { lazy, Suspense } from "react";
 import { useRoute } from "./lib/router";
 import App from "./App";
-import GamePage from "./pages/GamePage";
-import GuideIndex from "./pages/GuideIndex";
-import GuideArticle from "./pages/GuideArticle";
-import ContentPage from "./pages/ContentPage";
-import NotFound from "./pages/NotFound";
 import CookieConsent from "./components/CookieConsent";
+
+// 홈(App)만 첫 화면에 필요하므로 즉시 로드하고, 나머지 라우트는 그 페이지로 이동할 때만
+// 코드를 받아온다(lazy). 이렇게 하면 홈 첫 화면용 JS 번들이 가벼워져 모바일 FCP/LCP 가 준다
+// (게임 상세의 차트·통계·지역가격, 가이드 렌더러 등이 홈 로딩에서 빠짐).
+// 검색 로봇에는 Pages 함수(functions/)가 서버에서 본문을 주입하므로 SEO 영향은 없다.
+const GamePage = lazy(() => import("./pages/GamePage"));
+const GuideIndex = lazy(() => import("./pages/GuideIndex"));
+const GuideArticle = lazy(() => import("./pages/GuideArticle"));
+const ContentPage = lazy(() => import("./pages/ContentPage"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 // 앱 최상위 라우팅 스위치.
 // useRoute()로 현재 경로(pathname)를 읽어 어떤 화면을 그릴지 분기한다.
@@ -49,7 +55,9 @@ export default function Root() {
 
   return (
     <>
-      {page}
+      {/* lazy 라우트를 받아오는 짧은 순간 동안 화면 높이를 예약해 푸터가 튀지 않게 한다.
+          홈(App)은 lazy 가 아니라 이 fallback 없이 즉시 그려진다. */}
+      <Suspense fallback={<div style={{ minHeight: "70vh" }} aria-busy="true" />}>{page}</Suspense>
       <CookieConsent />
     </>
   );
