@@ -4,7 +4,7 @@ export default {
   "description": "Ni la familia ni los amigos tienen que comprar el mismo juego cada uno por su lado: con la 'familia compartida' de Steam pueden repartirse sus bibliotecas y disfrutarlas entre todos. Aquí te explicamos, en palabras sencillas, cómo se ahorra y qué debes tener en cuenta.",
   "date": "2026-07-05",
   "tags": ["familia compartida", "ahorro", "Steam", "consejos de compra"],
-  "readMins": 6,
+  "readMins": 7,
   "body": [
     {
       "type": "p",
@@ -32,6 +32,14 @@ export default {
     },
     {
       "type": "h2",
+      "text": "Pongamos un ejemplo"
+    },
+    {
+      "type": "p",
+      "text": "Imagina que dos hermanos quieren jugar el mismo juego para un jugador. Si un juego que cuesta 59,99 € lo compra cada uno por su lado, se van 119,98 €; pero si solo uno lo compra y lo reparte por la familia compartida, con esos 59,99 € lo disfrutan los dos: justo la mitad de ahorro. Y si toda la familia compra juegos distintos y los junta en el grupo compartido, el efecto es todavía mayor. Si el padre compra un juego de carreras, el hermano mayor uno de acción y el pequeño uno de puzles, los tres pagan solo un juego cada uno pero disfrutan los tres juntos: en la práctica la biblioteca se multiplica por tres. Eso sí, como ya dijimos, si dos quieren jugar 'el mismo juego a la misma hora', al final toca comprarlo cada uno; entonces no ahorras compartiendo, pero puedes compensarlo comprándolo barato en las rebajas."
+    },
+    {
+      "type": "h2",
       "text": "Cosas que debes tener en cuenta"
     },
     {
@@ -41,6 +49,14 @@ export default {
     {
       "type": "p",
       "text": "Y por más confianza que tengas, intercambiar 'la cuenta entera con desconocidos' es peligroso. Si tus datos de cuenta caen en otras manos, hay riesgo de robo o de bloqueo, así que lo seguro es usar la familia compartida como función oficial de Steam y solo con 'personas de confianza'."
+    },
+    {
+      "type": "h2",
+      "text": "Cómo activarlo, más o menos"
+    },
+    {
+      "type": "p",
+      "text": "Configurarlo es más fácil de lo que parece. A grandes rasgos, quien presta los juegos y quien los recibe solo tienen que registrarse mutuamente como 'familia de confianza'. Dentro de los ajustes de Steam hay un menú relacionado con la familia compartida (Familias) y desde ahí apruebas a las personas con las que quieres compartir tu biblioteca. Una vez registrada la persona, a partir de ese momento podrá instalar y disfrutar tus juegos desde su propia cuenta. Como Steam cambia de vez en cuando el nombre o la ubicación exacta del menú, basta con buscar 'Familia' en los ajustes de Steam y seguir las indicaciones de la pantalla. Ten en cuenta que primero debes iniciar sesión y configurarlo desde la cuenta que tiene los juegos que vas a compartir, y que quien los recibe también necesita su propia cuenta de Steam."
     },
     {
       "type": "h2",

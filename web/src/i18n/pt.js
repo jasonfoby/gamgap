@@ -161,6 +161,12 @@ export default {
 
   "guide.indexTitle": "Guias",
   "guide.indexDesc": "De promoções da Steam, reembolsos e preços na sua moeda até como fugir de desconto falso, juntamos os artigos que ajudam você a comprar jogos pagando menos e com mais esperteza.",
+  "guide.indexDesc2": "De entender o que uma porcentagem de desconto realmente significa, a saber quando os preços chegam de fato ao fundo, aproveitar melhor os jogos grátis, os pacotes e o compartilhamento em família, e escolher jogos dos quais você não vai se arrepender — está tudo separado por tema, então comece pelo que te interessar.",
+  "guideCat.readPrices": "Entender preços e descontos",
+  "guideCat.timing": "Quando comprar — hora das promoções",
+  "guideCat.saveMore": "Mais formas de economizar — jogos grátis, pacotes, reembolsos",
+  "guideCat.choose": "Escolher jogos sem se arrepender",
+  "guideCat.more": "Mais guias",
   "guide.indexMetaDesc": "Coletânea de guias sobre descontos e menores preços na Steam",
   "guide.empty": "Ainda não temos nenhum guia por aqui.",
   "guide.readMins": "{n} min de leitura",

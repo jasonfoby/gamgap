@@ -4,7 +4,7 @@ export default {
   "description": "Ese juego que venden en \"Acceso Anticipado\" antes de salir del todo, ¿lo compras ya o esperas? Aquí te explicamos con palabras sencillas qué es el Acceso Anticipado, cuáles vale la pena comprar y cuáles conviene dejar madurar.",
   "date": "2026-07-05",
   "tags": ["acceso anticipado", "juegos sin terminar", "consejos de compra"],
-  "readMins": 6,
+  "readMins": 7,
   "body": [
     {
       "type": "p",
@@ -46,6 +46,18 @@ export default {
     {
       "type": "p",
       "text": "Al contrario, si ves cosas como estas, es mejor no apurarte y quedarte observando: que lleve meses o años sin actualizaciones, que no haya hoja de ruta, que el desarrollador esté prácticamente desaparecido en la comunidad, o que la valoración sea \"Variada\" o peor. Sobre todo, si hay muchas reseñas del estilo \"dijeron que lo iban a arreglar algún día y no lo arreglan\", lo más probable es que esa promesa no se cumpla. Con estos juegos, si los compras y quedan abandonados, ese dinero se queda ahí atrapado."
+    },
+    {
+      "type": "h2",
+      "text": "Veámoslo con un ejemplo"
+    },
+    {
+      "type": "p",
+      "text": "El juego A está en Acceso Anticipado a 24,99 €, y al mirar los anuncios de la tienda ves que sacan un parche cada dos semanas sin fallar, que tiene una hoja de ruta clara del tipo \"este año vamos a añadir esto y aquello\", y que su valoración es \"Muy positiva\" (91%), con un montón de reseñas que dicen que ya es divertido tal como está. Ese es un Acceso Anticipado que sí merece la pena comprar barato y por adelantado. En cambio, el juego B lleva más de tres años en Acceso Anticipado, su último parche fue hace catorce meses, la hoja de ruta se quedó parada hace mucho, y su valoración es \"Variada\", llena de reseñas del estilo \"dijeron que iban a actualizar y no se sabe nada más\". Por barato que esté, comprar algo así tiene muchas papeletas de que ese dinero se quede ahí atrapado, así que lo suyo es esperar o pasar de largo. Si miras solo la etiqueta del precio, los dos parecen simplemente \"un juego en oferta\", pero en cuanto te asomas a cómo va su desarrollo, las señales son justo las contrarias."
+    },
+    {
+      "type": "note",
+      "text": "Punto a revisar: si no lo tienes claro, guárdalo en tu lista de deseos (wishlist). Así recibes un aviso cuando salga la versión definitiva o haya una gran rebaja, y mientras tanto, viendo cómo van sus actualizaciones te haces una idea de si es un juego que llegará a terminarse o no."
     },
     {
       "type": "h2",

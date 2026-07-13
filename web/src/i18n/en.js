@@ -161,6 +161,12 @@ export default {
 
   "guide.indexTitle": "Guides",
   "guide.indexDesc": "From Steam sales, refunds, and regional pricing to sniffing out fake discounts — here's a stack of articles to help you buy games cheaper and smarter.",
+  "guide.indexDesc2": "From reading what a discount percentage really means, to knowing when prices actually bottom out, to squeezing more out of free giveaways, bundles and family sharing, to picking games you won't regret — it's all sorted by topic, so start with whatever you're curious about.",
+  "guideCat.readPrices": "Reading prices & discounts",
+  "guideCat.timing": "When to buy — sale timing",
+  "guideCat.saveMore": "More ways to save — free games, bundles, refunds",
+  "guideCat.choose": "Choosing games you won't regret",
+  "guideCat.more": "More guides",
   "guide.indexMetaDesc": "A collection of guides on Steam sales and finding the lowest prices",
   "guide.empty": "No guides have been published yet.",
   "guide.readMins": "{n} min read",

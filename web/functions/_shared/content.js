@@ -163,6 +163,9 @@ import GUIDE_pt_steam_store_page_checklist from "../../src/content/guides/pt/ste
 import GUIDE_pt_free_games_guide from "../../src/content/guides/pt/free-games-guide.js";
 import GUIDE_pt_review_bomb_guide from "../../src/content/guides/pt/review-bomb-guide.js";
 import GUIDE_pt_steam_family_sharing from "../../src/content/guides/pt/steam-family-sharing.js";
+// 가이드 목록 주제 분류 + 번역 함수(클라이언트와 동일 분류·문구 사용). i18n index.js 는 순수 JS라 함수 런타임에서 안전.
+import { groupGuides } from "../../src/content/guideCategories.js";
+import { translate } from "../../src/i18n/index.js";
 
 const SUPPORTED = ["ko", "en", "ja", "zh", "es", "pt"];
 const DEFAULT = "en";
@@ -415,12 +418,17 @@ export function listGuides(lang) {
   return out;
 }
 
-// 가이드 목록 페이지의 #root 본문(제목 + 각 글 링크·설명). renderContent 의 bodyHtml 로 넘긴다.
-export function guideIndexBody(lang, heading, intro) {
-  const items = listGuides(lang)
-    .map((g) => `<li><a href="/guide/${esc(g.slug)}">${esc(g.title)}</a>${g.description ? " — " + esc(g.description) : ""}</li>`)
+// 가이드 목록 페이지의 #root 본문(제목 + 소개 2문단 + 주제별 묶음의 글 링크·설명).
+// 클라이언트 GuideIndex.jsx 와 같은 분류(guideCategories)·문구(i18n)를 써서 봇에게도 '편집이 있는
+// 콘텐츠 사이트'로 보이게 한다(얇은 링크 목록 인상 방지).
+export function guideIndexBody(lang, heading) {
+  const p1 = translate(lang, "guide.indexDesc");
+  const p2 = translate(lang, "guide.indexDesc2");
+  const li = (g) => `<li><a href="/guide/${esc(g.slug)}">${esc(g.title)}</a>${g.description ? " — " + esc(g.description) : ""}</li>`;
+  const sections = groupGuides(listGuides(lang))
+    .map((grp) => `<h2>${esc(translate(lang, grp.labelKey))}</h2><ul>${grp.items.map(li).join("")}</ul>`)
     .join("");
-  return `<h1>${esc(heading)}</h1>${intro ? `<p>${esc(intro)}</p>` : ""}<ul>${items}</ul>`;
+  return `<h1>${esc(heading)}</h1><p>${esc(p1)}</p><p>${esc(p2)}</p>${sections}`;
 }
 
 // 공통 렌더: shell(index.html) 위에 self-canonical + 제목/설명/og + (가능하면) #root 첫 문단을 주입.

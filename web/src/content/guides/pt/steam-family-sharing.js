@@ -4,7 +4,7 @@ export default {
   "description": "Sua família ou seus amigos não precisam comprar cada jogo separadamente: com o 'Compartilhamento Familiar' da Steam dá para dividir a biblioteca de cada um. Explicamos numa linguagem simples como economizar e o que ficar de olho.",
   "date": "2026-07-05",
   "tags": ["compartilhamento familiar", "economia", "Steam", "dicas de compra"],
-  "readMins": 6,
+  "readMins": 7,
   "body": [
     {
       "type": "p",
@@ -32,6 +32,14 @@ export default {
     },
     {
       "type": "h2",
+      "text": "Um exemplo pra deixar claro"
+    },
+    {
+      "type": "p",
+      "text": "Imagina que dois irmãos querem jogar o mesmo jogo single-player. Se cada um comprar o seu, um jogo de R$ 250 acaba custando R$ 500 no total; mas se só um comprar e dividir pelo compartilhamento familiar, os dois jogam gastando R$ 250 — ou seja, metade do preço. Quando a família toda compra jogos diferentes e junta tudo no grupo, o efeito fica ainda maior. Se o pai compra um jogo de corrida, o irmão mais velho um de ação e o mais novo um de puzzle, cada um paga só um jogo e mesmo assim os três aproveitam os três títulos juntos — na prática, a biblioteca triplica de tamanho. Só que, como já falamos, para 'duas pessoas jogarem o mesmo jogo ao mesmo tempo' cada um vai acabar tendo que comprar o seu — aí você não economiza pelo compartilhamento, mas dá pra compensar pegando o jogo barato numa promoção."
+    },
+    {
+      "type": "h2",
       "text": "O que precisa de cuidado"
     },
     {
@@ -41,6 +49,14 @@ export default {
     {
       "type": "p",
       "text": "E por mais amigos que vocês sejam, ficar 'trocando a conta inteira com gente desconhecida' é perigoso. Se os dados da conta vazam, existe risco de roubo e banimento, então o mais seguro é fazer o compartilhamento familiar como recurso oficial da Steam e só com 'gente de confiança'."
+    },
+    {
+      "type": "h2",
+      "text": "Como ativar — o passo a passo por cima"
+    },
+    {
+      "type": "p",
+      "text": "Configurar é mais simples do que parece. Em linhas gerais, quem vai emprestar os jogos e quem vai receber só precisam registrar um ao outro como 'família de confiança'. Dentro das configurações da Steam tem um menu ligado ao compartilhamento familiar (Família), e é ali que você aprova quem vai poder usar a sua biblioteca junto com você. Depois de registrar uma vez, a partir daí a outra pessoa consegue instalar e jogar os seus jogos na própria conta. O nome exato do menu e onde ele fica a Steam muda de vez em quando, então é só procurar por 'Família (Family)' nas configurações da Steam e ir seguindo as instruções que aparecem na tela. Ah, e lembre: você precisa entrar primeiro na conta que tem os jogos pra emprestar e fazer a configuração por ela, e quem recebe também precisa ter a própria conta na Steam."
     },
     {
       "type": "h2",

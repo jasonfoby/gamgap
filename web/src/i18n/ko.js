@@ -186,6 +186,12 @@ export default {
   // 가이드 목록/상세 + 콘텐츠 페이지
   "guide.indexTitle": "가이드",
   "guide.indexDesc": "스팀 세일·환불·원화 가격제부터 가짜 할인 피하는 법까지, 게임을 더 싸고 똑똑하게 사는 데 도움 되는 글들을 모았어요.",
+  "guide.indexDesc2": "가격표의 할인율이 진짜로 뭘 뜻하는지 읽는 법부터, 언제가 가장 쌀 때인지, 무료 배포·번들·가족 공유로 더 아끼는 법, 후회 없이 살 게임 고르는 법까지 — 주제별로 묶어 뒀으니 궁금한 것부터 골라 읽어 보세요.",
+  "guideCat.readPrices": "가격·할인 제대로 읽기",
+  "guideCat.timing": "언제 사야 쌀까 — 세일 타이밍",
+  "guideCat.saveMore": "더 아끼는 방법 — 무료·번들·환불",
+  "guideCat.choose": "후회 없이 살 게임 고르기",
+  "guideCat.more": "그 외 가이드",
   "guide.indexMetaDesc": "스팀 할인·최저가 활용 가이드 모음",
   "guide.empty": "아직 올라온 가이드가 없어요.",
   "guide.readMins": "읽는 시간 {n}분",

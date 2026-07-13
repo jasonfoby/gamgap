@@ -35,6 +35,21 @@
   border-radius: 12px;
 }
 
+/* 주제 묶음(카테고리) — 제목 + 그 아래 카드 리스트 */
+.gi-group {
+  margin: 0 0 30px;
+}
+.gi-group-title {
+  font-family: var(--kr);
+  font-weight: 800;
+  font-size: 17px;
+  letter-spacing: -0.4px;
+  color: var(--txt);
+  margin: 0 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+
 /* 카드 리스트 */
 .gi-list {
   list-style: none;
@@ -104,6 +119,9 @@
 @media (min-width: 720px) {
   .gi-title {
     font-size: 32px;
+  }
+  .gi-group-title {
+    font-size: 19px;
   }
   .gi-card {
     padding: 22px 24px;

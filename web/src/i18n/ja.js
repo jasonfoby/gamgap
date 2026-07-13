@@ -161,6 +161,12 @@ export default {
 
   "guide.indexTitle": "ガイド",
   "guide.indexDesc": "Steam セールや返金、地域ごとの価格設定、偽セールの見抜き方まで。ゲームを安く賢く買うのに役立つ記事を集めました。",
+  "guide.indexDesc2": "割引率が本当は何を意味するのかの読み方から、いつが底値なのか、無料配布・バンドル・ファミリーシェアでさらに節約する方法、後悔しないゲームの選び方まで——テーマ別にまとめてあるので、気になるものから読んでみてください。",
+  "guideCat.readPrices": "価格と割引の読み方",
+  "guideCat.timing": "いつ買う？ セールのタイミング",
+  "guideCat.saveMore": "もっと節約 — 無料・バンドル・返金",
+  "guideCat.choose": "後悔しないゲームの選び方",
+  "guideCat.more": "その他のガイド",
   "guide.indexMetaDesc": "Steam 割引・最安値の活用ガイド集",
   "guide.empty": "まだガイド記事がありません。",
   "guide.readMins": "読了 約{n} 分",

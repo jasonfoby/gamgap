@@ -4,7 +4,7 @@ export default {
   "description": "Sometimes a game is totally fine but its Steam rating suddenly drops to 'Mixed.' Here's how to tell whether the game actually sucks or whether it's a 'review bomb' — a wave of angry reviews driven by stuff that has nothing to do with the game itself.",
   "date": "2026-07-05",
   "tags": ["Steam reviews", "review bombs", "buying tips"],
-  "readMins": 6,
+  "readMins": 7,
   "body": [
     {
       "type": "p",
@@ -21,6 +21,14 @@ export default {
     {
       "type": "note",
       "text": "Checkpoint: don't just ask 'is the rating bad,' ask 'why, and since when.' If the reason has nothing to do with whether the game is fun and it all landed at one specific moment, it's very likely a review bomb."
+    },
+    {
+      "type": "h2",
+      "text": "A concrete example"
+    },
+    {
+      "type": "p",
+      "text": "Take Game A: its All rating is 'Overwhelmingly Positive' (97%), but only the Recent rating has slumped to 'Mixed' (down in the low 40s%). Click into the low reviews and it's all 'they changed it so you have to link your account to another service now, and I'm furious' — barely anyone actually saying the game got less fun. That's a textbook review bomb: the game is exactly the same, but protest over a company decision has piled onto the score. Now take Game B: both Recent and All sit at 'Mixed,' and the low reviews are full of stuff like 'gets old after just two hours' and 'keeps crashing on bugs' — complaints from people who actually played it. That's not a review bomb; that's real criticism worth heeding. Same 'Mixed' label, but once you look at the reasons behind it, they're completely different signals."
     },
     {
       "type": "h2",
@@ -45,6 +53,14 @@ export default {
     {
       "type": "p",
       "text": "Hover over the Steam review summary and a graph of the rating over time pops up. A review bomb shows up as a sharp spike of negative reviews over just a few specific days that then settles back down. If it's normally positive but one single point dips down like a valley, something kicked off around then — and it's probably not a problem with the game itself."
+    },
+    {
+      "type": "h2",
+      "text": "Steam filters out review bombs too"
+    },
+    {
+      "type": "p",
+      "text": "The good news is Steam has its own way of catching these uproars. When a flood of reviews lands in a short window for reasons that have nothing to do with the game being fun, Steam will sometimes flag that stretch as 'off-topic review activity' and leave it out of the overall score. That greyed-out band you see on a game's review graph is exactly that. So if a score looks oddly low, you can go into the review section and toggle whether to include or exclude that window — and see for yourself what the 'real score with the uproar stripped out' looks like. If Steam has already filtered it, you don't need to sweat the number showing on the surface much at all."
     },
     {
       "type": "quote",

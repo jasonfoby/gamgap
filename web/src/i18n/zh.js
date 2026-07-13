@@ -161,6 +161,12 @@ export default {
 
   "guide.indexTitle": "指南",
   "guide.indexDesc": "从 Steam 特卖、退款、各区定价，到怎么看穿假打折，这里有一系列文章，帮你买游戏更省钱、更聪明。",
+  "guide.indexDesc2": "从看懂折扣率到底意味着什么，到判断什么时候价格才真正见底，再到用免费领取、捆绑包和家庭共享省得更多，以及怎样挑到不后悔的游戏——全部按主题分好类，挑你关心的先看就行。",
+  "guideCat.readPrices": "看懂价格与折扣",
+  "guideCat.timing": "什么时候买 — 促销时机",
+  "guideCat.saveMore": "省得更多 — 免费·捆绑·退款",
+  "guideCat.choose": "挑到不后悔的游戏",
+  "guideCat.more": "更多指南",
   "guide.indexMetaDesc": "Steam 折扣与最低价省钱指南合集",
   "guide.empty": "目前还没有发布指南。",
   "guide.readMins": "阅读约 {n} 分钟",

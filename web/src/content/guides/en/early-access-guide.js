@@ -1,10 +1,13 @@
+// Guide: Should you buy Early Access (unfinished) games — how to judge without regret.
+// The body array is drawn by the ArticleBody renderer. Don't write raw HTML tags.
+
 export default {
   "slug": "early-access-guide",
   "title": "Should You Buy Early Access Games? How to Judge Without Regret",
   "description": "That game sold as 'Early Access' before it's finished — not sure whether to buy it now? Here's a plain-English rundown of what Early Access is, which ones are worth grabbing, and which ones you should wait on.",
   "date": "2026-07-05",
   "tags": ["Early Access", "unfinished games", "buying tips"],
-  "readMins": 6,
+  "readMins": 7,
   "body": [
     {
       "type": "p",
@@ -46,6 +49,18 @@ export default {
     {
       "type": "p",
       "text": "Flip side: if you see any of these, it's smarter to hold off and keep watching. Updates have been missing for months or years, there's no roadmap, the developer has basically gone silent in the community, or the rating sits at 'Mixed' or worse. Especially if lots of reviews say 'they promised they'd fix it someday and never did,' that promise probably won't get kept. Buy a game like that and it gets abandoned, and your money's just tied up in it."
+    },
+    {
+      "type": "h2",
+      "text": "Let's look at an example"
+    },
+    {
+      "type": "p",
+      "text": "Game A is $19.99 in Early Access. Check its store announcements and there's a fresh patch every couple of weeks, a clear roadmap laying out 'here's what we're adding this year,' and a 'Very Positive' rating (91%) with plenty of reviews saying it's already plenty of fun as-is. That's an Early Access game worth grabbing early and cheap. Game B, on the other hand, has been in Early Access for over three years, its last patch was 14 months ago, its roadmap stalled long ago, and its rating is 'Mixed' with reviews full of 'they said they'd update it and then went totally dark.' No matter how cheap that one is, buying it likely just leaves your money tied up, so waiting or skipping is the right call. Look at nothing but the price tag and both are just 'a game on sale,' but peek at the development status and they're sending opposite signals."
+    },
+    {
+      "type": "note",
+      "text": "Checkpoint: if you're on the fence, drop it on your wishlist. You'll get a heads-up at the full release or a big sale, and watching how the updates go in the meantime gives you a real feel for whether it's actually going to get finished."
     },
     {
       "type": "h2",

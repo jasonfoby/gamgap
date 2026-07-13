@@ -1,10 +1,13 @@
+// Guide: how to save money on games with Steam Family Sharing
+// The renderer (ArticleBody) draws the body array. Don't write HTML tags directly.
+
 export default {
   "slug": "steam-family-sharing",
   "title": "How to Save Money with Steam Family Sharing — Buy Once, Play Together",
   "description": "Your family or friends don't each have to buy the same game separately. With Steam Family Sharing you can lend each other your libraries. Here's how it saves you money and what to watch out for, in plain terms.",
   "date": "2026-07-05",
   "tags": ["family sharing", "saving money", "Steam", "buying tips"],
-  "readMins": 6,
+  "readMins": 7,
   "body": [
     {
       "type": "p",
@@ -32,6 +35,14 @@ export default {
     },
     {
       "type": "h2",
+      "text": "A quick example"
+    },
+    {
+      "type": "p",
+      "text": "Say two siblings both want the same single-player game. At a $60 list price, buying it twice runs $120 — but if only one of them buys it and shares it through Family Sharing, both get to play for that one $60, exactly half the cost. It gets even better when the whole family buys different games and pools them into the sharing group. Dad picks up a racing game, one sibling grabs an action game, the other a puzzle game — three people each pay for a single game, yet all three get to play all three, so the library effectively triples. The one catch, as noted, is that if two people want to play the same game at the same time, you'll each still need your own copy — you can't save through sharing there, but you can make it up by grabbing it cheap on sale."
+    },
+    {
+      "type": "h2",
       "text": "What to watch out for"
     },
     {
@@ -41,6 +52,14 @@ export default {
     {
       "type": "p",
       "text": "And no matter how close you are, swapping whole accounts with 'someone you don't really know' is risky. If your account details get handed over, there's a real danger of theft or a ban, so it's safest to do Family Sharing through Steam's official feature and only with 'people you can trust.'"
+    },
+    {
+      "type": "h2",
+      "text": "How to turn it on — the rough flow"
+    },
+    {
+      "type": "p",
+      "text": "Setting it up is simpler than you'd think. In broad strokes, the person lending the games and the person receiving them just register each other as 'trusted family.' There's a Family Sharing (Family) area inside Steam's settings, and from there you approve the people you want to share your library with. Once you've registered someone, they can install and play your games from their own account from then on. The exact menu location and wording change from time to time, so just look for 'Family' in Steam's settings and follow the on-screen prompts. Keep in mind you sign in first with the account that owns the games you're lending, and the person receiving them needs their own Steam account too."
     },
     {
       "type": "h2",

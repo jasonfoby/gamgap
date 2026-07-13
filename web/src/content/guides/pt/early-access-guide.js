@@ -4,7 +4,7 @@ export default {
   "description": "Aquele jogo em \"Acesso Antecipado\" que vendem antes do lançamento oficial: dá pra comprar agora ou é melhor esperar? A gente explica em palavras simples o que é Acesso Antecipado, quais valem a pena e quais é melhor deixar de lado.",
   "date": "2026-07-05",
   "tags": ["acesso antecipado", "jogo não finalizado", "dicas de compra"],
-  "readMins": 6,
+  "readMins": 7,
   "body": [
     {
       "type": "p",
@@ -46,6 +46,18 @@ export default {
     {
       "type": "p",
       "text": "Do outro lado, se você notar estas coisas, é melhor não ter pressa e ficar de olho. É quando não sai atualização há meses ou anos, quando não existe roadmap, quando o desenvolvedor praticamente sumiu da comunidade, ou quando a avaliação está em \"Mista\" ou pior. Principalmente se tem muito comentário do tipo \"prometeram consertar algum dia e nunca consertaram\", as chances de essa promessa não ser cumprida são altas. Um jogo desses, se você comprar e ele ficar abandonado, prende seu dinheiro ali sem retorno."
+    },
+    {
+      "type": "h2",
+      "text": "Vamos a um exemplo prático"
+    },
+    {
+      "type": "p",
+      "text": "O jogo A está em Acesso Antecipado por 40 reais e, olhando os avisos da loja, sai patch novo a cada duas semanas sem falta, o roadmap deixa bem claro \"o que a gente vai colocar ainda este ano\", a avaliação está em \"Muito Positiva\" (91%) e tem muito comentário dizendo \"já é bem divertido do jeito que está\". Esse é um Acesso Antecipado que vale a pena comprar barato mais cedo. Já o jogo B saiu em Acesso Antecipado faz mais de três anos, o último patch foi há 14 meses, o roadmap parou faz tempo e a avaliação está em \"Mista\", cheia de comentários do tipo \"disseram que iam atualizar e sumiram\". Um desses, por mais barato que seja, tem grande chance de deixar seu dinheiro preso ali parado, então o certo é esperar ou deixar de lado. Só pela etiqueta de preço, os dois são apenas \"um jogo em promoção\", mas quando você olha o estado do desenvolvimento, os sinais são exatamente opostos."
+    },
+    {
+      "type": "note",
+      "text": "Ponto de atenção: se ficar em dúvida, coloque o jogo nos favoritos (lista de desejos). Assim você recebe um aviso no lançamento oficial ou numa grande promoção e, acompanhando como andam as atualizações nesse meio-tempo, vai pegando o jeito de perceber se é um jogo que realmente vai ser finalizado ou não."
     },
     {
       "type": "h2",
