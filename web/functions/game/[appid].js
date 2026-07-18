@@ -3,6 +3,9 @@
 // 독립적으로 보이고 색인되도록 하는 핵심(클라이언트 GamePage가 그릴 화면과 같은 메타).
 // 방문자 언어(Accept-Language)에 맞춰 언어·통화·지역을 골라 렌더한다(functions/index.js 와 동일한 방식).
 // (기존 Worker/D1/크롤러는 건드리지 않음 — 프런트 배포에 딸린 함수. 가격/판정 로직 불변.)
+// 클라이언트 GamePage 와 같은 분석 문단(역대 최저가 격차·추적 기간 통계)을 봇 본문에도 넣기 위해
+// i18n 사전의 gp.prose* 키를 재사용한다(순수 JS라 함수 런타임에서 안전).
+import { translate } from "../../src/i18n/index.js";
 const API = "https://gamgap-api.ibanisac.workers.dev";
 
 const SUPPORTED = ["ko", "en", "ja", "zh", "es", "pt"];
@@ -247,9 +250,10 @@ export async function onRequest(context) {
   const fmt = (n) => fmtMoney(n, currency, lang);
   const grp = (x) => String(x).replace(/\B(?=(\d{3})+(?!\d))/g, ","); // 천단위 콤마
 
-  // 빈약·양산형 페이지는 색인 제외(클라이언트 head.js 와 같은 기준). 페이지는 정상(200)으로 보여주되
-  // 검증 신호(리뷰 300개↑ 또는 메타크리틱)가 없으면 robots noindex 만 덧붙인다.
-  const thin = !(Number(game.reviewTotal) >= 300 || Number(game.metacritic) > 0);
+  // 색인 기준: 리뷰 2,000개↑ 또는 메타크리틱이 있는 '알찬' 게임만 검색에 노출한다(애드센스 '가치 낮은
+  // 콘텐츠' 대응 — 얕은 양산형·비주류 페이지를 색인에서 제외). 그 아래 게임은 페이지는 정상(200)으로
+  // 보여주되 robots noindex 를 덧붙인다. ⚠ 워커 INDEX_MIN_REVIEWS(=2000)·/api/appids 와 반드시 같게 유지.
+  const thin = !(Number(game.reviewTotal) >= 2000 || Number(game.metacritic) > 0);
 
   const onSale = Number(game.discountPercent) > 0;
   const cur = fmt(game.currentPrice);
@@ -282,12 +286,33 @@ export async function onRequest(context) {
     meta: Number(game.metacritic) > 0 ? Number(game.metacritic) : 0,
   }) : "";
 
+  // 게임별 실데이터 분석 문단(역대 최저가와의 격차 + 추적 기간 평균·최고가) — 클라이언트 gp.prose* 키를
+  // 그대로 재사용해 봇 본문도 페이지마다 다른 고유 텍스트가 되게 한다(양산형 한문장 템플릿 인상 완화).
+  const hist = Array.isArray(game.history) ? game.history.filter((h) => h && Number(h.p) > 0) : [];
+  const aParts = [];
+  if (atlVal) {
+    const gapNum = Number(game.currentPrice) - Number(game.allTimeLow);
+    if (gapNum > 0 && Number(game.allTimeLow) > 0) {
+      aParts.push(translate(lang, "gp.proseGap", { cur, atl: atlVal, gap: fmt(gapNum), pct: Math.round((gapNum / Number(game.allTimeLow)) * 100) }));
+    } else {
+      aParts.push(translate(lang, "gp.proseGapLow", { cur }));
+    }
+  }
+  if (hist.length >= 2) {
+    const prices = hist.map((h) => Number(h.p));
+    const avg = Math.round(prices.reduce((a, b) => a + b, 0) / prices.length);
+    const since = hist[0] && hist[0].d ? String(hist[0].d).slice(0, 7) : "";
+    if (since) aParts.push(translate(lang, "gp.proseStats", { since, avg: fmt(avg), max: fmt(Math.max(...prices)) }));
+  }
+  const analysis = aParts.join(" "); // 값은 전부 자체 생성 숫자/기호라 esc 불필요
+
   // 봇이 사이트를 돌아다닐 수 있게(개별 게임 페이지가 고아가 되지 않게) 홈·가이드 내부 링크를 함께 넣는다.
   const bodyHtml =
     `<main style="max-width:880px;margin:0 auto;padding:24px;font-family:sans-serif">` +
     `<h1>${s.h1(nameE)}</h1>` +
     `<p>${s.bodyCur(nameE, cur, saleClause, atlClause)}</p>` +
     (info2 ? `<p>${info2}</p>` : "") +
+    (analysis ? `<p>${analysis}</p>` : "") +
     `<p><a href="https://store.steampowered.com/app/${game.appid}/">${s.steamLink(nameE)}</a></p>` +
     `<nav><a href="/">${esc(s.homeLink)}</a> · <a href="/guide">${esc(s.guideLink)}</a></nav>` +
     `</main>`;

@@ -119,6 +119,9 @@ export default {
   "gp.proseNoSaleAtl": "O preço atual de {name} na Steam é {cur}, e o menor preço de todos os tempos foi {atl}{date}. O veredito “Vale a pena comprar agora?” da Lowstamp é: {label} — {tip}",
   "gp.proseNoSaleNoAtl": "O preço atual de {name} na Steam é {cur}, mas ainda não há histórico suficiente pra cravar um menor preço de todos os tempos. O veredito “Vale a pena comprar agora?” da Lowstamp é: {label} — {tip}",
   "gp.proseDate": " ({d})",
+  "gp.proseGap": "A {cur}, está agora {gap} ({pct}%) acima do menor preço histórico de {atl}.",
+  "gp.proseGapLow": "A {cur}, está no menor preço histórico (ou abaixo) agora mesmo — só pelo preço, é o fundo do poço.",
+  "gp.proseStats": "Acompanhamos o preço desde {since}; nesse período a média foi {avg} e o pico chegou a {max}.",
 
   "price.normal": "Preço cheio {p}",
   "price.atlLabel": "Recorde",

@@ -88,10 +88,10 @@ export function setGameHead(game) {
   set('meta[name="twitter:description"]', "content", desc);
   set('meta[name="twitter:image"]', "content", img);
   setCanonical(url);
-  // 색인 기준(애드센스/검색 품질): 현재가가 있고 + 검증 신호(리뷰 수 또는 메타크리틱)가 있어야 색인.
-  // 양산형 인디(리뷰 적고 메타크리틱 없음)를 대량 noindex해 '저가치 자동생성 페이지' 판정을 피한다.
-  // INDEX_MIN_REVIEWS는 데이터가 성숙하면 낮춰도 됨(현 양산형은 리뷰 100~150대).
-  const INDEX_MIN_REVIEWS = 300;
+  // 색인 기준(애드센스/검색 품질): 현재가가 있고 + 리뷰 2,000개↑ 또는 메타크리틱이 있어야 색인.
+  // 애드센스 '가치 낮은 콘텐츠' 2차 반려 대응 — 얕은 양산형·비주류 페이지를 대량 noindex해 사이트
+  // 평균 품질을 올린다. ⚠ 워커 INDEX_MIN_REVIEWS(=2000)·/api/appids·functions noindex 와 같게 유지.
+  const INDEX_MIN_REVIEWS = 2000;
   const indexable =
     Number(game.currentPrice) > 0 &&
     (Number(game.reviewTotal) >= INDEX_MIN_REVIEWS || Number(game.metacritic) > 0);

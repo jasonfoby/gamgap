@@ -139,6 +139,9 @@ export default {
   "gp.proseNoSaleAtl": "{name}의 스팀 한국(원화) 현재가는 {cur}이고, 역대 최저가는 {atl}{date}이에요. Lowstamp의 “지금 사도 돼?” 판정은 {label} — {tip}",
   "gp.proseNoSaleNoAtl": "{name}의 스팀 한국(원화) 현재가는 {cur}이고, 아직 역대 최저가를 따질 만큼 가격 기록이 쌓이지 않았어요. Lowstamp의 “지금 사도 돼?” 판정은 {label} — {tip}",
   "gp.proseDate": " ({d})",
+  "gp.proseGap": "지금 가격 {cur}은 역대 최저가 {atl}보다 {gap}({pct}%) 높아요.",
+  "gp.proseGapLow": "지금 가격 {cur}이 역대 최저가와 같거나 더 낮아요 — 가격만 보면 지금이 바닥이에요.",
+  "gp.proseStats": "{since}부터 가격을 추적했는데, 그동안 평균은 {avg}, 가장 비쌌을 때는 {max}이었어요.",
 
   // 가격/통계
   "price.normal": "정가 {p}",

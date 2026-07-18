@@ -119,6 +119,9 @@ export default {
   "gp.proseNoSaleAtl": "{name} の Steam 現在価格は {cur}。過去最安値は {atl}{date} です。Lowstamp の「今買っていい?」判定は {label} — {tip}",
   "gp.proseNoSaleNoAtl": "{name} の Steam 現在価格は {cur}。ただ、過去最安値を見きわめるには価格の記録がまだ足りません。Lowstamp の「今買っていい?」判定は {label} — {tip}",
   "gp.proseDate": "({d})",
+  "gp.proseGap": "現在の {cur} は、過去最安値 {atl} より {gap}（{pct}%）高い水準です。",
+  "gp.proseGapLow": "現在の {cur} は過去最安値と同じか、それより安い水準です。価格だけ見れば今が底値です。",
+  "gp.proseStats": "{since} から価格を追跡してきましたが、その間の平均は {avg}、最高値は {max} でした。",
 
   "price.normal": "定価 {p}",
   "price.atlLabel": "過去最安値",

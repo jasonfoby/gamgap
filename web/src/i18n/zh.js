@@ -119,6 +119,9 @@ export default {
   "gp.proseNoSaleAtl": "{name} 在 Steam 的当前价格是 {cur}，历史最低价为 {atl}{date}。Lowstamp 给的“现在入手划算吗？”判定是 {label} —— {tip}",
   "gp.proseNoSaleNoAtl": "{name} 在 Steam 的当前价格是 {cur}，目前的价格记录还不够多，暂时看不出历史最低价。Lowstamp 给的“现在入手划算吗？”判定是 {label} —— {tip}",
   "gp.proseDate": "（{d}）",
+  "gp.proseGap": "当前 {cur}，比历史最低价 {atl} 高出 {gap}（{pct}%）。",
+  "gp.proseGapLow": "当前 {cur}，已经等于或低于历史最低价——单看价格，现在就是最低点。",
+  "gp.proseStats": "我们从 {since} 开始追踪它的价格，这期间平均价为 {avg}，最高时到过 {max}。",
 
   "price.normal": "原价 {p}",
   "price.atlLabel": "历史最低",

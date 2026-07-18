@@ -165,6 +165,33 @@ function GameDetail({ g, copied, onCopy, t, cc }) {
     tip: vTip,
   });
 
+  // 게임별 실데이터로 만드는 두 번째 분석 문단 — 페이지마다 값이 다른 고유 텍스트(템플릿 인상 완화).
+  //  ① 역대 최저가와의 격차(지금이 얼마나 비싼지/바닥인지) ② 추적 기간의 평균·최고가.
+  const gapVal = hasLow ? Number(g.currentPrice) - Number(g.allTimeLow) : 0;
+  const gapPct = hasLow && Number(g.allTimeLow) > 0 ? Math.round((gapVal / Number(g.allTimeLow)) * 100) : 0;
+  const prose2 = [];
+  if (hasLow) {
+    prose2.push(
+      gapVal > 0
+        ? t("gp.proseGap", {
+            cur: money(g.currentPrice, g.currency),
+            atl: money(g.allTimeLow, g.currency),
+            gap: money(gapVal, g.currency),
+            pct: gapPct,
+          })
+        : t("gp.proseGapLow", { cur: money(g.currentPrice, g.currency) })
+    );
+  }
+  if (stats && stats.since) {
+    prose2.push(
+      t("gp.proseStats", {
+        since: ym(stats.since),
+        avg: money(stats.avg, g.currency),
+        max: money(stats.max, g.currency),
+      })
+    );
+  }
+
   const summary = (
     <div className="mtop-summary">
       <div className="pricehead">
@@ -217,6 +244,7 @@ function GameDetail({ g, copied, onCopy, t, cc }) {
       )}
 
       <p className="gp-prose">{prose}</p>
+      {prose2.length > 0 && <p className="gp-prose">{prose2.join(" ")}</p>}
 
       <GameInfo g={g} t={t} />
 

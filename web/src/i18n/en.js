@@ -119,6 +119,9 @@ export default {
   "gp.proseNoSaleAtl": "{name} is currently {cur} on Steam, and its all-time low is {atl}{date}. Lowstamp's call: {label} — {tip}",
   "gp.proseNoSaleNoAtl": "{name} is currently {cur} on Steam, but there isn't enough price history yet to pin down an all-time low. Lowstamp's call: {label} — {tip}",
   "gp.proseDate": " ({d})",
+  "gp.proseGap": "At {cur}, it's currently {gap} ({pct}%) above its all-time low of {atl}.",
+  "gp.proseGapLow": "At {cur}, it's at (or below) its all-time low right now — on price alone, this is rock bottom.",
+  "gp.proseStats": "We've tracked its price since {since}; over that time it averaged {avg} and peaked at {max}.",
 
   "price.normal": "List price {p}",
   "price.atlLabel": "All-time low",

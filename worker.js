@@ -65,10 +65,15 @@ const REGION_SUMMARY = `
 // '진짜 게임' 품질 기준 — 리뷰가 300개 이상이거나 메타크리틱 점수가 있는 게임만.
 // 정가 42,000원을 95% 깎아 2,100원에 파는 양산형(에셋만 갈아끼운 저품질) 떨이는 보통 리뷰가
 // 100~120개 안팎이라 이 기준에서 걸러져, 할인·최저가 목록 상단을 점령하지 못한다.
-// ⚠ /api/appids(사이트맵)·functions/game/[appid].js 의 noindex 기준과 반드시 같게 유지할 것
-//   (사이트 전체가 "진짜 게임"을 한 가지 잣대로 판별하도록). 기준을 바꾸려면 세 곳을 함께 바꾼다.
-const QUALITY_KR = "(review_total >= 300 OR metacritic > 0)"; // 한국(games) 쿼리용
-const QUALITY_RG = "(g.review_total >= 300 OR g.metacritic > 0)"; // 지역(region+games join) 쿼리용
+// 이 QUALITY_* 는 '홈 목록(할인 중/오늘의 최저가)'을 채우는 필터다 — 목록이 너무 비지 않게 리뷰 300+ 유지.
+const QUALITY_KR = "(review_total >= 300 OR metacritic > 0)"; // 홈 목록(한국 games 쿼리)용
+const QUALITY_RG = "(g.review_total >= 300 OR g.metacritic > 0)"; // 홈 목록(지역 region+games join)용
+
+// 검색 '색인' 기준은 홈 목록보다 더 엄격하게(리뷰 2,000+ 또는 메타크리틱). 애드센스 '가치 낮은 콘텐츠'
+// 대응 — 얕은 양산형·비주류 페이지 수백 개를 검색 색인에서 빼 사이트 평균 품질을 올린다(홈 목록엔 그대로
+// 보이되 검색엔 안 뜨게). ⚠ /api/appids(사이트맵)와 functions/game/[appid].js 의 noindex 기준을 이 값과
+// 반드시 같게 유지할 것 — 어긋나면 "사이트맵엔 넣고 페이지는 noindex" 모순이 생긴다.
+const INDEX_MIN_REVIEWS = 2000;
 
 // ?cc= 가 한국이 아닌 2글자 지역코드면 그걸, 아니면 null(=한국).
 function regionCC(url) {
@@ -174,13 +179,13 @@ export default {
       }
 
       // 사이트맵용 경량 엔드포인트: '색인 허용된' 게임의 appid 배열.
-      // ⚠ functions/game/[appid].js 의 noindex 기준과 반드시 일치시킨다 —
-      //   거기서 (review_total>=300 OR metacritic>0)가 아니면 noindex 를 붙이므로,
+      // ⚠ functions/game/[appid].js 의 noindex 기준(INDEX_MIN_REVIEWS)과 반드시 일치시킨다 —
+      //   거기서 (review_total>=2000 OR metacritic>0)가 아니면 noindex 를 붙이므로,
       //   여기서도 같은 조건만 내보내야 "사이트맵엔 넣고 페이지엔 noindex" 모순이 안 생긴다.
-      //   (얇은 양산형 페이지 수천 개를 색인시켜 사이트 품질을 떨어뜨리는 것도 방지.)
+      //   (얇은 양산형·비주류 페이지 수백 개를 색인에서 빼 사이트 평균 품질을 올린다 — 애드센스 대응.)
       if (path === "/api/appids") {
         const { results } = await env.DB
-          .prepare("SELECT appid FROM games WHERE current_price > 0 AND (review_total >= 300 OR metacritic > 0) ORDER BY last_checked DESC").all();
+          .prepare(`SELECT appid FROM games WHERE current_price > 0 AND (review_total >= ${INDEX_MIN_REVIEWS} OR metacritic > 0) ORDER BY last_checked DESC`).all();
         return json((results || []).map((r) => r.appid));
       }
 
