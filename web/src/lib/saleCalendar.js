@@ -1,34 +1,77 @@
-// 스팀 시즌 세일 "예상" 일정. 정확한 날짜는 매년 밸브가 따로 정해 달라지므로,
-// 대략적인 연례 시기를 하드코딩하고 화면에서는 '예상'으로 표기한다(서버 불필요).
-// '지금 살까 vs 다음 세일을 기다릴까'라는 한국 게이머의 실제 고민에 직접 답하기 위한 위젯용.
+// 스팀 시즌 세일 일정.
 //
-// 각 항목: 이름, 시작(월 sm, 일 sd), 종료(월 em, 일 ed). 월은 1~12.
-// 겨울 세일처럼 연말→연초로 넘어가는 경우 em < sm 이면 종료는 다음 해로 계산한다.
-const SALES = [
-  { id: "spring", name: "봄 세일", sm: 3, sd: 13, em: 3, ed: 20 },
-  { id: "summer", name: "여름 세일", sm: 6, sd: 26, em: 7, ed: 10 },
-  { id: "autumn", name: "가을 세일", sm: 11, sd: 26, em: 12, ed: 3 },
-  { id: "winter", name: "겨울 세일", sm: 12, sd: 19, em: 1, ed: 2 },
+// 밸브는 시즌 세일 날짜를 Steamworks 공식 문서로 5~11개월 전에 미리 공개한다(보통 1월 말과 7월
+// 중순에 반년 치씩). 그래서 이 파일은 두 층으로 나뉜다.
+//   ① CONFIRMED — 밸브가 공식 발표한 '확정' 날짜. 화면에 '확정 일정'으로 표시된다.
+//   ② ESTIMATED — 아직 발표 전 기간을 최근 몇 년 패턴으로 채운 '예상' 날짜. '예상 일정'으로 표시.
+// 새 일정이 공개되면 CONFIRMED 에 줄만 추가하면 되고, 그 시점부터 자동으로 '확정'으로 바뀐다.
+//
+// ⚠ 2025년부터 밸브가 '가을 세일'을 11월 말(블랙프라이데이)에서 9월 말~10월 초로 옮겼다.
+//   웹에 아직도 11월이라 적힌 낡은 정보가 많으니 되돌리지 말 것.
+//
+// 시각: 시즌 세일은 항상 미국 태평양시 오전 10시에 시작/종료한다. 어느 나라에서 봐도 같은 순간을
+// 가리키도록 UTC 로 못박는다(태평양 서머타임 기간은 17:00Z, 겨울은 18:00Z).
+
+// 밸브 공식 발표(Steamworks) 기준 확정 일정.
+const CONFIRMED = [
+  { id: "autumn", year: 2026, start: "2026-10-01T17:00:00Z", end: "2026-10-08T17:00:00Z" },
+  { id: "winter", year: 2026, start: "2026-12-17T18:00:00Z", end: "2027-01-04T18:00:00Z" },
+  { id: "spring", year: 2027, start: "2027-03-18T17:00:00Z", end: "2027-03-25T17:00:00Z" },
+  { id: "summer", year: 2027, start: "2027-06-24T17:00:00Z", end: "2027-07-08T17:00:00Z" },
 ];
 
-// 스팀 세일은 보통 한국시간 새벽~오전에 시작. 시각은 대략값(02:00)으로 둔다(예상 표기라 정밀도는 비핵심).
-const HOUR = 2;
+// 아직 발표되지 않은 해를 채우는 예상 패턴(최근 2~3년 실제 일정의 평균 근처).
+// 월(sm/em)은 1~12. 겨울처럼 연말→연초로 넘어가면 em < sm 이므로 종료는 다음 해로 계산한다.
+const ESTIMATED = [
+  { id: "spring", sm: 3, sd: 17, em: 3, ed: 24 },
+  { id: "summer", sm: 6, sd: 24, em: 7, ed: 8 },
+  { id: "autumn", sm: 9, sd: 29, em: 10, ed: 6 },
+  { id: "winter", sm: 12, sd: 17, em: 1, ed: 4 },
+];
 
-function occurrences(year) {
-  return SALES.map((s) => {
-    const start = new Date(year, s.sm - 1, s.sd, HOUR, 0, 0, 0);
-    const endYear = s.em < s.sm ? year + 1 : year;
-    const end = new Date(endYear, s.em - 1, s.ed, HOUR, 0, 0, 0);
-    return { id: s.id, name: s.name, start, end };
+// 태평양시 오전 10시에 해당하는 UTC 시각(겨울 세일 구간만 표준시라 한 시간 뒤).
+const utcHour = (id) => (id === "winter" ? 18 : 17);
+
+// 해당 연도의 '예상' 일정 4개.
+function estimatedFor(year) {
+  return ESTIMATED.map((e) => {
+    const h = utcHour(e.id);
+    const endYear = e.em < e.sm ? year + 1 : year;
+    return {
+      id: e.id,
+      year,
+      confirmed: false,
+      start: new Date(Date.UTC(year, e.sm - 1, e.sd, h)),
+      end: new Date(Date.UTC(endYear, e.em - 1, e.ed, h)),
+    };
   });
+}
+
+// 확정 + (확정이 없는 자리만) 예상 을 합쳐 시간순으로 돌려준다.
+function allOccurrences(year) {
+  const confirmed = CONFIRMED.map((c) => ({
+    id: c.id,
+    year: c.year,
+    confirmed: true,
+    start: new Date(c.start),
+    end: new Date(c.end),
+  }));
+  const taken = new Set(confirmed.map((c) => c.id + ":" + c.year));
+  const est = [];
+  for (const y of [year - 1, year, year + 1, year + 2]) {
+    for (const o of estimatedFor(y)) {
+      if (!taken.has(o.id + ":" + o.year)) est.push(o);
+    }
+  }
+  return [...confirmed, ...est].sort((a, b) => a.start - b.start);
 }
 
 function build(o, phase, target, now) {
   const totalSec = Math.max(0, Math.floor((target - now) / 1000));
   return {
     id: o.id,
-    name: o.name,
     phase, // "ongoing"(진행 중) | "upcoming"(예정)
+    confirmed: o.confirmed, // true 면 밸브 공식 발표 날짜, false 면 예상
     start: o.start,
     end: o.end,
     target, // 카운트다운 목표: 진행 중이면 종료, 예정이면 시작
@@ -41,10 +84,7 @@ function build(o, phase, target, now) {
 
 // 지금 진행 중인 세일이 있으면 그걸(종료까지 카운트다운), 없으면 다음 예정 세일(시작까지)을 돌려준다.
 export function nextSale(now = new Date()) {
-  const y = now.getFullYear();
-  const all = [...occurrences(y - 1), ...occurrences(y), ...occurrences(y + 1)].sort(
-    (a, b) => a.start - b.start
-  );
+  const all = allOccurrences(now.getFullYear());
   const ongoing = all.find((o) => now >= o.start && now <= o.end);
   if (ongoing) return build(ongoing, "ongoing", ongoing.end, now);
   const upcoming = all.find((o) => o.start > now);

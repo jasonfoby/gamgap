@@ -92,6 +92,8 @@ export default {
   "cd.sec": "s",
   "cd.footOngoing": "Until it ends · estimated dates",
   "cd.footUpcoming": "Until it starts · estimated dates",
+  "cd.footOngoingConfirmed": "Until it ends · official Steam dates",
+  "cd.footUpcomingConfirmed": "Until it starts · official Steam dates",
   "sale.spring": "Spring Sale",
   "sale.summer": "Summer Sale",
   "sale.autumn": "Autumn Sale",

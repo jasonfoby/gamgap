@@ -111,6 +111,8 @@ export default {
   "cd.sec": "초",
   "cd.footOngoing": "종료까지 · 예상 일정",
   "cd.footUpcoming": "시작까지 · 예상 일정",
+  "cd.footOngoingConfirmed": "종료까지 · 스팀 공식 발표 일정",
+  "cd.footUpcomingConfirmed": "시작까지 · 스팀 공식 발표 일정",
   "sale.spring": "봄 세일",
   "sale.summer": "여름 세일",
   "sale.autumn": "가을 세일",

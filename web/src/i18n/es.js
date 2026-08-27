@@ -92,6 +92,8 @@ export default {
   "cd.sec": "s",
   "cd.footOngoing": "Para que termine · fechas aproximadas",
   "cd.footUpcoming": "Para que empiece · fechas aproximadas",
+  "cd.footOngoingConfirmed": "Para que termine · fechas oficiales de Steam",
+  "cd.footUpcomingConfirmed": "Para que empiece · fechas oficiales de Steam",
   "sale.spring": "Oferta de Primavera",
   "sale.summer": "Oferta de Verano",
   "sale.autumn": "Oferta de Otoño",

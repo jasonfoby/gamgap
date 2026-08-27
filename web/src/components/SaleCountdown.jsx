@@ -5,7 +5,9 @@ import { useT } from "../lib/i18n";
 const pad = (n) => String(n).padStart(2, "0");
 
 // 다음 스팀 세일까지(또는 진행 중이면 종료까지) 카운트다운 위젯.
-// '지금 살까 vs 다음 세일을 기다릴까'에 직접 답하는 재방문 훅. 일정은 '예상'이라고 명시한다.
+// '지금 살까 vs 다음 세일을 기다릴까'에 직접 답하는 재방문 훅.
+// 밸브가 공식 발표한 날짜면 '스팀 공식 일정', 아직 발표 전이라 패턴으로 추정한 날짜면 '예상 일정'으로
+// 아래에 명시한다(saleCalendar.js 의 confirmed 값).
 export default function SaleCountdown() {
   const { t } = useT();
   const [sale, setSale] = useState(() => nextSale());
@@ -46,7 +48,15 @@ export default function SaleCountdown() {
           {t("cd.sec")}
         </span>
       </div>
-      <div className="cd-foot">{ongoing ? t("cd.footOngoing") : t("cd.footUpcoming")}</div>
+      <div className="cd-foot">
+        {sale.confirmed
+          ? ongoing
+            ? t("cd.footOngoingConfirmed")
+            : t("cd.footUpcomingConfirmed")
+          : ongoing
+          ? t("cd.footOngoing")
+          : t("cd.footUpcoming")}
+      </div>
     </div>
   );
 }

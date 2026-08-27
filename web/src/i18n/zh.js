@@ -92,6 +92,8 @@ export default {
   "cd.sec": "秒",
   "cd.footOngoing": "距结束 · 预计日程",
   "cd.footUpcoming": "距开始 · 预计日程",
+  "cd.footOngoingConfirmed": "距结束 · Steam 官方公布日程",
+  "cd.footUpcomingConfirmed": "距开始 · Steam 官方公布日程",
   "sale.spring": "春季特卖",
   "sale.summer": "夏季特卖",
   "sale.autumn": "秋季特卖",

@@ -92,6 +92,8 @@ export default {
   "cd.sec": "秒",
   "cd.footOngoing": "終了まで・予想の日程です",
   "cd.footUpcoming": "開始まで・予想の日程です",
+  "cd.footOngoingConfirmed": "終了まで・Steam 公式発表の日程",
+  "cd.footUpcomingConfirmed": "開始まで・Steam 公式発表の日程",
   "sale.spring": "スプリングセール",
   "sale.summer": "サマーセール",
   "sale.autumn": "オータムセール",
