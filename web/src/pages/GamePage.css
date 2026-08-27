@@ -59,6 +59,14 @@
   color: var(--mute);
 }
 
+/* 기록 시작 시점 안내 — 가격 근거 줄 바로 아래, 한 톤 더 흐리게. */
+.gp-tracked {
+  margin-top: 4px;
+  line-height: 1.5;
+  max-width: 46ch;
+  opacity: 0.85;
+}
+
 .gp-prose {
   margin: 16px 0 0;
   font-size: 14px;

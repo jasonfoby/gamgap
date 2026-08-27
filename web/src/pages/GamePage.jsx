@@ -205,6 +205,10 @@ function GameDetail({ g, copied, onCopy, t, cc }) {
           </div>
         )}
         <div className="gp-basis">{t("gp.priceBasis")}</div>
+        {/* 기록 시작 시점 명시 — 우리 데이터는 추적 시작 이후만 담고 있어서 '역대'가 아니다. */}
+        {hasLow && stats && stats.since && (
+          <div className="gp-basis gp-tracked">{t("gp.trackedSince", { since: ym(stats.since) })}</div>
+        )}
       </div>
 
       <div className="verdict" style={{ background: v.bg, border: `1px solid ${v.bd}` }}>

@@ -15,14 +15,14 @@ export default {
   "nav.guide": "가이드",
 
   // 헤더
-  "header.badge": "오늘 역대 최저가 {n}개",
-  "header.badgeTitle": "오늘 역대 최저가를 새로 찍은 게임 수",
+  "header.badge": "오늘 최저가 {n}개",
+  "header.badgeTitle": "오늘 최저가를 새로 찍은 게임 수",
 
   // 히어로
   "hero.title": "이 게임, {hl} 사도 돼?",
   "hero.titleHl": "지금",
   "hero.sub": "이 게임 {b}랑 비교해서 지금이 살 때인지 한 줄로 알려드려요. 호구 잡히지 말고 똑똑하게.",
-  "hero.subB": "역대 최저가",
+  "hero.subB": "최저가",
 
   // 검색
   "search.placeholder": "게임 이름을 검색해 보세요",
@@ -46,11 +46,11 @@ export default {
   // 정렬
   "sort.discount": "할인율 높은 순",
   "sort.price": "현재가 낮은 순",
-  "sort.depth": "역대최저 근접 순",
+  "sort.depth": "최저 근접 순",
   "sort.normal": "정가 높은 순",
 
   // 필터 컨트롤
-  "ctrl.onlyLow": "역대최저만",
+  "ctrl.onlyLow": "최저만",
   "ctrl.min50": "50%+",
   "ctrl.priceLabel": "가격",
   "ctrl.noLimit": "제한 없음",
@@ -67,14 +67,14 @@ export default {
   "preset.u50": "5만원 이하",
 
   // 적용 필터 칩
-  "chip.onlyLow": "역대최저만",
+  "chip.onlyLow": "최저만",
   "chip.min50": "50%+ 할인",
   "chip.under": "{p} 이하",
   "chip.removeAria": "{label} 필터 제거",
 
   // 홈 섹션
-  "home.lowestTitle": "오늘 역대 최저가",
-  "home.lowestEmpty": "오늘은 아직 역대 최저가를 찍은 게임이 없어요. 기록이 쌓이면 내일부터 하나둘 올라와요.",
+  "home.lowestTitle": "오늘 최저가",
+  "home.lowestEmpty": "오늘은 아직 최저가를 찍은 게임이 없어요. 기록이 쌓이면 내일부터 하나둘 올라와요.",
   "home.lowestErr": "불러오지 못했어요.",
   "deals.title": "지금 할인 중인 게임",
   "deals.clearAll": "전체 해제",
@@ -89,14 +89,14 @@ export default {
   "star.remove": "찜 해제",
 
   // 카드
-  "card.atl": "역대최저 {p}",
+  "card.atl": "최저 {p}",
 
   // 스켈레톤
   "skel.listAria": "목록 불러오는 중",
 
   // 신뢰 배너
   "trust.officialK": "지금이 살 때인지",
-  "trust.officialV": "역대 최저가로 딱 판단",
+  "trust.officialV": "최저가로 딱 판단",
   "trust.nokeyshopK": "가짜 세일도 구별",
   "trust.nokeyshopV": "진짜 싼지 한눈에",
   "trust.dailyK": "하루 1회",
@@ -120,12 +120,13 @@ export default {
 
   // 게임 페이지
   "gp.back": "← 목록으로",
-  "gp.title": "{name} 가격 · 역대 최저가",
+  "gp.title": "{name} 가격 · 최저가",
   "gp.loading": "불러오는 중…",
   "gp.error": "가격을 못 불러왔어요.",
   "gp.notFound": "이 게임을 찾을 수 없어요. 상단 검색으로 다시 찾아보세요.",
   "gp.chartLabel": "가격 흐름",
   "gp.priceBasis": "한국 스팀 기준",
+  "gp.trackedSince": "{since}부터 우리가 기록한 가격 기준이에요. 그 이전 가격은 포함되지 않아요.",
   "gp.statsTitle": "가격 통계",
   "gp.lowsTitle": "이전 저점 기록",
   "gp.steam": "스팀에서 보기",
@@ -136,35 +137,35 @@ export default {
   "gp.moreGuides": "더 알아보기: 게임 싸게 사는 가이드",
   "ad.label": "광고",
   "gp.freshness": "가격은 하루 한 번 갱신돼요 · 결제 직전 스팀에서 최종가를 꼭 확인하세요",
-  "gp.proseSaleAtl": "{name}의 스팀 한국(원화) 현재가는 {cur} (정가 {normal}에서 {pct}% 할인)이고, 역대 최저가는 {atl}{date}이에요. Lowstamp의 “지금 사도 돼?” 판정은 {label} — {tip}",
-  "gp.proseSaleNoAtl": "{name}의 스팀 한국(원화) 현재가는 {cur} (정가 {normal}에서 {pct}% 할인)이고, 아직 역대 최저가를 따질 만큼 가격 기록이 쌓이지 않았어요. Lowstamp의 “지금 사도 돼?” 판정은 {label} — {tip}",
-  "gp.proseNoSaleAtl": "{name}의 스팀 한국(원화) 현재가는 {cur}이고, 역대 최저가는 {atl}{date}이에요. Lowstamp의 “지금 사도 돼?” 판정은 {label} — {tip}",
-  "gp.proseNoSaleNoAtl": "{name}의 스팀 한국(원화) 현재가는 {cur}이고, 아직 역대 최저가를 따질 만큼 가격 기록이 쌓이지 않았어요. Lowstamp의 “지금 사도 돼?” 판정은 {label} — {tip}",
+  "gp.proseSaleAtl": "{name}의 스팀 한국(원화) 현재가는 {cur} (정가 {normal}에서 {pct}% 할인)이고, 최저가는 {atl}{date}이에요. Lowstamp의 “지금 사도 돼?” 판정은 {label} — {tip}",
+  "gp.proseSaleNoAtl": "{name}의 스팀 한국(원화) 현재가는 {cur} (정가 {normal}에서 {pct}% 할인)이고, 아직 최저가를 따질 만큼 가격 기록이 쌓이지 않았어요. Lowstamp의 “지금 사도 돼?” 판정은 {label} — {tip}",
+  "gp.proseNoSaleAtl": "{name}의 스팀 한국(원화) 현재가는 {cur}이고, 최저가는 {atl}{date}이에요. Lowstamp의 “지금 사도 돼?” 판정은 {label} — {tip}",
+  "gp.proseNoSaleNoAtl": "{name}의 스팀 한국(원화) 현재가는 {cur}이고, 아직 최저가를 따질 만큼 가격 기록이 쌓이지 않았어요. Lowstamp의 “지금 사도 돼?” 판정은 {label} — {tip}",
   "gp.proseDate": " ({d})",
-  "gp.proseGap": "지금 가격 {cur}은 역대 최저가 {atl}보다 {gap}({pct}%) 높아요.",
-  "gp.proseGapLow": "지금 가격 {cur}이 역대 최저가와 같거나 더 낮아요 — 가격만 보면 지금이 바닥이에요.",
+  "gp.proseGap": "지금 가격 {cur}은 최저가 {atl}보다 {gap}({pct}%) 높아요.",
+  "gp.proseGapLow": "지금 가격 {cur}이 최저가와 같거나 더 낮아요 — 가격만 보면 지금이 바닥이에요.",
   "gp.proseStats": "{since}부터 가격을 추적했는데, 그동안 평균은 {avg}, 가장 비쌌을 때는 {max}이었어요.",
 
   // 가격/통계
   "price.normal": "정가 {p}",
-  "price.atlLabel": "역대최저",
-  "stats.avg": "역대 평균가",
-  "stats.max": "역대 최고가",
+  "price.atlLabel": "최저",
+  "stats.avg": "기록 평균가",
+  "stats.max": "기록 최고가",
   "stats.since": "기록 시작",
 
   // 판정(7단계) — 핵심 로직(verdict.js)은 그대로, 표시 문구만 여기서.
-  "verdict.low-new.label": "오늘 역대최저 갱신",
+  "verdict.low-new.label": "오늘 최저가 갱신",
   "verdict.low-new.sub": "지금이 제일 쌀 때",
-  "verdict.low-new.tip": "오늘 역대 최저가를 새로 찍었어요. 기록상 제일 싼 가격이라, 찜해뒀던 게임이면 지금이 바로 살 때예요.",
-  "verdict.low.label": "지금이 역대 최저가",
+  "verdict.low-new.tip": "오늘 최저가를 새로 찍었어요. 기록상 제일 싼 가격이라, 찜해뒀던 게임이면 지금이 바로 살 때예요.",
+  "verdict.low.label": "지금이 최저가",
   "verdict.low.sub": "살 때예요",
   "verdict.low.tip": "기록상 제일 싼 가격이에요. 더 기다린다고 더 떨어진다는 보장은 없으니, 원하던 게임이면 지금이 딱 좋은 타이밍이에요.",
-  "verdict.near.label": "거의 역대 최저가",
+  "verdict.near.label": "거의 최저가",
   "verdict.near.sub": "사도 좋아요",
-  "verdict.near.tip": "역대 최저가랑 거의 차이가 없어요. 푼돈 더 아끼겠다고 마냥 기다리느니, 지금 사도 전혀 안 아까운 가격이에요.",
+  "verdict.near.tip": "최저가랑 거의 차이가 없어요. 푼돈 더 아끼겠다고 마냥 기다리느니, 지금 사도 전혀 안 아까운 가격이에요.",
   "verdict.recent.label": "최근 최저가 수준",
   "verdict.recent.sub": "사도 무난해요",
-  "verdict.recent.tip": "역대 최저가랑 큰 차이 없는 가격대예요. 급하면 지금 사도 괜찮고, 여유 있으면 큰 세일 때 조금 더 빠질 수도 있어요.",
+  "verdict.recent.tip": "최저가랑 큰 차이 없는 가격대예요. 급하면 지금 사도 괜찮고, 여유 있으면 큰 세일 때 조금 더 빠질 수도 있어요.",
   "verdict.ok.label": "괜찮은 할인",
   "verdict.ok.sub": "더 싼 적도 있었어요",
   "verdict.ok.tip": "할인폭은 나쁘지 않은데, 예전엔 이것보다 더 싸게 풀린 적이 있어요. 급하지 않으면 큰 세일(여름·겨울)을 노려봐도 좋아요.",
@@ -176,7 +177,7 @@ export default {
   "verdict.full.tip": "지금은 할인이 없어요. 스팀은 세일이 자주 도니까, 위시리스트에 담아두고 알림 받는 게 이득이에요.",
 
   // 푸터
-  "footer.tagline": "역대 최저가랑 비교해서 지금이 살 때인지 딱 알려드려요.",
+  "footer.tagline": "최저가랑 비교해서 지금이 살 때인지 딱 알려드려요.",
   "footer.about": "소개",
   "footer.privacy": "개인정보처리방침",
   "footer.terms": "이용약관",
@@ -213,11 +214,11 @@ export default {
 
   // 문서 메타(브라우저 탭 제목·검색·공유 설명). 브랜드명 Lowstamp는 유지.
   "meta.defaultTitle": "Lowstamp — 스팀 게임 최저가·지금 사도 돼?",
-  "meta.defaultDesc": "스팀 게임이 지금 살 만한 가격인지, 역대 최저가랑 비교해서 '지금 사도 돼?'를 한눈에 알려드려요. 호구 잡히지 않게요.",
+  "meta.defaultDesc": "스팀 게임이 지금 살 만한 가격인지, 최저가랑 비교해서 '지금 사도 돼?'를 한눈에 알려드려요. 호구 잡히지 않게요.",
   "meta.gameTitle": "{name} 가격 — 현재 {cur} · Lowstamp",
   "meta.gameDesc": "{name} 스팀 현재가 {cur}{sale}.{atl} 지금이 살 때인지 Lowstamp에서 확인하세요.",
   "meta.gameDescSale": " (-{pct}%)",
-  "meta.gameDescAtl": " 역대최저 {p}.",
+  "meta.gameDescAtl": " 최저 {p}.",
 
   // 404
   "nf.title": "페이지를 찾을 수 없어요",
@@ -229,7 +230,7 @@ export default {
   "chart.3y": "3년",
   "chart.all": "전체",
   "chart.empty": "가격 흐름 데이터가 아직 쌓이는 중이에요.",
-  "chart.atl": "★ 역대최저",
+  "chart.atl": "★ 최저",
 
   // 장르(스팀 한국어 장르명 → 표시 라벨)
   "genre.action": "액션",
