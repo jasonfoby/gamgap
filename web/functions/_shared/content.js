@@ -458,8 +458,13 @@ export function renderContent(shell, { lang, pathname, mod, fallbackTitle, bodyH
   // 본문 주입: JS 안 돌리는 봇에게도 글 '전문'이 보이게 #root 를 채운다(얇은 콘텐츠 판정 방지).
   //  - bodyHtml 을 직접 주면(가이드 목록·홈 등) 그걸 쓰고,
   //  - 아니면 콘텐츠 모듈의 제목(h1) + 본문 전체(renderBody)를 그린다.
+  // 글쓴이·날짜 줄 — 봇에게도 '사람이 쓰고 관리하는 글'로 보이게 한다(클라이언트 GuideArticle 와 동일).
+  const byline =
+    mod && mod.date
+      ? `<p>${esc(translate(lang, "author.by", { name: translate(lang, "author.name") }))} · ${esc(mod.date)}</p>`
+      : "";
   const inner = bodyHtml || (mod && (mod.title || (mod.body && mod.body.length))
-    ? (mod.title ? `<h1>${esc(mod.title)}</h1>` : "") + renderBody(mod)
+    ? (mod.title ? `<h1>${esc(mod.title)}</h1>` : "") + byline + renderBody(mod)
     : "");
   if (inner) {
     const wrapped =

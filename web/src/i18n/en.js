@@ -176,6 +176,8 @@ export default {
   "guide.indexMetaDesc": "A collection of guides on Steam sales and finding the lowest prices",
   "guide.empty": "No guides have been published yet.",
   "guide.readMins": "{n} min read",
+  "author.name": "Lowstamp Editor",
+  "author.by": "By {name}",
   "guide.back": "See other guides",
   "guide.tagsAria": "Tags",
   "page.updated": "Last updated {d}",

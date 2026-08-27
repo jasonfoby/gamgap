@@ -176,6 +176,8 @@ export default {
   "guide.indexMetaDesc": "Colección de guías para exprimir las ofertas y los mínimos de Steam",
   "guide.empty": "Todavía no hay guías publicadas.",
   "guide.readMins": "{n} min de lectura",
+  "author.name": "Editor de Lowstamp",
+  "author.by": "Por {name}",
   "guide.back": "Ver otras guías",
   "guide.tagsAria": "Etiquetas",
   "page.updated": "Última actualización {d}",

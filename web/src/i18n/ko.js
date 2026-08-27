@@ -201,6 +201,8 @@ export default {
   "guide.indexMetaDesc": "스팀 할인·최저가 활용 가이드 모음",
   "guide.empty": "아직 올라온 가이드가 없어요.",
   "guide.readMins": "읽는 시간 {n}분",
+  "author.name": "Lowstamp 운영자",
+  "author.by": "글 {name}",
   "guide.back": "다른 가이드 보기",
   "guide.tagsAria": "태그",
   "page.updated": "최종 수정 {d}",

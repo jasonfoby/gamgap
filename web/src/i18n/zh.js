@@ -176,6 +176,8 @@ export default {
   "guide.indexMetaDesc": "Steam 折扣与最低价省钱指南合集",
   "guide.empty": "目前还没有发布指南。",
   "guide.readMins": "阅读约 {n} 分钟",
+  "author.name": "Lowstamp 站长",
+  "author.by": "文 {name}",
   "guide.back": "看看其他指南",
   "guide.tagsAria": "标签",
   "page.updated": "最后更新 {d}",

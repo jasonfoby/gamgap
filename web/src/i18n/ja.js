@@ -176,6 +176,8 @@ export default {
   "guide.indexMetaDesc": "Steam 割引・最安値の活用ガイド集",
   "guide.empty": "まだガイド記事がありません。",
   "guide.readMins": "読了 約{n} 分",
+  "author.name": "Lowstamp 運営者",
+  "author.by": "文 {name}",
   "guide.back": "ほかのガイドを見る",
   "guide.tagsAria": "タグ",
   "page.updated": "最終更新 {d}",

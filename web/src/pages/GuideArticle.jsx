@@ -54,14 +54,21 @@ export default function GuideArticle({ slug }) {
       <article className="guide-article">
         <h1 className="ga-title">{guide.title}</h1>
 
+        {/* 글쓴이·날짜·읽는 시간 — 사람이 쓰고 관리하는 글임을 드러낸다. */}
         <div className="ga-meta">
-          {guide.date && <span className="ga-date">{ym(guide.date)}</span>}
-          {guide.date && guide.readMins && (
-            <span className="ga-sep" aria-hidden="true">
-              ·
-            </span>
+          <span className="ga-author">{t("author.by", { name: t("author.name") })}</span>
+          {guide.date && (
+            <>
+              <span className="ga-sep" aria-hidden="true">·</span>
+              <span className="ga-date">{ym(guide.date)}</span>
+            </>
           )}
-          {guide.readMins && <span className="ga-read">{t("guide.readMins", { n: guide.readMins })}</span>}
+          {guide.readMins && (
+            <>
+              <span className="ga-sep" aria-hidden="true">·</span>
+              <span className="ga-read">{t("guide.readMins", { n: guide.readMins })}</span>
+            </>
+          )}
         </div>
 
         {tags.length > 0 && (
