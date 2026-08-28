@@ -1,92 +1,171 @@
 export default {
   "slug": "steam-sale-calendar",
-  "title": "The Complete Steam Sale Calendar: When Is It Actually Cheapest to Buy?",
-  "description": "A clear, practical rundown of when Steam's big spring, summer, autumn, and winter sales roughly land and how they differ, the difference between seasonal, publisher, and weeklong sales, and a real-world way to decide whether to buy now or hold out for the next sale.",
-  "date": "2026-06-18",
-  "tags": ["Steam sales", "discounts", "buying guide"],
-  "readMins": 6,
+  "title": "When Is the Next Steam Sale? Valve's Confirmed Dates Through Summer 2027",
+  "description": "The next Steam sale is the Autumn Sale, starting October 1, 2026. Here are Valve's officially announced seasonal sale dates, why the Autumn Sale moved from late November to early October, how Next Fest and themed sales differ from real discounts, and how to decide whether to buy now or wait.",
+  "date": "2026-08-29",
+  "tags": ["Steam sales", "sale dates", "discounts", "buying guide"],
+  "readMins": 9,
   "body": [
     {
       "type": "p",
-      "text": "Use Steam long enough and you run into the same dilemma everyone does: \"Should I buy this now, or hold out until the next sale?\" Pay full price only to watch it drop to half off a few days later and it stings. Wait too long, though, and you end up unable to grab it the moment you actually want to play. In this guide we'll lay out Steam's yearly sale rhythm and the different kinds of discounts, and work out a simple rule for deciding whether something is worth waiting for."
-    },
-    {
-      "type": "h2",
-      "text": "Four times a year: roughly when the big seasonal sales hit"
+      "text": "Straight to the answer: the next Steam sale is the Autumn Sale, and it runs from October 1 to October 8, 2026. It opens and closes at 10:00 AM Pacific (1:00 PM Eastern), which makes it a short one — just seven days. After that comes the Winter Sale on December 17, the longest of the year, running all the way through January 4."
     },
     {
       "type": "p",
-      "text": "Steam has four major seasonal sales that come around each year. Based on the pattern of the last few years, the spring sale usually lands around mid-March, the summer sale from late June into early July, the autumn sale in late November, and the winter sale runs from mid-to-late December through the first week of the new year. That said, Valve sets and announces the exact dates separately every year, so it's safest to treat the timing below as \"rough annual estimates\" only."
+      "text": "These dates are not anybody's guess. Valve publishes them in advance in the official documentation it maintains for developers and publishers, usually releasing six months' worth at a time, anywhere from five to eleven months ahead. So there is no need to predict when the next sale might land. You can just look it up."
+    },
+    {
+      "type": "h2",
+      "text": "Valve's confirmed seasonal sale dates"
+    },
+    {
+      "type": "p",
+      "text": "As things stand, Valve has published dates through the Summer 2027 sale. Every seasonal sale opens and closes at 10:00 AM Pacific time, which is 1:00 PM Eastern."
     },
     {
       "type": "ul",
       "items": [
-        "Spring sale — roughly mid-March (estimated)",
-        "Summer sale — roughly late June to early July (estimated)",
-        "Autumn sale — roughly late November (estimated)",
-        "Winter sale — roughly mid-to-late December through the first week of the new year (estimated)"
+        "Autumn Sale — October 1 to October 8, 2026 · 7 days",
+        "Winter Sale — December 17, 2026 to January 4, 2027 · 18 days",
+        "Spring Sale — March 18 to March 25, 2027 · 7 days",
+        "Summer Sale — June 24 to July 8, 2027 · 14 days"
+      ]
+    },
+    {
+      "type": "note",
+      "text": "That 10:00 AM Pacific start matters more than it sounds. If you are on the East Coast, a sale that starts today has already been running for three hours by lunchtime. And because sales end at the same hour, the final day is really only a morning — if you plan to grab something on the last day, do it before 10 AM Pacific, not after dinner."
+    },
+    {
+      "type": "h2",
+      "text": "The thing most sites still get wrong: the Autumn Sale is no longer in November"
+    },
+    {
+      "type": "p",
+      "text": "This is the most important section of this guide. Through 2024, the Autumn Sale landed in late November, right around Black Friday. Then in 2025 Valve moved it forward by almost two months, to late September and early October. This year's October 1 start follows that same pattern."
+    },
+    {
+      "type": "p",
+      "text": "The problem is that the web is still full of older articles saying Steam's Autumn Sale happens in late November. If you believe those and wait, you end up waiting for a sale that already ended — and then you are stuck waiting another two and a half months until the Winter Sale in mid-December. That is a long time to sit on a game you could have bought cheaply."
+    },
+    {
+      "type": "p",
+      "text": "Valve never explained the change publicly. But the practical upshot is clear: there is no Steam seasonal sale in November anymore. If you hear about a big Steam discount event in November, it is either one of the smaller themed sales described below, or an individual game running its own promotion."
+    },
+    {
+      "type": "h2",
+      "text": "Which of the four is actually the biggest? Length is your clue"
+    },
+    {
+      "type": "p",
+      "text": "The four seasonal sales do not carry equal weight, and the easiest way to gauge them is by how long Valve keeps them open. Longer sales tend to pull in more participating games and deeper cuts. Winter is the longest at 18 days, Summer runs 14, and Spring and Autumn get a week each."
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Winter Sale (18 days) — the biggest event of the year, spanning the holidays, with the widest participation.",
+        "Summer Sale (14 days) — the other heavyweight. Big-budget releases tend to take their deepest cuts here.",
+        "Spring Sale (7 days) — short and comparatively modest, but still clearly cheaper than a normal week.",
+        "Autumn Sale (7 days) — similar in scale to Spring, with the character of a last chance before Winter."
       ]
     },
     {
       "type": "p",
-      "text": "Of the four, the summer and winter sales are usually the biggest in both scale and discount depth. The popular titles sitting on your wishlist tend to take their steepest cuts during these two seasons, so if a game isn't urgent, holding out for summer or winter is a strategy that pays off. The spring and autumn sales run a bit shorter and the cuts are comparatively milder, but they're still clearly cheaper than usual."
+      "text": "So if a game is not urgent, aiming for Summer or Winter is the statistically better bet. But that is a general tendency, not a rule for any specific game. Plenty of titles hit their lowest recorded price during a Spring sale and then offer something unremarkable in December. We will come back to that."
     },
     {
       "type": "h2",
-      "text": "Seasonal, publisher, weeklong — sales come in different flavors"
+      "text": "The event that looks like a sale but is not: Next Fest"
     },
     {
       "type": "p",
-      "text": "It's not just the big seasonal sales. The discounts we run into most often fall into roughly three types. The first is the seasonal sale we just covered, the year's biggest event that gets the whole store buzzing. The second is the publisher sale, which gathers a single company's games and discounts them for about a week, great to watch for when you want to binge a whole series. The third is the weeklong sale, where a rotating set of games each week gets a short-lived discount badge."
+      "text": "Look at Steam's calendar and you will see a big event called Next Fest three times a year. The name is loud and the whole storefront lights up for it, so it is easy to mistake for a sale. It is not one. Next Fest is a festival of demos for games that have not launched yet. It is not a place to open your wallet — it is a place to try things before you ever have to."
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Next Fest — October 19 to October 26, 2026",
+        "Next Fest — February 22 to March 1, 2027",
+        "Next Fest — June 14 to June 21, 2027"
+      ]
+    },
+    {
+      "type": "p",
+      "text": "There is actually a thrifty way to use it. Play the demos, wishlist the ones you liked, and when those games launch and eventually run their first discount, you will be buying something you already know you enjoy. That is a much better feeling than refunding a blind purchase two hours in."
+    },
+    {
+      "type": "h2",
+      "text": "The themed sales that fill the gaps"
+    },
+    {
+      "type": "p",
+      "text": "Nothing much happens between the big sales, right? Not quite. Valve runs smaller events almost every month, each built around a genre or theme, discounting only the games that fit. They are nowhere near the scale of a seasonal sale, but if a game you have been eyeing happens to match the theme, the price can be just as good. Here is a sample of what is coming up."
+    },
+    {
+      "type": "ul",
+      "items": [
+        "PvE Survival Crafting Fest — August 31 to September 7, 2026",
+        "Party-Based RPG Fest — September 14 to September 21, 2026",
+        "Cooking Fest — October 12 to October 19, 2026",
+        "Steam Scream V (horror) — October 26 to November 2, 2026",
+        "Auto-Battler RPG Fest — November 16 to November 23, 2026"
+      ]
     },
     {
       "type": "note",
-      "text": "On top of those, individual games often run their own ordinary discounts at any time. So the idea that \"if it's not sale season, it's always expensive\" simply isn't true. More often than you'd think, a game on your wishlist hits a perfectly good price outside of any season."
+      "text": "Themed sales only touch games that fit the theme, which is exactly why the next big sale being two months away is not the discouraging news it sounds like. If the game you want is a horror title, Steam Scream in late October is effectively its sale. If it is a survival game, that window already passed at the end of August."
     },
     {
       "type": "h2",
-      "text": "What matters isn't the date, it's the all-time low"
+      "text": "But knowing the dates does not actually get you a good price"
     },
     {
       "type": "p",
-      "text": "There's one thing far more important than memorizing sale dates: a game's all-time low price. A seasonal sale doesn't mean every game drops to a record low. Some games show 70% off during the summer sale yet still cost more than the 75% they hit last winter. Conversely, an ordinary-looking off-season weekly discount can actually be the cheapest that game has ever been."
+      "text": "If you have read this far and marked your calendar, you are halfway there. The other half is a slightly uncomfortable truth: a seasonal sale does not mean every game hits its cheapest price ever. A game can wear a 70% badge during the Summer Sale and still be more expensive than it was last December at 75%."
     },
     {
       "type": "p",
-      "text": "That's why hitting the checkout button just because you see the red \"on sale now\" badge can cost you. What you want to look at is how close the current price is to the all-time low. If the current price matches or is nearly touching the all-time low, now is a good time. If it's noticeably higher than the record low, you've got a good reason to wait for the next sale."
+      "text": "The reverse happens just as often. Some ordinary week with no sale attached, a game quietly drops below anything it has charged before. Every game has its own discount rhythm, and the seasonal sales are just a large wave rolling over the top of it."
     },
     {
       "type": "quote",
-      "text": "Don't watch the discount percentage. Watch the distance to the all-time low."
+      "text": "What matters is not the discount percentage — it is the gap between today's price and the lowest price that game has been recorded at."
     },
     {
       "type": "h2",
-      "text": "Buy now or wait? A real-world decision method"
+      "text": "Buy now, or wait for the sale?"
     },
     {
       "type": "p",
-      "text": "To sum it up, here's the order to think it through. First, check the game's all-time low and compare it to the current price. If they're nearly the same, there's no reason to hesitate. If the gap is big, gauge how long until the next seasonal sale. If a major sale is due within a week or two, holding off briefly is reasonable; if the next sale is months away, you also have to factor in the opportunity cost of \"the time you could be enjoying the game in the meantime.\" Waiting three months to save another 5,000 won isn't always a win."
+      "text": "In practice, four questions at the checkout screen are enough. Work through them in order and the answer usually falls out on its own."
     },
     {
       "type": "ol",
       "items": [
-        "Check the all-time low and compare it to the current price.",
-        "If the current price is right up against the all-time low, buy now.",
-        "If the gap is big, gauge how long until the next seasonal sale.",
-        "Count the 'time' you can't play while waiting as a cost too."
+        "Find the cheapest this game has been recorded at, and compare it to today's price.",
+        "If today's price is at or near that low, stop deliberating. Buy it.",
+        "If the gap is noticeably wide, count the days to the next big sale. Under two weeks is worth waiting for.",
+        "If you would be waiting months, count the time you will not be playing as part of the cost. Saving five dollars is not always worth three months."
       ]
     },
     {
       "type": "p",
-      "text": "Making that decision for you is exactly what Lowstamp is for. It shows each game's all-time low alongside the date that low was set, compares it to the current price, and stamps a clear \"Should you buy now?\" verdict on it like a receipt stamp. Star the games you have your eye on and they're easy to recheck later when the price improves, and the deals tab lets you scan everything that's discounted right now in one go."
+      "text": "Lowstamp handles the first two steps for you. Search for a game and you will see today's price next to the lowest price we have recorded, with the gap between them worked out into a plain verdict — a receipt stamp that tells you whether it is a good moment to buy. For step three, the countdown beside the page tracks the confirmed dates listed in this guide. Star the games you are watching and you can check them all at once later, when prices have moved."
     },
     {
       "type": "note",
-      "text": "For reference, Steam's official policy lets you get a refund within two weeks of purchase as long as you've played under two hours. Policies can change, though, so check Steam's official refund guidance before you pay. If you're unsure and want to play right now, trusting that refund window and just buying it is one option."
+      "text": "One thing worth being upfront about: Lowstamp only started recording prices in June 2026. So the low you see here is not the cheapest this game has ever been since release — it is the cheapest we have seen while watching. For older games in particular, there may well have been a better price before we started. That gets more accurate as our records grow, but for now it is worth knowing."
+    },
+    {
+      "type": "h2",
+      "text": "When does this calendar get longer?"
     },
     {
       "type": "p",
-      "text": "In the end, there's no need to memorize the whole sale calendar. Just remember that a big sale comes around roughly four times a year, and when it's actually time to buy, all you need to check is the distance between the all-time low and the current price. That single habit is the surest way to cut down on the regret of \"I overpaid for no reason.\""
+      "text": "Valve typically publishes six months of dates at a time, twice a year, in late January and mid-July. That means the Autumn and Winter 2027 dates will most likely surface around late January 2027. Until then nobody knows the exact days, and if you find a site that already lists them, those are estimates extrapolated from past years."
+    },
+    {
+      "type": "p",
+      "text": "The dates in this guide are taken directly from Valve's official event schedule for developers, and we update this page whenever new dates are announced. In the end there is only one thing to memorize: know roughly when the next big sale is, but when you are actually staring at the buy button, look at the game's price history rather than the calendar. That single habit does more than anything else to stop you from overpaying."
     }
   ]
 };

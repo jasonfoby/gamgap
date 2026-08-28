@@ -1,92 +1,171 @@
 export default {
   "slug": "steam-sale-calendar",
-  "title": "Guia completo das promoções da Steam: quando comprar pelo menor preço",
-  "description": "Reunimos as épocas aproximadas e as características das grandes promoções de primavera, verão, outono e inverno da Steam, as diferenças entre promoções sazonais, de publicadoras e semanais, e ainda um método prático para decidir se vale comprar agora ou esperar a próxima promoção.",
-  "date": "2026-06-18",
-  "tags": ["promoções da Steam", "descontos", "guia de compras"],
-  "readMins": 6,
+  "title": "Quando é a próxima promoção da Steam? Datas oficiais da Valve até o verão de 2027",
+  "description": "A próxima promoção da Steam é a de Outono, que começa em 1º de outubro de 2026. Reunimos as datas oficiais anunciadas pela Valve no horário de Brasília, explicamos por que a promoção de Outono saiu do fim de novembro para o começo de outubro, qual a diferença entre o Next Fest e os festivais temáticos, e como decidir entre comprar agora ou esperar.",
+  "date": "2026-08-29",
+  "tags": ["promoções da Steam", "datas de promoção", "descontos", "guia de compras"],
+  "readMins": 9,
   "body": [
     {
       "type": "p",
-      "text": "Quem usa a Steam há um tempo já passou pela mesma dúvida: \"compro agora ou seguro até a próxima promoção?\" Pagar o preço cheio e ver o jogo sair pela metade poucos dias depois dói no bolso; por outro lado, ficar esperando para sempre faz você acabar sem o jogo justo quando dá vontade de jogar. Neste artigo, organizamos o calendário e os tipos de promoção da Steam ao longo do ano e definimos juntos os critérios que separam o que vale a pena esperar do que não vale."
-    },
-    {
-      "type": "h2",
-      "text": "Quatro vezes por ano: as épocas aproximadas das grandes promoções sazonais"
+      "text": "Direto à resposta: a próxima promoção da Steam é a de Outono, que vai de 1º a 8 de outubro de 2026. No horário de Brasília, ela abre no dia 1º às 14h e fecha no dia 8 no mesmo horário — ou seja, é curta, apenas sete dias. Depois vem a promoção de Inverno, que começa em 17 de dezembro e é a mais longa do ano, indo até 4 de janeiro."
     },
     {
       "type": "p",
-      "text": "A Steam tem quatro grandes promoções sazonais que voltam todo ano. Pelo padrão dos últimos anos, a promoção de primavera costuma cair em meados de março, a de verão entre o fim de junho e o começo de julho, a de outono no fim de novembro e a de inverno do meio para o fim de dezembro até a primeira semana do ano novo. Como as datas exatas são definidas e anunciadas pela Valve a cada ano, o mais seguro é encarar as épocas abaixo apenas como \"períodos anuais aproximados (estimados)\"."
+      "text": "Essas datas não são chute de ninguém. A Valve (a empresa por trás da Steam) publica tudo com antecedência na documentação oficial que mantém para estúdios e distribuidoras, normalmente meio ano de uma vez, com cinco a onze meses de antecedência. Então não é preciso adivinhar quando cai a próxima promoção: dá para simplesmente consultar."
+    },
+    {
+      "type": "h2",
+      "text": "As datas confirmadas pela Valve"
+    },
+    {
+      "type": "p",
+      "text": "Por enquanto, a Valve divulgou o calendário até a promoção de Verão de 2027. Entre parênteses está o horário de Brasília; a data à frente segue o fuso do Pacífico dos EUA, que é o que a Steam usa oficialmente. Vale lembrar que os nomes seguem as estações do hemisfério norte, então a promoção de Outono cai na nossa primavera."
     },
     {
       "type": "ul",
       "items": [
-        "Promoção de primavera — por volta de meados de março (estimado)",
-        "Promoção de verão — por volta do fim de junho ao início de julho (estimado)",
-        "Promoção de outono — por volta do fim de novembro (estimado)",
-        "Promoção de inverno — por volta do meio/fim de dezembro à primeira semana do ano novo (estimado)"
+        "Promoção de Outono — de 1º a 8 de outubro de 2026 (em Brasília, do dia 1º às 14h ao dia 8 às 14h) · 7 dias",
+        "Promoção de Inverno — de 17 de dezembro de 2026 a 4 de janeiro de 2027 (em Brasília, de 17 de dezembro às 15h a 4 de janeiro às 15h) · 18 dias",
+        "Promoção de Primavera — de 18 a 25 de março de 2027 (em Brasília, do dia 18 às 14h ao dia 25 às 14h) · 7 dias",
+        "Promoção de Verão — de 24 de junho a 8 de julho de 2027 (em Brasília, de 24 de junho às 14h a 8 de julho às 14h) · 14 dias"
+      ]
+    },
+    {
+      "type": "note",
+      "text": "As promoções sazonais sempre começam e terminam às 10h da manhã no fuso do Pacífico, o que aqui dá 14h (ou 15h no período da promoção de Inverno). Isso importa principalmente no último dia: se você planeja garantir alguma coisa antes de a promoção acabar, o prazo real é o começo da tarde, não a meia-noite."
+    },
+    {
+      "type": "h2",
+      "text": "O dado que quase todo site ainda erra: a promoção de Outono não é mais em novembro"
+    },
+    {
+      "type": "p",
+      "text": "Esta é a parte mais importante do guia. Até 2024, a promoção de Outono acontecia no fim de novembro, em cima da Black Friday americana. Só que, a partir de 2025, a Valve adiantou tudo em quase dois meses, para o fim de setembro e começo de outubro. O início em 1º de outubro deste ano segue exatamente esse novo padrão."
+    },
+    {
+      "type": "p",
+      "text": "O problema é que a internet continua cheia de textos antigos dizendo que a promoção de Outono da Steam é no fim de novembro. Quem acredita nisso e espera acaba esperando por uma promoção que já terminou — e aí ainda faltam dois meses e meio até a de Inverno, em meados de dezembro. É muito tempo parado por um jogo que dava para ter comprado barato."
+    },
+    {
+      "type": "p",
+      "text": "A Valve nunca explicou publicamente por que mudou. Mas o resultado prático é claro: não existe mais promoção sazonal da Steam em novembro. Se você ouvir falar de um grande desconto na Steam em novembro, ou é um dos festivais temáticos menores que aparecem mais abaixo, ou é um jogo específico rodando a própria promoção."
+    },
+    {
+      "type": "h2",
+      "text": "Qual das quatro é a maior? A duração entrega"
+    },
+    {
+      "type": "p",
+      "text": "As quatro promoções sazonais não têm o mesmo peso, e o jeito mais fácil de medir isso é olhar quantos dias a Valve deixa cada uma no ar. Quanto mais longa, mais jogos participam e mais fundos costumam ser os cortes. A de Inverno é a mais longa, com 18 dias; a de Verão dura 14; e Primavera e Outono ficam com uma semana cada."
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Promoção de Inverno (18 dias) — o maior evento do ano. Por pegar as festas de fim de ano, é a que reúne mais jogos.",
+        "Promoção de Verão (14 dias) — o outro pilar. É onde os grandes lançamentos costumam aplicar seus descontos mais agressivos.",
+        "Promoção de Primavera (7 dias) — curta e mais comedida, mas ainda assim claramente mais barata que uma semana comum.",
+        "Promoção de Outono (7 dias) — porte parecido com a de Primavera, com aquele ar de última chance antes do inverno."
       ]
     },
     {
       "type": "p",
-      "text": "Das quatro, as de maior porte e com os descontos mais agressivos costumam ser as de verão e de inverno. É nessas duas temporadas que os lançamentos populares da sua lista de desejos tendem a cair bastante de preço, então, se o jogo não for urgente, vale mirar no verão e no inverno. As promoções de primavera e outono são um pouco mais curtas e com cortes relativamente mais comportados, mas ainda assim são períodos claramente mais baratos que o normal."
+      "text": "Ou seja: se o jogo não é urgente, mirar Verão e Inverno é estatisticamente mais vantajoso. Mas isso é uma tendência geral, não uma regra para um jogo específico. Muitos títulos batem o menor preço já registrado numa promoção de Primavera e, em dezembro, entregam um desconto morno. Já voltamos a esse ponto."
     },
     {
       "type": "h2",
-      "text": "Sazonais, de publicadoras e semanais — também há tipos de promoção"
+      "text": "O evento que parece promoção mas não é: o Next Fest"
     },
     {
       "type": "p",
-      "text": "Não existem só as grandes promoções sazonais. Os descontos que encontramos com mais frequência se dividem em três tipos. O primeiro são as promoções sazonais que acabamos de ver, o maior evento do ano, que mexe com a loja inteira. O segundo são as promoções de publicadoras (as desenvolvedoras/distribuidoras dos jogos), que juntam apenas os títulos de uma empresa específica e oferecem descontos por cerca de uma semana — ótimas para quando você quer maratonar uma série inteira. O terceiro são as promoções semanais, em que jogos diferentes ganham o selo de desconto por períodos curtos toda semana, num rodízio."
+      "text": "Olhando o calendário da Steam, você vai ver um evento grande chamado Next Fest três vezes por ano. O nome é barulhento e a loja inteira se agita, então é fácil confundir com promoção. Não é. O Next Fest é um festival de demos de jogos que ainda não foram lançados. Não é hora de abrir a carteira — é hora de experimentar antes de precisar abrir."
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Next Fest — de 19 a 26 de outubro de 2026",
+        "Next Fest — de 22 de fevereiro a 1º de março de 2027",
+        "Next Fest — de 14 a 21 de junho de 2027"
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Aliás, dá para usar o evento de um jeito bem econômico. Jogue as demos, coloque na lista de desejos as que agradaram e, quando esses jogos forem lançados e fizerem o primeiro desconto, você vai estar comprando algo que já sabe que curte. É bem mais tranquilo do que pedir reembolso duas horas depois de uma compra às cegas."
+    },
+    {
+      "type": "h2",
+      "text": "Os festivais temáticos que preenchem os intervalos"
+    },
+    {
+      "type": "p",
+      "text": "Entre as grandes promoções não é que não aconteça nada. A Valve realiza quase todo mês eventos menores, montados em torno de um gênero ou tema, que descontam só os jogos que se encaixam. A escala fica longe de uma promoção sazonal, mas se o jogo que você está de olho justamente combina com o tema, o preço pode ser tão bom quanto. Veja alguns dos que vêm por aí."
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Festival de sobrevivência e construção — de 31 de agosto a 7 de setembro de 2026",
+        "Festival de RPG de grupo — de 14 a 21 de setembro de 2026",
+        "Festival de jogos de culinária — de 12 a 19 de outubro de 2026",
+        "Steam Scream V (terror) — de 26 de outubro a 2 de novembro de 2026",
+        "Festival de RPG auto-battler — de 16 a 23 de novembro de 2026"
+      ]
     },
     {
       "type": "note",
-      "text": "Além disso, há os descontos comuns que jogos específicos colocam de tempos em tempos, mesmo fora das temporadas. Por isso, a ideia de que \"fora da temporada de promoção tudo é caro\" não é verdade. Não é raro um jogo que você marcou ficar com um preço bem bom mesmo fora da temporada."
+      "text": "Os festivais temáticos só alcançam os jogos que combinam com o tema, e é justamente por isso que a próxima promoção grande estar a dois meses de distância não é a má notícia que parece. Se o jogo que você quer é de terror, o Steam Scream do fim de outubro é, na prática, a promoção dele. Se for de sobrevivência, essa janela acabou de passar no fim de agosto."
     },
     {
       "type": "h2",
-      "text": "O que importa não é a data, é o 'menor preço histórico'"
+      "text": "Mas saber as datas não faz você comprar barato"
     },
     {
       "type": "p",
-      "text": "Há algo muito mais importante do que decorar as datas das promoções: o menor preço histórico daquele jogo. Não é porque é promoção sazonal que todos os jogos ficam mais baratos do que nunca. Tem jogo que aparece com 70% de desconto na promoção de verão e, mesmo assim, fica mais caro do que os 75% que ele marcou no inverno passado. E, ao contrário, um desconto semanal fora de temporada que parece banal pode, na verdade, ser o menor preço da história daquele jogo."
+      "text": "Se você chegou até aqui e já anotou tudo no calendário, metade do caminho está feita. A outra metade é uma verdade um pouco desconfortável: promoção sazonal não significa que todo jogo chega ao menor preço da vida dele. Um jogo pode estar com o selo de 70% na promoção de Verão e ainda assim sair mais caro do que em dezembro passado, quando ficou a 75%."
     },
     {
       "type": "p",
-      "text": "Por isso, apertar o botão de comprar só porque viu o selo vermelho de \"em promoção\" pode sair pela culatra. O que você precisa olhar é o quão perto o preço atual está do menor preço histórico. Se o preço atual estiver igual ou praticamente colado no menor preço histórico, é uma boa hora; se estiver visivelmente mais caro que o menor histórico, você tem motivo para esperar a próxima promoção."
+      "text": "O contrário acontece com a mesma frequência. Numa semana qualquer, sem promoção nenhuma por perto, um jogo cai discretamente abaixo de tudo o que já custou. Cada jogo tem o próprio ritmo de descontos, e as promoções sazonais são apenas uma onda grande passando por cima desse ritmo."
     },
     {
       "type": "quote",
-      "text": "Não olhe a porcentagem de desconto, olhe a distância até o menor preço histórico."
+      "text": "O que importa não é o número do desconto, e sim a distância entre o preço de hoje e o menor preço já registrado daquele jogo."
     },
     {
       "type": "h2",
-      "text": "Comprar agora ou esperar — o método prático de decisão"
+      "text": "Comprar agora ou esperar a promoção?"
     },
     {
       "type": "p",
-      "text": "Resumindo, a ordem da decisão é esta. Primeiro, confira o menor preço histórico do jogo e compare com o preço atual. Se estiverem quase iguais, não há por que hesitar. Se a diferença for grande, estime quanto falta para a próxima promoção sazonal. Se houver uma grande promoção prevista para uma ou duas semanas, segurar um pouco é razoável; se a próxima promoção só vem daqui a alguns meses, você precisa incluir na conta o custo de oportunidade do \"tempo que poderia estar curtindo o jogo nesse meio-tempo\". Nem sempre vale esperar três meses para economizar 5 mil wons a mais."
+      "text": "Na prática, quatro perguntas na hora de fechar a compra já bastam. Seguindo na ordem, a resposta costuma aparecer sozinha."
     },
     {
       "type": "ol",
       "items": [
-        "Confira o menor preço histórico e compare com o preço atual.",
-        "Se o preço atual estiver colado no menor preço histórico, compre agora.",
-        "Se a diferença for grande, estime quanto falta para a próxima promoção sazonal.",
-        "Conte como custo também o 'tempo' que você deixa de jogar enquanto espera."
+        "Veja qual foi o menor preço já registrado do jogo e compare com o de hoje.",
+        "Se o preço atual está colado nesse mínimo, pare de pensar. Compre.",
+        "Se a diferença é grande, conte quantos dias faltam para a próxima promoção grande. Menos de duas semanas vale a espera.",
+        "Se for esperar meses, conte também como custo o tempo em que você não vai jogar. Economizar 20 reais nem sempre compensa três meses de espera."
       ]
     },
     {
       "type": "p",
-      "text": "O ponto central do Lowstamp é tomar essa decisão por você. Ele mostra o menor preço histórico de cada jogo junto com a data em que esse recorde foi marcado e, comparando com o preço atual, carimba na hora um \"pode comprar agora?\" como um selo de cupom fiscal. Marcar os jogos que você está de olho facilita conferir de novo mais tarde, quando o preço melhorar, e na aba de descontos dá para passar os olhos de uma vez por todos os jogos que estão em promoção agora."
+      "text": "O Lowstamp cuida dos dois primeiros passos por você. Busque um jogo e verá o preço de hoje ao lado do menor preço que registramos, com a diferença entre os dois transformada num veredicto direto — um carimbo de recibo dizendo se é uma boa hora de comprar. Para o terceiro passo, a contagem regressiva ao lado da página acompanha exatamente as datas confirmadas que estão neste guia. E se você marcar com estrela os jogos que está acompanhando, dá para conferir todos de uma vez depois, quando os preços tiverem mudado."
     },
     {
       "type": "note",
-      "text": "Vale lembrar que, pela política oficial da Steam, é possível pedir reembolso em até 2 semanas após a compra, desde que tenha menos de 2 horas de jogo. Mas a política pode mudar, então confira o aviso oficial de reembolso da Steam antes de pagar. Se você está na dúvida e quer jogar agora mesmo, comprar logo confiando na margem de reembolso também é uma saída."
+      "text": "Tem uma coisa que queremos deixar clara: o Lowstamp começou a registrar preços em junho de 2026. Então o mínimo que aparece aqui não é o menor preço que o jogo já teve desde o lançamento, e sim o menor que vimos durante o período em que acompanhamos. Em jogos antigos, principalmente, é bem possível que tenha existido um preço melhor antes de a gente começar. Isso vai ficando mais preciso conforme o histórico se acumula, mas por enquanto vale saber."
+    },
+    {
+      "type": "h2",
+      "text": "Quando esse calendário vai crescer?"
     },
     {
       "type": "p",
-      "text": "No fim das contas, não é preciso decorar o calendário de promoções inteiro. Basta lembrar que as grandes promoções vêm cerca de quatro vezes por ano e, na hora de comprar, conferir apenas a distância entre o menor preço histórico e o preço atual. Esse único hábito é o que mais reduz, com certeza, o arrependimento de ter \"comprado caro à toa\"."
+      "text": "A Valve costuma publicar meio ano de datas por vez, duas vezes ao ano: no fim de janeiro e em meados de julho. Isso significa que as datas de Outono e Inverno de 2027 devem sair por volta do fim de janeiro de 2027. Até lá ninguém sabe os dias exatos e, se você encontrar um site que já os apresenta como certos, são estimativas tiradas do padrão dos últimos anos."
+    },
+    {
+      "type": "p",
+      "text": "As datas deste guia foram copiadas direto do calendário oficial de eventos que a Valve publica para os estúdios, e atualizamos esta página sempre que datas novas são anunciadas. No fim das contas, só há uma coisa para memorizar: saiba mais ou menos quando é a próxima promoção grande, mas, na frente do botão de comprar, olhe o histórico de preços do jogo em vez do calendário. Esse único hábito é o que mais reduz aquele arrependimento de ter pago caro à toa."
     }
   ]
 };
