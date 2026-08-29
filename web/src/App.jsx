@@ -6,7 +6,7 @@ import GameCard from "./components/GameCard";
 import WishlistView from "./components/WishlistView";
 import Footer from "./components/Footer";
 import AdSlot from "./components/AdSlot";
-import { ListSkeleton, SkelCards } from "./components/Skeleton";
+import { ListSkeleton, SkelCards, Skeleton } from "./components/Skeleton";
 import { getLowestToday, getDeals, searchGames } from "./api";
 import { applyDealOpts, defaultDealOpts, availableGenres, popularPicks } from "./lib/dealSort";
 import { activeFilterChips, clearedOpts } from "./lib/filterUi";
@@ -175,7 +175,9 @@ function Section({ title, state, emptyMsg, errMsg, onCardClick, onRetry, hasMore
       <h2>
         {title} <span className="cnt">{count}</span>
       </h2>
-      {state.status === "loading" && <ListSkeleton />}
+      {/* 자리표시를 실제 첫 페이지 개수와 맞춰, 데이터가 오면서 목록이 훌쩍 자라
+          아래 요소(가이드 섹션·푸터)를 밀어내는 레이아웃 이동을 없앤다. */}
+      {state.status === "loading" && <ListSkeleton count={PAGE_SIZE} />}
       {state.status === "error" && (
         <div className="empty">
           {errMsg}
@@ -267,7 +269,7 @@ function DealsView({ state, opts, onCardClick, onRetry, onOptsChange, currency, 
           </button>
         </div>
       )}
-      {state.status === "loading" && <ListSkeleton count={12} />}
+      {state.status === "loading" && <ListSkeleton count={PAGE_SIZE} />}
       {state.status === "error" && (
         <div className="empty">
           {t("deals.err")}
@@ -359,7 +361,7 @@ function HomeGuides() {
           {t("home.guidesMore")} →
         </a>
       </div>
-      {items.length > 0 && (
+      {items.length > 0 ? (
         <div className="hg-grid">
           {items.map((g) => (
             <a
@@ -374,6 +376,20 @@ function HomeGuides() {
               <h3>{g.title}</h3>
               <p>{g.description}</p>
             </a>
+          ))}
+        </div>
+      ) : (
+        /* 글이 도착하기 전에도 같은 격자·비슷한 높이의 자리표시를 깔아 섹션 크기를 처음부터
+           확정한다 — 글 6편이 오면서 섹션이 갑자기 커져 푸터를 밀어내던 레이아웃 이동 방지
+           (2026-08-30 라이트하우스 실측에서 이 섹션이 CLS 0.102 의 범인으로 찍혔음). */
+        <div className="hg-grid" aria-hidden="true">
+          {FEATURED_GUIDES.map((slug) => (
+            <div key={slug} className="hg-card hg-skel">
+              <Skeleton h={15} w="78%" style={{ display: "block", marginBottom: 10 }} />
+              <Skeleton h={12} w="100%" style={{ display: "block", marginBottom: 6 }} />
+              <Skeleton h={12} w="94%" style={{ display: "block", marginBottom: 6 }} />
+              <Skeleton h={12} w="62%" style={{ display: "block" }} />
+            </div>
           ))}
         </div>
       )}
