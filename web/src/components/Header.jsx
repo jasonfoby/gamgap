@@ -20,6 +20,9 @@ export default function Header({ lowCount, query, onQueryChange }) {
         </div>
 
         <nav className="bar-nav" aria-label={t("common.menu")}>
+          <Link to="/new-lows" className="bar-nav-link">
+            {t("nav.lows")}
+          </Link>
           <Link to="/guide" className="bar-nav-link">
             {t("nav.guide")}
           </Link>

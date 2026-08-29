@@ -6,7 +6,7 @@ import { useT } from "../lib/i18n";
 
 // 콘텐츠 페이지(개인정보처리방침·가이드·소개 등) 공통 틀.
 // 상단 sticky 헤더(로고 → 홈, 가이드/홈 링크 + 언어 전환) / 가운데 본문 / 하단 Footer.
-export default function PageShell({ children }) {
+export default function PageShell({ children, wide = false }) {
   const { t } = useT();
   return (
     <div className="pageshell">
@@ -17,6 +17,9 @@ export default function PageShell({ children }) {
             Lowstamp
           </Link>
           <nav className="ps-nav" aria-label={t("ps.pageNavAria")}>
+            <Link to="/new-lows" className="ps-nav-link">
+              {t("nav.lows")}
+            </Link>
             <Link to="/guide" className="ps-nav-link">
               {t("nav.guide")}
             </Link>
@@ -28,7 +31,7 @@ export default function PageShell({ children }) {
         </div>
       </header>
 
-      <main className="page">{children}</main>
+      <main className={"page" + (wide ? " page-wide" : "")}>{children}</main>
 
       <Footer />
     </div>

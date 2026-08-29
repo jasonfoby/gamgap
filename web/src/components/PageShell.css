@@ -72,3 +72,9 @@
     padding: 48px 24px 88px;
   }
 }
+
+/* 카드 격자가 주인공인 페이지(이번 주 새 최저가)는 더 넓게 쓴다.
+   글 문단은 그 안에서 각자 max-width 로 읽기 좋은 폭을 유지한다. */
+.page.page-wide {
+  max-width: 1120px;
+}
