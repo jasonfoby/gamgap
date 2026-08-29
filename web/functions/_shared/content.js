@@ -431,6 +431,30 @@ export function guideIndexBody(lang, heading) {
   return `<h1>${esc(heading)}</h1><p>${esc(p1)}</p><p>${esc(p2)}</p>${sections}`;
 }
 
+// 홈("/") 봇용 본문. JS를 안 돌리는 크롤러가 홈을 빈 껍데기로 보지 않게 #root 를 채운다.
+// (JS가 도는 브라우저는 index.html 의 인라인 스크립트가 첫 페인트 전에 이걸 비우므로 화면 이동 없음 —
+//  가이드·게임·소개 페이지가 이미 쓰고 있는 것과 똑같은 방식이다.)
+// 문구는 새 키를 만들지 않고 화면에 실제로 쓰이는 키(hero.*·meta.*·nav.*·lows.*)를 그대로 재사용한다.
+export function homeBody(lang) {
+  const t = (k, vars) => translate(lang, k, vars);
+  const h1 = t("hero.title", { hl: t("hero.titleHl") });
+  const sub = t("hero.sub", { b: t("hero.subB") });
+  const guides = listGuides(lang).slice(0, 8);
+  const li = (g) =>
+    `<li><a href="/guide/${esc(g.slug)}">${esc(g.title)}</a>${g.description ? " — " + esc(g.description) : ""}</li>`;
+  return (
+    `<h1>${esc(h1)}</h1>` +
+    `<p>${esc(sub)}</p>` +
+    `<p>${esc(t("meta.defaultDesc"))}</p>` +
+    `<h2><a href="/new-lows">${esc(t("lows.title"))}</a></h2>` +
+    `<p>${esc(t("lows.metaDesc"))}</p>` +
+    `<h2><a href="/guide">${esc(t("nav.guide"))}</a></h2>` +
+    `<p>${esc(t("guide.indexDesc"))}</p>` +
+    (guides.length ? `<ul>${guides.map(li).join("")}</ul>` : "") +
+    `<p><a href="/about">${esc(t("footer.about"))}</a></p>`
+  );
+}
+
 // 공통 렌더: shell(index.html) 위에 self-canonical + 제목/설명/og + (가능하면) #root 첫 문단을 주입.
 // mod 가 없으면(콘텐츠를 못 찾으면) canonical 만 self 로 바로잡고 끝낸다(본문 주입은 생략).
 export function renderContent(shell, { lang, pathname, mod, fallbackTitle, bodyHtml }) {
