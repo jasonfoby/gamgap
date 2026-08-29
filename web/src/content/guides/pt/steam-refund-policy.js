@@ -1,107 +1,163 @@
 export default {
   "slug": "steam-refund-policy",
-  "title": "Política de reembolso da Steam explicada (regra das 2 horas e dos 14 dias)",
-  "description": "Do ponto central do reembolso na Steam, a regra de 'menos de 2 horas jogadas e dentro de 14 dias da compra', até exceções como pré-venda, DLC e presentes, o passo a passo real do pedido e as dúvidas mais comuns, tudo reunido em um único lugar.",
-  "date": "2026-06-18",
-  "tags": ["Steam", "reembolso", "guia de compra"],
-  "readMins": 6,
+  "title": "Reembolso na Steam: quantas horas você tem e todas as exceções à regra das 2 horas",
+  "description": "Você pode pedir reembolso de um jogo na Steam sem justificar nada se jogou menos de 2 horas e comprou há menos de 14 dias. Veja o que acontece quando você passa de qualquer um dos limites, os prazos diferentes para pré-venda, DLC, compras dentro do jogo, saldo da carteira e assinaturas, o que nunca é reembolsado, e quanto tempo o dinheiro leva para voltar.",
+  "date": "2026-08-29",
+  "tags": ["Steam", "reembolso", "política de reembolso", "guia de compras"],
+  "readMins": 9,
   "body": [
     {
       "type": "p",
-      "text": "Depois de comprar um jogo na Steam, às vezes bate aquele 'nossa, é menos divertido do que eu esperava' ou 'não roda no meu PC'. Felizmente, a Steam mantém uma política de reembolso relativamente generosa. Indo direto ao essencial: se o tempo de jogo for menor que 2 horas e ainda não tiverem se passado 14 dias da compra, você pode pedir o reembolso sem precisar dar nenhum motivo específico. Neste texto, organizamos tudo em torno desses dois critérios, junto com as situações de exceção, o passo a passo real do pedido e as dúvidas que mais surgem entre os jogadores."
+      "text": "Resposta curta primeiro: dá para pedir reembolso de um jogo na Steam por qualquer motivo, desde que você tenha jogado menos de 2 horas e não tenham se passado mais de 14 dias desde o pagamento. Não precisa de uma boa desculpa. \"Não curti\" resolve, e deixar o campo do motivo em branco também. Cumprindo as duas condições, o pedido passa praticamente sozinho."
     },
     {
       "type": "note",
-      "text": "O conteúdo aqui se baseia na política oficial de reembolso da Steam, e essa política pode mudar a qualquer momento conforme decisão da Valve. Antes de fazer o pedido de fato, confira mais uma vez as orientações mais recentes na página de reembolso da Steam."
+      "text": "Tudo aqui foi conferido direto na política oficial de reembolsos da Steam, mas a Valve (a empresa por trás da Steam) pode mudar essa política quando quiser — e mudou uma parte dela em 2024. Antes de enviar o pedido, vale dar uma olhada em como está escrito hoje na página de reembolsos da Steam."
     },
     {
       "type": "h2",
-      "text": "Os dois pontos principais: 2 horas e 14 dias"
+      "text": "As duas condições são \"e\", não \"ou\""
     },
     {
       "type": "p",
-      "text": "As condições básicas do reembolso na Steam são surpreendentemente simples. Se você atender aos dois requisitos, pode solicitar o reembolso sem que ninguém questione o motivo. O primeiro é o 'tempo de jogo'; o segundo, os 'dias decorridos desde a compra'."
+      "text": "É aqui que quase todo mundo se confunde. As 2 horas e os 14 dias não são alternativas: você precisa das duas. Comprou há três dias mas já jogou cinco horas? Saiu da janela automática. Jogou só meia hora mas comprou há vinte dias? Mesma coisa."
     },
     {
       "type": "ul",
       "items": [
-        "Tempo de jogo: o tempo total que você passou rodando e jogando aquele jogo deve ser menor que 2 horas.",
-        "Dias desde a compra: dentro de 14 dias (2 semanas) a partir da data do pagamento.",
-        "As duas condições precisam ser cumpridas ao mesmo tempo. Mesmo dentro dos 14 dias, se você passar das 2 horas, ou mesmo com menos de 2 horas, se já passaram os 14 dias, você sai da faixa de aprovação automática."
+        "Tempo de jogo — o total de horas que você passou naquele jogo, somadas, precisa ser menor que 2.",
+        "Dias desde a compra — no máximo 14 dias desde o pagamento.",
+        "Só quando as duas valem ao mesmo tempo você está na janela automática, aquela em que ninguém pergunta nada."
       ]
     },
     {
       "type": "p",
-      "text": "Dito isso, é mais correto entender essas 2 horas e 14 dias como uma 'faixa segura, em que o reembolso é praticamente aprovado de forma automática'. Ultrapassar esses limites não significa que o reembolso esteja necessariamente bloqueado. A Steam costuma revisar manualmente pedidos que fogem dos critérios e atendê-los em alguns casos, então, mesmo em situações ambíguas, vale a pena ao menos tentar fazer o pedido."
+      "text": "Dá para conferir seu tempo na biblioteca da Steam: clique no jogo e aparece algo como \"1,3 horas jogadas\" ao lado do título ou logo abaixo. Se você estiver perto do limite, olhe esse número antes de abrir o jogo de novo. A versão mais dolorida dessa história é estar em 1 hora e 55 minutos, decidir jogar mais uma partida e cruzar a linha."
     },
     {
       "type": "h2",
-      "text": "Casos em que a regra se aplica de forma um pouco diferente"
+      "text": "E se já passou das 2 horas ou dos 14 dias?"
     },
     {
       "type": "p",
-      "text": "Mesmo sendo tudo 'compra de jogo', os critérios de reembolso mudam um pouquinho dependendo da situação. Vamos repassar os casos mais comuns com que os jogadores se deparam."
+      "text": "Não acabou. Isso talvez seja o ponto mais útil do texto inteiro. As 2 horas e os 14 dias marcam a janela em que a aprovação é automática — não são uma porta que fecha. Fora desses limites você ainda pode enviar o pedido, e alguém da Steam vai realmente ler. Muitos acabam aprovados."
+    },
+    {
+      "type": "p",
+      "text": "Os que costumam dar certo são aqueles com uma situação por trás: o jogo não abre ou fecha sozinho no seu PC; você pagou o preço cheio e poucos dias depois entrou uma promoção pesada; você comprou, esqueceu completamente e só agora percebeu. O que não cola é terminar um jogo de cem horas e então pedir o dinheiro de volta — e fazer isso repetidamente pode acabar restringindo seus reembolsos. Resumindo: perguntar não custa nada, mas não trate a política como uma demo grátis."
+    },
+    {
+      "type": "quote",
+      "text": "As 2 horas e os 14 dias não são um prazo final, e sim a faixa em que a aprovação é automática. Passando disso, ainda dá para pedir."
+    },
+    {
+      "type": "h2",
+      "text": "Pré-venda e acesso antecipado: as regras mudaram em 2024"
+    },
+    {
+      "type": "p",
+      "text": "Antes, qualquer pré-venda podia ser cancelada a qualquer momento antes do lançamento, sem condição nenhuma. Em abril de 2024 isso mudou. Hoje é comum um jogo deixar você começar a jogar alguns dias antes do lançamento oficial, e todo esse tempo agora conta para as suas 2 horas."
+    },
+    {
+      "type": "p",
+      "text": "O quadro atual é este. Se você pagou mas ainda não consegue jogar nada, pode cancelar quando quiser antes do lançamento. Mas se o acesso antecipado está aberto e você já pôs a mão, passar de 2 horas te tira da janela automática. O que joga a seu favor é que o relógio dos 14 dias não começa na data da compra, e sim na data de lançamento do jogo."
+    },
+    {
+      "type": "note",
+      "text": "Imagine um jogo que libera três dias antes e você joga cinco horas. Se mudar de ideia no dia do lançamento, o reembolso automático já era — pelas regras antigas teria dado certo. Vale abrir um acesso antecipado com a cabeça de quem está jogando algo que já decidiu comprar. Uma exceção: tempo em um beta fechado do estúdio não conta para o limite."
+    },
+    {
+      "type": "h2",
+      "text": "DLC, compras dentro do jogo e saldo da carteira têm relógios diferentes"
+    },
+    {
+      "type": "p",
+      "text": "Nem sempre o que se compra é o jogo base. Tem o conteúdo adicional, os itens comprados dentro de um jogo, o dinheiro adiantado na carteira. Cada um tem suas próprias condições."
     },
     {
       "type": "ul",
       "items": [
-        "Pré-venda (compra antecipada): se o jogo ainda não foi lançado oficialmente, você pode pedir o reembolso independentemente da data de lançamento. Depois do lançamento, a regra dos 14 dias e das 2 horas passa a contar a partir do dia do lançamento.",
-        "DLC (conteúdo adicional): o DLC pode ser reembolsado se o jogo base tiver menos de 2 horas de jogo, estiver dentro dos 14 dias e o próprio DLC não tiver entrado em um estado já aplicado e irreversível.",
-        "Compras dentro do jogo (compras in-game): alguns itens in-game dependem da política do desenvolvedor e, em muitos casos, o reembolso é difícil.",
-        "Presentes (gift): um presente que o destinatário ainda não aceitou pode ser reembolsado por quem enviou; depois de aceito, por quem recebeu, seguindo os mesmos critérios.",
-        "Bundles (pacotes): conta-se o tempo de jogo somado de todos os itens incluídos no bundle, e em alguns casos é difícil reembolsar apenas uma parte separadamente."
+        "DLC e expansões — dentro de 14 dias da compra, com menos de 2 horas no jogo base desde que o DLC foi comprado, e desde que o DLC não tenha sido consumido, modificado ou transferido.",
+        "Itens comprados dentro do jogo — nos jogos desenvolvidos pela própria Valve, dentro de 48 horas da compra e desde que o item não tenha sido usado nem repassado. Outros estúdios podem ativar isso nos jogos deles, mas muitos não ativam, então na prática costuma não estar disponível.",
+        "Recargas da carteira Steam — dentro de 14 dias, e só se você não tiver gasto um centavo desse saldo. Gastou qualquer valor, a recarga não volta mais.",
+        "Pacotes (bundles) — o tempo de jogo de todos os jogos do pacote é somado e o total precisa ficar abaixo de 2 horas, e nenhum dos itens pode ter sido transferido. Devolver só uma parte do pacote geralmente não é possível.",
+        "Assinaturas — dentro de 48 horas da primeira cobrança, ou dentro de 48 horas de uma renovação automática, desde que você não tenha usado o serviço naquele período.",
+        "Presentes — se a pessoa ainda não aceitou, quem pede é quem enviou; depois de aceito, quem pede é quem recebeu, e o dinheiro volta para quem pagou.",
+        "Hardware como o Steam Deck — é produto físico e segue uma política de devolução completamente separada."
       ]
     },
     {
-      "type": "p",
-      "text": "Mais um ponto: às vezes um jogo que você comprou com um baita desconto na pré-venda fica ainda mais barato logo após o lançamento. Tem quem pense em reembolsar e recomprar para embolsar a diferença, mas dá mais tranquilidade conferir antes se 'este é mesmo um momento realmente barato'. Olhando no Lowstamp o menor preço histórico daquele jogo e o veredito 'Pode comprar agora?', a necessidade de ficar pensando em reembolso já diminui por si só."
+      "type": "note",
+      "text": "A regra do DLC é a que mais gente lê errado. Não importa que você tenha 300 horas no jogo base. O que conta é quanto você jogou desde que comprou o complemento. Então, se você pegou uma expansão de um jogo que ama há anos e ela não te agradou, não presuma que seu tempo enorme te elimina: peça mesmo assim."
     },
     {
       "type": "h2",
-      "text": "Passo a passo do pedido de reembolso"
+      "text": "O que nunca é reembolsado"
     },
     {
       "type": "p",
-      "text": "O processo em si leva alguns minutos. Dá para fazer tanto no cliente da Steam para PC quanto pelo navegador, seguindo a ordem abaixo."
+      "text": "Saber o que está fora desde o começo poupa a tentativa."
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Um jogo em que você tomou banimento VAC — um banimento por trapaça em um título tira para sempre o direito de reembolsá-lo.",
+        "Jogos gratuitos e fins de semana de teste — você nunca pagou, então não há o que devolver.",
+        "Saldo da carteira já gasto e itens já consumidos — isso não tem como desfazer.",
+        "Chaves compradas fora da Steam — um código comprado em outro site e ativado na Steam não é responsabilidade da Steam. Você fica só com a política daquele vendedor, e essa é uma das razões mais fortes para evitar sites de chaves baratas."
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Como pedir: uns cinco minutos"
+    },
+    {
+      "type": "p",
+      "text": "O processo é bem mais simples do que as pessoas imaginam. Funciona igual no aplicativo da Steam e no navegador."
     },
     {
       "type": "ol",
       "items": [
-        "Acesse a página de Suporte ao Cliente da Steam (no menu da Steam, em 'Ajuda → Suporte ao Cliente Steam') e faça login.",
-        "Em 'Histórico de compras (itens comprados recentemente)', selecione o jogo que deseja reembolsar.",
-        "Escolha a opção correspondente a 'Tenho um problema e quero solicitar reembolso'.",
-        "Selecione o motivo do reembolso (você pode escolher livremente), defina a forma de receber o valor e envie o pedido.",
-        "Após a análise e a aprovação, o valor costuma ser devolvido pelo mesmo meio de pagamento e, se preferir, há a opção de receber na carteira da Steam."
+        "Abra o Suporte Steam e faça login. No aplicativo dá para chegar por \"Ajuda\", no menu de cima.",
+        "Vá até o histórico de compras e escolha o jogo. As compras mais recentes aparecem primeiro.",
+        "Escolha a opção equivalente a \"Quero solicitar reembolso\".",
+        "Selecione um motivo na lista. Escolha o mais próximo: dentro da janela automática, tanto faz qual você marcar.",
+        "Escolha como quer receber e envie. Pode voltar para a forma de pagamento original ou entrar como saldo da carteira Steam."
       ]
     },
     {
       "type": "p",
-      "text": "O tempo até o estorno varia conforme o meio de pagamento e a operadora do cartão. Pela carteira da Steam costuma ser mais rápido; já a devolução para cartão de crédito ou pagamento por aproximação pode levar mais alguns dias para ser processada. É difícil cravar um prazo exato e há variação de pessoa para pessoa, então, se achar que está demorando demais, fale com o suporte ao cliente."
+      "text": "Depois de aprovado, o valor integral é processado em até uma semana. Aparecer de fato no cartão ou na conta pode levar mais alguns dias, porque o banco ou a operadora também precisa processar. Se estiver com pressa, receber como saldo da carteira é o caminho mais rápido — só lembre que esse dinheiro só poderá ser gasto na Steam. Se passarem mais de dez dias sem sinal, volte a falar com o Suporte Steam."
     },
     {
       "type": "h2",
-      "text": "Dúvidas frequentes"
+      "text": "Perguntas que aparecem sempre"
     },
     {
       "type": "ul",
       "items": [
-        "P. Se eu passar das 2 horas, ainda que por 1 minuto, é recusa garantida? — Você sai da faixa de aprovação automática, mas há casos atendidos após análise. Tente fazer o pedido mesmo assim.",
-        "P. Reembolsar com muita frequência traz alguma penalidade? — Abusos evidentes (como zerar o jogo repetidamente e pedir reembolso) podem ser limitados. Dentro de um uso normal, não precisa se preocupar.",
-        "P. Jogos gratuitos ou jogos do fim de semana grátis também são reembolsáveis? — Itens pelos quais você não pagou não são passíveis de reembolso.",
-        "P. Se eu reembolsar um jogo comprado em promoção, quanto recebo de volta? — O estorno é feito com base no valor que você efetivamente pagou."
+        "Passei um minuto das 2 horas, acabou mesmo? — Você saiu da janela automática, mas ainda dá para enviar o pedido, e explicar a situação costuma funcionar. Perguntar não custa nada.",
+        "Pedir reembolso muitas vezes me prejudica? — Dentro do uso normal, não. Mas terminar jogos e devolvê-los repetidamente pode acabar restringindo seus reembolsos.",
+        "Se eu devolver um jogo comprado em promoção, quanto recebo? — Exatamente o que você pagou, não o preço de tabela.",
+        "Posso comprar de novo depois de devolver? — Pode. Só lembre que, se a promoção acabou nesse meio-tempo, você paga o preço da hora.",
+        "Presente pode ser reembolsado? — Pode. Se já está na biblioteca de quem recebeu, é essa pessoa que solicita, e o dinheiro volta para quem pagou."
       ]
     },
     {
       "type": "h2",
-      "text": "Para fechar: melhor que reembolsar é fazer uma compra sem arrependimento"
+      "text": "O melhor cenário é nunca precisar de reembolso"
     },
     {
       "type": "p",
-      "text": "Por mais generosa que seja a política de reembolso, o melhor mesmo é comprar desde o início por um preço de que você não vá se arrepender. Se há um jogo que você quer, crie o hábito de dar uma olhada na trajetória de preço dele antes de comprar por impulso. Avaliar se o preço atual está perto do menor valor histórico ou se logo vem uma promoção ainda maior já reduz aquele trabalho de 'comprar e depois reembolsar'. Usando juntas a aba de descontos e a função de favoritos do Lowstamp, você não perde o momento em que o jogo que quer fica realmente barato. E se, ao comprar, perceber que não combinou com você, basta lembrar dos critérios das 2 horas e dos 14 dias acima."
+      "text": "Ter uma política generosa é ótimo, mas o caminho mais tranquilo continua sendo comprar por um preço do qual você não vá se arrepender. O que um reembolso custa de verdade não é dinheiro, é tempo e atenção: abrir o pedido, esperar, conferir se caiu na fatura e, às vezes, descobrir que a promoção acabou enquanto você resolvia isso."
+    },
+    {
+      "type": "p",
+      "text": "Então, antes de apertar o botão de comprar, vale conferir uma coisa só: se o preço de hoje está perto do menor preço já registrado daquele jogo. Busque um jogo no Lowstamp e você verá o preço atual ao lado do menor que registramos, com a diferença entre os dois transformada num veredicto de uma linha sobre ser ou não a hora. Se não for, marque com estrela e espere. Comprando assim, a página de reembolso quase nunca precisa ser aberta."
     },
     {
       "type": "quote",
-      "text": "Antes de pagar, lembre do menor preço histórico; depois de pagar, se mudar de ideia, lembre das 2 horas e dos 14 dias."
+      "text": "Antes de comprar, olhe o histórico de preços. Se mudar de ideia depois, lembre das 2 horas e dos 14 dias."
     }
   ]
 };
