@@ -64,7 +64,7 @@ export default function GamePage({ appid }) {
   };
 
   return (
-    <PageShell>
+    <PageShell loading={state.status === "loading"}>
       <Link to="/" className="gp-back">
         {t("gp.back")}
       </Link>

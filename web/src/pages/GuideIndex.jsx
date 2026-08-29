@@ -31,7 +31,7 @@ export default function GuideIndex() {
   }, [t]);
 
   return (
-    <PageShell>
+    <PageShell loading={!guides}>
       <div className="guide-index">
         <header className="gi-head">
           <h1 className="gi-title">{t("guide.indexTitle")}</h1>

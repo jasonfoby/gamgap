@@ -37,7 +37,7 @@ export default function GuideArticle({ slug }) {
 
   if (state.status === "loading")
     return (
-      <PageShell>
+      <PageShell loading>
         <article className="guide-article">
           <p className="gi-empty">{t("common.loading")}</p>
         </article>

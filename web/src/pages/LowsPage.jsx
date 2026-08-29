@@ -95,7 +95,7 @@ export default function LowsPage() {
   const onCardClick = (g) => navigate("/game/" + g.appid);
 
   return (
-    <PageShell wide>
+    <PageShell wide loading={state.status === "loading"}>
       <article className="lows">
         <h1 className="lows-title">{t("lows.title")}</h1>
 
