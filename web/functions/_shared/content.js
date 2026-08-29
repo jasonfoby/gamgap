@@ -491,8 +491,14 @@ export function renderContent(shell, { lang, pathname, mod, fallbackTitle, bodyH
     ? (mod.title ? `<h1>${esc(mod.title)}</h1>` : "") + byline + renderBody(mod)
     : "");
   if (inner) {
+  // ⚠ 반드시 <noscript> 로 감싼다. 예전엔 그냥 #root 에 넣고 index.html 의 인라인 스크립트로
+  //   첫 페인트 전에 지우려 했지만, 실측(2026-08-30 PageSpeed 데스크탑) 결과 CLS 0.75 로 튀었다.
+  //   응답이 스트리밍이라 '주입 본문' 청크와 '지우는 스크립트' 청크 사이에 브라우저가 한 번 그려버리기
+  //   때문이다(느린 모바일에선 스타일시트가 늦어 안 그려져서 0 이 나와 오래 못 잡았다).
+  //   <noscript> 는 JS 가 켜진 브라우저에서 '절대' 렌더되지 않으므로 구조적으로 이동이 불가능하고,
+  //   JS 를 안 돌리는 크롤러는 안의 내용을 그대로 읽는다.
     const wrapped =
-      `<main style="max-width:760px;margin:0 auto;padding:24px;font-family:sans-serif;line-height:1.6">${inner}</main>`;
+      `<noscript><main style="max-width:760px;margin:0 auto;padding:24px;font-family:sans-serif;line-height:1.6">${inner}</main></noscript>`;
     rw = rw.on("#root", { element(e) { e.setInnerContent(wrapped, { html: true }); } });
   }
 

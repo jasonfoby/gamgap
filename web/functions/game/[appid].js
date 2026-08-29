@@ -344,7 +344,9 @@ export async function onRequest(context) {
     .on('meta[name="twitter:title"]', { element(e) { e.setAttribute("content", title); } })
     .on('meta[name="twitter:description"]', { element(e) { e.setAttribute("content", desc); } })
     .on('meta[name="twitter:image"]', { element(e) { e.setAttribute("content", img); } })
-    .on("#root", { element(e) { e.setInnerContent(bodyHtml, { html: true }); } })
+    // ⚠ <noscript> 필수 — 그냥 넣으면 'SSR 본문 → React 앱' 교체가 그려져 CLS 가 튄다
+    //   (2026-08-30 실측 0.75). 자세한 경위는 functions/_shared/content.js 주석 참고.
+    .on("#root", { element(e) { e.setInnerContent(`<noscript>${bodyHtml}</noscript>`, { html: true }); } })
     .on("head", {
       element(e) {
         if (thin) e.append(`<meta name="robots" content="noindex,follow">`, { html: true });

@@ -67,11 +67,15 @@ export async function onRequest(context) {
   const locale = LOCALE[lang] || "en_US";
 
   // 봇용 본문을 #root 에 주입한다. JS를 안 돌리는 크롤러(빙·AI 크롤러 등)에게 홈이 빈 껍데기로
-  // 나가지 않게 하기 위한 것이고, JS가 도는 브라우저는 index.html 의 인라인 스크립트가 첫 페인트
-  // 전에 #root 를 비우므로 'SSR 본문 → React 앱' 교체로 인한 레이아웃 이동은 생기지 않는다.
-  // (가이드·게임·소개·새최저가 페이지가 이미 쓰고 있는 것과 같은 방식 — 홈만 빠져 있던 것을 맞춤.)
+  // 나가지 않게 하기 위한 것이다.
+  // ⚠ 반드시 <noscript> 로 감싼다. 예전엔 그냥 #root 에 넣고 index.html 의 인라인 스크립트로
+  //   첫 페인트 전에 지우려 했지만, 실측(2026-08-30 PageSpeed 데스크탑) 결과 CLS 0.75 로 튀었다.
+  //   응답이 스트리밍이라 '주입 본문' 청크와 '지우는 스크립트' 청크 사이에 브라우저가 한 번 그려버리기
+  //   때문이다(느린 모바일에선 스타일시트가 늦어 안 그려져서 0 이 나와 오래 못 잡았다).
+  //   <noscript> 는 JS 가 켜진 브라우저에서 '절대' 렌더되지 않으므로 구조적으로 이동이 불가능하고,
+  //   JS 를 안 돌리는 크롤러는 안의 내용을 그대로 읽는다.
   const wrapped =
-    `<main style="max-width:760px;margin:0 auto;padding:24px;font-family:sans-serif;line-height:1.6">${homeBody(lang)}</main>`;
+    `<noscript><main style="max-width:760px;margin:0 auto;padding:24px;font-family:sans-serif;line-height:1.6">${homeBody(lang)}</main></noscript>`;
 
   const res = new HTMLRewriter()
     .on("html", { element(e) { e.setAttribute("lang", lang); } })
