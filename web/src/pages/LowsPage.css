@@ -1,0 +1,103 @@
+/* "이번 주 새 최저가" 페이지 — 어두운 잉크 배경 위에 글(밝은 글자) + 영수증 카드 격자.
+   콘텐츠 페이지(종이 카드)와 달리 카드 격자가 주인공이라 배경을 그대로 두고 글자만 밝게 쓴다. */
+
+.lows {
+  display: block;
+}
+
+/* 페이지 제목 */
+.lows-title {
+  font-family: var(--kr);
+  font-weight: 800;
+  font-size: 27px;
+  letter-spacing: -0.6px;
+  line-height: 1.25;
+  color: #f1ece0;
+  margin: 0 0 18px;
+}
+
+/* 본문 문단 — 글은 읽기 좋은 폭으로 묶고, 카드 격자만 넓게 쓴다 */
+.lows-p {
+  max-width: 720px;
+  margin: 0 0 1.05em;
+  color: var(--txt-dim);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+/* 소제목 — 전역 h2(어두운 배경용)를 그대로 쓰되 위쪽 여백만 넉넉히 */
+.lows-h2 {
+  margin-top: 34px;
+}
+
+/* 목록 개수 뱃지(.cnt 와 같은 모양) */
+.lows-cnt {
+  font-family: var(--num);
+  font-size: 12.5px;
+  color: var(--mute);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2px 8px;
+  border-radius: 99px;
+  font-weight: 400;
+}
+
+.lows-list {
+  margin-top: 4px;
+}
+
+/* 비었을 때 / 에러 */
+.lows-empty {
+  color: #8e886f;
+  font-size: 14px;
+  text-align: center;
+  padding: 30px 12px;
+  border: 1px dashed var(--line);
+  border-radius: 12px;
+}
+
+/* 어두운 배경 위 '다시 시도' — 종이용 ghostbtn 대신 밝은 테두리 버튼 */
+.lows-retry {
+  flex: none;
+  display: inline-flex;
+  margin-top: 12px;
+  padding: 9px 20px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--txt);
+  border: 1px solid var(--txt-dim);
+}
+.lows-retry:hover {
+  background: rgba(200, 145, 43, 0.14);
+  border-color: var(--gold);
+  color: #f3efe3;
+}
+
+/* 목록 아래 갱신 안내 */
+.lows-updated {
+  margin: 14px 0 0;
+  font-size: 12.5px;
+  color: var(--mute);
+  line-height: 1.6;
+}
+
+/* 데이터 한계 고지 — 금색 테두리 강조 상자(글 안의 note 와 같은 역할) */
+.lows-note {
+  max-width: 720px;
+  margin: 22px 0 0;
+  padding: 13px 15px;
+  background: rgba(200, 145, 43, 0.09);
+  border: 1px solid rgba(200, 145, 43, 0.55);
+  border-radius: 10px;
+  color: #d8ccae;
+  font-size: 14px;
+  line-height: 1.68;
+}
+
+@media (min-width: 720px) {
+  .lows-title {
+    font-size: 31px;
+  }
+  .lows-p {
+    font-size: 15.5px;
+  }
+}

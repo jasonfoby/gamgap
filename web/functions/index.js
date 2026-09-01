@@ -6,6 +6,7 @@
 //   ※ 페북·트위터 크롤러는 Accept-Language 를 잘 안 보내 기본(영어)으로 떨어질 수 있음 — 언어별 완전
 //     분리는 추후 언어별 URL(/en/ 등) + hreflang 단계에서 마무리.
 // (게임별 메타·OG는 functions/game/[appid].js, 백엔드는 건드리지 않음.)
+import { homeBody } from "./_shared/content.js";
 
 const SUPPORTED = ["ko", "en", "ja", "zh", "es", "pt"];
 const DEFAULT = "en"; // 글로벌 타깃 — 못 알아보는 언어는 영어로.
@@ -65,8 +66,17 @@ export async function onRequest(context) {
   const img = `${url.origin}/og-${lang}.jpg`;
   const locale = LOCALE[lang] || "en_US";
 
-  // (홈 #root 봇용 본문 주입은 제거함 — 구글봇은 JS를 렌더해 실제 홈을 보므로 SEO 손실 없고,
-  //  SSR 본문 → React 앱 교체가 레이아웃 이동(CLS)을 일으켜서. 메타·OG·canonical 만 주입.)
+  // 봇용 본문을 #root 에 주입한다. JS를 안 돌리는 크롤러(빙·AI 크롤러 등)에게 홈이 빈 껍데기로
+  // 나가지 않게 하기 위한 것이다.
+  // ⚠ 반드시 <noscript> 로 감싼다. 예전엔 그냥 #root 에 넣고 index.html 의 인라인 스크립트로
+  //   첫 페인트 전에 지우려 했지만, 실측(2026-08-30 PageSpeed 데스크탑) 결과 CLS 0.75 로 튀었다.
+  //   응답이 스트리밍이라 '주입 본문' 청크와 '지우는 스크립트' 청크 사이에 브라우저가 한 번 그려버리기
+  //   때문이다(느린 모바일에선 스타일시트가 늦어 안 그려져서 0 이 나와 오래 못 잡았다).
+  //   <noscript> 는 JS 가 켜진 브라우저에서 '절대' 렌더되지 않으므로 구조적으로 이동이 불가능하고,
+  //   JS 를 안 돌리는 크롤러는 안의 내용을 그대로 읽는다.
+  const wrapped =
+    `<noscript><main style="max-width:760px;margin:0 auto;padding:24px;font-family:sans-serif;line-height:1.6">${homeBody(lang)}</main></noscript>`;
+
   const res = new HTMLRewriter()
     .on("html", { element(e) { e.setAttribute("lang", lang); } })
     .on("title", { element(e) { e.setInnerContent(m.t); } })
@@ -78,6 +88,7 @@ export async function onRequest(context) {
     .on('meta[name="twitter:title"]', { element(e) { e.setAttribute("content", m.t); } })
     .on('meta[name="twitter:description"]', { element(e) { e.setAttribute("content", m.d); } })
     .on('meta[name="twitter:image"]', { element(e) { e.setAttribute("content", img); } })
+    .on("#root", { element(e) { e.setInnerContent(wrapped, { html: true }); } })
     .transform(shell);
 
   // 언어별로 응답이 달라지므로 한 언어로 캐시가 굳지 않게.

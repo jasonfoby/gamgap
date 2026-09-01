@@ -9,6 +9,7 @@ export default {
 
   "nav.home": "Inicio",
   "nav.guide": "Guías",
+  "nav.lows": "Nuevos mínimos",
 
   "header.badge": "{n} mínimos registrados hoy",
   "header.badgeTitle": "Juegos que han tocado un nuevo mínimo registrado hoy",
@@ -132,9 +133,9 @@ export default {
   "stats.max": "Precio máximo registrado",
   "stats.since": "Datos desde",
 
-  "verdict.low-new.label": "Nuevo mínimo registrado hoy",
-  "verdict.low-new.sub": "Más barato imposible",
-  "verdict.low-new.tip": "Hoy ha tocado un nuevo mínimo registrado: no lo hemos visto más barato. Si es un juego que tenías en el punto de mira, este es el momento.",
+  "verdict.low-new.label": "El más bajo a día de hoy",
+  "verdict.low-new.sub": "Lo más barato que hemos visto",
+  "verdict.low-new.tip": "Hemos vuelto a comprobar el precio hoy y sigue siendo el más bajo que tenemos registrado. Si lo tenías fichado, este es el momento.",
   "verdict.low.label": "Está en su mínimo registrado",
   "verdict.low.sub": "Momentazo para comprar",
   "verdict.low.tip": "Es el precio más bajo que le hemos registrado. Esperar más no garantiza que baje, así que si lo querías, este es un momentazo para pillarlo.",
@@ -250,4 +251,20 @@ export default {
   "review.negative": "Negativas",
   "review.very_negative": "Muy negativas",
   "review.overwhelmingly_negative": "Extremadamente negativas",
+
+  // 이번 주 새 최저가 페이지(/new-lows)
+  "lows.title": "Nuevos mínimos de esta semana",
+  "lows.metaTitle": "Nuevos mínimos de esta semana: los juegos de Steam más baratos que nunca",
+  "lows.metaDesc": "Juegos de Steam que en la última semana han roto el precio más bajo que teníamos registrado. No es una lista de lo que está de oferta: son juegos que hoy cuestan menos que en cualquier precio que les hayamos visto. Se actualiza sola cada día.",
+  "lows.intro1": "Todos los juegos de esta página han roto en la última semana el precio más bajo que teníamos registrado para ellos. No es simplemente una lista de lo que está de oferta. Ahora mismo hay miles de juegos con una etiqueta roja de descuento en Steam, y la mayoría ya se han vendido más baratos en algún momento de los últimos meses. Para entrar aquí, un juego tiene que costar hoy menos que en cualquier precio que le hayamos registrado.",
+  "lows.intro2": "Por eso la lista es corta: unos veinte juegos por semana. Frente a los cientos que entran en oferta cada día en Steam, es una cifra minúscula. Pero esa pequeñez es justo lo que aporta. Lo difícil es distinguir entre \"parece barato\" y \"es lo más barato que ha estado nunca\", y esta página es lo que queda después de ese filtro.",
+  "lows.intro3": "La lista cambia sola a medida que nuestro recolector de precios hace su ronda diaria. No tienes que estar pendiente de nada: entras en esta dirección y la última semana siempre está aquí. Si tienes un juego entre ceja y ceja, con mirarlo una vez por semana te sobra.",
+  "lows.listHeading": "Rompieron su precio mínimo en los últimos {days} días",
+  "lows.empty": "Ningún juego ha marcado un mínimo nuevo últimamente. Justo después de unas rebajas grandes suele haber una temporada tranquila. Vuelve a mirar en unos días.",
+  "lows.error": "No se ha podido cargar la lista.",
+  "lows.updated": "Esta lista se actualiza sola una vez al día, cada vez que volvemos a comprobar los precios.",
+  "lows.readHeading": "Cómo leer esta lista",
+  "lows.read1": "El sello de cada ficha es la respuesta a \"¿lo compro ahora?\". Un mínimo nuevo no convierte algo automáticamente en un buen chollo. Que un juego de cinco euros baje a cuatro no tiene nada que ver con que uno de sesenta baje a diez. Compáralo con el precio completo que aparece en la misma ficha.",
+  "lows.read2": "Merece la pena mirar también el número de reseñas. Un juego con muy buenas valoraciones pero solo unos cientos de reseñas quizá no esté barato, sino simplemente poco conocido. En cambio, cuando aparece aquí algo con decenas de miles de reseñas, eso sí es raro y vale la pena aprovecharlo. Por eso la lista va ordenada por número de reseñas, de más a menos.",
+  "lows.disclosure": "Lo decimos claro: Lowstamp empezó a registrar precios en junio de 2026. Así que un \"nuevo mínimo\" aquí no significa lo más barato que ha estado el juego desde su lanzamiento, sino lo más barato que hemos visto mientras lo seguíamos. En juegos antiguos, sobre todo, es muy posible que hubiera un precio mejor antes de que empezáramos. La lista gana precisión a medida que se acumula el histórico.",
 };

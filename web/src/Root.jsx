@@ -9,6 +9,7 @@ import CookieConsent from "./components/CookieConsent";
 // 검색 로봇에는 Pages 함수(functions/)가 서버에서 본문을 주입하므로 SEO 영향은 없다.
 const GamePage = lazy(() => import("./pages/GamePage"));
 const GuideIndex = lazy(() => import("./pages/GuideIndex"));
+const LowsPage = lazy(() => import("./pages/LowsPage"));
 const GuideArticle = lazy(() => import("./pages/GuideArticle"));
 const ContentPage = lazy(() => import("./pages/ContentPage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -41,6 +42,8 @@ export default function Root() {
     // "/game/1091500" → appid "1091500" (숫자만 허용, 아니면 404)
     const appid = safeDecode(path.slice(GAME_PREFIX.length)).replace(/\/+$/, "");
     page = /^\d+$/.test(appid) ? <GamePage appid={appid} /> : <NotFound />;
+  } else if (path === "/new-lows") {
+    page = <LowsPage />;
   } else if (path === "/guide") {
     page = <GuideIndex />;
   } else if (path.startsWith(GUIDE_PREFIX)) {

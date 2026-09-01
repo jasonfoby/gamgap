@@ -34,7 +34,7 @@ export default function ContentPage({ slug }) {
 
   if (state.status === "loading")
     return (
-      <PageShell>
+      <PageShell loading>
         <article className="content-card">
           <p className="content-loading">{t("common.loading")}</p>
         </article>

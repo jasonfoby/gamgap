@@ -9,6 +9,7 @@ export default {
 
   "nav.home": "Home",
   "nav.guide": "Guides",
+  "nav.lows": "New lows",
 
   "header.badge": "{n} new lows today",
   "header.badgeTitle": "Number of games that hit a new low today",
@@ -132,9 +133,9 @@ export default {
   "stats.max": "Highest price",
   "stats.since": "Tracking since",
 
-  "verdict.low-new.label": "New low today",
+  "verdict.low-new.label": "Lowest as of today",
   "verdict.low-new.sub": "Cheapest we've tracked",
-  "verdict.low-new.tip": "It just hit a brand-new lowest tracked price today — the lowest price we've recorded. If you've had your eye on it, this is the moment to pull the trigger.",
+  "verdict.low-new.tip": "We re-checked the price today and it's still the lowest we've recorded. If you've had your eye on it, this is the moment to grab it.",
   "verdict.low.label": "At its lowest tracked price",
   "verdict.low.sub": "Great time to buy",
   "verdict.low.tip": "This is the lowest price on record. Waiting won't guarantee a better deal, so if you want it, now's a fantastic time to grab it.",
@@ -250,4 +251,20 @@ export default {
   "review.negative": "Negative",
   "review.very_negative": "Very Negative",
   "review.overwhelmingly_negative": "Overwhelmingly Negative",
+
+  // 이번 주 새 최저가 페이지(/new-lows)
+  "lows.title": "New lows this week",
+  "lows.metaTitle": "New Lows This Week — Steam Games at Their Cheapest Yet",
+  "lows.metaDesc": "Steam games that broke their lowest recorded price in the past week. Not just a list of what is on sale — these are cheaper right now than at any price we have seen them at. Updated automatically every day.",
+  "lows.intro1": "Every game here broke its lowest recorded price in the past week. This is not simply a list of what happens to be on sale. There are thousands of games wearing a big red discount badge on Steam right now, and most of them have already sold for less at some point in the last few months. To make this list, a game has to be cheaper today than at any price we have recorded for it.",
+  "lows.intro2": "That is why the list is short — usually around twenty games a week. Set against the hundreds of games that go on sale across Steam every single day, that is a tiny number. But the smallness is the point. Telling apart \"looks cheap\" from \"actually the cheapest it has ever been\" is the hard part, and this page is what is left after that filtering.",
+  "lows.intro3": "The list changes on its own as our price collector makes its daily round. You do not have to keep track of anything — come back to this address and the past week is always here. If there is a game you have your eye on, checking once a week is plenty.",
+  "lows.listHeading": "Broke their lowest price in the past {days} days",
+  "lows.empty": "No game has hit a new low recently. Things often go quiet for a while right after a big sale ends. Try again in a few days.",
+  "lows.error": "Could not load the list.",
+  "lows.updated": "This list refreshes on its own once a day, each time we re-check prices.",
+  "lows.readHeading": "How to read this list",
+  "lows.read1": "The stamp on each card is the answer to \"should I buy this now?\" A new low does not automatically make something a good deal. A game that normally costs five dollars dropping to four is a very different story from a sixty-dollar game dropping to ten. Compare it against the full price shown on the same card.",
+  "lows.read2": "It is worth glancing at the review count too. A game with glowing reviews but only a few hundred of them may not be cheap so much as simply unknown. On the other hand, when something with tens of thousands of reviews turns up here, that is genuinely rare and worth acting on. That is why the list is ordered by review count, most-reviewed first.",
+  "lows.disclosure": "To be upfront about it — Lowstamp only started recording prices in June 2026. So a \"new low\" here does not mean the cheapest a game has been since release; it means the cheapest we have seen while watching. For older games in particular, there may well have been a better price before we started. The list gets more accurate as our records grow.",
 };

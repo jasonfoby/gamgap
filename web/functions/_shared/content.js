@@ -431,6 +431,30 @@ export function guideIndexBody(lang, heading) {
   return `<h1>${esc(heading)}</h1><p>${esc(p1)}</p><p>${esc(p2)}</p>${sections}`;
 }
 
+// 홈("/") 봇용 본문. JS를 안 돌리는 크롤러가 홈을 빈 껍데기로 보지 않게 #root 를 채운다.
+// (JS가 도는 브라우저는 index.html 의 인라인 스크립트가 첫 페인트 전에 이걸 비우므로 화면 이동 없음 —
+//  가이드·게임·소개 페이지가 이미 쓰고 있는 것과 똑같은 방식이다.)
+// 문구는 새 키를 만들지 않고 화면에 실제로 쓰이는 키(hero.*·meta.*·nav.*·lows.*)를 그대로 재사용한다.
+export function homeBody(lang) {
+  const t = (k, vars) => translate(lang, k, vars);
+  const h1 = t("hero.title", { hl: t("hero.titleHl") });
+  const sub = t("hero.sub", { b: t("hero.subB") });
+  const guides = listGuides(lang).slice(0, 8);
+  const li = (g) =>
+    `<li><a href="/guide/${esc(g.slug)}">${esc(g.title)}</a>${g.description ? " — " + esc(g.description) : ""}</li>`;
+  return (
+    `<h1>${esc(h1)}</h1>` +
+    `<p>${esc(sub)}</p>` +
+    `<p>${esc(t("meta.defaultDesc"))}</p>` +
+    `<h2><a href="/new-lows">${esc(t("lows.title"))}</a></h2>` +
+    `<p>${esc(t("lows.metaDesc"))}</p>` +
+    `<h2><a href="/guide">${esc(t("nav.guide"))}</a></h2>` +
+    `<p>${esc(t("guide.indexDesc"))}</p>` +
+    (guides.length ? `<ul>${guides.map(li).join("")}</ul>` : "") +
+    `<p><a href="/about">${esc(t("footer.about"))}</a></p>`
+  );
+}
+
 // 공통 렌더: shell(index.html) 위에 self-canonical + 제목/설명/og + (가능하면) #root 첫 문단을 주입.
 // mod 가 없으면(콘텐츠를 못 찾으면) canonical 만 self 로 바로잡고 끝낸다(본문 주입은 생략).
 export function renderContent(shell, { lang, pathname, mod, fallbackTitle, bodyHtml }) {
@@ -467,8 +491,14 @@ export function renderContent(shell, { lang, pathname, mod, fallbackTitle, bodyH
     ? (mod.title ? `<h1>${esc(mod.title)}</h1>` : "") + byline + renderBody(mod)
     : "");
   if (inner) {
+  // ⚠ 반드시 <noscript> 로 감싼다. 예전엔 그냥 #root 에 넣고 index.html 의 인라인 스크립트로
+  //   첫 페인트 전에 지우려 했지만, 실측(2026-08-30 PageSpeed 데스크탑) 결과 CLS 0.75 로 튀었다.
+  //   응답이 스트리밍이라 '주입 본문' 청크와 '지우는 스크립트' 청크 사이에 브라우저가 한 번 그려버리기
+  //   때문이다(느린 모바일에선 스타일시트가 늦어 안 그려져서 0 이 나와 오래 못 잡았다).
+  //   <noscript> 는 JS 가 켜진 브라우저에서 '절대' 렌더되지 않으므로 구조적으로 이동이 불가능하고,
+  //   JS 를 안 돌리는 크롤러는 안의 내용을 그대로 읽는다.
     const wrapped =
-      `<main style="max-width:760px;margin:0 auto;padding:24px;font-family:sans-serif;line-height:1.6">${inner}</main>`;
+      `<noscript><main style="max-width:760px;margin:0 auto;padding:24px;font-family:sans-serif;line-height:1.6">${inner}</main></noscript>`;
     rw = rw.on("#root", { element(e) { e.setInnerContent(wrapped, { html: true }); } });
   }
 
