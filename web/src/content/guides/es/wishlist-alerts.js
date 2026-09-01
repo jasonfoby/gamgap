@@ -1,14 +1,14 @@
 export default {
   "slug": "wishlist-alerts",
   "title": "Cómo sacarle el máximo provecho a la lista de deseos y las alertas de precio de Steam",
-  "description": "Desde organizar tu lista de deseos de Steam hasta configurar alertas de descuentos y lanzamientos, y combinarlas con el seguimiento del precio histórico más bajo: una guía práctica para frenar las compras impulsivas y comprar solo cuando de verdad conviene.",
+  "description": "Desde organizar tu lista de deseos de Steam hasta configurar alertas de descuentos y lanzamientos, y combinarlas con el seguimiento del precio más bajo registrado: una guía práctica para frenar las compras impulsivas y comprar solo cuando de verdad conviene.",
   "date": "2026-06-18",
   "tags": ["Steam", "lista de deseos", "alertas de precio", "descuentos"],
   "readMins": 6,
   "body": [
     {
       "type": "p",
-      "text": "Seguro que más de una vez agregaste un juego al carrito, te olvidaste de él y, cuando por fin llegó la oferta, no te avisaron y la perdiste. La lista de deseos de Steam no es solo una \"lista de juegos que quieres\": usada bien, te avisa de descuentos y lanzamientos por su cuenta e incluso te ayuda a frenar las compras impulsivas. En esta guía vamos a ver, paso a paso, cómo organizar la lista de deseos, cómo recibir todas las alertas sin que se te escape ninguna y cómo usar Lowstamp para seguir el precio histórico más bajo y comprar solo cuando de verdad es el momento."
+      "text": "Seguro que más de una vez agregaste un juego al carrito, te olvidaste de él y, cuando por fin llegó la oferta, no te avisaron y la perdiste. La lista de deseos de Steam no es solo una \"lista de juegos que quieres\": usada bien, te avisa de descuentos y lanzamientos por su cuenta e incluso te ayuda a frenar las compras impulsivas. En esta guía vamos a ver, paso a paso, cómo organizar la lista de deseos, cómo recibir todas las alertas sin que se te escape ninguna y cómo usar Lowstamp para seguir el precio más bajo registrado y comprar solo cuando de verdad es el momento."
     },
     {
       "type": "h2",
@@ -40,22 +40,22 @@ export default {
     },
     {
       "type": "p",
-      "text": "Eso sí, las alertas de Steam tienen un punto débil: solo te dicen que \"empezó una oferta\", pero no si ese precio es históricamente bajo o un simple -20% de los de siempre. Te llega la alerta aunque sea solo -20%, así que no puedes distinguirla del -70% de la rebaja de temporada que en realidad estabas esperando. Por eso conviene tomar la alerta solo como una \"señal\" y evaluar el precio aparte."
+      "text": "Eso sí, las alertas de Steam tienen un punto débil: solo te dicen que \"empezó una oferta\", pero no si ese precio es de los más bajos que hemos registrado o un simple -20% de los de siempre. Te llega la alerta aunque sea solo -20%, así que no puedes distinguirla del -70% de la rebaja de temporada que en realidad estabas esperando. Por eso conviene tomar la alerta solo como una \"señal\" y evaluar el precio aparte."
     },
     {
       "type": "h2",
-      "text": "3. Combina el seguimiento del precio histórico más bajo con las alertas"
+      "text": "3. Combina el seguimiento del precio más bajo registrado con las alertas"
     },
     {
       "type": "p",
-      "text": "Aquí es donde entra Lowstamp. Cuando una alerta de Steam te avise de que \"empezó una oferta\", la recomendación es buscar ese juego en Lowstamp y comprobar de inmediato qué tan cerca está el precio actual del histórico más bajo. Lowstamp te muestra el precio mínimo histórico de cada juego y la fecha en que ocurrió, y lo compara con el precio actual para darte un veredicto de \"¿conviene comprar ya?\" con estilo de sello en un recibo. Por ejemplo, si un juego que cuesta 66.000 wones aparece a 19.800 wones (-70%) pero su mínimo histórico fue 16.500 wones, comprar solo por la alerta o decidir \"está 3.300 wones por encima del mínimo histórico, mejor espero un poco más\" son dos decisiones completamente distintas."
+      "text": "Aquí es donde entra Lowstamp. Cuando una alerta de Steam te avise de que \"empezó una oferta\", la recomendación es buscar ese juego en Lowstamp y comprobar de inmediato qué tan cerca está el precio actual del más bajo registrado. Lowstamp te muestra el precio mínimo registrado de cada juego y la fecha en que ocurrió, y lo compara con el precio actual para darte un veredicto de \"¿conviene comprar ya?\" con estilo de sello en un recibo. Por ejemplo, si un juego que cuesta 66.000 wones aparece a 19.800 wones (-70%) pero su mínimo registrado fue 16.500 wones, comprar solo por la alerta o decidir \"está 3.300 wones por encima del mínimo registrado, mejor espero un poco más\" son dos decisiones completamente distintas."
     },
     {
       "type": "ol",
       "items": [
         "Recibe la alerta de descuento de la lista de deseos en Steam.",
-        "Busca ese juego en Lowstamp y mira el precio actual, el mínimo histórico y el veredicto de \"¿conviene comprar ya?\".",
-        "Si está casi igual o más barato que el mínimo histórico, cómpralo. Si la diferencia es grande, espera la próxima rebaja de temporada."
+        "Busca ese juego en Lowstamp y mira el precio actual, el mínimo registrado y el veredicto de \"¿conviene comprar ya?\".",
+        "Si está casi igual o más barato que el mínimo registrado, cómpralo. Si la diferencia es grande, espera la próxima rebaja de temporada."
       ]
     },
     {
@@ -72,7 +72,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "La forma más realista de frenar las compras impulsivas es ponerte tú mismo la regla de \"no comprar al instante, sino agregarlo primero a la lista de deseos\". Si lo guardas, en la próxima oferta te llegará una alerta y no hay riesgo de perderla, y mientras tanto se te enfría el impulso y puedes valorar si de verdad querías ese juego. Si pasados unos días lo sigues pensando, entonces revisas el mínimo histórico y lo compras. Y si, al contrario, lo habías olvidado por completo, era un juego que no necesitabas."
+      "text": "La forma más realista de frenar las compras impulsivas es ponerte tú mismo la regla de \"no comprar al instante, sino agregarlo primero a la lista de deseos\". Si lo guardas, en la próxima oferta te llegará una alerta y no hay riesgo de perderla, y mientras tanto se te enfría el impulso y puedes valorar si de verdad querías ese juego. Si pasados unos días lo sigues pensando, entonces revisas el mínimo registrado y lo compras. Y si, al contrario, lo habías olvidado por completo, era un juego que no necesitabas."
     },
     {
       "type": "quote",
@@ -88,7 +88,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "Al final la clave son tres cosas: organizar la lista de deseos a un tamaño al que puedas reaccionar, recibir todas las señales de descuentos y lanzamientos mediante las alertas de Steam, y cada vez que llegue una de esas señales revisar en Lowstamp el mínimo histórico y la evolución del precio para decidir si de verdad es el momento de comprar. En cuanto interiorices esta rutina, en lugar de andar a remolque de las alertas comprando por impulso, pasarás de forma natural a comprar los juegos que de verdad querías en el momento más barato."
+      "text": "Al final la clave son tres cosas: organizar la lista de deseos a un tamaño al que puedas reaccionar, recibir todas las señales de descuentos y lanzamientos mediante las alertas de Steam, y cada vez que llegue una de esas señales revisar en Lowstamp el mínimo registrado y la evolución del precio para decidir si de verdad es el momento de comprar. En cuanto interiorices esta rutina, en lugar de andar a remolque de las alertas comprando por impulso, pasarás de forma natural a comprar los juegos que de verdad querías en el momento más barato."
     }
   ]
 };

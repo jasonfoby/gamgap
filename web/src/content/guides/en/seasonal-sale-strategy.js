@@ -1,7 +1,7 @@
 export default {
   "slug": "seasonal-sale-strategy",
   "title": "How to Get the Most Out of Steam's Summer and Winter Sales: Strategy, Not Dates",
-  "description": "A practical playbook for actually making the most of big seasonal sales like summer and winter. Clean up your wishlist beforehand, check current prices against the all-time low once the sale starts, beat impulse buys, set a budget, and watch for mid- and late-sale extras.",
+  "description": "A practical playbook for actually making the most of big seasonal sales like summer and winter. Clean up your wishlist beforehand, check current prices against the lowest tracked price once the sale starts, beat impulse buys, set a budget, and watch for mid- and late-sale extras.",
   "date": "2026-06-20",
   "tags": ["Steam sales", "seasonal sales", "buying strategy", "budget"],
   "readMins": 6,
@@ -22,29 +22,29 @@ export default {
       "type": "ul",
       "items": [
         "Keep only the games you'll really play; drop the ones you've lost interest in.",
-        "Note each game's all-time low ahead of time (your benchmark for whether the sale price is genuinely cheap).",
+        "Note each game's lowest tracked price ahead of time (your benchmark for whether the sale price is genuinely cheap).",
         "Mentally split a must-buy first tier from a buy-if-cheap second tier."
       ]
     },
     {
       "type": "note",
-      "text": "Star the games you have your eye on in Lowstamp, and when the sale lands you can pull up just your starred list to compare the current price against the all-time low at a glance. It's the easiest way to avoid flailing around on day one of the sale."
+      "text": "Star the games you have your eye on in Lowstamp, and when the sale lands you can pull up just your starred list to compare the current price against the lowest tracked price at a glance. It's the easiest way to avoid flailing around on day one of the sale."
     },
     {
       "type": "h2",
-      "text": "Once the sale starts: watch the all-time low, not the discount percent"
+      "text": "Once the sale starts: watch the lowest tracked price, not the discount percent"
     },
     {
       "type": "p",
-      "text": "When the sale opens, the first thing to do is not get hyped by the big red percentage. A seasonal sale absolutely does not mean every game hits its cheapest price ever. A game might show 60% off during the summer sale and still cost more than the 67% it hit last winter. So what you should look at isn't the discount percentage, it's how close the current price is to that game's all-time low."
+      "text": "When the sale opens, the first thing to do is not get hyped by the big red percentage. A seasonal sale absolutely does not mean every game drops to the cheapest price we've recorded. A game might show 60% off during the summer sale and still cost more than the 67% it hit last winter. So what you should look at isn't the discount percentage, it's how close the current price is to that game's lowest tracked price."
     },
     {
       "type": "p",
-      "text": "If the current price matches or is nearly touching the all-time low, now is a good time. If it's noticeably higher than the record low, then even with a flashy discount badge you've got a solid reason to wait for the next sale. Lowstamp does this comparison for you. It shows each game's all-time low and the date it was set, weighs it against the current price, and stamps a clear 'Should you buy now?' verdict on it like a receipt stamp. The price-history graph also gives you a feel for how low this game usually drops."
+      "text": "If the current price matches or is nearly touching the lowest tracked price, now is a good time. If it's noticeably higher than the recorded low, then even with a flashy discount badge you've got a solid reason to wait for the next sale. Lowstamp does this comparison for you. It shows each game's lowest tracked price and the date it was set, weighs it against the current price, and stamps a clear 'Should you buy now?' verdict on it like a receipt stamp. The price-history graph also gives you a feel for how low this game usually drops."
     },
     {
       "type": "quote",
-      "text": "A seasonal sale doesn't make everything cheap. What matters is the distance to the all-time low."
+      "text": "A seasonal sale doesn't make everything cheap. What matters is the distance to the lowest tracked price."
     },
     {
       "type": "h2",
@@ -77,7 +77,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "Another thing worth knowing: very popular recent blockbusters often don't get a deeper cut just because it's a seasonal sale. Games that sell well don't need to be slashed to keep selling. So people who expect 'it'll be half price by the summer sale' often end up disappointed when they see the same old discount they could get any time. For these titles, it's more realistic to wait for a moment when the all-time low actually gets beaten."
+      "text": "Another thing worth knowing: very popular recent blockbusters often don't get a deeper cut just because it's a seasonal sale. Games that sell well don't need to be slashed to keep selling. So people who expect 'it'll be half price by the summer sale' often end up disappointed when they see the same old discount they could get any time. For these titles, it's more realistic to wait for a moment when the price actually dips below the lowest we've recorded."
     },
     {
       "type": "note",
@@ -85,7 +85,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "To sum it up, getting the most out of a big sale is surprisingly simple. Clean up your wishlist in advance, set a budget to keep FOMO in check, and when it's actually time to buy, check the distance to the all-time low rather than the discount percent. Stick to just those three and you'll sharply cut down on both the 'why did I buy that' and the 'I should have grabbed it' regret once the sale is over."
+      "text": "To sum it up, getting the most out of a big sale is surprisingly simple. Clean up your wishlist in advance, set a budget to keep FOMO in check, and when it's actually time to buy, check the distance to the lowest tracked price rather than the discount percent. Stick to just those three and you'll sharply cut down on both the 'why did I buy that' and the 'I should have grabbed it' regret once the sale is over."
     }
   ]
 };

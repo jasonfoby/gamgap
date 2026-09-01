@@ -1,7 +1,7 @@
 export default {
   "slug": "krw-regional-pricing",
   "title": "Why the Same Steam Game Costs Different Amounts in Different Countries: Regional Pricing Explained",
-  "description": "Why does the same Steam game cost one price for you and another for a friend abroad? We break down regional pricing — how Steam sets a separate price per country and currency, why exchange rates and policy come into play, and how to use the all-time low to decide when to buy.",
+  "description": "Why does the same Steam game cost one price for you and another for a friend abroad? We break down regional pricing — how Steam sets a separate price per country and currency, why exchange rates and policy come into play, and how to use the lowest tracked price to decide when to buy.",
   "date": "2026-06-18",
   "tags": ["Steam", "Regional Pricing", "Currency", "Exchange Rates"],
   "readMins": 6,
@@ -36,7 +36,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "In practice, what drives the price you actually pay is the sale, not the list price. A game normally sells at full price, but when a 50% sale hits, it's suddenly half off. So the \"it's cheap right now\" feeling comes from the size of the discount, not from exchange rates. The reason Lowstamp shows each game's price in your own region's currency alongside its all-time low, with a buy-or-wait verdict, is exactly so you can judge that discount at a glance."
+      "text": "In practice, what drives the price you actually pay is the sale, not the list price. A game normally sells at full price, but when a 50% sale hits, it's suddenly half off. So the \"it's cheap right now\" feeling comes from the size of the discount, not from exchange rates. The reason Lowstamp shows each game's price in your own region's currency alongside its lowest tracked price, with a buy-or-wait verdict, is exactly so you can judge that discount at a glance."
     },
     {
       "type": "h2",
@@ -52,7 +52,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "The practical takeaway is simple. For most games, just buying from your own regional store, in your own currency, during a sale is the safest route and usually the cheapest. Rather than chasing exchange-rate arbitrage, it pays far more to judge by \"how low has this game ever dropped?\""
+      "text": "The practical takeaway is simple. For most games, just buying from your own regional store, in your own currency, during a sale is the safest route and usually the cheapest. Rather than chasing exchange-rate arbitrage, it pays far more to judge by \"how low have we seen this game drop while tracking it?\""
     },
     {
       "type": "h2",
@@ -64,14 +64,14 @@ export default {
     },
     {
       "type": "p",
-      "text": "When a list-price hike is announced or starts to look likely, the way to respond is surprisingly simple. First, since a higher list price means a bigger final payment even at the same discount rate, it's worth taking another look at any game you've had your eye on before the increase lands. Second, that said, there's no need to rush based on the list price alone. Even if the list price goes up, a bigger discount in the next sale can still leave you paying less overall. So the habit of watching \"the current price versus the all-time low\" is more reliable than reacting to the list-price change itself."
+      "text": "When a list-price hike is announced or starts to look likely, the way to respond is surprisingly simple. First, since a higher list price means a bigger final payment even at the same discount rate, it's worth taking another look at any game you've had your eye on before the increase lands. Second, that said, there's no need to rush based on the list price alone. Even if the list price goes up, a bigger discount in the next sale can still leave you paying less overall. So the habit of watching \"the current price versus the lowest tracked price\" is more reliable than reacting to the list-price change itself."
     },
     {
       "type": "ul",
       "items": [
         "Wishlist the games you want ahead of time and keep an eye on the price trend — so you don't miss any change, whether it's a list-price shift or a sale.",
-        "Base your buying decision not on the exchange rate, but on \"the current discount relative to the all-time low.\"",
-        "Keep the big sale seasons in mind (roughly summer and year-end, by common knowledge — though the timing is only an estimate and can vary year to year), while also checking each game's all-time-low history."
+        "Base your buying decision not on the exchange rate, but on \"the current discount relative to the lowest tracked price.\"",
+        "Keep the big sale seasons in mind (roughly summer and year-end, by common knowledge — though the timing is only an estimate and can vary year to year), while also checking each game's lowest-tracked-price history."
       ]
     },
     {
@@ -80,7 +80,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "Understanding Steam prices comes down to three things. Your local list price isn't a converted exchange-rate figure but a separate price set specifically for your market; it doesn't swing day to day, and it changes only occasionally and by policy. And the variable that actually moves your wallet isn't the list price but the discount layered on top of it. So instead of getting swayed by \"I heard the exchange rate is doing such-and-such,\" wishlist the games you've got your eye on, compare the all-time low against the current price in your own currency, and calmly weigh whether now is the time to buy. That's the most sensible way to buy games on Steam, wherever you are."
+      "text": "Understanding Steam prices comes down to three things. Your local list price isn't a converted exchange-rate figure but a separate price set specifically for your market; it doesn't swing day to day, and it changes only occasionally and by policy. And the variable that actually moves your wallet isn't the list price but the discount layered on top of it. So instead of getting swayed by \"I heard the exchange rate is doing such-and-such,\" wishlist the games you've got your eye on, compare the lowest tracked price against the current price in your own currency, and calmly weigh whether now is the time to buy. That's the most sensible way to buy games on Steam, wherever you are."
     }
   ]
 };

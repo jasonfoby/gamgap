@@ -1,9 +1,9 @@
 export default {
   "slug": "when-to-buy-or-wait",
   "title": "Buy Now or Wait for the Next Sale? A 5-Point Framework",
-  "description": "A calm, five-part framework for deciding whether to buy a game you want right now or hold out for the next sale. Covers how close the price is to its all-time low, how often and how deeply it discounts, how urgent it is, your backlog, and the refund safety net, with advice for each situation.",
+  "description": "A calm, five-part framework for deciding whether to buy a game you want right now or hold out for the next sale. Covers how close the price is to its lowest tracked price, how often and how deeply it discounts, how urgent it is, your backlog, and the refund safety net, with advice for each situation.",
   "date": "2026-06-20",
-  "tags": ["Steam", "sales", "buying guide", "all-time low"],
+  "tags": ["Steam", "sales", "buying guide", "lowest price"],
   "readMins": 6,
   "body": [
     {
@@ -16,22 +16,22 @@ export default {
     },
     {
       "type": "h2",
-      "text": "Criterion 1: How close is the current price to the all-time low?"
+      "text": "Criterion 1: How close is the current price to the lowest tracked price?"
     },
     {
       "type": "p",
-      "text": "The first thing to look at is how good this price is compared to the cheapest it has ever been. The very same discount percentage can mean completely different things. For example, if a game routinely drops to 50 percent off and it is 50 percent off right now, that is not a special deal at all, it is just the price it always reaches. On the other hand, if a game that rarely gets marked down hits its all-time low for the first time, that same 50 percent is a far rarer opportunity."
+      "text": "The first thing to look at is how good this price is compared to the cheapest we've recorded it going for. The very same discount percentage can mean completely different things. For example, if a game routinely drops to 50 percent off and it is 50 percent off right now, that is not a special deal at all, it is just the price it always reaches. On the other hand, if a game that rarely gets marked down hits its lowest tracked price for the first time, that same 50 percent is a far rarer opportunity."
     },
     {
       "type": "p",
-      "text": "So do not look at the discount number on its own; look at how much cheaper the game has gotten in the past alongside it. Search for a game on Lowstamp and it shows the all-time low next to the current price, plus a history graph of how the price has risen and fallen. If the current price is roughly the same as, or lower than, the all-time low, there is little reason to hesitate."
+      "text": "So do not look at the discount number on its own; look at how much cheaper the game has gotten in the past alongside it. Search for a game on Lowstamp and it shows the lowest tracked price next to the current price, plus a history graph of how the price has risen and fallen. If the current price is roughly the same as, or lower than, the lowest tracked price, there is little reason to hesitate."
     },
     {
       "type": "ul",
       "items": [
-        "Current price equals the all-time low or is within about 5 percent of it -> a good buy signal. Waiting longer is unlikely to save much more.",
-        "Roughly 10 to 20 percent above the all-time low -> a gray area. Weigh it together with the other criteria.",
-        "A big gap from the all-time low (say, 30 percent off now when it has hit 70 percent off in the past) -> the scale tips toward waiting."
+        "Current price equals the lowest tracked price or is within about 5 percent of it -> a good buy signal. Waiting longer is unlikely to save much more.",
+        "Roughly 10 to 20 percent above the lowest tracked price -> a gray area. Weigh it together with the other criteria.",
+        "A big gap from the lowest tracked price (say, 30 percent off now when it has hit 70 percent off in the past) -> the scale tips toward waiting."
       ]
     },
     {
@@ -100,11 +100,11 @@ export default {
     },
     {
       "type": "p",
-      "text": "Now let us bring it all together. Boiled down to a single sentence, the five criteria look like this. If the current price is close to the all-time low, the game is not the type that discounts often and deeply, you want to play it right now (especially with friends or as a buzzy new release), you have nothing else to play, and you can refund it if it does not fit, then buying now is the right call. Conversely, if there is a big gap from the all-time low, the game gets marked down deeply at every major sale anyway, you are not in any rush, and your backlog is already overflowing, wait for the next sale."
+      "text": "Now let us bring it all together. Boiled down to a single sentence, the five criteria look like this. If the current price is close to the lowest tracked price, the game is not the type that discounts often and deeply, you want to play it right now (especially with friends or as a buzzy new release), you have nothing else to play, and you can refund it if it does not fit, then buying now is the right call. Conversely, if there is a big gap from the lowest tracked price, the game gets marked down deeply at every major sale anyway, you are not in any rush, and your backlog is already overflowing, wait for the next sale."
     },
     {
       "type": "p",
-      "text": "In real life the five criteria often point in different directions rather than lining up neatly. When that happens, weigh them by what matters more to you. If saving every penny comes first, lean on the price criteria; if the moment of enjoying it with friends is more precious, give urgency more weight. Lowstamp's buy-or-wait verdict automatically calculates the price-side criteria, like distance from the all-time low and discount depth, and shows it as a single stamp. Leave the price judgment to it, and just add the parts only you know, like urgency and your backlog, to make the call far more easily."
+      "text": "In real life the five criteria often point in different directions rather than lining up neatly. When that happens, weigh them by what matters more to you. If saving every penny comes first, lean on the price criteria; if the moment of enjoying it with friends is more precious, give urgency more weight. Lowstamp's buy-or-wait verdict automatically calculates the price-side criteria, like distance from the lowest tracked price and discount depth, and shows it as a single stamp. Leave the price judgment to it, and just add the parts only you know, like urgency and your backlog, to make the call far more easily."
     },
     {
       "type": "p",
@@ -112,7 +112,7 @@ export default {
     },
     {
       "type": "quote",
-      "text": "If it is near the all-time low and you want it now, buy it. If the gap is big and you are in no rush, wait for the next sale."
+      "text": "If it is near the lowest tracked price and you want it now, buy it. If the gap is big and you are in no rush, wait for the next sale."
     }
   ]
 };

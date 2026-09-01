@@ -1,9 +1,9 @@
 export default {
   "slug": "when-to-buy-or-wait",
   "title": "Comprar ahora o esperar a la próxima rebaja: un marco de 5 puntos",
-  "description": "Un marco sereno de cinco puntos para decidir si comprar ya un juego que quieres o aguantar hasta la próxima rebaja. Cubre lo cerca que está el precio de su mínimo histórico, con qué frecuencia y profundidad se rebaja, la urgencia, tu acumulación de juegos sin tocar y la red de seguridad del reembolso, con consejos para cada caso.",
+  "description": "Un marco sereno de cinco puntos para decidir si comprar ya un juego que quieres o aguantar hasta la próxima rebaja. Cubre lo cerca que está el precio de su mínimo registrado, con qué frecuencia y profundidad se rebaja, la urgencia, tu acumulación de juegos sin tocar y la red de seguridad del reembolso, con consejos para cada caso.",
   "date": "2026-06-20",
-  "tags": ["Steam", "rebajas", "guía de compra", "mínimo histórico"],
+  "tags": ["Steam", "rebajas", "guía de compra", "precio mínimo"],
   "readMins": 6,
   "body": [
     {
@@ -16,22 +16,22 @@ export default {
     },
     {
       "type": "h2",
-      "text": "Criterio 1: ¿qué tan cerca está el precio actual del mínimo histórico?"
+      "text": "Criterio 1: ¿qué tan cerca está el precio actual del mínimo registrado?"
     },
     {
       "type": "p",
-      "text": "Lo primero que hay que mirar es lo bueno que es este precio comparado con lo más barato que ha estado nunca. Un mismo porcentaje de descuento puede significar cosas muy distintas. Por ejemplo, si un juego suele bajar al 50 por ciento y ahora mismo está al 50 por ciento, eso no es una ganga especial, es simplemente el precio al que siempre llega. En cambio, si un juego que rara vez se rebaja toca su mínimo histórico por primera vez, ese mismo 50 por ciento es una oportunidad mucho más rara."
+      "text": "Lo primero que hay que mirar es lo bueno que es este precio comparado con lo más barato al que lo hemos visto. Un mismo porcentaje de descuento puede significar cosas muy distintas. Por ejemplo, si un juego suele bajar al 50 por ciento y ahora mismo está al 50 por ciento, eso no es una ganga especial, es simplemente el precio al que siempre llega. En cambio, si un juego que rara vez se rebaja toca su mínimo registrado por primera vez, ese mismo 50 por ciento es una oportunidad mucho más rara."
     },
     {
       "type": "p",
-      "text": "Así que no mires solo el número del descuento; míralo junto con cuánto más barato ha llegado a estar el juego en el pasado. Busca un juego en Lowstamp y verás el mínimo histórico al lado del precio actual, además de un gráfico de cómo ha subido y bajado el precio. Si el precio actual es más o menos igual o más bajo que el mínimo histórico, hay pocas razones para dudar."
+      "text": "Así que no mires solo el número del descuento; míralo junto con cuánto más barato lo hemos llegado a ver. Busca un juego en Lowstamp y verás el mínimo registrado al lado del precio actual, además de un gráfico de cómo ha subido y bajado el precio. Si el precio actual es más o menos igual o más bajo que el mínimo registrado, hay pocas razones para dudar."
     },
     {
       "type": "ul",
       "items": [
-        "El precio actual es igual al mínimo histórico o está dentro de un 5 por ciento → buena señal para comprar. Esperar más difícilmente te ahorrará mucho.",
-        "Entre un 10 y un 20 por ciento por encima del mínimo histórico → zona gris. Sopésalo junto con los demás criterios.",
-        "Una gran diferencia con el mínimo histórico (por ejemplo, ahora al 30 por ciento cuando en el pasado llegó al 70 por ciento) → la balanza se inclina hacia esperar."
+        "El precio actual es igual al mínimo registrado o está dentro de un 5 por ciento → buena señal para comprar. Esperar más difícilmente te ahorrará mucho.",
+        "Entre un 10 y un 20 por ciento por encima del mínimo registrado → zona gris. Sopésalo junto con los demás criterios.",
+        "Una gran diferencia con el mínimo registrado (por ejemplo, ahora al 30 por ciento cuando en el pasado llegó al 70 por ciento) → la balanza se inclina hacia esperar."
       ]
     },
     {
@@ -100,11 +100,11 @@ export default {
     },
     {
       "type": "p",
-      "text": "Ahora juntémoslo todo. Reducidos a una sola frase, los cinco criterios quedan así. Si el precio actual está cerca del mínimo histórico, el juego no es de los que se rebajan a menudo y a fondo, quieres jugarlo ya (sobre todo con amigos o como lanzamiento de moda), no tienes nada más que jugar y puedes reembolsarlo si no encaja, entonces comprar ahora es lo acertado. Al revés, si hay una gran diferencia con el mínimo histórico, el juego baja a fondo en cada gran rebaja de todos modos, no tienes prisa y tu acumulación ya rebosa, espera a la próxima rebaja."
+      "text": "Ahora juntémoslo todo. Reducidos a una sola frase, los cinco criterios quedan así. Si el precio actual está cerca del mínimo registrado, el juego no es de los que se rebajan a menudo y a fondo, quieres jugarlo ya (sobre todo con amigos o como lanzamiento de moda), no tienes nada más que jugar y puedes reembolsarlo si no encaja, entonces comprar ahora es lo acertado. Al revés, si hay una gran diferencia con el mínimo registrado, el juego baja a fondo en cada gran rebaja de todos modos, no tienes prisa y tu acumulación ya rebosa, espera a la próxima rebaja."
     },
     {
       "type": "p",
-      "text": "En la vida real, los cinco criterios suelen apuntar en direcciones distintas en lugar de alinearse limpiamente. Cuando eso pasa, sopésalos según lo que más te importe a ti. Si ahorrar cada céntimo va primero, apóyate en los criterios de precio; si el momento de disfrutarlo con amigos es más valioso, dale más peso a la urgencia. El veredicto de comprar o esperar de Lowstamp calcula automáticamente los criterios del lado del precio, como la distancia al mínimo histórico y la profundidad del descuento, y lo muestra con un solo sello. Deja en sus manos el juicio sobre el precio y limítate a añadir las partes que solo tú conoces, como la urgencia y tu acumulación, para decidir con mucha más facilidad."
+      "text": "En la vida real, los cinco criterios suelen apuntar en direcciones distintas en lugar de alinearse limpiamente. Cuando eso pasa, sopésalos según lo que más te importe a ti. Si ahorrar cada céntimo va primero, apóyate en los criterios de precio; si el momento de disfrutarlo con amigos es más valioso, dale más peso a la urgencia. El veredicto de comprar o esperar de Lowstamp calcula automáticamente los criterios del lado del precio, como la distancia al mínimo registrado y la profundidad del descuento, y lo muestra con un solo sello. Deja en sus manos el juicio sobre el precio y limítate a añadir las partes que solo tú conoces, como la urgencia y tu acumulación, para decidir con mucha más facilidad."
     },
     {
       "type": "p",
@@ -112,7 +112,7 @@ export default {
     },
     {
       "type": "quote",
-      "text": "Si está cerca del mínimo histórico y lo quieres ahora, cómpralo. Si la diferencia es grande y no tienes prisa, espera a la próxima rebaja."
+      "text": "Si está cerca del mínimo registrado y lo quieres ahora, cómpralo. Si la diferencia es grande y no tienes prisa, espera a la próxima rebaja."
     }
   ]
 };

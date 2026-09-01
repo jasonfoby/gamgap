@@ -64,7 +64,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "Tem jogos que não podem ser compartilhados, ou que vocês querem jogar juntos ao mesmo tempo e por isso cada um precisa comprar o seu (por exemplo, aquele multiplayer que vocês jogam juntos). Nesses casos, no fim das contas você vai ter que comprar mesmo, e já que vai comprar, o melhor é comprar quando estiver mais barato. No Lowstamp você compara o preço atual e o menor preço histórico daquele jogo pra conferir o 'Vale comprar agora?', e comprando cada um lá pertinho do menor preço histórico dá pra compensar com a promoção aquilo que o compartilhamento não economizou."
+      "text": "Tem jogos que não podem ser compartilhados, ou que vocês querem jogar juntos ao mesmo tempo e por isso cada um precisa comprar o seu (por exemplo, aquele multiplayer que vocês jogam juntos). Nesses casos, no fim das contas você vai ter que comprar mesmo, e já que vai comprar, o melhor é comprar quando estiver mais barato. No Lowstamp você compara o preço atual e o menor preço registrado daquele jogo pra conferir o 'Vale comprar agora?', e comprando cada um lá pertinho do menor preço registrado dá pra compensar com a promoção aquilo que o compartilhamento não economizou."
     },
     {
       "type": "quote",
@@ -72,7 +72,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "Resumindo, o Compartilhamento Familiar da Steam é uma ótima maneira de economizar em jogos, 'aproveitando com a família e os amigos de confiança um jogo comprado uma vez só'. Mas você precisa conhecer os limites, como a restrição de jogar o mesmo jogo ao mesmo tempo e alguns jogos que não dá pra compartilhar, e evitar aquele jeito perigoso de trocar a conta inteira. O que dá pra economizar pelo compartilhamento, economize pelo compartilhamento, e os jogos que cada um precisa comprar, compre mirando o menor preço histórico: assim a família toda curte muito mais jogos gastando o mesmo dinheiro."
+      "text": "Resumindo, o Compartilhamento Familiar da Steam é uma ótima maneira de economizar em jogos, 'aproveitando com a família e os amigos de confiança um jogo comprado uma vez só'. Mas você precisa conhecer os limites, como a restrição de jogar o mesmo jogo ao mesmo tempo e alguns jogos que não dá pra compartilhar, e evitar aquele jeito perigoso de trocar a conta inteira. O que dá pra economizar pelo compartilhamento, economize pelo compartilhamento, e os jogos que cada um precisa comprar, compre mirando o menor preço registrado: assim a família toda curte muito mais jogos gastando o mesmo dinheiro."
     }
   ]
 };

@@ -70,7 +70,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "There is one more thing to check. Even if the bundle price looks cheap, you still need to judge whether it is genuinely a record low or just slightly off the usual price. Check on Lowstamp whether the base game's current price is near its all-time low and look at the 'Should I buy now?' verdict alongside it. That makes it much easier to decide whether to grab the bundle now or wait for the next sale. Glancing at the price-history graph for the recent trend makes you even more confident."
+      "text": "There is one more thing to check. Even if the bundle price looks cheap, you still need to judge whether it is genuinely a new low we've recorded or just slightly off the usual price. Check on Lowstamp whether the base game's current price is near its lowest tracked price and look at the 'Should I buy now?' verdict alongside it. That makes it much easier to decide whether to grab the bundle now or wait for the next sale. Glancing at the price-history graph for the recent trend makes you even more confident."
     },
     {
       "type": "h2",
@@ -103,7 +103,7 @@ export default {
         "Open up what is inside the bundle and sort out the items you will genuinely enjoy.",
         "If you already own some items, confirm they are subtracted from the price (the Complete the Set amount).",
         "Compare the total of buying only the items you want separately against the bundle price.",
-        "Judge whether the base game is near its all-time low right now, or whether a bigger sale is likely soon.",
+        "Judge whether the base game is near its lowest tracked price right now, or whether a bigger sale is likely soon.",
         "In case you might need a refund, remember that a bundle counts the combined play time of all included items.",
         "Once decided, check the final charge in your cart one last time before paying."
       ]
@@ -118,11 +118,11 @@ export default {
     },
     {
       "type": "p",
-      "text": "Used well, a bundle is a great tool for getting the same content for less, but cheap-looking does not always mean a win. If it is packed with games you will not play, single items might be better, and if the current price is just average, waiting for the next sale might be smarter. The standard is always two things: the price counting only what you will truly enjoy, and whether now is genuinely a cheap moment. Confirm both with Lowstamp's all-time low and 'Should I buy now?' verdict, and you can shop bundles thriftily without getting swayed."
+      "text": "Used well, a bundle is a great tool for getting the same content for less, but cheap-looking does not always mean a win. If it is packed with games you will not play, single items might be better, and if the current price is just average, waiting for the next sale might be smarter. The standard is always two things: the price counting only what you will truly enjoy, and whether now is genuinely a cheap moment. Confirm both with Lowstamp's lowest tracked price and 'Should I buy now?' verdict, and you can shop bundles thriftily without getting swayed."
     },
     {
       "type": "quote",
-      "text": "A bundle is not cheap, it is cheap when it fits. Count only what you will play, and use the all-time low to judge the timing."
+      "text": "A bundle is not cheap, it is cheap when it fits. Count only what you will play, and use the lowest tracked price to judge the timing."
     }
   ]
 };

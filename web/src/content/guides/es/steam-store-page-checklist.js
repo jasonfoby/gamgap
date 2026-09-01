@@ -60,7 +60,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "En resumen, antes de comprar basta con revisar estas cinco cosas: ① si los requisitos encajan con tu PC, ② si tiene buenas valoraciones (y cuántas), ③ si es un juego terminado, ④ qué edición estás comprando y ⑤ si está en español. Con eso evitas casi por completo el chasco de \"lo compré y no puedo jugarlo\". Y después, para saber si el precio vale la pena, solo tienes que entrar en Lowstamp, compararlo con el mínimo histórico y ver el veredicto \"¿Lo compro ahora?\". Lo que hay que revisar antes de comprar lo miras en la página de Steam, y lo del precio lo decides con el mínimo histórico: si respetas ese orden, comprarás siempre con cabeza."
+      "text": "En resumen, antes de comprar basta con revisar estas cinco cosas: ① si los requisitos encajan con tu PC, ② si tiene buenas valoraciones (y cuántas), ③ si es un juego terminado, ④ qué edición estás comprando y ⑤ si está en español. Con eso evitas casi por completo el chasco de \"lo compré y no puedo jugarlo\". Y después, para saber si el precio vale la pena, solo tienes que entrar en Lowstamp, compararlo con el mínimo registrado y ver el veredicto \"¿Lo compro ahora?\". Lo que hay que revisar antes de comprar lo miras en la página de Steam, y lo del precio lo decides con el mínimo registrado: si respetas ese orden, comprarás siempre con cabeza."
     }
   ]
 };

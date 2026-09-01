@@ -60,7 +60,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "To sum up: before you buy, just skim these five things — 1) whether the specs will run on your PC, 2) whether the reviews are good (number included), 3) whether it's a finished game, 4) which edition you're getting, and 5) whether your language is supported — and you'll head off almost every 'bought it but can't play it' letdown. After that, to figure out whether the price is actually worth it, check Lowstamp to compare against the all-time low and see the 'Should I buy now?' verdict. Pre-purchase checks on the store page, price call from the all-time low — stick to that order and you'll shop smart."
+      "text": "To sum up: before you buy, just skim these five things — 1) whether the specs will run on your PC, 2) whether the reviews are good (number included), 3) whether it's a finished game, 4) which edition you're getting, and 5) whether your language is supported — and you'll head off almost every 'bought it but can't play it' letdown. After that, to figure out whether the price is actually worth it, check Lowstamp to compare against the lowest tracked price and see the 'Should I buy now?' verdict. Pre-purchase checks on the store page, price call from the lowest tracked price — stick to that order and you'll shop smart."
     }
   ]
 };

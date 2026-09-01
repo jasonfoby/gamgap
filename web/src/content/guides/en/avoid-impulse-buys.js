@@ -31,7 +31,7 @@ export default {
       "items": [
         "Are you ready to drop the game you're playing right now and fire this one up immediately? If not, there's no rush.",
         "Do you already have a game in a similar genre sitting in your library — one you haven't touched either?",
-        "Is this price close to the all-time low? If not, the next sale will bring it back around the same price."
+        "Is this price close to the lowest tracked price? If not, the next sale will bring it back around the same price."
       ]
     },
     {
@@ -44,7 +44,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "When you spot a game you want, wishlist it first. This isn't buying — it's watching. If it's a game you truly want, it'll still be on your mind by the next sale; and if you've forgotten it by then, it was a game you didn't really need anyway. Lowstamp makes it easy to see when a wishlisted game drops near its all-time low, so use it to wait for the moment it's actually cheap instead of impulse-buying right now."
+      "text": "When you spot a game you want, wishlist it first. This isn't buying — it's watching. If it's a game you truly want, it'll still be on your mind by the next sale; and if you've forgotten it by then, it was a game you didn't really need anyway. Lowstamp makes it easy to see when a wishlisted game drops near its lowest tracked price, so use it to wait for the moment it's actually cheap instead of impulse-buying right now."
     },
     {
       "type": "h2",
@@ -68,7 +68,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "To sum up, curbing impulse buys comes down to three things. Ask 'will I really play this' before you look at the discount percentage, push the decision back one beat with a wishlist instead of buying when you're unsure, and shrink your backlog before buying anything new. Build these habits and your library stops stacking with games you never play — your money goes only toward games you'll actually enjoy. Wishlist the games you're interested in and wait for them to creep close to their all-time low, and overpaying on impulse naturally fades away too."
+      "text": "To sum up, curbing impulse buys comes down to three things. Ask 'will I really play this' before you look at the discount percentage, push the decision back one beat with a wishlist instead of buying when you're unsure, and shrink your backlog before buying anything new. Build these habits and your library stops stacking with games you never play — your money goes only toward games you'll actually enjoy. Wishlist the games you're interested in and wait for them to creep close to their lowest tracked price, and overpaying on impulse naturally fades away too."
     }
   ]
 };

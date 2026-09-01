@@ -54,7 +54,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "One more thing: sometimes a game you bought at a deep pre-order discount ends up even cheaper right after launch. Some people refund and rebuy to pocket the difference, but it's far less stressful to check first whether right now is genuinely a good price. Look up a game's all-time low and its 'buy or wait?' verdict on Lowstamp, and you'll find yourself agonizing over refunds a lot less often."
+      "text": "One more thing: sometimes a game you bought at a deep pre-order discount ends up even cheaper right after launch. Some people refund and rebuy to pocket the difference, but it's far less stressful to check first whether right now is genuinely a good price. Look up a game's lowest tracked price and its 'buy or wait?' verdict on Lowstamp, and you'll find yourself agonizing over refunds a lot less often."
     },
     {
       "type": "h2",
@@ -97,11 +97,11 @@ export default {
     },
     {
       "type": "p",
-      "text": "Generous as the refund policy is, the best outcome is buying at a price you won't second-guess in the first place. When there's a game you want, try building the habit of checking its price history before you impulse-buy. Gauge whether the current price is close to its all-time low, or whether a bigger sale might be just around the corner, and you'll cut down on the whole hassle of 'buy, then refund.' Pair Lowstamp's deals tab with the wishlist feature and you won't miss the moment a game you want truly drops in price. And if you do buy something that turns out not to be for you, just remember the 2-hour, 14-day rules."
+      "text": "Generous as the refund policy is, the best outcome is buying at a price you won't second-guess in the first place. When there's a game you want, try building the habit of checking its price history before you impulse-buy. Gauge whether the current price is close to its lowest tracked price, or whether a bigger sale might be just around the corner, and you'll cut down on the whole hassle of 'buy, then refund.' Pair Lowstamp's deals tab with the wishlist feature and you won't miss the moment a game you want truly drops in price. And if you do buy something that turns out not to be for you, just remember the 2-hour, 14-day rules."
     },
     {
       "type": "quote",
-      "text": "Before you pay, think all-time low; if you change your mind after, think 2 hours and 14 days."
+      "text": "Before you pay, think lowest tracked price; if you change your mind after, think 2 hours and 14 days."
     }
   ]
 };

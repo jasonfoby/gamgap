@@ -57,11 +57,11 @@ export default {
     },
     {
       "type": "h2",
-      "text": "Los DLC también, al final, en rebajas y mirando el mínimo histórico"
+      "text": "Los DLC también, al final, en rebajas y mirando el mínimo registrado"
     },
     {
       "type": "p",
-      "text": "Los DLC y los pases de temporada, igual que el juego base, bajan de precio en las rebajas, y siguen un patrón parecido: tocan su precio más bajo en las grandes rebajas. En lugar de pagarlos a precio completo nada más salir, si los compras en rebajas después de haber disfrutado bien el juego base, te llevas el mismo contenido más barato. Lowstamp te muestra el precio actual del juego base, su mínimo histórico y el veredicto \"¿Lo compro ahora?\", así que úsalo primero para pillar el juego base a buen precio y, con los DLC, espera a una rebaja después de haberlo probado."
+      "text": "Los DLC y los pases de temporada, igual que el juego base, bajan de precio en las rebajas, y siguen un patrón parecido: tocan su precio más bajo en las grandes rebajas. En lugar de pagarlos a precio completo nada más salir, si los compras en rebajas después de haber disfrutado bien el juego base, te llevas el mismo contenido más barato. Lowstamp te muestra el precio actual del juego base, su mínimo registrado y el veredicto \"¿Lo compro ahora?\", así que úsalo primero para pillar el juego base a buen precio y, con los DLC, espera a una rebaja después de haberlo probado."
     },
     {
       "type": "quote",
@@ -69,7 +69,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "En resumen, con los DLC y los pases de temporada basta con recordar tres cosas. Primero, comprueba con el juego base si el juego es de tu estilo; segundo, ve con cuidado con el pase de temporada, que te hace pagar por adelantado por algo que aún no ha salido; y tercero, compara un momento la edición completa con comprarlo por separado y quédate con lo más barato. Tanto el juego base como los DLC, si no tienes prisa, lo más ahorrador es comprarlos en rebajas, cerca del mínimo histórico. Si guardas los juegos que te interesan y esperas a que baje el precio, te ahorrarás pagar de más tanto por el juego base como por los DLC."
+      "text": "En resumen, con los DLC y los pases de temporada basta con recordar tres cosas. Primero, comprueba con el juego base si el juego es de tu estilo; segundo, ve con cuidado con el pase de temporada, que te hace pagar por adelantado por algo que aún no ha salido; y tercero, compara un momento la edición completa con comprarlo por separado y quédate con lo más barato. Tanto el juego base como los DLC, si no tienes prisa, lo más ahorrador es comprarlos en rebajas, cerca del mínimo registrado. Si guardas los juegos que te interesan y esperas a que baje el precio, te ahorrarás pagar de más tanto por el juego base como por los DLC."
     }
   ]
 };

@@ -1,14 +1,14 @@
 export default {
   "slug": "best-value-indies",
   "title": "Best-Value Indie Gems Worth Waiting Out a Sale For",
-  "description": "A practical buying guide to indie masterpieces worth grabbing at their all-time low during Steam sales, sorted by type roguelike, metroidvania, automation, narrative and built around watching the all-time low instead of the discount percentage.",
+  "description": "A practical buying guide to indie masterpieces worth grabbing at their lowest tracked price during Steam sales, sorted by type roguelike, metroidvania, automation, narrative and built around watching the lowest tracked price instead of the discount percentage.",
   "date": "2026-06-18",
   "tags": ["indie games", "best value", "Steam sales", "buying guide"],
   "readMins": 6,
   "body": [
     {
       "type": "p",
-      "text": "AAA blockbusters list well above 70,000 to 80,000 won and stay pricey even on sale, but indies usually launch at 10,000 to 30,000 won to begin with, so a single discount can land you a classic for under 10,000 won. On top of that, indies tend to keep getting steeper discounts long after release, which makes them a genre where it really pays to wait for something near its all-time low instead of buying in a hurry. In this article I have grouped together indie gems that, from a player's perspective, are worth keeping an eye on every sale. These are personal picks and taste varies, so treat the categories and flagship titles as a starting point for finding the games that fit you."
+      "text": "AAA blockbusters list well above 70,000 to 80,000 won and stay pricey even on sale, but indies usually launch at 10,000 to 30,000 won to begin with, so a single discount can land you a classic for under 10,000 won. On top of that, indies tend to keep getting steeper discounts long after release, which makes them a genre where it really pays to wait for something near its lowest tracked price instead of buying in a hurry. In this article I have grouped together indie gems that, from a player's perspective, are worth keeping an eye on every sale. These are personal picks and taste varies, so treat the categories and flagship titles as a starting point for finding the games that fit you."
     },
     {
       "type": "h2",
@@ -44,16 +44,16 @@ export default {
     },
     {
       "type": "h2",
-      "text": "Why buying at the all-time low pays off, plus a few tips"
+      "text": "Why buying at the lowest tracked price pays off, plus a few tips"
     },
     {
       "type": "p",
-      "text": "Indie games commonly follow a pattern where the discounts grow deeper a year or two after launch than right at release. So rather than asking what percentage off is it right now, it is far more accurate to ask how close the current price is to its all-time low. Even at the same 50 percent off, a game whose all-time low was only a 30 percent discount might genuinely be at rock bottom right now, while 50 percent off a game that usually drops to 70 percent off is not all that tempting. Lowstamp shows each game's all-time low and current price side by side and tells you at a glance how close it is to the floor with its buy-now verdict, so instead of being swayed by the discount number, use that verdict as your benchmark."
+      "text": "Indie games commonly follow a pattern where the discounts grow deeper a year or two after launch than right at release. So rather than asking what percentage off is it right now, it is far more accurate to ask how close the current price is to its lowest tracked price. Even at the same 50 percent off, a game whose lowest tracked price was only a 30 percent discount might genuinely be at rock bottom right now, while 50 percent off a game that usually drops to 70 percent off is not all that tempting. Lowstamp shows each game's lowest tracked price and current price side by side and tells you at a glance how close it is to the floor with its buy-now verdict, so instead of being swayed by the discount number, use that verdict as your benchmark."
     },
     {
       "type": "ul",
       "items": [
-        "Prioritize how far the price is from the all-time low over the discount percentage.",
+        "Prioritize how far the price is from the lowest tracked price over the discount percentage.",
         "If you are not in a rush, save it to your wishlist and wait for the next seasonal sale.",
         "Adding it to your wishlist also means Steam may notify you when a sale starts."
       ]
@@ -68,7 +68,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "To sum up, with indie gems there is rarely a game you cannot afford instead, when you buy is what decides your satisfaction. Save the ones you like in advance, time your purchase to a seasonal sale or a fresh all-time low, and you can enjoy far more classics for the same money. The picks above are only a starting point, so browse around and build your own value-for-money list."
+      "text": "To sum up, with indie gems there is rarely a game you cannot afford instead, when you buy is what decides your satisfaction. Save the ones you like in advance, time your purchase to a seasonal sale or a fresh low, and you can enjoy far more classics for the same money. The picks above are only a starting point, so browse around and build your own value-for-money list."
     }
   ]
 };

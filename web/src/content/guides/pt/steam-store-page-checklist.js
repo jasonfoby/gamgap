@@ -60,7 +60,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "Resumindo, antes de comprar dá pra checar ① se os requisitos rodam no seu PC, ② se a avaliação é boa (contando a quantidade também), ③ se o jogo está finalizado, ④ qual edição você está levando e ⑤ se tem português — só de passar o olho nessas cinco coisas você já evita quase todo aquele perrengue de 'comprei e não consigo jogar'. E aí, pra saber se o preço está bom mesmo, é só ir no Lowstamp comparar com o menor preço histórico e conferir o 'Vale comprar agora?'. Conferir antes de comprar é na página da loja, julgar o preço é pelo menor preço histórico — seguindo essa ordem, você compra de forma esperta."
+      "text": "Resumindo, antes de comprar dá pra checar ① se os requisitos rodam no seu PC, ② se a avaliação é boa (contando a quantidade também), ③ se o jogo está finalizado, ④ qual edição você está levando e ⑤ se tem português — só de passar o olho nessas cinco coisas você já evita quase todo aquele perrengue de 'comprei e não consigo jogar'. E aí, pra saber se o preço está bom mesmo, é só ir no Lowstamp comparar com o menor preço registrado e conferir o 'Vale comprar agora?'. Conferir antes de comprar é na página da loja, julgar o preço é pelo menor preço registrado — seguindo essa ordem, você compra de forma esperta."
     }
   ]
 };

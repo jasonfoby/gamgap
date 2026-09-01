@@ -65,7 +65,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "Normalmente o preço em Acesso Antecipado é mais baixo do que o preço de lançamento oficial, porque é comum o desenvolvedor aumentar o preço quando o jogo sai oficialmente. Então, se você tem certeza de que confia naquele jogo, comprar barato ainda no Acesso Antecipado pode ser vantajoso. Já se estiver inseguro, dá pra esperar o lançamento oficial e uma promoção, e comprar perto do menor preço histórico sem prejuízo nenhum. De qualquer forma, olhar no Lowstamp o preço atual, o menor preço histórico e a evolução do preço daquele jogo ajuda a sentir se é a hora certa de comprar."
+      "text": "Normalmente o preço em Acesso Antecipado é mais baixo do que o preço de lançamento oficial, porque é comum o desenvolvedor aumentar o preço quando o jogo sai oficialmente. Então, se você tem certeza de que confia naquele jogo, comprar barato ainda no Acesso Antecipado pode ser vantajoso. Já se estiver inseguro, dá pra esperar o lançamento oficial e uma promoção, e comprar perto do menor preço registrado sem prejuízo nenhum. De qualquer forma, olhar no Lowstamp o preço atual, o menor preço registrado e a evolução do preço daquele jogo ajuda a sentir se é a hora certa de comprar."
     },
     {
       "type": "p",
@@ -77,7 +77,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "Resumindo, o Acesso Antecipado é uma boa oportunidade de jogar cedo e barato quando os três pontos batem: desenvolvimento ativo, boas avaliações e já divertido do jeito que está agora. Do contrário, se parece que o desenvolvimento parou ou se as avaliações são ruins, o certo é esperar ou deixar de lado. E se você não tem pressa, mirar o menor preço histórico numa grande promoção depois do lançamento oficial também é uma escolha esperta. Favorite os jogos em Acesso Antecipado que te interessam e acompanhe as atualizações e o preço: assim, sem correria, você compra no melhor momento possível."
+      "text": "Resumindo, o Acesso Antecipado é uma boa oportunidade de jogar cedo e barato quando os três pontos batem: desenvolvimento ativo, boas avaliações e já divertido do jeito que está agora. Do contrário, se parece que o desenvolvimento parou ou se as avaliações são ruins, o certo é esperar ou deixar de lado. E se você não tem pressa, mirar o menor preço registrado numa grande promoção depois do lançamento oficial também é uma escolha esperta. Favorite os jogos em Acesso Antecipado que te interessam e acompanhe as atualizações e o preço: assim, sem correria, você compra no melhor momento possível."
     }
   ]
 };

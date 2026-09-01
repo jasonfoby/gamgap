@@ -99,7 +99,7 @@ export default {
     },
     {
       type: "p",
-      text: "Entao organize seus passos de compra assim para se arrepender menos. Use o nivel de avaliacao e o numero de analises para decidir primeiro se descarta ou nao, e so se passar nesse filtro voce olha o preco. Se ficar em duvida se o preco atual e de verdade um ponto baixo, confira o minimo historico do jogo e o veredito Compro agora? no Lowstamp. Ver tambem no grafico de variacao de precos quanto ele costumava custar torna muito mais facil pegar o momento perfeito: boas analises e preco baixo ao mesmo tempo.",
+      text: "Entao organize seus passos de compra assim para se arrepender menos. Use o nivel de avaliacao e o numero de analises para decidir primeiro se descarta ou nao, e so se passar nesse filtro voce olha o preco. Se ficar em duvida se o preco atual e de verdade um ponto baixo, confira o minimo registrado do jogo e o veredito Compro agora? no Lowstamp. Ver tambem no grafico de variacao de precos quanto ele costumava custar torna muito mais facil pegar o momento perfeito: boas analises e preco baixo ao mesmo tempo.",
     },
     {
       type: "ol",
@@ -108,7 +108,7 @@ export default {
         "Confira o numero de analises ao lado (confie menos no nivel se forem poucas).",
         "Se as analises recentes e todas diferem, leia algumas recentes.",
         "Se houver nota do Metacritic, olhe a da critica e a dos usuarios juntas.",
-        "So depois de passar por tudo isso, olhe o preco e julgue se esta perto do minimo historico.",
+        "So depois de passar por tudo isso, olhe o preco e julgue se esta perto do minimo registrado.",
       ],
     },
     {
@@ -121,7 +121,7 @@ export default {
     },
     {
       type: "p",
-      text: "Resumindo: o nivel de avaliacao e a parcela de polegares para cima virada em palavras, e para confiar nessa parcela voce precisa de analises suficientes. Quando as recentes e todas diferem ha uma historia, entao investigue, e o Metacritic so se equilibra quando voce olha a nota da critica e a dos usuarios juntas. E por mais barato que esteja, deixe passar com firmeza qualquer coisa com analises ruins. Filtre primeiro pelas analises se um jogo vale a pena, e depois use o minimo historico e o veredito Compro agora? do Lowstamp para escolher a hora, e voce vai escolher jogos baratos e sem arrependimentos.",
+      text: "Resumindo: o nivel de avaliacao e a parcela de polegares para cima virada em palavras, e para confiar nessa parcela voce precisa de analises suficientes. Quando as recentes e todas diferem ha uma historia, entao investigue, e o Metacritic so se equilibra quando voce olha a nota da critica e a dos usuarios juntas. E por mais barato que esteja, deixe passar com firmeza qualquer coisa com analises ruins. Filtre primeiro pelas analises se um jogo vale a pena, e depois use o minimo registrado e o veredito Compro agora? do Lowstamp para escolher a hora, e voce vai escolher jogos baratos e sem arrependimentos.",
     },
     {
       type: "quote",

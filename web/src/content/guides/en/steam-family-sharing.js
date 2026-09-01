@@ -67,7 +67,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "Some games can't be shared, or you both want to play at the same time so you each have to own a copy (like a multiplayer game you play together). In those cases you'll end up buying it anyway, and if you're going to buy, buying at the cheapest possible moment is the win. On Lowstamp you can compare that game's current price against its all-time low, check the 'Should I buy now?' verdict, and when it's near the all-time low have each person buy — so what you couldn't save through sharing you make back with the sale."
+      "text": "Some games can't be shared, or you both want to play at the same time so you each have to own a copy (like a multiplayer game you play together). In those cases you'll end up buying it anyway, and if you're going to buy, buying at the cheapest possible moment is the win. On Lowstamp you can compare that game's current price against its lowest tracked price, check the 'Should I buy now?' verdict, and when it's near the lowest tracked price have each person buy — so what you couldn't save through sharing you make back with the sale."
     },
     {
       "type": "quote",
@@ -75,7 +75,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "To sum up, Steam Family Sharing is a great way to save on games by 'buying a game once and sharing it with family and friends you trust.' Just go in knowing the limits — the same-game simultaneous-play restriction, and some games that can't be shared — and steer clear of the risky habit of swapping whole accounts. Save what you can through sharing, buy the games you each need to own at their all-time low, and the whole family gets to enjoy far more games for the same money."
+      "text": "To sum up, Steam Family Sharing is a great way to save on games by 'buying a game once and sharing it with family and friends you trust.' Just go in knowing the limits — the same-game simultaneous-play restriction, and some games that can't be shared — and steer clear of the risky habit of swapping whole accounts. Save what you can through sharing, buy the games you each need to own at their lowest tracked price, and the whole family gets to enjoy far more games for the same money."
     }
   ]
 };

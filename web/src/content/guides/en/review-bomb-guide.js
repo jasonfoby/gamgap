@@ -68,7 +68,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "To sum up: when a rating suddenly looks bad, split the Recent and All reviews, read a few of the low reviews, and check the review graph for a sharp valley — and you'll be able to tell real criticism from a review bomb that has nothing to do with the game. That way you won't miss a perfectly good game over some uproar that has nothing to do with whether it's fun. Read the reviews properly like this, then check the price against the all-time low on Lowstamp to see 'Should I buy now?' — and you can buy smart without getting swept up in the noise."
+      "text": "To sum up: when a rating suddenly looks bad, split the Recent and All reviews, read a few of the low reviews, and check the review graph for a sharp valley — and you'll be able to tell real criticism from a review bomb that has nothing to do with the game. That way you won't miss a perfectly good game over some uproar that has nothing to do with whether it's fun. Read the reviews properly like this, then check the price against the lowest tracked price on Lowstamp to see 'Should I buy now?' — and you can buy smart without getting swept up in the noise."
     }
   ]
 };

@@ -48,7 +48,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "If you hoard everything just because it's free, your library fills up with games you never touch. Even with free giveaways, taking a second to ask 'would I actually play this someday?' keeps your list clean down the road. And if a game you tried during a free weekend won you over, just check its all-time low on Lowstamp to see whether now's the time to buy before you pull the trigger. Try it for free to confirm it's your taste, then buy at the cheapest moment — that's the thriftiest order to do things in."
+      "text": "If you hoard everything just because it's free, your library fills up with games you never touch. Even with free giveaways, taking a second to ask 'would I actually play this someday?' keeps your list clean down the road. And if a game you tried during a free weekend won you over, just check its lowest tracked price on Lowstamp to see whether now's the time to buy before you pull the trigger. Try it for free to confirm it's your taste, then buy at the cheapest moment — that's the thriftiest order to do things in."
     },
     {
       "type": "quote",
@@ -56,7 +56,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "To sum up, there are three ways to grow your library without spending money. Limited-time 'free giveaways' are yours forever once you claim them, so always grab those; 'free weekends' are for trying a game you're unsure about for free; and 'free-to-play' games are there to enjoy while keeping your wallet safe. Make the most of these freebies, and only buy the games you truly want when they hit their all-time low — do that and you'll enjoy way more games for the same money."
+      "text": "To sum up, there are three ways to grow your library without spending money. Limited-time 'free giveaways' are yours forever once you claim them, so always grab those; 'free weekends' are for trying a game you're unsure about for free; and 'free-to-play' games are there to enjoy while keeping your wallet safe. Make the most of these freebies, and only buy the games you truly want when they hit their lowest tracked price — do that and you'll enjoy way more games for the same money."
     }
   ]
 };

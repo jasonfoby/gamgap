@@ -68,7 +68,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "Resumindo, quando a avaliação parecer ruim de repente, se você ① separar as notas recentes das gerais, ② ler o conteúdo de algumas avaliações negativas e ③ conferir o vale pontudo no gráfico de avaliações, dá para diferenciar uma crítica de verdade de um review bomb causado por motivos externos ao jogo. Aí você não deixa passar um jogo bom por causa de um barulho que nada tem a ver com a diversão. Lendo as avaliações direito e conferindo o preço no Lowstamp, comparando com o menor preço histórico para saber \"vale comprar agora?\", dá para comprar de forma esperta sem se deixar levar pelo boato."
+      "text": "Resumindo, quando a avaliação parecer ruim de repente, se você ① separar as notas recentes das gerais, ② ler o conteúdo de algumas avaliações negativas e ③ conferir o vale pontudo no gráfico de avaliações, dá para diferenciar uma crítica de verdade de um review bomb causado por motivos externos ao jogo. Aí você não deixa passar um jogo bom por causa de um barulho que nada tem a ver com a diversão. Lendo as avaliações direito e conferindo o preço no Lowstamp, comparando com o menor preço registrado para saber \"vale comprar agora?\", dá para comprar de forma esperta sem se deixar levar pelo boato."
     }
   ]
 };

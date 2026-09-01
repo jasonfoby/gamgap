@@ -1,14 +1,14 @@
 export default {
   "slug": "wishlist-alerts",
   "title": "Como tirar 200% de proveito da lista de desejos e dos alertas de preço da Steam",
-  "description": "Da organização da lista de desejos da Steam à configuração de alertas de promoção e lançamento, combinando o monitoramento da menor cotação histórica com os avisos para reduzir as compras por impulso e comprar de verdade só na hora certa: reunimos tudo em um guia prático.",
+  "description": "Da organização da lista de desejos da Steam à configuração de alertas de promoção e lançamento, combinando o monitoramento da menor cotação registrada com os avisos para reduzir as compras por impulso e comprar de verdade só na hora certa: reunimos tudo em um guia prático.",
   "date": "2026-06-18",
   "tags": ["Steam", "lista de desejos", "alerta de preço", "promoção"],
   "readMins": 6,
   "body": [
     {
       "type": "p",
-      "text": "Aquele jogo que você adicionou ao carrinho e acabou esquecendo, ou a promoção que chegou mas você perdeu porque o aviso nunca veio: todo mundo já passou por isso pelo menos uma vez. A lista de desejos da Steam não é só uma simples lista de 'jogos que eu quero'. Bem usada, ela avisa sozinha sobre promoções e lançamentos e ainda te protege da compra por impulso. Neste texto reunimos, em ordem, como organizar a lista, como receber todos os avisos sem perder nenhum e como usar o Lowstamp para monitorar a menor cotação histórica e comprar de verdade só 'na hora certa'."
+      "text": "Aquele jogo que você adicionou ao carrinho e acabou esquecendo, ou a promoção que chegou mas você perdeu porque o aviso nunca veio: todo mundo já passou por isso pelo menos uma vez. A lista de desejos da Steam não é só uma simples lista de 'jogos que eu quero'. Bem usada, ela avisa sozinha sobre promoções e lançamentos e ainda te protege da compra por impulso. Neste texto reunimos, em ordem, como organizar a lista, como receber todos os avisos sem perder nenhum e como usar o Lowstamp para monitorar a menor cotação registrada e comprar de verdade só 'na hora certa'."
     },
     {
       "type": "h2",
@@ -40,22 +40,22 @@ export default {
     },
     {
       "type": "p",
-      "text": "Mas o aviso da Steam tem um ponto fraco. Ele só informa que 'a promoção começou', sem dizer se aquele preço é o mais baixo de todos os tempos ou apenas um desconto banal de 20%. Como o aviso chega mesmo com só -20%, fica impossível distinguir da promoção sazonal de -70% que você realmente estava esperando. Por isso, receba o aviso apenas como um 'sinal' e faça a avaliação do preço por fora."
+      "text": "Mas o aviso da Steam tem um ponto fraco. Ele só informa que 'a promoção começou', sem dizer se aquele preço é o menor que já registramos ou apenas um desconto banal de 20%. Como o aviso chega mesmo com só -20%, fica impossível distinguir da promoção sazonal de -70% que você realmente estava esperando. Por isso, receba o aviso apenas como um 'sinal' e faça a avaliação do preço por fora."
     },
     {
       "type": "h2",
-      "text": "3. Combinar o monitoramento da menor cotação histórica com os alertas"
+      "text": "3. Combinar o monitoramento da menor cotação registrada com os alertas"
     },
     {
       "type": "p",
-      "text": "É aqui que entra o Lowstamp. Quando o aviso da Steam traz o sinal de 'promoção iniciada', a recomendação é seguir este fluxo: pesquise o jogo no Lowstamp e veja na hora o quão perto o preço atual está da menor cotação histórica. O Lowstamp mostra a menor cotação histórica de cada jogo e a data em que isso aconteceu, e, comparando com o preço atual, dá o veredito 'pode comprar agora?' como um carimbo de recibo. Por exemplo, um jogo de preço cheio 66.000 won que apareceu por 19.800 won (-70%), com menor cotação histórica de 16.500 won: comprar só olhando o aviso e decidir 'está 3.300 won acima do recorde, será que espero mais um pouco?' são decisões completamente diferentes."
+      "text": "É aqui que entra o Lowstamp. Quando o aviso da Steam traz o sinal de 'promoção iniciada', a recomendação é seguir este fluxo: pesquise o jogo no Lowstamp e veja na hora o quão perto o preço atual está da menor cotação registrada. O Lowstamp mostra a menor cotação registrada de cada jogo e a data em que isso aconteceu, e, comparando com o preço atual, dá o veredito 'pode comprar agora?' como um carimbo de recibo. Por exemplo, um jogo de preço cheio 66.000 won que apareceu por 19.800 won (-70%), com menor cotação registrada de 16.500 won: comprar só olhando o aviso e decidir 'está 3.300 won acima desse mínimo, será que espero mais um pouco?' são decisões completamente diferentes."
     },
     {
       "type": "ol",
       "items": [
         "Receba o aviso de promoção da lista de desejos na Steam.",
-        "Pesquise o jogo no Lowstamp e veja o preço atual, a menor cotação histórica e o veredito 'pode comprar agora?'.",
-        "Se estiver quase igual ou mais barato que a menor cotação histórica, compre. Se a diferença for grande, mire na próxima promoção sazonal."
+        "Pesquise o jogo no Lowstamp e veja o preço atual, a menor cotação registrada e o veredito 'pode comprar agora?'.",
+        "Se estiver quase igual ou mais barato que a menor cotação registrada, compre. Se a diferença for grande, mire na próxima promoção sazonal."
       ]
     },
     {
@@ -72,7 +72,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "A forma mais realista de reduzir a compra por impulso é estabelecer para si mesmo a regra de 'não comprar na hora, mas primeiro guardar na lista de desejos'. Guardando, o aviso chega na próxima promoção, então não há risco de perder, e, nesse meio-tempo, o desejo esfria e você consegue julgar se é mesmo um jogo que você quer jogar. Se, passados alguns dias, você ainda continuar pensando nele, aí sim confira a menor cotação histórica e compre. Por outro lado, se você simplesmente esqueceu, então era um jogo que não precisava comprar."
+      "text": "A forma mais realista de reduzir a compra por impulso é estabelecer para si mesmo a regra de 'não comprar na hora, mas primeiro guardar na lista de desejos'. Guardando, o aviso chega na próxima promoção, então não há risco de perder, e, nesse meio-tempo, o desejo esfria e você consegue julgar se é mesmo um jogo que você quer jogar. Se, passados alguns dias, você ainda continuar pensando nele, aí sim confira a menor cotação registrada e compre. Por outro lado, se você simplesmente esqueceu, então era um jogo que não precisava comprar."
     },
     {
       "type": "quote",
@@ -88,7 +88,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "No fim, o essencial são três coisas: organizar a lista de desejos num tamanho ao qual você consegue reagir, receber todos os sinais de promoção e lançamento pelos avisos da Steam e, sempre que esse sinal chegar, conferir no Lowstamp a menor cotação histórica e a evolução do preço para julgar 'se agora é mesmo a hora de comprar'. Basta incorporar essa rotina e, em vez de ser arrastado pelos avisos numa compra por impulso, você passa naturalmente a comprar o jogo que realmente queria no momento mais barato."
+      "text": "No fim, o essencial são três coisas: organizar a lista de desejos num tamanho ao qual você consegue reagir, receber todos os sinais de promoção e lançamento pelos avisos da Steam e, sempre que esse sinal chegar, conferir no Lowstamp a menor cotação registrada e a evolução do preço para julgar 'se agora é mesmo a hora de comprar'. Basta incorporar essa rotina e, em vez de ser arrastado pelos avisos numa compra por impulso, você passa naturalmente a comprar o jogo que realmente queria no momento mais barato."
     }
   ]
 };

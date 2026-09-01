@@ -45,19 +45,19 @@ export default {
     },
     {
       "type": "h2",
-      "text": "La clave no es la fecha, sino el precio histórico más bajo"
+      "text": "La clave no es la fecha, sino el precio más bajo registrado"
     },
     {
       "type": "p",
-      "text": "Hay algo mucho más importante que memorizar las fechas de las rebajas: el precio histórico más bajo de ese juego. Que sea rebaja de temporada no significa que todos los juegos lleguen a su precio más bajo de la historia. Hay juegos que en las rebajas de verano aparecen con un 70% de descuento y aun así salen más caros que el 75% que marcaron el invierno pasado. Y al revés: un descuento semanal fuera de temporada que parece de lo más común a veces resulta ser el precio más barato en la historia de ese juego."
+      "text": "Hay algo mucho más importante que memorizar las fechas de las rebajas: el precio más bajo registrado de ese juego. Que sea rebaja de temporada no significa que todos los juegos lleguen a su precio más bajo registrado. Hay juegos que en las rebajas de verano aparecen con un 70% de descuento y aun así salen más caros que el 75% que marcaron el invierno pasado. Y al revés: un descuento semanal fuera de temporada que parece de lo más común a veces resulta ser el precio más barato que le hemos registrado a ese juego."
     },
     {
       "type": "p",
-      "text": "Por eso, si pulsas el botón de pago solo porque ves la insignia roja de \"en oferta ahora\", puedes salir perdiendo. Lo que hay que mirar es qué tan cerca está el precio actual del precio histórico más bajo. Si el precio actual es igual o casi igual al mínimo histórico, este es un buen momento; si está notablemente por encima de ese mínimo, ya tienes una razón para esperar a la próxima oferta."
+      "text": "Por eso, si pulsas el botón de pago solo porque ves la insignia roja de \"en oferta ahora\", puedes salir perdiendo. Lo que hay que mirar es qué tan cerca está el precio actual del precio más bajo registrado. Si el precio actual es igual o casi igual al mínimo registrado, este es un buen momento; si está notablemente por encima de ese mínimo, ya tienes una razón para esperar a la próxima oferta."
     },
     {
       "type": "quote",
-      "text": "No hay que mirar el porcentaje de descuento, sino la distancia hasta el precio histórico más bajo."
+      "text": "No hay que mirar el porcentaje de descuento, sino la distancia hasta el precio más bajo registrado."
     },
     {
       "type": "h2",
@@ -65,20 +65,20 @@ export default {
     },
     {
       "type": "p",
-      "text": "En resumen, el orden para decidir es este. Primero, revisa el precio histórico más bajo del juego y compáralo con el precio actual. Si son casi iguales, no hay motivo para dudar. Si la diferencia es grande, calcula cuánto falta para la próxima rebaja de temporada. Si hay una gran oferta prevista en una o dos semanas, lo razonable es aguantar un poco; pero si la próxima rebaja es dentro de varios meses, tienes que meter en la cuenta el costo de oportunidad de \"todo ese tiempo en que podrías estar disfrutando el juego\". Esperar tres meses para ahorrar 5.000 wones no siempre sale a cuenta."
+      "text": "En resumen, el orden para decidir es este. Primero, revisa el precio más bajo registrado del juego y compáralo con el precio actual. Si son casi iguales, no hay motivo para dudar. Si la diferencia es grande, calcula cuánto falta para la próxima rebaja de temporada. Si hay una gran oferta prevista en una o dos semanas, lo razonable es aguantar un poco; pero si la próxima rebaja es dentro de varios meses, tienes que meter en la cuenta el costo de oportunidad de \"todo ese tiempo en que podrías estar disfrutando el juego\". Esperar tres meses para ahorrar 5.000 wones no siempre sale a cuenta."
     },
     {
       "type": "ol",
       "items": [
-        "Revisa el precio histórico más bajo y compáralo con el precio actual.",
-        "Si el precio actual está pegado al mínimo histórico, cómpralo ahora.",
+        "Revisa el precio más bajo registrado y compáralo con el precio actual.",
+        "Si el precio actual está pegado al mínimo registrado, cómpralo ahora.",
         "Si la diferencia es grande, calcula cuánto falta para la próxima rebaja de temporada.",
         "Cuenta también como costo el \"tiempo\" que no podrás jugar mientras esperas."
       ]
     },
     {
       "type": "p",
-      "text": "Lo clave de Lowstamp es que toma esta decisión por ti. Te muestra el precio histórico más bajo de cada juego junto con la fecha en que se registró, y lo compara con el precio actual para decirte de un vistazo \"¿se puede comprar ahora?\", como un sello sobre el recibo. Si guardas en favoritos los juegos que te interesan, después es fácil volver a revisarlos cuando el precio mejore, y en la pestaña de descuentos puedes echar un vistazo de una sola pasada a todos los juegos que están en oferta ahora mismo."
+      "text": "Lo clave de Lowstamp es que toma esta decisión por ti. Te muestra el precio más bajo registrado de cada juego junto con la fecha en que se registró, y lo compara con el precio actual para decirte de un vistazo \"¿se puede comprar ahora?\", como un sello sobre el recibo. Si guardas en favoritos los juegos que te interesan, después es fácil volver a revisarlos cuando el precio mejore, y en la pestaña de descuentos puedes echar un vistazo de una sola pasada a todos los juegos que están en oferta ahora mismo."
     },
     {
       "type": "note",
@@ -86,7 +86,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "Al final, no hace falta memorizar todo el calendario de rebajas. Basta con recordar que llegan unas cuatro grandes ofertas al año y, a la hora de comprar, fijarte solo en la distancia entre el precio histórico más bajo y el precio actual. Ese único hábito es lo que más seguro reduce el arrepentimiento de \"lo compré caro al pedo\"."
+      "text": "Al final, no hace falta memorizar todo el calendario de rebajas. Basta con recordar que llegan unas cuatro grandes ofertas al año y, a la hora de comprar, fijarte solo en la distancia entre el precio más bajo registrado y el precio actual. Ese único hábito es lo que más seguro reduce el arrepentimiento de \"lo compré caro al pedo\"."
     }
   ]
 };

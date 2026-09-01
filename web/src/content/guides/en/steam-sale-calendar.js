@@ -45,19 +45,19 @@ export default {
     },
     {
       "type": "h2",
-      "text": "What matters isn't the date, it's the all-time low"
+      "text": "What matters isn't the date, it's the lowest tracked price"
     },
     {
       "type": "p",
-      "text": "There's one thing far more important than memorizing sale dates: a game's all-time low price. A seasonal sale doesn't mean every game drops to a record low. Some games show 70% off during the summer sale yet still cost more than the 75% they hit last winter. Conversely, an ordinary-looking off-season weekly discount can actually be the cheapest that game has ever been."
+      "text": "There's one thing far more important than memorizing sale dates: a game's lowest tracked price. A seasonal sale doesn't mean every game drops to a new tracked low. Some games show 70% off during the summer sale yet still cost more than the 75% they hit last winter. Conversely, an ordinary-looking off-season weekly discount can actually be the cheapest we've recorded for that game."
     },
     {
       "type": "p",
-      "text": "That's why hitting the checkout button just because you see the red \"on sale now\" badge can cost you. What you want to look at is how close the current price is to the all-time low. If the current price matches or is nearly touching the all-time low, now is a good time. If it's noticeably higher than the record low, you've got a good reason to wait for the next sale."
+      "text": "That's why hitting the checkout button just because you see the red \"on sale now\" badge can cost you. What you want to look at is how close the current price is to the lowest tracked price. If the current price matches or is nearly touching the lowest tracked price, now is a good time. If it's noticeably higher than the recorded low, you've got a good reason to wait for the next sale."
     },
     {
       "type": "quote",
-      "text": "Don't watch the discount percentage. Watch the distance to the all-time low."
+      "text": "Don't watch the discount percentage. Watch the distance to the lowest tracked price."
     },
     {
       "type": "h2",
@@ -65,20 +65,20 @@ export default {
     },
     {
       "type": "p",
-      "text": "To sum it up, here's the order to think it through. First, check the game's all-time low and compare it to the current price. If they're nearly the same, there's no reason to hesitate. If the gap is big, gauge how long until the next seasonal sale. If a major sale is due within a week or two, holding off briefly is reasonable; if the next sale is months away, you also have to factor in the opportunity cost of \"the time you could be enjoying the game in the meantime.\" Waiting three months to save another 5,000 won isn't always a win."
+      "text": "To sum it up, here's the order to think it through. First, check the game's lowest tracked price and compare it to the current price. If they're nearly the same, there's no reason to hesitate. If the gap is big, gauge how long until the next seasonal sale. If a major sale is due within a week or two, holding off briefly is reasonable; if the next sale is months away, you also have to factor in the opportunity cost of \"the time you could be enjoying the game in the meantime.\" Waiting three months to save another 5,000 won isn't always a win."
     },
     {
       "type": "ol",
       "items": [
-        "Check the all-time low and compare it to the current price.",
-        "If the current price is right up against the all-time low, buy now.",
+        "Check the lowest tracked price and compare it to the current price.",
+        "If the current price is right up against the lowest tracked price, buy now.",
         "If the gap is big, gauge how long until the next seasonal sale.",
         "Count the 'time' you can't play while waiting as a cost too."
       ]
     },
     {
       "type": "p",
-      "text": "Making that decision for you is exactly what Lowstamp is for. It shows each game's all-time low alongside the date that low was set, compares it to the current price, and stamps a clear \"Should you buy now?\" verdict on it like a receipt stamp. Star the games you have your eye on and they're easy to recheck later when the price improves, and the deals tab lets you scan everything that's discounted right now in one go."
+      "text": "Making that decision for you is exactly what Lowstamp is for. It shows each game's lowest tracked price alongside the date that low was set, compares it to the current price, and stamps a clear \"Should you buy now?\" verdict on it like a receipt stamp. Star the games you have your eye on and they're easy to recheck later when the price improves, and the deals tab lets you scan everything that's discounted right now in one go."
     },
     {
       "type": "note",
@@ -86,7 +86,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "In the end, there's no need to memorize the whole sale calendar. Just remember that a big sale comes around roughly four times a year, and when it's actually time to buy, all you need to check is the distance between the all-time low and the current price. That single habit is the surest way to cut down on the regret of \"I overpaid for no reason.\""
+      "text": "In the end, there's no need to memorize the whole sale calendar. Just remember that a big sale comes around roughly four times a year, and when it's actually time to buy, all you need to check is the distance between the lowest tracked price and the current price. That single habit is the surest way to cut down on the regret of \"I overpaid for no reason.\""
     }
   ]
 };

@@ -72,7 +72,7 @@ export default {
     },
     {
       type: "p",
-      text: "En resumen, cuando de repente veas una valoración mala, si ① separas las reseñas recientes de las generales, ② lees el contenido de unas cuantas negativas y ③ compruebas si hay un valle puntiagudo en la gráfica, podrás distinguir si es una crítica de verdad o un review bomb por motivos ajenos al juego. Así no dejarás escapar un buen juego por un revuelo que no tiene nada que ver con lo divertido que es. Y si además de leer bien las valoraciones compruebas el precio en Lowstamp, comparándolo con el mínimo histórico para ver si \"¿lo compro ahora?\", podrás comprar de forma inteligente sin dejarte llevar por los rumores.",
+      text: "En resumen, cuando de repente veas una valoración mala, si ① separas las reseñas recientes de las generales, ② lees el contenido de unas cuantas negativas y ③ compruebas si hay un valle puntiagudo en la gráfica, podrás distinguir si es una crítica de verdad o un review bomb por motivos ajenos al juego. Así no dejarás escapar un buen juego por un revuelo que no tiene nada que ver con lo divertido que es. Y si además de leer bien las valoraciones compruebas el precio en Lowstamp, comparándolo con el mínimo registrado para ver si \"¿lo compro ahora?\", podrás comprar de forma inteligente sin dejarte llevar por los rumores.",
     },
   ],
 };

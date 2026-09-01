@@ -54,7 +54,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "Y otra cosa: pasa que comprás un juego con un buen descuento antes del lanzamiento y, apenas sale, queda todavía más barato. En esos casos hay quien intenta reembolsar y volver a comprar para quedarse con la diferencia, pero es mucho más tranquilo verificar de entrada si de verdad es buen momento para comprar. Si en Lowstamp mirás el precio mínimo histórico de ese juego y su veredicto de \"¿conviene comprar ahora?\", directamente vas a tener menos motivos para andar pensando en reembolsos."
+      "text": "Y otra cosa: pasa que comprás un juego con un buen descuento antes del lanzamiento y, apenas sale, queda todavía más barato. En esos casos hay quien intenta reembolsar y volver a comprar para quedarse con la diferencia, pero es mucho más tranquilo verificar de entrada si de verdad es buen momento para comprar. Si en Lowstamp mirás el precio mínimo registrado de ese juego y su veredicto de \"¿conviene comprar ahora?\", directamente vas a tener menos motivos para andar pensando en reembolsos."
     },
     {
       "type": "h2",
@@ -97,11 +97,11 @@ export default {
     },
     {
       "type": "p",
-      "text": "Por más generosa que sea la política de reembolsos, lo ideal es comprar desde el principio a un precio del que no te vayas a arrepentir. Si hay un juego que te interesa, antes de pagar por impulso tomate el hábito de echarle un vistazo a la evolución de su precio. Calcular si el precio actual está cerca del mínimo histórico, o si se viene una oferta más grande, reduce de raíz la molestia de \"comprar y después reembolsar\". Usando juntas la pestaña de descuentos y la función de favoritos de Lowstamp, no se te va a escapar el momento en que el juego que querés baje de verdad. Y si igual lo comprás y resulta que no era para vos, alcanza con tener presente esa regla de las 2 horas y los 14 días."
+      "text": "Por más generosa que sea la política de reembolsos, lo ideal es comprar desde el principio a un precio del que no te vayas a arrepentir. Si hay un juego que te interesa, antes de pagar por impulso tomate el hábito de echarle un vistazo a la evolución de su precio. Calcular si el precio actual está cerca del mínimo registrado, o si se viene una oferta más grande, reduce de raíz la molestia de \"comprar y después reembolsar\". Usando juntas la pestaña de descuentos y la función de favoritos de Lowstamp, no se te va a escapar el momento en que el juego que querés baje de verdad. Y si igual lo comprás y resulta que no era para vos, alcanza con tener presente esa regla de las 2 horas y los 14 días."
     },
     {
       "type": "quote",
-      "text": "Antes de pagar, acordate del precio mínimo histórico; si después cambiás de opinión, acordate de las 2 horas y los 14 días."
+      "text": "Antes de pagar, acordate del precio mínimo registrado; si después cambiás de opinión, acordate de las 2 horas y los 14 días."
     }
   ]
 };

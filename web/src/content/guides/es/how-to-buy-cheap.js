@@ -1,9 +1,9 @@
 export default {
   "slug": "how-to-buy-cheap",
   "title": "7 formas de comprar juegos de Steam más baratos",
-  "description": "7 trucos prácticos para comprar juegos de Steam baratos: revisar el precio histórico más bajo, las alertas de la lista de deseos, el momento ideal de las rebajas, los paquetes, los precios regionales y cómo detectar descuentos falsos.",
+  "description": "7 trucos prácticos para comprar juegos de Steam baratos: revisar el precio más bajo registrado, las alertas de la lista de deseos, el momento ideal de las rebajas, los paquetes, los precios regionales y cómo detectar descuentos falsos.",
   "date": "2026-06-18",
-  "tags": ["rebajas de Steam", "precio histórico más bajo", "trucos de ahorro", "ofertas"],
+  "tags": ["rebajas de Steam", "precio mínimo", "trucos de ahorro", "ofertas"],
   "readMins": 6,
   "body": [
     {
@@ -12,15 +12,15 @@ export default {
     },
     {
       "type": "h2",
-      "text": "1. Fíjate en el precio histórico más bajo, no en el porcentaje de descuento"
+      "text": "1. Fíjate en el precio más bajo registrado, no en el porcentaje de descuento"
     },
     {
       "type": "p",
-      "text": "El primer hábito que conviene desarrollar es guiarte no por el porcentaje de descuento (ese número tipo -70%), sino por el precio más bajo al que el juego ha llegado hasta ahora, es decir, su precio histórico más bajo. El porcentaje se calcula sobre el precio normal que muestra Steam, así que puede estar inflado; en cambio, el precio histórico más bajo es el registro de que el juego realmente se vendió a ese valor, por lo que es una referencia mucho más honesta."
+      "text": "El primer hábito que conviene desarrollar es guiarte no por el porcentaje de descuento (ese número tipo -70%), sino por el precio más bajo al que le hemos visto llegar hasta ahora, es decir, su precio más bajo registrado. El porcentaje se calcula sobre el precio normal que muestra Steam, así que puede estar inflado; en cambio, el precio más bajo registrado deja constancia de que el juego realmente se vendió a ese valor, por lo que es una referencia mucho más honesta."
     },
     {
       "type": "p",
-      "text": "Por ejemplo, supón que un juego con precio normal de 66.000 wones está ahora con un 70% de descuento a 19.800 wones. Si solo miras los números, parece bastante barato; pero si el precio histórico más bajo de ese juego fue de 16.500 wones, en realidad ahora está 3.300 wones más caro que su mínimo. En Lowstamp mostramos, para cada juego, el precio histórico más bajo junto con la fecha en que se registró, y resumimos qué tan cerca está el precio actual de ese mínimo con el veredicto \"¿Compro ahora?\". Con solo revisar esa línea, decides mucho más rápido."
+      "text": "Por ejemplo, supón que un juego con precio normal de 66.000 wones está ahora con un 70% de descuento a 19.800 wones. Si solo miras los números, parece bastante barato; pero si el precio más bajo registrado de ese juego fue de 16.500 wones, en realidad ahora está 3.300 wones más caro que su mínimo. En Lowstamp mostramos, para cada juego, el precio más bajo registrado junto con la fecha en que se registró, y resumimos qué tan cerca está el precio actual de ese mínimo con el veredicto \"¿Compro ahora?\". Con solo revisar esa línea, decides mucho más rápido."
     },
     {
       "type": "h2",
@@ -32,7 +32,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "En Lowstamp también puedes marcar como favoritos los juegos que te gustan y, en esa lista, comparar de un vistazo el precio actual con el precio histórico más bajo. Lo más eficiente es usar ambas herramientas juntas: recibes de Steam el aviso de \"inicio de descuento\" y, en Lowstamp, confirmas si esa oferta vale la pena frente al precio histórico más bajo."
+      "text": "En Lowstamp también puedes marcar como favoritos los juegos que te gustan y, en esa lista, comparar de un vistazo el precio actual con el precio más bajo registrado. Lo más eficiente es usar ambas herramientas juntas: recibes de Steam el aviso de \"inicio de descuento\" y, en Lowstamp, confirmas si esa oferta vale la pena frente al precio más bajo registrado."
     },
     {
       "type": "h2",
@@ -53,11 +53,11 @@ export default {
     },
     {
       "type": "p",
-      "text": "En las grandes rebajas muchos juegos bajan más de lo habitual, y es frecuente que marquen un nuevo precio histórico más bajo justo en esas fechas. Si un juego no te corre prisa, muchas veces basta con esperar a la siguiente temporada de rebajas para conseguir el mismo título más barato."
+      "text": "En las grandes rebajas muchos juegos bajan más de lo habitual, y es frecuente que marquen un nuevo precio más bajo registrado justo en esas fechas. Si un juego no te corre prisa, muchas veces basta con esperar a la siguiente temporada de rebajas para conseguir el mismo título más barato."
     },
     {
       "type": "note",
-      "text": "Atención: que sean grandes rebajas no significa que todos los juegos bajen más. En muchos títulos populares el porcentaje de descuento queda fijo igual, ya sea en una rebaja de temporada o en una oferta semanal cualquiera. No vale el \"como hay rebajas, seguro está barato\": lo importante es mantener el hábito de comparar también en esos momentos con el precio histórico más bajo."
+      "text": "Atención: que sean grandes rebajas no significa que todos los juegos bajen más. En muchos títulos populares el porcentaje de descuento queda fijo igual, ya sea en una rebaja de temporada o en una oferta semanal cualquiera. No vale el \"como hay rebajas, seguro está barato\": lo importante es mantener el hábito de comparar también en esos momentos con el precio más bajo registrado."
     },
     {
       "type": "h2",
@@ -81,7 +81,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "En cambio, es mucho más seguro y práctico saber hasta cuánto ha bajado el juego históricamente en wones. Lowstamp rastrea directamente los precios en wones de la tienda coreana de Steam, así que puedes ver al instante en qué posición está el precio actual en wones respecto al precio histórico más bajo."
+      "text": "En cambio, es mucho más seguro y práctico saber hasta cuánto lo hemos visto bajar en wones. Lowstamp rastrea directamente los precios en wones de la tienda coreana de Steam, así que puedes ver al instante en qué posición está el precio actual en wones respecto al precio más bajo registrado."
     },
     {
       "type": "h2",
@@ -94,7 +94,7 @@ export default {
     {
       "type": "ol",
       "items": [
-        "Precio normal inflado: el precio normal está fijado alto a propósito para que el porcentaje de descuento parezca enorme. Comparándolo con el precio histórico más bajo, se nota enseguida.",
+        "Precio normal inflado: el precio normal está fijado alto a propósito para que el porcentaje de descuento parezca enorme. Comparándolo con el precio más bajo registrado, se nota enseguida.",
         "El mismo descuento de siempre: aunque se vea como una \"oferta especial\", muchas veces el precio es idéntico al de la rebaja anterior. Mirando el historial de precios sabes si es un nuevo mínimo o no.",
         "El primer descuento de un lanzamiento: el primer descuento tras el estreno suele ser pequeño. Si no tienes prisa, vale la pena esperar una o dos rebajas más profundas."
       ]
@@ -121,7 +121,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "En resumen, la clave es \"no dejarte llevar por el porcentaje de descuento y decidir tomando como referencia el precio histórico más bajo\". Agrega los juegos que te interesan a la lista de deseos y espera la alerta, apunta a las grandes temporadas de rebajas, revisa los paquetes y el historial de precios, evita caminos riesgosos como las compras por vías alternativas y deja el sistema de reembolso como red de seguridad. Con solo adoptar estos hábitos, comprar caro por impulso disminuye de forma notable. Como última verificación antes de comprar, prueba revisar en Lowstamp el precio histórico más bajo y el veredicto \"¿Compro ahora?\"."
+      "text": "En resumen, la clave es \"no dejarte llevar por el porcentaje de descuento y decidir tomando como referencia el precio más bajo registrado\". Agrega los juegos que te interesan a la lista de deseos y espera la alerta, apunta a las grandes temporadas de rebajas, revisa los paquetes y el historial de precios, evita caminos riesgosos como las compras por vías alternativas y deja el sistema de reembolso como red de seguridad. Con solo adoptar estos hábitos, comprar caro por impulso disminuye de forma notable. Como última verificación antes de comprar, prueba revisar en Lowstamp el precio más bajo registrado y el veredicto \"¿Compro ahora?\"."
     },
     {
       "type": "quote",

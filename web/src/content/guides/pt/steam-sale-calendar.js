@@ -45,19 +45,19 @@ export default {
     },
     {
       "type": "h2",
-      "text": "O que importa não é a data, é o 'menor preço histórico'"
+      "text": "O que importa não é a data, é o 'menor preço registrado'"
     },
     {
       "type": "p",
-      "text": "Há algo muito mais importante do que decorar as datas das promoções: o menor preço histórico daquele jogo. Não é porque é promoção sazonal que todos os jogos ficam mais baratos do que nunca. Tem jogo que aparece com 70% de desconto na promoção de verão e, mesmo assim, fica mais caro do que os 75% que ele marcou no inverno passado. E, ao contrário, um desconto semanal fora de temporada que parece banal pode, na verdade, ser o menor preço da história daquele jogo."
+      "text": "Há algo muito mais importante do que decorar as datas das promoções: o menor preço registrado daquele jogo. Não é porque é promoção sazonal que todos os jogos batem o menor preço que já registramos. Tem jogo que aparece com 70% de desconto na promoção de verão e, mesmo assim, fica mais caro do que os 75% que ele marcou no inverno passado. E, ao contrário, um desconto semanal fora de temporada que parece banal pode, na verdade, ser o menor preço que já registramos para aquele jogo."
     },
     {
       "type": "p",
-      "text": "Por isso, apertar o botão de comprar só porque viu o selo vermelho de \"em promoção\" pode sair pela culatra. O que você precisa olhar é o quão perto o preço atual está do menor preço histórico. Se o preço atual estiver igual ou praticamente colado no menor preço histórico, é uma boa hora; se estiver visivelmente mais caro que o menor histórico, você tem motivo para esperar a próxima promoção."
+      "text": "Por isso, apertar o botão de comprar só porque viu o selo vermelho de \"em promoção\" pode sair pela culatra. O que você precisa olhar é o quão perto o preço atual está do menor preço registrado. Se o preço atual estiver igual ou praticamente colado no menor preço registrado, é uma boa hora; se estiver visivelmente mais caro que o menor preço registrado, você tem motivo para esperar a próxima promoção."
     },
     {
       "type": "quote",
-      "text": "Não olhe a porcentagem de desconto, olhe a distância até o menor preço histórico."
+      "text": "Não olhe a porcentagem de desconto, olhe a distância até o menor preço registrado."
     },
     {
       "type": "h2",
@@ -65,20 +65,20 @@ export default {
     },
     {
       "type": "p",
-      "text": "Resumindo, a ordem da decisão é esta. Primeiro, confira o menor preço histórico do jogo e compare com o preço atual. Se estiverem quase iguais, não há por que hesitar. Se a diferença for grande, estime quanto falta para a próxima promoção sazonal. Se houver uma grande promoção prevista para uma ou duas semanas, segurar um pouco é razoável; se a próxima promoção só vem daqui a alguns meses, você precisa incluir na conta o custo de oportunidade do \"tempo que poderia estar curtindo o jogo nesse meio-tempo\". Nem sempre vale esperar três meses para economizar 5 mil wons a mais."
+      "text": "Resumindo, a ordem da decisão é esta. Primeiro, confira o menor preço registrado do jogo e compare com o preço atual. Se estiverem quase iguais, não há por que hesitar. Se a diferença for grande, estime quanto falta para a próxima promoção sazonal. Se houver uma grande promoção prevista para uma ou duas semanas, segurar um pouco é razoável; se a próxima promoção só vem daqui a alguns meses, você precisa incluir na conta o custo de oportunidade do \"tempo que poderia estar curtindo o jogo nesse meio-tempo\". Nem sempre vale esperar três meses para economizar 5 mil wons a mais."
     },
     {
       "type": "ol",
       "items": [
-        "Confira o menor preço histórico e compare com o preço atual.",
-        "Se o preço atual estiver colado no menor preço histórico, compre agora.",
+        "Confira o menor preço registrado e compare com o preço atual.",
+        "Se o preço atual estiver colado no menor preço registrado, compre agora.",
         "Se a diferença for grande, estime quanto falta para a próxima promoção sazonal.",
         "Conte como custo também o 'tempo' que você deixa de jogar enquanto espera."
       ]
     },
     {
       "type": "p",
-      "text": "O ponto central do Lowstamp é tomar essa decisão por você. Ele mostra o menor preço histórico de cada jogo junto com a data em que esse recorde foi marcado e, comparando com o preço atual, carimba na hora um \"pode comprar agora?\" como um selo de cupom fiscal. Marcar os jogos que você está de olho facilita conferir de novo mais tarde, quando o preço melhorar, e na aba de descontos dá para passar os olhos de uma vez por todos os jogos que estão em promoção agora."
+      "text": "O ponto central do Lowstamp é tomar essa decisão por você. Ele mostra o menor preço registrado de cada jogo junto com a data em que esse menor preço foi registrado e, comparando com o preço atual, carimba na hora um \"pode comprar agora?\" como um selo de cupom fiscal. Marcar os jogos que você está de olho facilita conferir de novo mais tarde, quando o preço melhorar, e na aba de descontos dá para passar os olhos de uma vez por todos os jogos que estão em promoção agora."
     },
     {
       "type": "note",
@@ -86,7 +86,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "No fim das contas, não é preciso decorar o calendário de promoções inteiro. Basta lembrar que as grandes promoções vêm cerca de quatro vezes por ano e, na hora de comprar, conferir apenas a distância entre o menor preço histórico e o preço atual. Esse único hábito é o que mais reduz, com certeza, o arrependimento de ter \"comprado caro à toa\"."
+      "text": "No fim das contas, não é preciso decorar o calendário de promoções inteiro. Basta lembrar que as grandes promoções vêm cerca de quatro vezes por ano e, na hora de comprar, conferir apenas a distância entre o menor preço registrado e o preço atual. Esse único hábito é o que mais reduz, com certeza, o arrependimento de ter \"comprado caro à toa\"."
     }
   ]
 };

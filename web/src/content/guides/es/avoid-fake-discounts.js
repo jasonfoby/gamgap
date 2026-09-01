@@ -1,9 +1,9 @@
 export default {
   "slug": "avoid-fake-discounts",
   "title": "Cómo evitar los \"descuentos falsos\" en las rebajas de Steam",
-  "description": "Que un juego diga -80% no significa que esté realmente barato. Aquí te explicamos cómo detectar precios inflados, descuentos permanentes y porcentajes engañosos, y cómo compararlos con el mínimo histórico para saber si de verdad vale la pena.",
+  "description": "Que un juego diga -80% no significa que esté realmente barato. Aquí te explicamos cómo detectar precios inflados, descuentos permanentes y porcentajes engañosos, y cómo compararlos con el mínimo registrado para saber si de verdad vale la pena.",
   "date": "2026-06-18",
-  "tags": ["rebajas de Steam", "mínimo histórico", "detectar descuentos", "consejos de compra"],
+  "tags": ["rebajas de Steam", "precio mínimo", "detectar descuentos", "consejos de compra"],
   "readMins": 6,
   "body": [
     {
@@ -36,24 +36,24 @@ export default {
     },
     {
       "type": "h2",
-      "text": "La referencia es el \"mínimo histórico\": la línea que decide si está barato de verdad"
+      "text": "La referencia es el \"mínimo registrado\": la línea que decide si está barato de verdad"
     },
     {
       "type": "p",
-      "text": "El criterio más simple para descartar los descuentos falsos de un solo vistazo es el mínimo histórico. Basta con ver qué tan cerca está el precio actual del precio más bajo que ese juego ha alcanzado alguna vez. Si el precio actual es igual o incluso más bajo que el mínimo histórico, casi no hay motivo para dudar; y si está muy por encima del mínimo histórico, por más grande que parezca el descuento, significa que es un precio que ya estuvo más barato antes."
+      "text": "El criterio más simple para descartar los descuentos falsos de un solo vistazo es el mínimo registrado. Basta con ver qué tan cerca está el precio actual del precio más bajo que le hemos registrado a ese juego. Si el precio actual es igual o incluso más bajo que el mínimo registrado, casi no hay motivo para dudar; y si está muy por encima del mínimo registrado, por más grande que parezca el descuento, significa que es un precio que ya hemos visto más barato antes."
     },
     {
       "type": "ol",
       "items": [
         "Mira el precio actual (en wones) que aparece en la pantalla.",
-        "Averigua cuál fue el mínimo histórico de ese juego.",
-        "Si el precio actual es igual o está cerca del mínimo histórico, es buen momento; si está muy por encima, mejor esperar.",
-        "Si puedes esperar, aguanta hasta la próxima gran rebaja y apunta a que se actualice el mínimo histórico."
+        "Averigua cuál fue el mínimo registrado de ese juego.",
+        "Si el precio actual es igual o está cerca del mínimo registrado, es buen momento; si está muy por encima, mejor esperar.",
+        "Si puedes esperar, aguanta hasta la próxima gran rebaja y apunta a que se actualice el mínimo registrado."
       ]
     },
     {
       "type": "p",
-      "text": "En Lowstamp mostramos, para cada juego, el precio normal, el precio actual y el mínimo histórico uno al lado del otro, y con un gráfico de evolución que solo registra los días en que el precio cambió, puedes distinguir de un vistazo si se trata de un descuento permanente o de una rebaja real. El veredicto \"¿Lo compro ahora?\" se calcula justo a partir de esa distancia entre el precio actual y el mínimo histórico, y se muestra como un sello, así que te ayuda a decidir rápido sin dejarte llevar por los números de descuento tan grandes."
+      "text": "En Lowstamp mostramos, para cada juego, el precio normal, el precio actual y el mínimo registrado uno al lado del otro, y con un gráfico de evolución que solo registra los días en que el precio cambió, puedes distinguir de un vistazo si se trata de un descuento permanente o de una rebaja real. El veredicto \"¿Lo compro ahora?\" se calcula justo a partir de esa distancia entre el precio actual y el mínimo registrado, y se muestra como un sello, así que te ayuda a decidir rápido sin dejarte llevar por los números de descuento tan grandes."
     },
     {
       "type": "h2",
@@ -61,7 +61,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "Steam suele lanzar sus rebajas más grandes en verano e invierno, y también suele hacer rebajas de tamaño medio en primavera, otoño y cerca de los días festivos; es un patrón que tiende a repetirse cada año. Eso sí, las fechas exactas cambian de un año a otro, así que tómalo solo como una estimación de \"más o menos por estas fechas\". El mínimo histórico suele actualizarse justamente durante estas grandes rebajas, de modo que, si no tienes prisa, muchas veces conviene esperar a la próxima gran rebaja."
+      "text": "Steam suele lanzar sus rebajas más grandes en verano e invierno, y también suele hacer rebajas de tamaño medio en primavera, otoño y cerca de los días festivos; es un patrón que tiende a repetirse cada año. Eso sí, las fechas exactas cambian de un año a otro, así que tómalo solo como una estimación de \"más o menos por estas fechas\". El mínimo registrado suele actualizarse justamente durante estas grandes rebajas, de modo que, si no tienes prisa, muchas veces conviene esperar a la próxima gran rebaja."
     },
     {
       "type": "p",
@@ -69,11 +69,11 @@ export default {
     },
     {
       "type": "quote",
-      "text": "No mires el gran número rojo, sino qué tan cerca está del mínimo histórico la cantidad que vas a pagar."
+      "text": "No mires el gran número rojo, sino qué tan cerca está del mínimo registrado la cantidad que vas a pagar."
     },
     {
       "type": "p",
-      "text": "En resumen, la clave para evitar los descuentos falsos son tres cosas. Primero, fíjate en la cantidad real que vas a pagar, no en el porcentaje (%). Segundo, revisa el historial de precios para distinguir entre un descuento permanente y una rebaja real. Tercero, compara el precio actual con el mínimo histórico para decidir si está barato de verdad. Solo con adoptar estos hábitos dejarás de dejarte arrastrar por las etiquetas rojas de las rebajas y abrirás la billetera solo cuando realmente valga la pena. Si guardas con antelación los juegos que te interesan y, llegada la próxima rebaja, solo revisas si se actualizó el mínimo histórico, no se te escapará el mejor momento."
+      "text": "En resumen, la clave para evitar los descuentos falsos son tres cosas. Primero, fíjate en la cantidad real que vas a pagar, no en el porcentaje (%). Segundo, revisa el historial de precios para distinguir entre un descuento permanente y una rebaja real. Tercero, compara el precio actual con el mínimo registrado para decidir si está barato de verdad. Solo con adoptar estos hábitos dejarás de dejarte arrastrar por las etiquetas rojas de las rebajas y abrirás la billetera solo cuando realmente valga la pena. Si guardas con antelación los juegos que te interesan y, llegada la próxima rebaja, solo revisas si se actualizó el mínimo registrado, no se te escapará el mejor momento."
     }
   ]
 };

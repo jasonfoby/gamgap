@@ -48,7 +48,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "Si reclamas cualquier cosa solo porque es gratis, tu biblioteca se llena de juegos que nunca vas a tocar. Si al reclamar un regalo te paras un momento a pensar \"¿esto lo jugaría algún día?\", tu lista se mantiene más limpia. Y si un juego que probaste en un fin de semana gratis te ha gustado, en Lowstamp puedes comparar su mínimo histórico y comprobar \"si este es el momento de comprarlo\" antes de hacerlo. Confirmar tus gustos gratis y, cuando compres, hacerlo en el momento más barato: ese es el orden más económico."
+      "text": "Si reclamas cualquier cosa solo porque es gratis, tu biblioteca se llena de juegos que nunca vas a tocar. Si al reclamar un regalo te paras un momento a pensar \"¿esto lo jugaría algún día?\", tu lista se mantiene más limpia. Y si un juego que probaste en un fin de semana gratis te ha gustado, en Lowstamp puedes comparar su mínimo registrado y comprobar \"si este es el momento de comprarlo\" antes de hacerlo. Confirmar tus gustos gratis y, cuando compres, hacerlo en el momento más barato: ese es el orden más económico."
     },
     {
       "type": "quote",
@@ -56,7 +56,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "En resumen, hay tres vías para aumentar tu colección sin gastar dinero. Los \"juegos de regalo\" por tiempo limitado son tuyos para siempre con solo reclamarlos, así que aprovéchalos sin dudar; el \"fin de semana gratis\" úsalo para probar gratis los juegos que te tienen indeciso; y los juegos \"free to play\" disfrútalos cuidando tu cartera. Si aprovechas bien estas oportunidades gratis y solo compras al mínimo histórico los juegos que de verdad quieres, con el mismo dinero podrás disfrutar de muchísimos más juegos."
+      "text": "En resumen, hay tres vías para aumentar tu colección sin gastar dinero. Los \"juegos de regalo\" por tiempo limitado son tuyos para siempre con solo reclamarlos, así que aprovéchalos sin dudar; el \"fin de semana gratis\" úsalo para probar gratis los juegos que te tienen indeciso; y los juegos \"free to play\" disfrútalos cuidando tu cartera. Si aprovechas bien estas oportunidades gratis y solo compras al mínimo registrado los juegos que de verdad quieres, con el mismo dinero podrás disfrutar de muchísimos más juegos."
     }
   ]
 };

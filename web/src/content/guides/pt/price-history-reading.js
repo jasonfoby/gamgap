@@ -5,9 +5,9 @@ export default {
   slug: "price-history-reading",
   title: "Como ler um grafico de historico de precos - esta promocao e o fundo de verdade?",
   description:
-    "Se voce sabe ler um grafico de historico de precos, em segundos descobre se uma promocao e o fundo de verdade. Aprenda a ver a linha do minimo historico, as falsas promocoes de sempre, os ciclos de verao e inverno e por que lancamentos tem historico curto.",
+    "Se voce sabe ler um grafico de historico de precos, em segundos descobre se uma promocao e o fundo de verdade. Aprenda a ver a linha do minimo registrado, as falsas promocoes de sempre, os ciclos de verao e inverno e por que lancamentos tem historico curto.",
   date: "2026-06-20",
-  tags: ["historico de precos", "ler graficos", "minimo historico", "ciclos de promocao", "dicas de compra"],
+  tags: ["historico de precos", "ler graficos", "preco minimo", "ciclos de promocao", "dicas de compra"],
   readMins: 6,
   body: [
     {
@@ -24,15 +24,15 @@ export default {
     },
     {
       type: "p",
-      text: "Pode parecer cheio de coisa, mas na verdade voce so quer duas coisas do grafico. Uma e o quao baixo o preco ja caiu alguma vez (o minimo historico) e a outra e o quao perto o preco atual esta desse fundo. Leia essas duas e praticamente ja domina o grafico.",
+      text: "Pode parecer cheio de coisa, mas na verdade voce so quer duas coisas do grafico. Uma e o quao baixo o preco ja caiu desde que comecamos a registrar (o minimo registrado) e a outra e o quao perto o preco atual esta desse fundo. Leia essas duas e praticamente ja domina o grafico.",
     },
     {
       type: "h2",
-      text: "Como ler a linha do minimo historico",
+      text: "Como ler a linha do minimo registrado",
     },
     {
       type: "p",
-      text: "A primeira coisa a procurar no grafico e a queda mais profunda que a linha ja alcancou, que e o minimo historico. O Lowstamp marca esse minimo historico separadamente, entao voce ve na hora se o ponto do preco de hoje esta bem em cima dessa linha de fundo ou flutuando bem acima. Se o ponto esta no mesmo nivel da linha de fundo ou abaixo, e um preco genuinamente bom, com pouco motivo para hesitar. Se esta bem acima do fundo, entao por maior que pareca o desconto vermelho, isso so significa que o jogo ja esteve mais barato antes.",
+      text: "A primeira coisa a procurar no grafico e a queda mais profunda que a linha ja alcancou, que e o minimo registrado. O Lowstamp marca esse minimo registrado separadamente, entao voce ve na hora se o ponto do preco de hoje esta bem em cima dessa linha de fundo ou flutuando bem acima. Se o ponto esta no mesmo nivel da linha de fundo ou abaixo, e um preco genuinamente bom, com pouco motivo para hesitar. Se esta bem acima do fundo, entao por maior que pareca o desconto vermelho, isso so significa que o jogo ja esteve mais barato antes.",
     },
     {
       type: "note",
@@ -68,12 +68,12 @@ export default {
     },
     {
       type: "p",
-      text: "Uma coisa para ter cuidado: um lancamento recem-saido tem um historico de precos curto, entao o grafico so tem alguns poucos pontos. Quando a linha e curta, o proprio criterio do mais barato que ja ficou ainda nem se formou, o que dificulta saber se o preco de hoje e bom ou ruim. Lancamentos costumam quase nao dar desconto logo apos sair e so descem pela primeira vez numa promocao alguns meses depois. Por isso, encare um jogo de grafico curto como ainda nao ha passado suficiente para comparar, e a menos que esteja com muita pressa, e mais seguro observar pelo menos ate a primeira promocao.",
+      text: "Uma coisa para ter cuidado: um lancamento recem-saido tem um historico de precos curto, entao o grafico so tem alguns poucos pontos. Quando a linha e curta, o proprio criterio do menor preco registrado ainda nem se formou, o que dificulta saber se o preco de hoje e bom ou ruim. Lancamentos costumam quase nao dar desconto logo apos sair e so descem pela primeira vez numa promocao alguns meses depois. Por isso, encare um jogo de grafico curto como ainda nao ha passado suficiente para comparar, e a menos que esteja com muita pressa, e mais seguro observar pelo menos ate a primeira promocao.",
     },
     {
       type: "ol",
       items: [
-        "Encontre no grafico a queda mais profunda da linha (o minimo historico).",
+        "Encontre no grafico a queda mais profunda da linha (o minimo registrado).",
         "Veja se o ponto do preco de hoje toca essa linha de fundo ou flutua bem acima.",
         "Se a linha e longa e plana, pode ser uma falsa promocao de sempre, entao nao corra.",
         "Se vales parecidos se repetem todo verao e inverno, pode valer esperar a proxima promocao.",
@@ -86,11 +86,11 @@ export default {
     },
     {
       type: "p",
-      text: "O Lowstamp mostra o preco normal, o preco atual e o minimo historico de cada jogo lado a lado numa unica linha, e abaixo exibe um grafico de historico que marca um ponto so nos dias em que o preco mudou. Isso deixa voce distinguir de relance se um jogo e um titulo de promocao real com vales profundos, um titulo de desconto permanente deitado plano no fundo, ou um lancamento com so alguns pontos. Da para fechar a decisao nesta unica tela sem vasculhar outros sites.",
+      text: "O Lowstamp mostra o preco normal, o preco atual e o minimo registrado de cada jogo lado a lado numa unica linha, e abaixo exibe um grafico de historico que marca um ponto so nos dias em que o preco mudou. Isso deixa voce distinguir de relance se um jogo e um titulo de promocao real com vales profundos, um titulo de desconto permanente deitado plano no fundo, ou um lancamento com so alguns pontos. Da para fechar a decisao nesta unica tela sem vasculhar outros sites.",
     },
     {
       type: "p",
-      text: "E o veredito de compro agora? e um recurso que calcula a distancia entre esse preco atual e o minimo historico e carimba para voce. Mesmo quando voce nao esta a fim de dissecar o grafico, esse carimbo deixa decidir rapido. Se voce adicionar a lista de desejos os jogos que importam, na proxima promocao so precisa olhar se apareceu um vale novo no grafico, ou seja, se o minimo historico foi atualizado.",
+      text: "E o veredito de compro agora? e um recurso que calcula a distancia entre esse preco atual e o minimo registrado e carimba para voce. Mesmo quando voce nao esta a fim de dissecar o grafico, esse carimbo deixa decidir rapido. Se voce adicionar a lista de desejos os jogos que importam, na proxima promocao so precisa olhar se apareceu um vale novo no grafico, ou seja, se o minimo registrado foi atualizado.",
     },
     {
       type: "quote",

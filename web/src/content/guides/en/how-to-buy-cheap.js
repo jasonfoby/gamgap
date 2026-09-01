@@ -1,9 +1,9 @@
 export default {
   "slug": "how-to-buy-cheap",
   "title": "7 Ways to Buy Steam Games for Less",
-  "description": "Seven practical ways to pay less for Steam games: checking the all-time low, wishlist alerts, sale timing, bundles, regional pricing, and spotting fake discounts.",
+  "description": "Seven practical ways to pay less for Steam games: checking the lowest tracked price, wishlist alerts, sale timing, bundles, regional pricing, and spotting fake discounts.",
   "date": "2026-06-18",
-  "tags": ["Steam discounts", "all-time low", "money-saving tips", "sales"],
+  "tags": ["Steam discounts", "lowest price", "money-saving tips", "sales"],
   "readMins": 6,
   "body": [
     {
@@ -12,15 +12,15 @@ export default {
     },
     {
       "type": "h2",
-      "text": "1. Look at the all-time low, not the discount percentage"
+      "text": "1. Look at the lowest tracked price, not the discount percentage"
     },
     {
       "type": "p",
-      "text": "The first habit to build is to judge a game by the lowest price it has ever fallen to, the all-time low, rather than the discount percentage (a number like -70%). The discount is based on the list price that Steam displays, which can be inflated, but the all-time low is a record that the game actually sold at that price, which makes it a far more honest yardstick."
+      "text": "The first habit to build is to judge a game by the lowest price we've recorded it falling to, its lowest tracked price, rather than the discount percentage (a number like -70%). The discount is based on the list price that Steam displays, which can be inflated, but the lowest tracked price is a record that the game actually sold at that price, which makes it a far more honest yardstick."
     },
     {
       "type": "p",
-      "text": "For example, say a game with a list price of 66,000 won is now 70% off at 19,800 won. The number alone looks cheap enough, but if this game's all-time low was 16,500 won, then right now it's actually 3,300 won more expensive than that. Lowstamp shows each game's all-time low along with the date it was last set, and sums up how close the current price is to that low with a \"Should you buy now?\" verdict, so checking that one line speeds up your decision."
+      "text": "For example, say a game with a list price of 66,000 won is now 70% off at 19,800 won. The number alone looks cheap enough, but if this game's lowest tracked price was 16,500 won, then right now it's actually 3,300 won more expensive than that. Lowstamp shows each game's lowest tracked price along with the date it was last set, and sums up how close the current price is to that low with a \"Should you buy now?\" verdict, so checking that one line speeds up your decision."
     },
     {
       "type": "h2",
@@ -32,7 +32,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "On Lowstamp, too, saving the games you like lets you compare current prices and all-time lows for that list at a glance. The most efficient approach is to use both together: get the \"sale started\" alert from Steam, then check on Lowstamp whether the discount is actually worth it compared to the all-time low."
+      "text": "On Lowstamp, too, saving the games you like lets you compare current prices and lowest tracked prices for that list at a glance. The most efficient approach is to use both together: get the \"sale started\" alert from Steam, then check on Lowstamp whether the discount is actually worth it compared to the lowest tracked price."
     },
     {
       "type": "h2",
@@ -53,11 +53,11 @@ export default {
     },
     {
       "type": "p",
-      "text": "During the big sales, many games get deeper discounts than usual, and all-time lows often get set fresh at these times. For a game you're not in a hurry to get, simply waiting for the next seasonal sale is often enough to buy the same game for less."
+      "text": "During the big sales, many games get deeper discounts than usual, and new tracked lows often get set fresh at these times. For a game you're not in a hurry to get, simply waiting for the next seasonal sale is often enough to buy the same game for less."
     },
     {
       "type": "note",
-      "text": "Heads-up: a big sale doesn't mean every game gets cheaper. Popular titles often have the same fixed discount whether it's a seasonal sale or a regular weekly deal. Rather than assuming \"it's a sale, so it must be cheap,\" the key is to keep comparing against the all-time low even then."
+      "text": "Heads-up: a big sale doesn't mean every game gets cheaper. Popular titles often have the same fixed discount whether it's a seasonal sale or a regular weekly deal. Rather than assuming \"it's a sale, so it must be cheap,\" the key is to keep comparing against the lowest tracked price even then."
     },
     {
       "type": "h2",
@@ -81,7 +81,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "Instead, it's far safer and more practical to know how low this game has ever dropped in won. Lowstamp tracks the won prices on Steam's Korea store directly, so you can immediately see where the current won price sits relative to the all-time low."
+      "text": "Instead, it's far safer and more practical to know how low this game has dropped in won while we've been tracking it. Lowstamp tracks the won prices on Steam's Korea store directly, so you can immediately see where the current won price sits relative to the lowest tracked price."
     },
     {
       "type": "h2",
@@ -94,7 +94,7 @@ export default {
     {
       "type": "ol",
       "items": [
-        "Inflated list price: the list price itself is set high so the discount only looks big. Compare it to the all-time low and it's exposed right away.",
+        "Inflated list price: the list price itself is set high so the discount only looks big. Compare it to the lowest tracked price and it's exposed right away.",
         "The same old discount: even when it's labeled a \"special offer,\" the price is often identical to the last sale. Look at the price history and you'll know whether it's a new low.",
         "A new release's first discount: the first discount right after launch is usually small. If you're not in a hurry, it's worth waiting through a deeper discount or two."
       ]
@@ -121,7 +121,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "To sum up, the core idea is to not get swayed by the discount percentage and to judge by the all-time low instead. Add the games you care about to your wishlist and wait for the alerts, time your purchases around the big sales, check bundles and price history, steer clear of risky paths like region workarounds, and keep the refund policy as a safety net. Just building these habits will noticeably cut down on overpaying through impulse buys. Make it your final check to glance at the all-time low and the \"Should you buy now?\" verdict on Lowstamp right before you buy."
+      "text": "To sum up, the core idea is to not get swayed by the discount percentage and to judge by the lowest tracked price instead. Add the games you care about to your wishlist and wait for the alerts, time your purchases around the big sales, check bundles and price history, steer clear of risky paths like region workarounds, and keep the refund policy as a safety net. Just building these habits will noticeably cut down on overpaying through impulse buys. Make it your final check to glance at the lowest tracked price and the \"Should you buy now?\" verdict on Lowstamp right before you buy."
     },
     {
       "type": "quote",

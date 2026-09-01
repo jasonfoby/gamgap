@@ -1,9 +1,9 @@
 export default {
   "slug": "when-to-buy-or-wait",
   "title": "Comprar agora ou esperar a próxima promoção? Um guia de 5 pontos",
-  "description": "Um guia tranquilo de cinco pontos para decidir se você compra já um jogo que quer ou aguenta até a próxima promoção. Aborda o quão perto o preço está da mínima histórica, com que frequência e profundidade o jogo entra em promoção, a urgência, a sua pilha de jogos parados e a rede de segurança do reembolso, com conselhos para cada caso.",
+  "description": "Um guia tranquilo de cinco pontos para decidir se você compra já um jogo que quer ou aguenta até a próxima promoção. Aborda o quão perto o preço está da mínima registrada, com que frequência e profundidade o jogo entra em promoção, a urgência, a sua pilha de jogos parados e a rede de segurança do reembolso, com conselhos para cada caso.",
   "date": "2026-06-20",
-  "tags": ["Steam", "promoções", "guia de compra", "mínima histórica"],
+  "tags": ["Steam", "promoções", "guia de compra", "preço mínimo"],
   "readMins": 6,
   "body": [
     {
@@ -16,22 +16,22 @@ export default {
     },
     {
       "type": "h2",
-      "text": "Critério 1: o quão perto o preço atual está da mínima histórica"
+      "text": "Critério 1: o quão perto o preço atual está da mínima registrada"
     },
     {
       "type": "p",
-      "text": "A primeira coisa a olhar é o quão bom é este preço comparado ao mais barato que ele já esteve. A mesma porcentagem de desconto pode significar coisas bem diferentes. Por exemplo, se um jogo costuma cair para 50 por cento de desconto e agora também está a 50 por cento, isso não é uma pechincha especial, é só o preço que ele sempre atinge. Já se um jogo que raramente baixa toca a mínima histórica pela primeira vez, esse mesmo 50 por cento é uma oportunidade bem mais rara."
+      "text": "A primeira coisa a olhar é o quão bom é este preço comparado ao mais barato que já registramos. A mesma porcentagem de desconto pode significar coisas bem diferentes. Por exemplo, se um jogo costuma cair para 50 por cento de desconto e agora também está a 50 por cento, isso não é uma pechincha especial, é só o preço que ele sempre atinge. Já se um jogo que raramente baixa toca a mínima registrada pela primeira vez, esse mesmo 50 por cento é uma oportunidade bem mais rara."
     },
     {
       "type": "p",
-      "text": "Então não olhe apenas o número do desconto; olhe junto o quanto mais barato o jogo já ficou no passado. Busque um jogo no Lowstamp e ele mostra a mínima histórica ao lado do preço atual, além de um gráfico de como o preço subiu e desceu. Se o preço atual está mais ou menos igual ou abaixo da mínima histórica, há poucos motivos para hesitar."
+      "text": "Então não olhe apenas o número do desconto; olhe junto o quanto mais barato o jogo já ficou no passado. Busque um jogo no Lowstamp e ele mostra a mínima registrada ao lado do preço atual, além de um gráfico de como o preço subiu e desceu. Se o preço atual está mais ou menos igual ou abaixo da mínima registrada, há poucos motivos para hesitar."
     },
     {
       "type": "ul",
       "items": [
-        "Preço atual igual à mínima histórica ou dentro de cerca de 5 por cento → bom sinal para comprar. Esperar mais dificilmente vai economizar muito.",
-        "Cerca de 10 a 20 por cento acima da mínima histórica → zona cinzenta. Pondere junto com os outros critérios.",
-        "Uma grande diferença para a mínima histórica (por exemplo, 30 por cento de desconto agora, quando já chegou a 70 por cento no passado) → a balança pende para esperar."
+        "Preço atual igual à mínima registrada ou dentro de cerca de 5 por cento → bom sinal para comprar. Esperar mais dificilmente vai economizar muito.",
+        "Cerca de 10 a 20 por cento acima da mínima registrada → zona cinzenta. Pondere junto com os outros critérios.",
+        "Uma grande diferença para a mínima registrada (por exemplo, 30 por cento de desconto agora, quando já chegou a 70 por cento no passado) → a balança pende para esperar."
       ]
     },
     {
@@ -44,7 +44,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "Por exemplo, jogos grandes que estão à venda há anos costumam se firmar num padrão de cair para cerca de 75 por cento de desconto em toda grande promoção. Se um jogo desses está agora só a 30 por cento, não há motivo para correr. Em compensação, títulos que quase nunca baixam a fundo, como os da Nintendo ou de certos estúdios populares, podem estar na sua mínima real com apenas 10 ou 20 por cento de desconto. Dê uma olhada no gráfico de preços para ver se os descontos passados são frequentes ou esparsos e você logo sente a qual grupo o jogo pertence."
+      "text": "Por exemplo, jogos grandes que estão à venda há anos costumam se firmar num padrão de cair para cerca de 75 por cento de desconto em toda grande promoção. Se um jogo desses está agora só a 30 por cento, não há motivo para correr. Em compensação, títulos que quase nunca baixam a fundo, como os da Nintendo ou de certos estúdios populares, podem estar na sua mínima registrada com apenas 10 ou 20 por cento de desconto. Dê uma olhada no gráfico de preços para ver se os descontos passados são frequentes ou esparsos e você logo sente a qual grupo o jogo pertence."
     },
     {
       "type": "h2",
@@ -100,11 +100,11 @@ export default {
     },
     {
       "type": "p",
-      "text": "Agora vamos juntar tudo. Resumidos em uma só frase, os cinco critérios ficam assim. Se o preço atual está perto da mínima histórica, o jogo não é do tipo que entra em promoção com frequência e a fundo, você quer jogar agora (principalmente com amigos ou como lançamento em alta), não tem mais nada para jogar e pode reembolsar caso não combine, então comprar agora é o certo. Ao contrário, se há uma grande diferença para a mínima histórica, o jogo baixa a fundo em toda grande promoção de qualquer jeito, você não está com pressa e o seu backlog já transborda, espere a próxima promoção."
+      "text": "Agora vamos juntar tudo. Resumidos em uma só frase, os cinco critérios ficam assim. Se o preço atual está perto da mínima registrada, o jogo não é do tipo que entra em promoção com frequência e a fundo, você quer jogar agora (principalmente com amigos ou como lançamento em alta), não tem mais nada para jogar e pode reembolsar caso não combine, então comprar agora é o certo. Ao contrário, se há uma grande diferença para a mínima registrada, o jogo baixa a fundo em toda grande promoção de qualquer jeito, você não está com pressa e o seu backlog já transborda, espere a próxima promoção."
     },
     {
       "type": "p",
-      "text": "Na vida real, os cinco critérios costumam apontar para direções diferentes em vez de se alinharem certinho. Quando isso acontece, pese-os pelo que mais importa para você. Se economizar cada centavo vem primeiro, apoie-se nos critérios de preço; se o momento de aproveitar com os amigos é mais precioso, dê mais peso à urgência. O veredito de comprar ou esperar do Lowstamp calcula automaticamente os critérios do lado do preço, como a distância da mínima histórica e a profundidade do desconto, e mostra tudo em um único carimbo. Deixe o julgamento do preço com ele e apenas acrescente as partes que só você conhece, como a urgência e o backlog, para decidir com muito mais facilidade."
+      "text": "Na vida real, os cinco critérios costumam apontar para direções diferentes em vez de se alinharem certinho. Quando isso acontece, pese-os pelo que mais importa para você. Se economizar cada centavo vem primeiro, apoie-se nos critérios de preço; se o momento de aproveitar com os amigos é mais precioso, dê mais peso à urgência. O veredito de comprar ou esperar do Lowstamp calcula automaticamente os critérios do lado do preço, como a distância da mínima registrada e a profundidade do desconto, e mostra tudo em um único carimbo. Deixe o julgamento do preço com ele e apenas acrescente as partes que só você conhece, como a urgência e o backlog, para decidir com muito mais facilidade."
     },
     {
       "type": "p",
@@ -112,7 +112,7 @@ export default {
     },
     {
       "type": "quote",
-      "text": "Se está perto da mínima histórica e você quer agora, compre. Se a diferença é grande e não há pressa, espere a próxima promoção."
+      "text": "Se está perto da mínima registrada e você quer agora, compre. Se a diferença é grande e não há pressa, espere a próxima promoção."
     }
   ]
 };

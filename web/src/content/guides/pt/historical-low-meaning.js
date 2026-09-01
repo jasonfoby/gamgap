@@ -1,26 +1,26 @@
 export default {
   "slug": "historical-low-meaning",
-  "title": "O que é o menor preço histórico na Steam e por que ele importa mais que o desconto",
-  "description": "O menor preço histórico é o preço mais baixo que um jogo já teve. Aqui explicamos por que vale comprar olhando o menor preço histórico em vez de uma etiqueta de -70%, com exemplos simples do preço base inflado e da armadilha do percentual de desconto.",
+  "title": "O que é o menor preço registrado na Steam e por que ele importa mais que o desconto",
+  "description": "O menor preço registrado é o preço mais baixo que já registramos para um jogo. Aqui explicamos por que vale comprar olhando o menor preço registrado em vez de uma etiqueta de -70%, com exemplos simples do preço base inflado e da armadilha do percentual de desconto.",
   "date": "2026-06-20",
-  "tags": ["menor preço histórico", "armadilha do desconto", "comprar na Steam", "guia básico", "referência de preço"],
+  "tags": ["preço mínimo", "armadilha do desconto", "comprar na Steam", "guia básico", "referência de preço"],
   "readMins": 6,
   "body": [
     {
       "type": "p",
-      "text": "Quando você compra jogos na Steam, a primeira coisa que chama a atenção é a etiqueta vermelha de desconto. Você vê um número como -50%, -70% ou -90% e sente que precisa comprar agora mesmo. Mas confiar só nesse percentual de desconto dá errado mais vezes do que você imagina. Existe uma régua mais honesta para saber se algo é de fato barato, e é o menor preço histórico. Neste artigo explicamos, em palavras simples que até quem está começando entende, o que é exatamente o menor preço histórico e por que vale olhar para ele antes do percentual de desconto."
+      "text": "Quando você compra jogos na Steam, a primeira coisa que chama a atenção é a etiqueta vermelha de desconto. Você vê um número como -50%, -70% ou -90% e sente que precisa comprar agora mesmo. Mas confiar só nesse percentual de desconto dá errado mais vezes do que você imagina. Existe uma régua mais honesta para saber se algo é de fato barato, e é o menor preço registrado. Neste artigo explicamos, em palavras simples que até quem está começando entende, o que é exatamente o menor preço registrado e por que vale olhar para ele antes do percentual de desconto."
     },
     {
       "type": "h2",
-      "text": "O que é um menor preço histórico?"
+      "text": "O que é um menor preço registrado?"
     },
     {
       "type": "p",
-      "text": "O menor preço histórico é exatamente o que o nome diz: o preço mais baixo que um jogo já alcançou desde que foi lançado. Por exemplo, imagine que um jogo saiu com um preço base de 66.000 wons e, ao longo de muitas promoções, uma vez chegou a 19.800 wons. Esses 19.800 wons são o menor preço histórico desse jogo. Dito de forma simples, é um único número que guarda o quão barato esse jogo já chegou a ficar."
+      "text": "O menor preço registrado é exatamente o que o nome diz: o preço mais baixo que registramos para um jogo desde que começamos a acompanhá-lo. Por exemplo, imagine que um jogo saiu com um preço base de 66.000 wons e, ao longo de muitas promoções, uma vez chegou a 19.800 wons. Esses 19.800 wons são o menor preço registrado desse jogo. Dito de forma simples, é um único número que guarda o preço mais baixo que já vimos nesse período."
     },
     {
       "type": "p",
-      "text": "Por que isso importa? Porque o que realmente queremos saber é se o preço de agora é um bom preço. Para julgar isso é preciso ter com o que comparar, e a referência mais honesta é o menor preço pelo qual o jogo realmente já foi vendido. Se o preço de hoje está perto desse mínimo, é uma boa hora; se está bem acima dele, significa que o jogo já esteve mais barato antes."
+      "text": "Por que isso importa? Porque o que realmente queremos saber é se o preço de agora é um bom preço. Para julgar isso é preciso ter com o que comparar, e a referência mais honesta é o menor preço pelo qual registramos que o jogo foi vendido. Se o preço de hoje está perto desse mínimo, é uma boa hora; se está bem acima dele, significa que já registramos um preço mais baixo antes."
     },
     {
       "type": "h2",
@@ -40,37 +40,37 @@ export default {
     },
     {
       "type": "h2",
-      "text": "Por que o menor preço histórico é uma régua honesta"
+      "text": "Por que o menor preço registrado é uma régua honesta"
     },
     {
       "type": "p",
-      "text": "O menor preço histórico é uma boa referência porque é um número que o vendedor não pode inflar à vontade. O preço base pode ser aumentado e reduzido, mas o preço pelo qual algo de fato já foi vendido quando esteve mais barato é um fato que já aconteceu, então não dá para mexer. Compare o preço de hoje com o menor preço histórico e você saberá se é realmente barato sem se deixar levar pela propaganda."
+      "text": "O menor preço registrado é uma boa referência porque é um número que o vendedor não pode inflar à vontade. O preço base pode ser aumentado e reduzido, mas o preço pelo qual algo de fato já foi vendido quando esteve mais barato é um fato que já aconteceu, então não dá para mexer. Compare o preço de hoje com o menor preço registrado e você saberá se é realmente barato sem se deixar levar pela propaganda."
     },
     {
       "type": "p",
-      "text": "Pense assim. Um lojista pode gritar '70.000 wons de desconto sobre o preço base de 100.000, agora só 30.000!', mas se aquele item, na verdade, foi vendido a 20.000 wons no ano passado, então 30.000 wons hoje não é uma oferta tão boa. O que você deve lembrar não é o tamanho do corte, e sim o menor preço que ele já teve. O menor preço histórico é justamente o número que guarda esse preço mais barato."
+      "text": "Pense assim. Um lojista pode gritar '70.000 wons de desconto sobre o preço base de 100.000, agora só 30.000!', mas se aquele item, na verdade, foi vendido a 20.000 wons no ano passado, então 30.000 wons hoje não é uma oferta tão boa. O que você deve lembrar não é o tamanho do corte, e sim o menor preço que já registramos para ele. O menor preço registrado é justamente o número que guarda esse preço mais barato."
     },
     {
       "type": "ol",
       "items": [
         "Olhe o preço atual que aparece na tela agora.",
-        "Veja qual foi o menor preço histórico desse jogo.",
-        "Se o preço atual for igual ou estiver perto do menor preço histórico, é uma boa hora.",
-        "Se o preço atual estiver bem acima do menor preço histórico, espere mesmo que o desconto pareça grande.",
-        "Se não tiver pressa, aguarde a próxima grande promoção e mire em um novo menor preço histórico."
+        "Veja qual foi o menor preço registrado desse jogo.",
+        "Se o preço atual for igual ou estiver perto do menor preço registrado, é uma boa hora.",
+        "Se o preço atual estiver bem acima do menor preço registrado, espere mesmo que o desconto pareça grande.",
+        "Se não tiver pressa, aguarde a próxima grande promoção e mire em um novo menor preço registrado."
       ]
     },
     {
       "type": "h2",
-      "text": "Como ver o menor preço histórico no Lowstamp"
+      "text": "Como ver o menor preço registrado no Lowstamp"
     },
     {
       "type": "p",
-      "text": "O Lowstamp mostra de cada jogo o preço base, o preço atual e o menor preço histórico, lado a lado em uma única linha. Assim você enxerga num relance o quão perto o preço de hoje está do mais barato que ele já ficou, sem fazer conta nenhuma. Há também um gráfico de evolução que marca um ponto só nos dias em que o preço mudou, então dá para distinguir rapidamente se um jogo normalmente fica caro e só cai de vez em quando (uma promoção de verdade) ou se mantém o mesmo preço o ano inteiro (um desconto permanente)."
+      "text": "O Lowstamp mostra de cada jogo o preço base, o preço atual e o menor preço registrado, lado a lado em uma única linha. Assim você enxerga num relance o quão perto o preço de hoje está do menor preço que já registramos, sem fazer conta nenhuma. Há também um gráfico de evolução que marca um ponto só nos dias em que o preço mudou, então dá para distinguir rapidamente se um jogo normalmente fica caro e só cai de vez em quando (uma promoção de verdade) ou se mantém o mesmo preço o ano inteiro (um desconto permanente)."
     },
     {
       "type": "p",
-      "text": "E o veredito 'Compro agora?' é exatamente isso: mede a distância entre o preço atual e o menor preço histórico e marca como um carimbo. Foi feito para ajudar você a decidir rápido sem se abalar com um número grande e vermelho de percentual de desconto. Coloque na lista de desejos os jogos que te interessam e, na próxima promoção, basta conferir se eles bateram um novo menor preço histórico."
+      "text": "E o veredito 'Compro agora?' é exatamente isso: mede a distância entre o preço atual e o menor preço registrado e marca como um carimbo. Foi feito para ajudar você a decidir rápido sem se abalar com um número grande e vermelho de percentual de desconto. Coloque na lista de desejos os jogos que te interessam e, na próxima promoção, basta conferir se eles bateram um novo menor preço registrado."
     },
     {
       "type": "h2",
@@ -78,19 +78,19 @@ export default {
     },
     {
       "type": "p",
-      "text": "A Steam costuma fazer suas maiores promoções no verão e no inverno, com promoções de porte médio por volta da primavera, do outono e dos períodos de feriado, um ritmo que tende a se repetir todo ano. Os menores preços históricos costumam ser marcados durante essas grandes promoções, então, se o preço de hoje está bem acima do mínimo, esperar a próxima promoção importante costuma ser a melhor opção. Mas as datas exatas mudam de um ano para outro, então encare isso só como uma estimativa aproximada de 'mais ou menos por essa época'."
+      "text": "A Steam costuma fazer suas maiores promoções no verão e no inverno, com promoções de porte médio por volta da primavera, do outono e dos períodos de feriado, um ritmo que tende a se repetir todo ano. Os menores preços registrados costumam ser marcados durante essas grandes promoções, então, se o preço de hoje está bem acima do mínimo, esperar a próxima promoção importante costuma ser a melhor opção. Mas as datas exatas mudam de um ano para outro, então encare isso só como uma estimativa aproximada de 'mais ou menos por essa época'."
     },
     {
       "type": "p",
-      "text": "E se você comprar e depois sentir que errou no preço, existe uma rede de segurança. Pela política oficial da Steam, você pode pedir reembolso dentro de certo prazo após a compra, desde que seu tempo de jogo seja curto. As condições específicas seguem a política da Steam e podem mudar, então confira diretamente na tela de solicitação de reembolso. Como observação, não é recomendável procurar vendedores de chaves de terceiros pouco conhecidos só porque a cópia legítima parece mais cara: reembolsos e garantias são difíceis de conseguir e pode até haver risco para a sua conta, então comprar na Steam oficial pelo menor preço histórico acaba sendo o caminho mais seguro."
+      "text": "E se você comprar e depois sentir que errou no preço, existe uma rede de segurança. Pela política oficial da Steam, você pode pedir reembolso dentro de certo prazo após a compra, desde que seu tempo de jogo seja curto. As condições específicas seguem a política da Steam e podem mudar, então confira diretamente na tela de solicitação de reembolso. Como observação, não é recomendável procurar vendedores de chaves de terceiros pouco conhecidos só porque a cópia legítima parece mais cara: reembolsos e garantias são difíceis de conseguir e pode até haver risco para a sua conta, então comprar na Steam oficial pelo menor preço registrado acaba sendo o caminho mais seguro."
     },
     {
       "type": "quote",
-      "text": "Não olhe o percentual de desconto; olhe o quão perto o que você paga está do menor preço histórico."
+      "text": "Não olhe o percentual de desconto; olhe o quão perto o que você paga está do menor preço registrado."
     },
     {
       "type": "p",
-      "text": "Resumindo, o percentual de desconto pode ser feito parecer grande só inflando o preço base, então é difícil confiar nele sozinho. Já o menor preço histórico é um fato que já aconteceu, então é uma régua honesta que não dá para falsificar. Ao comprar um jogo, repare primeiro no quão perto o valor que você vai pagar está do menor preço histórico, não no percentual da etiqueta vermelha. Só de criar esse único hábito, você deixa de ser levado pelas promoções e só abre a carteira quando algo realmente vale a pena."
+      "text": "Resumindo, o percentual de desconto pode ser feito parecer grande só inflando o preço base, então é difícil confiar nele sozinho. Já o menor preço registrado é um fato que já aconteceu, então é uma régua honesta que não dá para falsificar. Ao comprar um jogo, repare primeiro no quão perto o valor que você vai pagar está do menor preço registrado, não no percentual da etiqueta vermelha. Só de criar esse único hábito, você deixa de ser levado pelas promoções e só abre a carteira quando algo realmente vale a pena."
     }
   ]
 };

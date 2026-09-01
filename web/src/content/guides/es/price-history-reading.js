@@ -5,9 +5,9 @@ export default {
   slug: "price-history-reading",
   title: "Como leer un grafico de historial de precios - es esta oferta el suelo real?",
   description:
-    "Si sabes leer un grafico de historial de precios, en segundos distingues si una oferta es el suelo real. Aprende a ver la linea del minimo historico, las falsas rebajas de siempre, los ciclos de verano e invierno y por que los lanzamientos tienen historial corto.",
+    "Si sabes leer un grafico de historial de precios, en segundos distingues si una oferta es el suelo real. Aprende a ver la linea del minimo registrado, las falsas rebajas de siempre, los ciclos de verano e invierno y por que los lanzamientos tienen historial corto.",
   date: "2026-06-20",
-  tags: ["historial de precios", "leer graficos", "minimo historico", "ciclos de oferta", "consejos de compra"],
+  tags: ["historial de precios", "leer graficos", "precio minimo", "ciclos de oferta", "consejos de compra"],
   readMins: 6,
   body: [
     {
@@ -24,15 +24,15 @@ export default {
     },
     {
       type: "p",
-      text: "Puede parecer cargado, pero en realidad del grafico solo quieres dos cosas. Una es cuan bajo ha caido el precio alguna vez (el minimo historico) y la otra es cuan cerca esta el precio actual de ese suelo. Lee esas dos y practicamente ya dominas el grafico.",
+      text: "Puede parecer cargado, pero en realidad del grafico solo quieres dos cosas. Una es cuan bajo lo hemos visto caer (el minimo registrado) y la otra es cuan cerca esta el precio actual de ese suelo. Lee esas dos y practicamente ya dominas el grafico.",
     },
     {
       type: "h2",
-      text: "Como leer la linea del minimo historico",
+      text: "Como leer la linea del minimo registrado",
     },
     {
       type: "p",
-      text: "Lo primero que hay que buscar en el grafico es la caida mas profunda que alcanzo la linea, que es el minimo historico. Lowstamp marca este minimo historico por separado, asi que ves de inmediato si el punto del precio de hoy esta justo sobre esa linea de suelo o flotando muy por encima. Si el punto esta al mismo nivel que la linea de suelo o por debajo, es un precio genuinamente bueno con poco motivo para dudar. Si esta bastante por encima del suelo, entonces por muy grande que se vea el descuento rojo, solo significa que el juego ya estuvo mas barato antes.",
+      text: "Lo primero que hay que buscar en el grafico es la caida mas profunda que alcanzo la linea, que es el minimo registrado. Lowstamp marca este minimo registrado por separado, asi que ves de inmediato si el punto del precio de hoy esta justo sobre esa linea de suelo o flotando muy por encima. Si el punto esta al mismo nivel que la linea de suelo o por debajo, es un precio genuinamente bueno con poco motivo para dudar. Si esta bastante por encima del suelo, entonces por muy grande que se vea el descuento rojo, solo significa que el juego ya estuvo mas barato antes.",
     },
     {
       type: "note",
@@ -68,12 +68,12 @@ export default {
     },
     {
       type: "p",
-      text: "Una cosa con la que tener cuidado: un lanzamiento recien salido tiene un historial de precios corto, asi que el grafico solo tiene unos pocos puntos. Cuando la linea es corta, el propio criterio de lo mas barato que ha estado nunca aun no se ha formado, lo que hace dificil saber si el precio de hoy es bueno o malo. Los lanzamientos suelen casi no rebajarse justo tras salir y solo bajan por primera vez en una oferta unos meses despues. Por eso, trata un juego con grafico corto como que aun no hay suficiente pasado con que comparar, y a menos que tengas mucha prisa, es mas seguro esperar al menos a la primera oferta.",
+      text: "Una cosa con la que tener cuidado: un lanzamiento recien salido tiene un historial de precios corto, asi que el grafico solo tiene unos pocos puntos. Cuando la linea es corta, el propio criterio de cual es el precio mas bajo que le hemos registrado aun no se ha formado, lo que hace dificil saber si el precio de hoy es bueno o malo. Los lanzamientos suelen casi no rebajarse justo tras salir y solo bajan por primera vez en una oferta unos meses despues. Por eso, trata un juego con grafico corto como que aun no hay suficiente pasado con que comparar, y a menos que tengas mucha prisa, es mas seguro esperar al menos a la primera oferta.",
     },
     {
       type: "ol",
       items: [
-        "Encuentra en el grafico la caida mas profunda de la linea (el minimo historico).",
+        "Encuentra en el grafico la caida mas profunda de la linea (el minimo registrado).",
         "Comprueba si el punto del precio de hoy toca esa linea de suelo o flota muy por encima.",
         "Si la linea es larga y plana, puede ser una falsa rebaja de siempre, asi que no corras.",
         "Si valles parecidos se repiten cada verano e invierno, puede valer la pena esperar a la proxima oferta.",
@@ -86,11 +86,11 @@ export default {
     },
     {
       type: "p",
-      text: "Lowstamp muestra el precio normal, el precio actual y el minimo historico de cada juego uno al lado del otro en una sola linea, y debajo ensena un grafico de historial que marca un punto solo en los dias que cambio el precio. Eso te deja distinguir de un vistazo si un juego es un titulo de oferta real con valles profundos, un titulo de rebaja permanente tumbado plano en el suelo, o un lanzamiento con solo unos pocos puntos. Puedes cerrar el juicio en esta unica pantalla sin rebuscar en otros sitios.",
+      text: "Lowstamp muestra el precio normal, el precio actual y el minimo registrado de cada juego uno al lado del otro en una sola linea, y debajo ensena un grafico de historial que marca un punto solo en los dias que cambio el precio. Eso te deja distinguir de un vistazo si un juego es un titulo de oferta real con valles profundos, un titulo de rebaja permanente tumbado plano en el suelo, o un lanzamiento con solo unos pocos puntos. Puedes cerrar el juicio en esta unica pantalla sin rebuscar en otros sitios.",
     },
     {
       type: "p",
-      text: "Y el veredicto de me lo compro ya? es una funcion que calcula la distancia entre este precio actual y el minimo historico y te la sella. Incluso cuando no te apetece diseccionar el grafico tu mismo, ese sello te deja decidir rapido. Si anades a tu lista de deseos los juegos que te importan, en la siguiente oferta solo tienes que mirar si aparecio un valle nuevo en el grafico, es decir, si se actualizo el minimo historico.",
+      text: "Y el veredicto de me lo compro ya? es una funcion que calcula la distancia entre este precio actual y el minimo registrado y te la sella. Incluso cuando no te apetece diseccionar el grafico tu mismo, ese sello te deja decidir rapido. Si anades a tu lista de deseos los juegos que te importan, en la siguiente oferta solo tienes que mirar si aparecio un valle nuevo en el grafico, es decir, si se actualizo el minimo registrado.",
     },
     {
       type: "quote",

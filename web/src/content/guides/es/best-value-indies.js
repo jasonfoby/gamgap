@@ -1,14 +1,14 @@
 export default {
   "slug": "best-value-indies",
   "title": "Joyas indie con la mejor relación precio-calidad para cazar en cada oferta",
-  "description": "Una guía de compra inteligente para gamers que ordena las mejores joyas indie de Steam por tipo (roguelike, metroidvania, automatización, narrativas) y enseña a fijarse en el mínimo histórico antes que en el porcentaje de descuento para conseguirlas al mejor precio.",
+  "description": "Una guía de compra inteligente para gamers que ordena las mejores joyas indie de Steam por tipo (roguelike, metroidvania, automatización, narrativas) y enseña a fijarse en el mínimo registrado antes que en el porcentaje de descuento para conseguirlas al mejor precio.",
   "date": "2026-06-18",
   "tags": ["juegos indie", "relación precio-calidad", "ofertas de Steam", "guía de compra"],
   "readMins": 6,
   "body": [
     {
       "type": "p",
-      "text": "Los grandes AAA cuestan más de 70.000 u 80.000 wones de precio normal y, aun con descuento, siguen siendo caros; en cambio los juegos indie suelen lanzarse ya entre los 10.000 y 30.000 wones, así que con una sola oferta puedes llevarte una joya por menos de 10.000. Además, los indie tienden a bajar de precio cada vez más con el paso del tiempo, por lo que en este terreno funciona muy bien la estrategia de no apurarse y esperar a que el precio ronde su mínimo histórico antes de comprar. En esta nota recopilé, pensando en el usuario de Steam, esas joyas indie que vale la pena tener en la mira en cada oferta, ordenadas por tipo. Son recomendaciones personales y los gustos varían de persona a persona, así que tómalas como un punto de partida (los tipos y sus títulos representativos) para descubrir los juegos que mejor encajen contigo."
+      "text": "Los grandes AAA cuestan más de 70.000 u 80.000 wones de precio normal y, aun con descuento, siguen siendo caros; en cambio los juegos indie suelen lanzarse ya entre los 10.000 y 30.000 wones, así que con una sola oferta puedes llevarte una joya por menos de 10.000. Además, los indie tienden a bajar de precio cada vez más con el paso del tiempo, por lo que en este terreno funciona muy bien la estrategia de no apurarse y esperar a que el precio ronde su mínimo registrado antes de comprar. En esta nota recopilé, pensando en el usuario de Steam, esas joyas indie que vale la pena tener en la mira en cada oferta, ordenadas por tipo. Son recomendaciones personales y los gustos varían de persona a persona, así que tómalas como un punto de partida (los tipos y sus títulos representativos) para descubrir los juegos que mejor encajen contigo."
     },
     {
       "type": "h2",
@@ -44,16 +44,16 @@ export default {
     },
     {
       "type": "h2",
-      "text": "Por qué conviene comprar al mínimo histórico y algunos consejos de compra"
+      "text": "Por qué conviene comprar al mínimo registrado y algunos consejos de compra"
     },
     {
       "type": "p",
-      "text": "Con los juegos indie es habitual que los descuentos se vuelvan más grandes uno o dos años después del lanzamiento, no justo al salir. Por eso, mirar 'qué tan cerca está el precio actual del mínimo histórico' es mucho más certero que fijarse en 'cuál es el porcentaje de descuento de ahora'. Aunque dos juegos tengan el mismo 50% de descuento, si el mínimo histórico de uno fue solo un 30%, este podría estar tocando de verdad su punto más bajo; en cambio, un 50% en un juego que suele caer hasta el 70% no resulta tan atractivo. En Lowstamp te mostramos lado a lado el mínimo histórico y el precio actual de cada juego, y con el veredicto de '¿Es buen momento para comprar?' te decimos de un vistazo si está cerca de su piso. Así que no te dejes llevar por el número del descuento y usa ese veredicto como referencia."
+      "text": "Con los juegos indie es habitual que los descuentos se vuelvan más grandes uno o dos años después del lanzamiento, no justo al salir. Por eso, mirar 'qué tan cerca está el precio actual del mínimo registrado' es mucho más certero que fijarse en 'cuál es el porcentaje de descuento de ahora'. Aunque dos juegos tengan el mismo 50% de descuento, si el mínimo registrado de uno fue solo un 30%, este podría estar tocando de verdad su punto más bajo; en cambio, un 50% en un juego que suele caer hasta el 70% no resulta tan atractivo. En Lowstamp te mostramos lado a lado el mínimo registrado y el precio actual de cada juego, y con el veredicto de '¿Es buen momento para comprar?' te decimos de un vistazo si está cerca de su piso. Así que no te dejes llevar por el número del descuento y usa ese veredicto como referencia."
     },
     {
       "type": "ul",
       "items": [
-        "Fíjate primero en la distancia respecto al mínimo histórico, antes que en el porcentaje de descuento.",
+        "Fíjate primero en la distancia respecto al mínimo registrado, antes que en el porcentaje de descuento.",
         "Si no lo necesitas ya mismo, guárdalo en favoritos y espera la oferta de la próxima temporada.",
         "Si lo agregas a tu lista de deseados, Steam a veces te avisa cuando empieza una oferta."
       ]
@@ -68,7 +68,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "En resumen, con las joyas indie casi nunca pasa que no puedas comprarlas por caras; lo que decide tu satisfacción es 'cuándo' las compras. Si guardas en favoritos los juegos que te gustan y aprovechas las ofertas de temporada o el momento en que tocan un nuevo mínimo histórico, con el mismo dinero podrás disfrutar de muchísimas más joyas. Las recomendaciones de arriba son apenas un punto de partida, así que explora por tu cuenta y arma tu propia lista de indie con la mejor relación precio-calidad."
+      "text": "En resumen, con las joyas indie casi nunca pasa que no puedas comprarlas por caras; lo que decide tu satisfacción es 'cuándo' las compras. Si guardas en favoritos los juegos que te gustan y aprovechas las ofertas de temporada o el momento en que tocan un nuevo mínimo registrado, con el mismo dinero podrás disfrutar de muchísimas más joyas. Las recomendaciones de arriba son apenas un punto de partida, así que explora por tu cuenta y arma tu propia lista de indie con la mejor relación precio-calidad."
     }
   ]
 };

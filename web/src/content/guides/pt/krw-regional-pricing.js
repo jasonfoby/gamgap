@@ -1,7 +1,7 @@
 export default {
   "slug": "krw-regional-pricing",
   "title": "Por que o mesmo jogo na Steam custa valores diferentes em cada pais: entendendo o preço regional",
-  "description": "Por que o mesmo jogo na Steam custa um preço para você e outro para um amigo em outro país? Explicamos o preço regional: como a Steam define um preço diferente por país e moeda, por que o câmbio e as políticas entram em jogo e como usar o menor preço histórico para decidir a hora de comprar.",
+  "description": "Por que o mesmo jogo na Steam custa um preço para você e outro para um amigo em outro país? Explicamos o preço regional: como a Steam define um preço diferente por país e moeda, por que o câmbio e as políticas entram em jogo e como usar o menor preço registrado para decidir a hora de comprar.",
   "date": "2026-06-18",
   "tags": ["Steam", "preço regional", "moeda", "câmbio"],
   "readMins": 6,
@@ -36,7 +36,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "Na prática, o que move o preço que você realmente paga é a promoção, não o preço de tabela. Um jogo normalmente é vendido pelo preço cheio, mas quando entra uma promoção de 50% ele cai de uma vez para a metade. Então a sensação de \"está barato agora\" vem do tamanho do desconto, e não do câmbio. A Lowstamp mostra o preço de cada jogo na moeda da sua própria região ao lado do menor preço histórico, com um veredito de comprar ou esperar, justamente para você avaliar esse desconto num relance."
+      "text": "Na prática, o que move o preço que você realmente paga é a promoção, não o preço de tabela. Um jogo normalmente é vendido pelo preço cheio, mas quando entra uma promoção de 50% ele cai de uma vez para a metade. Então a sensação de \"está barato agora\" vem do tamanho do desconto, e não do câmbio. A Lowstamp mostra o preço de cada jogo na moeda da sua própria região ao lado do menor preço registrado, com um veredito de comprar ou esperar, justamente para você avaliar esse desconto num relance."
     },
     {
       "type": "h2",
@@ -64,14 +64,14 @@ export default {
     },
     {
       "type": "p",
-      "text": "Quando um aumento no preço de tabela é anunciado ou começa a se desenhar, a forma de reagir é surpreendentemente simples. Primeiro, como um preço de tabela mais alto significa um pagamento final maior mesmo com a mesma porcentagem de desconto, vale dar mais uma olhada em qualquer jogo que você esteja de olho antes de o aumento chegar. Segundo, dito isso, não há motivo para se apressar olhando só o preço de tabela. Mesmo que ele suba, um desconto maior na próxima promoção ainda pode deixar você pagando menos no total. Por isso, o hábito de observar \"o preço atual em relação ao menor preço histórico\" é mais confiável do que reagir à mudança do preço de tabela em si."
+      "text": "Quando um aumento no preço de tabela é anunciado ou começa a se desenhar, a forma de reagir é surpreendentemente simples. Primeiro, como um preço de tabela mais alto significa um pagamento final maior mesmo com a mesma porcentagem de desconto, vale dar mais uma olhada em qualquer jogo que você esteja de olho antes de o aumento chegar. Segundo, dito isso, não há motivo para se apressar olhando só o preço de tabela. Mesmo que ele suba, um desconto maior na próxima promoção ainda pode deixar você pagando menos no total. Por isso, o hábito de observar \"o preço atual em relação ao menor preço registrado\" é mais confiável do que reagir à mudança do preço de tabela em si."
     },
     {
       "type": "ul",
       "items": [
         "Adicione com antecedência à lista de desejos os jogos que você quer e acompanhe a tendência do preço, para não perder nenhuma mudança, seja uma variação no preço de tabela ou uma promoção.",
-        "Baseie a decisão de compra não no câmbio, mas em \"o desconto atual em relação ao menor preço histórico\".",
-        "Tenha em mente as grandes temporadas de promoção (mais ou menos no verão e no fim do ano, segundo o senso comum, embora as datas sejam só uma estimativa e possam variar de ano para ano) e confira também o histórico de menor preço de cada jogo."
+        "Baseie a decisão de compra não no câmbio, mas em \"o desconto atual em relação ao menor preço registrado\".",
+        "Tenha em mente as grandes temporadas de promoção (mais ou menos no verão e no fim do ano, segundo o senso comum, embora as datas sejam só uma estimativa e possam variar de ano para ano) e confira também o menor preço registrado de cada jogo."
       ]
     },
     {
@@ -80,7 +80,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "Entender os preços da Steam se resume a três coisas. O seu preço de tabela local não é um valor convertido pelo câmbio, mas um preço definido especificamente para o seu mercado; ele não oscila dia a dia e só muda de vez em quando e por política. E a variável que de fato mexe com o seu bolso não é o preço de tabela, mas o desconto que se soma por cima dele. Então, em vez de se deixar levar por \"ouvi dizer que o câmbio está assim e assado\", adicione à lista de desejos os jogos que te interessam, compare o menor preço histórico com o preço atual na sua própria moeda e avalie com calma se é hora de comprar. Essa é a maneira mais sensata de comprar jogos na Steam, onde quer que você esteja."
+      "text": "Entender os preços da Steam se resume a três coisas. O seu preço de tabela local não é um valor convertido pelo câmbio, mas um preço definido especificamente para o seu mercado; ele não oscila dia a dia e só muda de vez em quando e por política. E a variável que de fato mexe com o seu bolso não é o preço de tabela, mas o desconto que se soma por cima dele. Então, em vez de se deixar levar por \"ouvi dizer que o câmbio está assim e assado\", adicione à lista de desejos os jogos que te interessam, compare o menor preço registrado com o preço atual na sua própria moeda e avalie com calma se é hora de comprar. Essa é a maneira mais sensata de comprar jogos na Steam, onde quer que você esteja."
     }
   ]
 };

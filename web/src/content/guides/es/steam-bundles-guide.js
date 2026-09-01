@@ -70,7 +70,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "Hay algo más que conviene comprobar. Aunque el precio del pack parezca barato, todavía hay que juzgar si es realmente un mínimo histórico o solo está un poco por debajo del precio habitual. Comprueba en Lowstamp si el precio actual del juego base está cerca de su mínimo histórico y mira al lado el veredicto de ¿Compro ahora?. Así es mucho más fácil decidir si llevarte el pack ahora o esperar a las próximas rebajas. Y echar un vistazo a la gráfica del historial de precios para ver la tendencia reciente te da aún más seguridad."
+      "text": "Hay algo más que conviene comprobar. Aunque el precio del pack parezca barato, todavía hay que juzgar si es realmente un mínimo registrado o solo está un poco por debajo del precio habitual. Comprueba en Lowstamp si el precio actual del juego base está cerca de su mínimo registrado y mira al lado el veredicto de ¿Compro ahora?. Así es mucho más fácil decidir si llevarte el pack ahora o esperar a las próximas rebajas. Y echar un vistazo a la gráfica del historial de precios para ver la tendencia reciente te da aún más seguridad."
     },
     {
       "type": "h2",
@@ -103,7 +103,7 @@ export default {
         "Abre lo que hay dentro del pack y distingue los elementos que de verdad vas a disfrutar.",
         "Si ya tienes algunos elementos, confirma que se descuentan del precio (el importe de Completa el set).",
         "Compara el total de comprar por separado solo lo que quieres frente al precio del pack.",
-        "Juzga si el juego base está ahora cerca de su mínimo histórico, o si es probable que pronto lleguen unas rebajas mayores.",
+        "Juzga si el juego base está ahora cerca de su mínimo registrado, o si es probable que pronto lleguen unas rebajas mayores.",
         "Por si necesitas un reembolso, recuerda que un pack cuenta el tiempo de juego combinado de todos los elementos incluidos.",
         "Una vez decidido, revisa el cargo final en el carrito una última vez antes de pagar."
       ]
@@ -118,11 +118,11 @@ export default {
     },
     {
       "type": "p",
-      "text": "Bien usado, un pack es una gran herramienta para conseguir el mismo contenido por menos, pero que parezca barato no siempre significa que ganes. Si está repleto de juegos que no vas a jugar, comprar por separado puede ser mejor; y si el precio actual es solo el de siempre, esperar a las próximas rebajas puede ser más inteligente. El criterio siempre son dos cosas: el precio contando solo lo que de verdad vas a disfrutar, y si ahora es realmente un momento barato. Confirma ambas con el mínimo histórico de Lowstamp y el veredicto de ¿Compro ahora?, y podrás comprar packs con cabeza, sin dejarte llevar."
+      "text": "Bien usado, un pack es una gran herramienta para conseguir el mismo contenido por menos, pero que parezca barato no siempre significa que ganes. Si está repleto de juegos que no vas a jugar, comprar por separado puede ser mejor; y si el precio actual es solo el de siempre, esperar a las próximas rebajas puede ser más inteligente. El criterio siempre son dos cosas: el precio contando solo lo que de verdad vas a disfrutar, y si ahora es realmente un momento barato. Confirma ambas con el mínimo registrado de Lowstamp y el veredicto de ¿Compro ahora?, y podrás comprar packs con cabeza, sin dejarte llevar."
     },
     {
       "type": "quote",
-      "text": "Un pack no es barato, es barato cuando encaja. Cuenta solo lo que vas a jugar y usa el mínimo histórico para acertar con el momento."
+      "text": "Un pack no es barato, es barato cuando encaja. Cuenta solo lo que vas a jugar y usa el mínimo registrado para acertar con el momento."
     }
   ]
 };

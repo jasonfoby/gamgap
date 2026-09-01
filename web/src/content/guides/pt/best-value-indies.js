@@ -1,14 +1,14 @@
 export default {
   "slug": "best-value-indies",
   "title": "Indies imperdíveis para garantir em cada promoção",
-  "description": "Um guia de compra com foco em custo-benefício, voltado a quem valoriza mais o menor preço histórico do que a porcentagem de desconto. Reunimos grandes indies da Steam que valem a pena no preço mais baixo de sempre, organizados por gênero: roguelike, metroidvania, automação, narrativa e mais.",
+  "description": "Um guia de compra com foco em custo-benefício, voltado a quem valoriza mais o menor preço registrado do que a porcentagem de desconto. Reunimos grandes indies da Steam que valem a pena no menor preço que já registramos, organizados por gênero: roguelike, metroidvania, automação, narrativa e mais.",
   "date": "2026-06-18",
   "tags": ["jogos indie", "custo-benefício", "promoção da Steam", "guia de compra"],
   "readMins": 6,
   "body": [
     {
       "type": "p",
-      "text": "Grandes produções AAA chegam a custar mais de 300 reais de preço cheio e, mesmo com desconto, continuam caras. Já os jogos indie costumam sair entre 30 e 90 reais, então basta uma promoção para você levar uma obra-prima por menos de 40 reais. Além disso, os indies tendem a receber descontos cada vez maiores com o passar do tempo, o que torna a estratégia de esperar o preço chegar perto do menor histórico, em vez de comprar com pressa, especialmente eficaz nesse segmento. Neste texto, reunimos alguns indies que valem a pena ficar de olho a cada promoção, organizados por gênero. São recomendações pessoais e gosto é algo que varia de pessoa para pessoa, então use os gêneros e os destaques apenas como ponto de partida para encontrar o que combina com o seu estilo."
+      "text": "Grandes produções AAA chegam a custar mais de 300 reais de preço cheio e, mesmo com desconto, continuam caras. Já os jogos indie costumam sair entre 30 e 90 reais, então basta uma promoção para você levar uma obra-prima por menos de 40 reais. Além disso, os indies tendem a receber descontos cada vez maiores com o passar do tempo, o que torna a estratégia de esperar o preço chegar perto do menor preço registrado, em vez de comprar com pressa, especialmente eficaz nesse segmento. Neste texto, reunimos alguns indies que valem a pena ficar de olho a cada promoção, organizados por gênero. São recomendações pessoais e gosto é algo que varia de pessoa para pessoa, então use os gêneros e os destaques apenas como ponto de partida para encontrar o que combina com o seu estilo."
     },
     {
       "type": "h2",
@@ -44,16 +44,16 @@ export default {
     },
     {
       "type": "h2",
-      "text": "Por que vale a pena comprar no menor preço histórico e dicas de compra"
+      "text": "Por que vale a pena comprar no menor preço registrado e dicas de compra"
     },
     {
       "type": "p",
-      "text": "É comum os jogos indie receberem descontos maiores um ou dois anos depois do lançamento do que logo de cara. Por isso, olhar 'quão perto o preço atual está do menor histórico' é muito mais preciso do que olhar 'qual é a porcentagem de desconto agora'. Dois jogos com o mesmo desconto de 50% podem ser bem diferentes: se o menor histórico de um deles foi de apenas 30% de desconto, o preço de agora pode ser realmente o fundo do poço; já um desconto de 50% num jogo que costuma cair até 70% talvez não seja tão atrativo. No Lowstamp, mostramos lado a lado o menor preço histórico e o preço atual de cada jogo, e o veredito 'Pode comprar agora?' diz num relance se o preço está perto do fundo. Em vez de se deixar levar pelo número do desconto, use esse veredito como referência."
+      "text": "É comum os jogos indie receberem descontos maiores um ou dois anos depois do lançamento do que logo de cara. Por isso, olhar 'quão perto o preço atual está do menor preço registrado' é muito mais preciso do que olhar 'qual é a porcentagem de desconto agora'. Dois jogos com o mesmo desconto de 50% podem ser bem diferentes: se o menor preço registrado de um deles ficou em apenas 30% de desconto, o preço de agora pode ser realmente o fundo do poço; já um desconto de 50% num jogo que costuma cair até 70% talvez não seja tão atrativo. No Lowstamp, mostramos lado a lado o menor preço registrado e o preço atual de cada jogo, e o veredito 'Pode comprar agora?' diz num relance se o preço está perto do fundo. Em vez de se deixar levar pelo número do desconto, use esse veredito como referência."
     },
     {
       "type": "ul",
       "items": [
-        "Priorize a distância até o menor preço histórico em vez da porcentagem de desconto.",
+        "Priorize a distância até o menor preço registrado em vez da porcentagem de desconto.",
         "Se não há pressa, marque como favorito e espere a promoção da próxima temporada.",
         "Adicionar à lista de desejos faz a Steam te avisar quando a promoção começar."
       ]
@@ -68,7 +68,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "Resumindo: entre as grandes obras indie quase não existe aquela que você 'não consegue comprar por ser cara'; o que decide a sua satisfação é 'quando comprar'. Se você marcar com antecedência os jogos que curtiu como favoritos e mirar as promoções sazonais ou o momento em que o menor preço histórico é renovado, dá para aproveitar muito mais obras-primas com o mesmo dinheiro. As recomendações acima são só um ponto de partida, então explore por conta própria e monte a sua lista pessoal de custo-benefício."
+      "text": "Resumindo: entre as grandes obras indie quase não existe aquela que você 'não consegue comprar por ser cara'; o que decide a sua satisfação é 'quando comprar'. Se você marcar com antecedência os jogos que curtiu como favoritos e mirar as promoções sazonais ou o momento em que o menor preço registrado é renovado, dá para aproveitar muito mais obras-primas com o mesmo dinheiro. As recomendações acima são só um ponto de partida, então explore por conta própria e monte a sua lista pessoal de custo-benefício."
     }
   ]
 };

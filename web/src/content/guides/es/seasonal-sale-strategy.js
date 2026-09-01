@@ -1,7 +1,7 @@
 export default {
   "slug": "seasonal-sale-strategy",
   "title": "Cómo exprimir al 200% las rebajas de verano e invierno de Steam: estrategia, no fechas",
-  "description": "Una guía práctica para aprovechar de verdad las grandes rebajas de temporada como las de verano e invierno. Limpia tu lista de deseos antes, compara el precio actual con el mínimo histórico cuando empiece la oferta, evita las compras impulsivas, fija un presupuesto y vigila los extras de mitad y final.",
+  "description": "Una guía práctica para aprovechar de verdad las grandes rebajas de temporada como las de verano e invierno. Limpia tu lista de deseos antes, compara el precio actual con el mínimo registrado cuando empiece la oferta, evita las compras impulsivas, fija un presupuesto y vigila los extras de mitad y final.",
   "date": "2026-06-20",
   "tags": ["rebajas de Steam", "rebajas de temporada", "estrategia de compra", "presupuesto"],
   "readMins": 6,
@@ -22,29 +22,29 @@ export default {
       "type": "ul",
       "items": [
         "Deja solo los juegos que de verdad vas a jugar; quita los que ya no te interesan.",
-        "Anota de antemano el mínimo histórico de cada juego (tu referencia para saber si el precio de la oferta es realmente barato).",
+        "Anota de antemano el mínimo registrado de cada juego (tu referencia para saber si el precio de la oferta es realmente barato).",
         "Separa mentalmente un primer grupo de compra obligada y un segundo grupo de comprar-si-está-barato."
       ]
     },
     {
       "type": "note",
-      "text": "Marca con estrella en Lowstamp los juegos que tienes en mente y, cuando llegue la oferta, podrás abrir solo tu lista de favoritos para comparar de un vistazo el precio actual con el mínimo histórico. Es la forma más sencilla de no andar perdido el primer día de rebajas."
+      "text": "Marca con estrella en Lowstamp los juegos que tienes en mente y, cuando llegue la oferta, podrás abrir solo tu lista de favoritos para comparar de un vistazo el precio actual con el mínimo registrado. Es la forma más sencilla de no andar perdido el primer día de rebajas."
     },
     {
       "type": "h2",
-      "text": "Cuando empieza la oferta: mira el mínimo histórico, no el porcentaje"
+      "text": "Cuando empieza la oferta: mira el mínimo registrado, no el porcentaje"
     },
     {
       "type": "p",
-      "text": "Cuando se abre la oferta, lo primero es no emocionarse con el gran número rojo del descuento. Una rebaja de temporada no significa, ni mucho menos, que todos los juegos lleguen a su precio más bajo de la historia. Un juego puede mostrar un 60% en las rebajas de verano y seguir costando más que el 67% que alcanzó el invierno pasado. Así que lo que debes mirar no es el porcentaje de descuento, sino cuán cerca está el precio actual del mínimo histórico de ese juego."
+      "text": "Cuando se abre la oferta, lo primero es no emocionarse con el gran número rojo del descuento. Una rebaja de temporada no significa, ni mucho menos, que todos los juegos lleguen a su precio más bajo registrado. Un juego puede mostrar un 60% en las rebajas de verano y seguir costando más que el 67% que alcanzó el invierno pasado. Así que lo que debes mirar no es el porcentaje de descuento, sino cuán cerca está el precio actual del mínimo registrado de ese juego."
     },
     {
       "type": "p",
-      "text": "Si el precio actual iguala o casi roza el mínimo histórico, es buen momento. En cambio, si está claramente por encima del récord, aunque luzca una etiqueta de descuento llamativa, tienes un buen motivo para esperar a la próxima oferta. Lowstamp hace esa comparación por ti: muestra el mínimo histórico de cada juego y la fecha en que se marcó, lo contrasta con el precio actual y estampa un veredicto claro de '¿Conviene comprar ahora?' como un sello de recibo. La gráfica de evolución de precios también te da una idea de hasta dónde suele bajar ese juego."
+      "text": "Si el precio actual iguala o casi roza el mínimo registrado, es buen momento. En cambio, si está claramente por encima de ese mínimo, aunque luzca una etiqueta de descuento llamativa, tienes un buen motivo para esperar a la próxima oferta. Lowstamp hace esa comparación por ti: muestra el mínimo registrado de cada juego y la fecha en que se marcó, lo contrasta con el precio actual y estampa un veredicto claro de '¿Conviene comprar ahora?' como un sello de recibo. La gráfica de evolución de precios también te da una idea de hasta dónde suele bajar ese juego."
     },
     {
       "type": "quote",
-      "text": "Que sea rebaja de temporada no significa que todo esté barato. Lo que importa es la distancia al mínimo histórico."
+      "text": "Que sea rebaja de temporada no significa que todo esté barato. Lo que importa es la distancia al mínimo registrado."
     },
     {
       "type": "h2",
@@ -77,7 +77,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "Otra cosa que conviene saber: los superventas recientes muy populares a menudo no rebajan más solo porque sea una oferta de temporada. Los juegos que se venden bien no necesitan grandes recortes para seguir vendiéndose. Por eso quien espera que 'para las rebajas de verano estará a mitad de precio' suele llevarse una decepción al ver el mismo descuento de siempre. Para estos títulos es más realista vigilar el momento en que su mínimo histórico se supera de verdad."
+      "text": "Otra cosa que conviene saber: los superventas recientes muy populares a menudo no rebajan más solo porque sea una oferta de temporada. Los juegos que se venden bien no necesitan grandes recortes para seguir vendiéndose. Por eso quien espera que 'para las rebajas de verano estará a mitad de precio' suele llevarse una decepción al ver el mismo descuento de siempre. Para estos títulos es más realista vigilar el momento en que su mínimo registrado se supera de verdad."
     },
     {
       "type": "note",
@@ -85,7 +85,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "En resumen, exprimir al 200% una gran rebaja es sorprendentemente sencillo: limpia tu lista de deseos con antelación, fija un presupuesto para mantener a raya el FOMO y, cuando llegue el momento de comprar, mira la distancia al mínimo histórico en lugar del porcentaje de descuento. Solo con esas tres cosas reducirás muchísimo tanto el arrepentimiento de 'por qué compré eso' como el de 'debí haberlo pillado' una vez terminada la oferta."
+      "text": "En resumen, exprimir al 200% una gran rebaja es sorprendentemente sencillo: limpia tu lista de deseos con antelación, fija un presupuesto para mantener a raya el FOMO y, cuando llegue el momento de comprar, mira la distancia al mínimo registrado en lugar del porcentaje de descuento. Solo con esas tres cosas reducirás muchísimo tanto el arrepentimiento de 'por qué compré eso' como el de 'debí haberlo pillado' una vez terminada la oferta."
     }
   ]
 };

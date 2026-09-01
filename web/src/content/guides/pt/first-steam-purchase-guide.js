@@ -2,7 +2,7 @@ export default {
   slug: "first-steam-purchase-guide",
   title: "Novo na Steam? Guia para iniciantes para comprar com segurança e barato",
   description:
-    "Um guia inicial completo para quem está começando na Steam: configurar conta e pagamento, entender o preço regional e o perigo das compras por desvio, usar a lista de desejos e os alertas, a rede de segurança do reembolso, conferir o menor preço histórico e as avaliações antes de comprar, e por que as lojas de chaves externas são arriscadas.",
+    "Um guia inicial completo para quem está começando na Steam: configurar conta e pagamento, entender o preço regional e o perigo das compras por desvio, usar a lista de desejos e os alertas, a rede de segurança do reembolso, conferir o menor preço registrado e as avaliações antes de comprar, e por que as lojas de chaves externas são arriscadas.",
   date: "2026-06-20",
   tags: ["Steam", "iniciante", "guia de compra", "novato", "compra segura"],
   readMins: 7,
@@ -47,7 +47,7 @@ export default {
     {
       type: "p",
       text:
-        "Os termos da Steam exigem que o comprador pague o preço do país em que realmente mora. Se você quebrar isso falsificando sua região, pode ser pego por violar os termos e ter a conta suspensa, e, se isso acontecer, você pode perder toda a sua coleção de jogos de uma só vez. Você estaria arriscando a biblioteca inteira para economizar alguns reais, uma troca péssima. O caminho seguro é simples: compre pelo preço em wones como ele aparece, mas confira se esse preço é de fato baixo pelo padrão histórico. A Lowstamp acompanha diretamente os preços em wones da loja coreana da Steam, então você consegue ver na hora o quão perto o preço atual em wones está do menor preço histórico.",
+        "Os termos da Steam exigem que o comprador pague o preço do país em que realmente mora. Se você quebrar isso falsificando sua região, pode ser pego por violar os termos e ter a conta suspensa, e, se isso acontecer, você pode perder toda a sua coleção de jogos de uma só vez. Você estaria arriscando a biblioteca inteira para economizar alguns reais, uma troca péssima. O caminho seguro é simples: compre pelo preço em wones como ele aparece, mas confira se esse preço é de fato baixo pelo que já registramos. A Lowstamp acompanha diretamente os preços em wones da loja coreana da Steam, então você consegue ver na hora o quão perto o preço atual em wones está do menor preço registrado.",
     },
     {
       type: "h2",
@@ -61,7 +61,7 @@ export default {
     {
       type: "p",
       text:
-        "Por exemplo, mesmo que você esteja louco para comprar pelo preço cheio, colocar na lista de desejos e esperar a próxima promoção muitas vezes deixa você levar o mesmo jogo por quase metade do preço. Na Lowstamp também, quando você marca com uma estrela um jogo de que gosta, dá para comparar num relance o preço atual e o menor preço histórico, então funciona bem usar os dois juntos: receba o alerta de promoção da Steam e depois confira na Lowstamp se é um preço que vale a pena.",
+        "Por exemplo, mesmo que você esteja louco para comprar pelo preço cheio, colocar na lista de desejos e esperar a próxima promoção muitas vezes deixa você levar o mesmo jogo por quase metade do preço. Na Lowstamp também, quando você marca com uma estrela um jogo de que gosta, dá para comparar num relance o preço atual e o menor preço registrado, então funciona bem usar os dois juntos: receba o alerta de promoção da Steam e depois confira na Lowstamp se é um preço que vale a pena.",
     },
     {
       type: "h2",
@@ -79,7 +79,7 @@ export default {
     },
     {
       type: "h2",
-      text: "Duas coisas para conferir antes da primeira compra: menor preço histórico e avaliações",
+      text: "Duas coisas para conferir antes da primeira compra: menor preço registrado e avaliações",
     },
     {
       type: "p",
@@ -89,7 +89,7 @@ export default {
     {
       type: "p",
       text:
-        "No preço, não se deixe levar pela porcentagem de desconto. Avalie pelo menor preço histórico, o valor mais baixo que esse jogo já atingiu. Por exemplo, mesmo que 70% de desconto pareça barato, se o menor preço histórico foi mais baixo que isso, então este não é o verdadeiro fundo. A Lowstamp mostra o menor preço histórico e um gráfico do histórico de preços de cada jogo, e resume o quão perto o preço atual está desse mínimo com seu veredito 〈Comprar agora?〉. Só de ler essa linha você já calcula rápido se o preço está bom para comprar agora.",
+        "No preço, não se deixe levar pela porcentagem de desconto. Avalie pelo menor preço registrado, o valor mais baixo que já registramos para esse jogo. Por exemplo, mesmo que 70% de desconto pareça barato, se o menor preço registrado foi mais baixo que isso, então este não é o verdadeiro fundo. A Lowstamp mostra o menor preço registrado e um gráfico do histórico de preços de cada jogo, e resume o quão perto o preço atual está desse mínimo com seu veredito 〈Comprar agora?〉. Só de ler essa linha você já calcula rápido se o preço está bom para comprar agora.",
     },
     {
       type: "p",
@@ -126,7 +126,7 @@ export default {
     {
       type: "p",
       text:
-        "Resumindo: crie a conta com segurança e ligue a proteção, compre pelo preço em wones como ele aparece mas evite os desvios de região, coloque na lista de desejos os jogos que você quer e espere o alerta, conheça o sistema de reembolso como rede de segurança, confira o menor preço histórico e as avaliações antes de comprar, e fique longe das lojas de chaves externas. Essas seis coisas são toda a base para comprar com segurança e barato na Steam. Aprenda uma vez e, a partir daí, vira algo natural. Logo antes da sua primeira compra, faça da sua última verificação dar uma olhada no menor preço histórico e no veredito 〈Comprar agora?〉 na Lowstamp.",
+        "Resumindo: crie a conta com segurança e ligue a proteção, compre pelo preço em wones como ele aparece mas evite os desvios de região, coloque na lista de desejos os jogos que você quer e espere o alerta, conheça o sistema de reembolso como rede de segurança, confira o menor preço registrado e as avaliações antes de comprar, e fique longe das lojas de chaves externas. Essas seis coisas são toda a base para comprar com segurança e barato na Steam. Aprenda uma vez e, a partir daí, vira algo natural. Logo antes da sua primeira compra, faça da sua última verificação dar uma olhada no menor preço registrado e no veredito 〈Comprar agora?〉 na Lowstamp.",
     },
     {
       type: "quote",

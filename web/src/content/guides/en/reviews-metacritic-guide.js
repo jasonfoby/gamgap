@@ -99,7 +99,7 @@ export default {
     },
     {
       type: "p",
-      text: "So order your buying steps like this to reduce regret. Use the rating tier and review count to first decide whether to skip it or not, and only if it clears that bar do you look at the price. If you are unsure whether the current price is genuinely a low point, check the game's all-time low and the Should I buy now? verdict on Lowstamp. Seeing what it usually cost on the price-history graph too makes it far easier to catch the real sweet spot — good reviews and a low price at the same time.",
+      text: "So order your buying steps like this to reduce regret. Use the rating tier and review count to first decide whether to skip it or not, and only if it clears that bar do you look at the price. If you are unsure whether the current price is genuinely a low point, check the game's lowest tracked price and the Should I buy now? verdict on Lowstamp. Seeing what it usually cost on the price-history graph too makes it far easier to catch the real sweet spot — good reviews and a low price at the same time.",
     },
     {
       type: "ol",
@@ -108,7 +108,7 @@ export default {
         "Check the review count next to it (trust the tier less if there are too few).",
         "If recent and all reviews differ, read a few recent reviews.",
         "If a Metacritic score exists, look at the critic and user scores together.",
-        "Only once it clears all that, look at the price and judge whether it is near its all-time low.",
+        "Only once it clears all that, look at the price and judge whether it is near its lowest tracked price.",
       ],
     },
     {
@@ -121,7 +121,7 @@ export default {
     },
     {
       type: "p",
-      text: "To sum up: the rating tier is the thumbs-up share turned into words, and to trust that share you need enough reviews. When recent and all reviews differ there is a story, so look into it, and Metacritic only balances out when you view critic and user scores together. And no matter how cheap, boldly pass on anything with bad reviews. Filter for whether a game is worth buying by its reviews first, then use Lowstamp's all-time low and Should I buy now? verdict to time the purchase, and you will pick games that are both cheap and regret-free.",
+      text: "To sum up: the rating tier is the thumbs-up share turned into words, and to trust that share you need enough reviews. When recent and all reviews differ there is a story, so look into it, and Metacritic only balances out when you view critic and user scores together. And no matter how cheap, boldly pass on anything with bad reviews. Filter for whether a game is worth buying by its reviews first, then use Lowstamp's lowest tracked price and Should I buy now? verdict to time the purchase, and you will pick games that are both cheap and regret-free.",
     },
     {
       type: "quote",

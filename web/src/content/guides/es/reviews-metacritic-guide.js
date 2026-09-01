@@ -99,7 +99,7 @@ export default {
     },
     {
       type: "p",
-      text: "Asi que ordena tus pasos de compra de este modo para arrepentirte menos. Usa el nivel de valoracion y el numero de resenas para decidir primero si lo descartas o no, y solo si supera ese filtro miras el precio. Si dudas de si el precio actual es de verdad un punto bajo, comprueba el minimo historico del juego y el veredicto Compro ahora? en Lowstamp. Ver tambien en el grafico de evolucion de precios lo que costaba de costumbre hace mucho mas facil pillar el momento perfecto: buenas resenas y precio bajo a la vez.",
+      text: "Asi que ordena tus pasos de compra de este modo para arrepentirte menos. Usa el nivel de valoracion y el numero de resenas para decidir primero si lo descartas o no, y solo si supera ese filtro miras el precio. Si dudas de si el precio actual es de verdad un punto bajo, comprueba el minimo registrado del juego y el veredicto Compro ahora? en Lowstamp. Ver tambien en el grafico de evolucion de precios lo que costaba de costumbre hace mucho mas facil pillar el momento perfecto: buenas resenas y precio bajo a la vez.",
     },
     {
       type: "ol",
@@ -108,7 +108,7 @@ export default {
         "Comprueba el numero de resenas que tiene al lado (confia menos en el nivel si son muy pocas).",
         "Si las resenas recientes y todas difieren, lee algunas recientes.",
         "Si existe una nota de Metacritic, mira la de critica y la de usuarios juntas.",
-        "Solo cuando supere todo eso, mira el precio y juzga si esta cerca de su minimo historico.",
+        "Solo cuando supere todo eso, mira el precio y juzga si esta cerca de su minimo registrado.",
       ],
     },
     {
@@ -121,7 +121,7 @@ export default {
     },
     {
       type: "p",
-      text: "En resumen: el nivel de valoracion es el porcentaje de pulgares arriba pasado a palabras, y para fiarte de ese porcentaje necesitas suficientes resenas. Cuando las recientes y todas difieren hay una historia, asi que investigala, y Metacritic solo se equilibra cuando miras la nota de critica y la de usuarios juntas. Y por barato que este, pasa con decision de cualquier cosa con malas resenas. Filtra primero por las resenas si un juego vale la pena, y luego usa el minimo historico y el veredicto Compro ahora? de Lowstamp para elegir el momento, y elegiras juegos baratos y sin arrepentimientos.",
+      text: "En resumen: el nivel de valoracion es el porcentaje de pulgares arriba pasado a palabras, y para fiarte de ese porcentaje necesitas suficientes resenas. Cuando las recientes y todas difieren hay una historia, asi que investigala, y Metacritic solo se equilibra cuando miras la nota de critica y la de usuarios juntas. Y por barato que este, pasa con decision de cualquier cosa con malas resenas. Filtra primero por las resenas si un juego vale la pena, y luego usa el minimo registrado y el veredicto Compro ahora? de Lowstamp para elegir el momento, y elegiras juegos baratos y sin arrepentimientos.",
     },
     {
       type: "quote",

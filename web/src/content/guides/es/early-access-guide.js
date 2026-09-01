@@ -65,7 +65,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "Normalmente el precio en Acceso Anticipado es más bajo que el del lanzamiento oficial, porque muchos desarrolladores suben el precio cuando el juego sale de forma definitiva. Así que, si tienes claro que ese juego te convence, comprarlo barato durante el Acceso Anticipado puede salirte a cuenta. Y al revés, si tienes dudas, no pasa nada por esperar al lanzamiento oficial y a una rebaja para comprarlo cerca del mínimo histórico. En cualquiera de los dos casos, en Lowstamp puedes ver el precio actual de ese juego, su mínimo histórico y cómo se ha movido el precio, para hacerte una idea de si \"es buen momento para comprar\"."
+      "text": "Normalmente el precio en Acceso Anticipado es más bajo que el del lanzamiento oficial, porque muchos desarrolladores suben el precio cuando el juego sale de forma definitiva. Así que, si tienes claro que ese juego te convence, comprarlo barato durante el Acceso Anticipado puede salirte a cuenta. Y al revés, si tienes dudas, no pasa nada por esperar al lanzamiento oficial y a una rebaja para comprarlo cerca del mínimo registrado. En cualquiera de los dos casos, en Lowstamp puedes ver el precio actual de ese juego, su mínimo registrado y cómo se ha movido el precio, para hacerte una idea de si \"es buen momento para comprar\"."
     },
     {
       "type": "p",
@@ -77,7 +77,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "En resumen, el Acceso Anticipado es una buena oportunidad para disfrutar algo barato y por adelantado cuando se juntan los tres ingredientes: desarrollo activo, buenas valoraciones y que ya sea suficientemente divertido ahora mismo. Al contrario, si parece que el desarrollo se ha parado o las valoraciones son malas, lo suyo es esperar o descartarlo. Y si no tienes prisa, apuntar al mínimo histórico durante una gran rebaja tras el lanzamiento oficial también es una decisión inteligente. Si guardas los juegos en Acceso Anticipado que te interesan y vas siguiendo sus actualizaciones y su precio, podrás comprar en el mejor momento sin necesidad de apresurarte."
+      "text": "En resumen, el Acceso Anticipado es una buena oportunidad para disfrutar algo barato y por adelantado cuando se juntan los tres ingredientes: desarrollo activo, buenas valoraciones y que ya sea suficientemente divertido ahora mismo. Al contrario, si parece que el desarrollo se ha parado o las valoraciones son malas, lo suyo es esperar o descartarlo. Y si no tienes prisa, apuntar al mínimo registrado durante una gran rebaja tras el lanzamiento oficial también es una decisión inteligente. Si guardas los juegos en Acceso Anticipado que te interesan y vas siguiendo sus actualizaciones y su precio, podrás comprar en el mejor momento sin necesidad de apresurarte."
     }
   ]
 };

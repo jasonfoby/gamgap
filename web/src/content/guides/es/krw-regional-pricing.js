@@ -1,7 +1,7 @@
 export default {
   "slug": "krw-regional-pricing",
   "title": "Por que el mismo juego de Steam cuesta distinto segun el pais: los precios regionales",
-  "description": "Por que el mismo juego de Steam te cuesta un precio a ti y otro a un amigo en otro pais? Te explicamos los precios regionales: como Steam fija un precio distinto por pais y moneda, por que influyen el tipo de cambio y las politicas, y como usar el minimo historico para decidir cuando comprar.",
+  "description": "Por que el mismo juego de Steam te cuesta un precio a ti y otro a un amigo en otro pais? Te explicamos los precios regionales: como Steam fija un precio distinto por pais y moneda, por que influyen el tipo de cambio y las politicas, y como usar el minimo registrado para decidir cuando comprar.",
   "date": "2026-06-18",
   "tags": ["Steam", "precios regionales", "moneda", "tipo de cambio"],
   "readMins": 6,
@@ -36,7 +36,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "En la practica, lo que mueve el precio que de verdad pagas es la rebaja, no el precio de lista. Un juego normalmente se vende a precio completo, pero cuando llega una rebaja del 50% se queda de golpe a mitad de precio. Asi que la sensacion de \"ahora esta barato\" viene del tamano del descuento, no del tipo de cambio. Si Lowstamp muestra el precio de cada juego en la moneda de tu propia region junto a su minimo historico, con un veredicto de comprar o esperar, es justamente para que puedas valorar ese descuento de un vistazo."
+      "text": "En la practica, lo que mueve el precio que de verdad pagas es la rebaja, no el precio de lista. Un juego normalmente se vende a precio completo, pero cuando llega una rebaja del 50% se queda de golpe a mitad de precio. Asi que la sensacion de \"ahora esta barato\" viene del tamano del descuento, no del tipo de cambio. Si Lowstamp muestra el precio de cada juego en la moneda de tu propia region junto a su minimo registrado, con un veredicto de comprar o esperar, es justamente para que puedas valorar ese descuento de un vistazo."
     },
     {
       "type": "h2",
@@ -52,7 +52,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "La conclusion practica es sencilla. Para la mayoria de los juegos, comprar simplemente en la tienda de tu propia region, en tu moneda y durante una rebaja es lo mas seguro y, normalmente, lo mas barato. En lugar de perseguir arbitrajes de tipo de cambio, compensa mucho mas guiarse por \"hasta cuanto ha llegado a bajar este juego alguna vez\"."
+      "text": "La conclusion practica es sencilla. Para la mayoria de los juegos, comprar simplemente en la tienda de tu propia region, en tu moneda y durante una rebaja es lo mas seguro y, normalmente, lo mas barato. En lugar de perseguir arbitrajes de tipo de cambio, compensa mucho mas guiarse por \"hasta cuanto lo hemos visto bajar\"."
     },
     {
       "type": "h2",
@@ -64,13 +64,13 @@ export default {
     },
     {
       "type": "p",
-      "text": "Cuando se anuncia una subida del precio de lista o empieza a verse venir, la forma de reaccionar es sorprendentemente simple. Primero, como un precio de lista mas alto significa un pago final mayor aun con el mismo porcentaje de descuento, conviene echar otro vistazo a cualquier juego que tuvieras en el punto de mira antes de que llegue la subida. Segundo, dicho esto, no hace falta apresurarse fijandose solo en el precio de lista. Aunque suba, un descuento mas grande en la siguiente rebaja todavia puede dejarte pagando menos en total. Por eso, el habito de mirar \"el precio actual frente al minimo historico\" es mas fiable que reaccionar al cambio del precio de lista en si."
+      "text": "Cuando se anuncia una subida del precio de lista o empieza a verse venir, la forma de reaccionar es sorprendentemente simple. Primero, como un precio de lista mas alto significa un pago final mayor aun con el mismo porcentaje de descuento, conviene echar otro vistazo a cualquier juego que tuvieras en el punto de mira antes de que llegue la subida. Segundo, dicho esto, no hace falta apresurarse fijandose solo en el precio de lista. Aunque suba, un descuento mas grande en la siguiente rebaja todavia puede dejarte pagando menos en total. Por eso, el habito de mirar \"el precio actual frente al minimo registrado\" es mas fiable que reaccionar al cambio del precio de lista en si."
     },
     {
       "type": "ul",
       "items": [
         "Anade a tu lista de deseos los juegos que quieres con antelacion y vigila la evolucion del precio, para no perderte ningun cambio, sea una variacion del precio de lista o una rebaja.",
-        "Basa tu decision de compra no en el tipo de cambio, sino en \"el descuento actual respecto al minimo historico\".",
+        "Basa tu decision de compra no en el tipo de cambio, sino en \"el descuento actual respecto al minimo registrado\".",
         "Ten presentes las grandes temporadas de rebajas (mas o menos en verano y a fin de ano, segun el saber popular, aunque las fechas son solo una estimacion y pueden variar de un ano a otro), y revisa tambien el historial de minimos de cada juego."
       ]
     },
@@ -80,7 +80,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "Entender los precios de Steam se reduce a tres cosas. Tu precio de lista local no es una cifra convertida por el tipo de cambio, sino un precio fijado especificamente para tu mercado; no oscila dia a dia y solo cambia de vez en cuando y por politica. Y la variable que de verdad mueve tu bolsillo no es el precio de lista, sino el descuento que se le suma encima. Asi que, en lugar de dejarte llevar por \"he oido que el cambio esta de tal manera\", anade a tu lista de deseos los juegos que te interesan, compara el minimo historico con el precio actual en tu propia moneda y valora con calma si es el momento de comprar. Esa es la manera mas sensata de comprar juegos en Steam, vivas donde vivas."
+      "text": "Entender los precios de Steam se reduce a tres cosas. Tu precio de lista local no es una cifra convertida por el tipo de cambio, sino un precio fijado especificamente para tu mercado; no oscila dia a dia y solo cambia de vez en cuando y por politica. Y la variable que de verdad mueve tu bolsillo no es el precio de lista, sino el descuento que se le suma encima. Asi que, en lugar de dejarte llevar por \"he oido que el cambio esta de tal manera\", anade a tu lista de deseos los juegos que te interesan, compara el minimo registrado con el precio actual en tu propia moneda y valora con calma si es el momento de comprar. Esa es la manera mas sensata de comprar juegos en Steam, vivas donde vivas."
     }
   ]
 };

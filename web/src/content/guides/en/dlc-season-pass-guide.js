@@ -57,11 +57,11 @@ export default {
     },
     {
       "type": "h2",
-      "text": "DLC goes on sale too — judge it by the all-time low"
+      "text": "DLC goes on sale too — judge it by the lowest tracked price"
     },
     {
       "type": "p",
-      "text": "DLC and season passes drop in price during sales just like the base game, and the way they bottom out during the big sales follows the same rhythm. Instead of paying full price right at launch, if you enjoy the base game first and then grab the DLC on sale, you get the same content for less. Lowstamp shows the base game's current price, all-time low, and a 'Should I buy now?' verdict — so use it to snag the base game at a good price first, then play it and wait for a sale on the DLC."
+      "text": "DLC and season passes drop in price during sales just like the base game, and the way they bottom out during the big sales follows the same rhythm. Instead of paying full price right at launch, if you enjoy the base game first and then grab the DLC on sale, you get the same content for less. Lowstamp shows the base game's current price, lowest tracked price, and a 'Should I buy now?' verdict — so use it to snag the base game at a good price first, then play it and wait for a sale on the DLC."
     },
     {
       "type": "quote",
@@ -69,7 +69,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "To sum up, just remember three things about DLC and season passes. First, use the base game to confirm the game is your kind of thing. Second, be cautious with a season pass that has you paying for stuff that isn't out yet. Third, take a quick second to compare the complete edition against buying separately, and pick the cheaper one. Base game or DLC, if you're not in a hurry, buying close to the all-time low during a sale is the thriftiest move. Wishlist the games you're interested in and wait for the price to come down, and you'll dodge overpaying on both the base game and its DLC."
+      "text": "To sum up, just remember three things about DLC and season passes. First, use the base game to confirm the game is your kind of thing. Second, be cautious with a season pass that has you paying for stuff that isn't out yet. Third, take a quick second to compare the complete edition against buying separately, and pick the cheaper one. Base game or DLC, if you're not in a hurry, buying close to the lowest tracked price during a sale is the thriftiest move. Wishlist the games you're interested in and wait for the price to come down, and you'll dodge overpaying on both the base game and its DLC."
     }
   ]
 };

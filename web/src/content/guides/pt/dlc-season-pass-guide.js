@@ -57,11 +57,11 @@ export default {
     },
     {
       "type": "h2",
-      "text": "DLC também é coisa de comprar em promoção, com o menor preço histórico como referência"
+      "text": "DLC também é coisa de comprar em promoção, com o menor preço registrado como referência"
     },
     {
       "type": "p",
-      "text": "DLC e passe de temporada também baixam de preço nas promoções, igual o jogo principal, e a lógica de ficarem mais baratos nas grandes promoções é a mesma. Em vez de pagar o preço cheio logo no lançamento, se você aproveitar bem o jogo base e comprar a DLC numa promoção, leva o mesmo conteúdo pagando mais barato. O Lowstamp mostra o preço atual, o menor preço histórico e o veredito 'Vale comprar agora?' do jogo principal, então a sacada é usar isso pra fisgar o jogo base num bom preço e, depois de curtir o principal, ficar de olho na promoção pra pegar a DLC."
+      "text": "DLC e passe de temporada também baixam de preço nas promoções, igual o jogo principal, e a lógica de ficarem mais baratos nas grandes promoções é a mesma. Em vez de pagar o preço cheio logo no lançamento, se você aproveitar bem o jogo base e comprar a DLC numa promoção, leva o mesmo conteúdo pagando mais barato. O Lowstamp mostra o preço atual, o menor preço registrado e o veredito 'Vale comprar agora?' do jogo principal, então a sacada é usar isso pra fisgar o jogo base num bom preço e, depois de curtir o principal, ficar de olho na promoção pra pegar a DLC."
     },
     {
       "type": "quote",
@@ -69,7 +69,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "Resumindo, com DLC e passe de temporada basta lembrar de três coisas. Primeiro, confirme com o jogo base se o jogo é a sua praia. Segundo, vá com calma no passe de temporada, que compra adiantado coisa que ainda não saiu. E terceiro, compare rapidinho a edição completa com a compra separada e fique com o mais barato. Seja o jogo base ou a DLC, se você não tem pressa, o mais econômico é comprar em promoção, perto do menor preço histórico. Favoritando os jogos que te interessam e esperando o preço cair, você evita pagar caro tanto no jogo principal quanto na DLC."
+      "text": "Resumindo, com DLC e passe de temporada basta lembrar de três coisas. Primeiro, confirme com o jogo base se o jogo é a sua praia. Segundo, vá com calma no passe de temporada, que compra adiantado coisa que ainda não saiu. E terceiro, compare rapidinho a edição completa com a compra separada e fique com o mais barato. Seja o jogo base ou a DLC, se você não tem pressa, o mais econômico é comprar em promoção, perto do menor preço registrado. Favoritando os jogos que te interessam e esperando o preço cair, você evita pagar caro tanto no jogo principal quanto na DLC."
     }
   ]
 };

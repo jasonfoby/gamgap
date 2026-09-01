@@ -68,7 +68,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "Usually the Early Access price is lower than the full release price — developers often bump the price up when the game officially launches. So if you're confident about a game, buying it cheap during Early Access can pay off. If you're unsure, though, waiting for the full release plus a sale and picking it up near its all-time low is no worse. Either way, checking the game's current price, all-time low, and price trend on Lowstamp to see whether now's the time to buy is a great way to get a feel for it."
+      "text": "Usually the Early Access price is lower than the full release price — developers often bump the price up when the game officially launches. So if you're confident about a game, buying it cheap during Early Access can pay off. If you're unsure, though, waiting for the full release plus a sale and picking it up near its lowest tracked price is no worse. Either way, checking the game's current price, lowest tracked price, and price trend on Lowstamp to see whether now's the time to buy is a great way to get a feel for it."
     },
     {
       "type": "p",
@@ -80,7 +80,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "To sum up, Early Access is a great chance to play early and cheap when three things line up: active development, good reviews, and it's already plenty fun right now. If development looks stalled or the reviews are bad, waiting or skipping is the right call. And if you're not in a hurry, aiming for the all-time low during a big sale after the full release is a smart move too. Wishlist the Early Access games you're interested in and keep an eye on their updates and prices, and you can buy at the best possible moment without ever rushing."
+      "text": "To sum up, Early Access is a great chance to play early and cheap when three things line up: active development, good reviews, and it's already plenty fun right now. If development looks stalled or the reviews are bad, waiting or skipping is the right call. And if you're not in a hurry, aiming for the lowest tracked price during a big sale after the full release is a smart move too. Wishlist the Early Access games you're interested in and keep an eye on their updates and prices, and you can buy at the best possible moment without ever rushing."
     }
   ]
 };

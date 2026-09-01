@@ -5,9 +5,9 @@ export default {
   slug: "price-history-reading",
   title: "How to Read a Price History Chart - Is This Sale the Real Bottom?",
   description:
-    "Once you can read a price history chart, you can tell in seconds whether a sale is the real bottom. Learn to spot the all-time-low line, fake always-on discounts, summer and winter sale cycles, and why new releases have short histories.",
+    "Once you can read a price history chart, you can tell in seconds whether a sale is the real bottom. Learn to spot the lowest-tracked-price line, fake always-on discounts, summer and winter sale cycles, and why new releases have short histories.",
   date: "2026-06-20",
-  tags: ["price history", "reading charts", "all-time low", "sale cycles", "buying tips"],
+  tags: ["price history", "reading charts", "lowest price", "sale cycles", "buying tips"],
   readMins: 6,
   body: [
     {
@@ -24,15 +24,15 @@ export default {
     },
     {
       type: "p",
-      text: "It can look busy, but really there are only two things you want from a chart. One is how low the price has ever fallen (the all-time low), and the other is how close the current price is to that bottom. Read those two and you have basically mastered the chart.",
+      text: "It can look busy, but really there are only two things you want from a chart. One is how low the price has fallen in the time we've been tracking (the lowest tracked price), and the other is how close the current price is to that bottom. Read those two and you have basically mastered the chart.",
     },
     {
       type: "h2",
-      text: "How to read the all-time-low line",
+      text: "How to read the lowest-tracked-price line",
     },
     {
       type: "p",
-      text: "The first thing to find on the chart is the deepest dip the line ever reached, which is the all-time low. Lowstamp marks this all-time low separately, so you can immediately see whether today's price dot is sitting right on that bottom line or floating far above it. If the dot is at the same level as the bottom line or below it, this is a genuinely good price with little reason to hesitate. If it is well above the bottom, then no matter how big the red discount looks, it simply means the game has been cheaper before.",
+      text: "The first thing to find on the chart is the deepest dip the line has reached so far, which is the lowest tracked price. Lowstamp marks this low separately, so you can immediately see whether today's price dot is sitting right on that bottom line or floating far above it. If the dot is at the same level as the bottom line or below it, this is a genuinely good price with little reason to hesitate. If it is well above the bottom, then no matter how big the red discount looks, it simply means the game has been cheaper before.",
     },
     {
       type: "note",
@@ -68,12 +68,12 @@ export default {
     },
     {
       type: "p",
-      text: "One thing to be careful about: a brand-new release has a short price history, so the chart has only a few dots. When the line is short, the very benchmark of 'the lowest it has ever been' has not formed yet, which makes it hard to tell whether today's price is good or bad. New releases usually barely discount right after launch and only come down for the first time at a sale a few months later. So treat a game with a short chart as 'there is not enough past to compare against yet', and unless you are in a real hurry, it is safer to watch through at least the first sale.",
+      text: "One thing to be careful about: a brand-new release has a short price history, so the chart has only a few dots. When the line is short, the very benchmark of 'the lowest we've recorded' has not formed yet, which makes it hard to tell whether today's price is good or bad. New releases usually barely discount right after launch and only come down for the first time at a sale a few months later. So treat a game with a short chart as 'there is not enough past to compare against yet', and unless you are in a real hurry, it is safer to watch through at least the first sale.",
     },
     {
       type: "ol",
       items: [
-        "Find the deepest dip in the line on the chart (the all-time low).",
+        "Find the deepest dip in the line on the chart (the lowest tracked price).",
         "Check whether today's price dot is touching that bottom line or floating well above it.",
         "If the line is long and flat, it may be a fake always-on discount, so do not rush.",
         "If similar valleys repeat every summer and winter, it can be worth waiting for the next sale.",
@@ -86,11 +86,11 @@ export default {
     },
     {
       type: "p",
-      text: "Lowstamp shows each game's regular price, current price, and all-time low side by side on one line, and below that it shows a history chart that plots a dot only on days the price changed. That lets you tell at a glance whether a game is a real-sale title with deep valleys, an always-on-discount title lying flat at the bottom, or a new release with only a few dots. You can finish the judgment on this one screen without digging through other sites.",
+      text: "Lowstamp shows each game's regular price, current price, and lowest tracked price side by side on one line, and below that it shows a history chart that plots a dot only on days the price changed. That lets you tell at a glance whether a game is a real-sale title with deep valleys, an always-on-discount title lying flat at the bottom, or a new release with only a few dots. You can finish the judgment on this one screen without digging through other sites.",
     },
     {
       type: "p",
-      text: "And the 'Should I buy now?' verdict is a feature that calculates the distance between this current price and the all-time low and stamps it for you. Even when you do not feel like dissecting the chart yourself, that stamp lets you decide quickly. If you wishlist the games you care about, then at the next sale you only need to check whether a new valley appeared on the chart, meaning the all-time low was updated.",
+      text: "And the 'Should I buy now?' verdict is a feature that calculates the distance between this current price and the lowest tracked price and stamps it for you. Even when you do not feel like dissecting the chart yourself, that stamp lets you decide quickly. If you wishlist the games you care about, then at the next sale you only need to check whether a new valley appeared on the chart, meaning a new tracked low was set.",
     },
     {
       type: "quote",

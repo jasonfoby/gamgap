@@ -2,7 +2,7 @@ export default {
   slug: "first-steam-purchase-guide",
   title: "New to Steam? A Beginner's Guide to Buying Safely and Cheaply",
   description:
-    "A complete starter guide for Steam newcomers: setting up your account and payment, understanding regional pricing and the dangers of workarounds, using wishlists and alerts, the refund safety net, checking all-time lows and reviews before you buy, and why third-party key shops are risky.",
+    "A complete starter guide for Steam newcomers: setting up your account and payment, understanding regional pricing and the dangers of workarounds, using wishlists and alerts, the refund safety net, checking lowest tracked prices and reviews before you buy, and why third-party key shops are risky.",
   date: "2026-06-20",
   tags: ["Steam", "beginner", "buying guide", "newcomer", "safe shopping"],
   readMins: 7,
@@ -47,7 +47,7 @@ export default {
     {
       type: "p",
       text:
-        "Steam's terms require buyers to pay the price of the country they actually live in. If you break this by faking your region, you can be caught for violating the terms and have your account suspended, and if that happens you could lose your entire collection of games all at once. You would be risking your whole library to save a few dollars, which is a terrible trade. The safe path is simple: buy at the Korean won price as shown, but check whether that price is genuinely low by historical standards. Lowstamp tracks the Korean Steam store's won prices directly, so you can instantly see how close the current won price is to the all-time low.",
+        "Steam's terms require buyers to pay the price of the country they actually live in. If you break this by faking your region, you can be caught for violating the terms and have your account suspended, and if that happens you could lose your entire collection of games all at once. You would be risking your whole library to save a few dollars, which is a terrible trade. The safe path is simple: buy at the Korean won price as shown, but check whether that price is genuinely low compared with the prices we've recorded. Lowstamp tracks the Korean Steam store's won prices directly, so you can instantly see how close the current won price is to the lowest tracked price.",
     },
     {
       type: "h2",
@@ -61,7 +61,7 @@ export default {
     {
       type: "p",
       text:
-        "For example, even if you are dying to buy it at full price, wishlisting it and waiting for the next sale often lets you grab the same game for nearly half off. In Lowstamp too, when you star a game you like, you can compare the current price and the all-time low at a glance, so it works well to pair the two: get the sale alert from Steam, then check on Lowstamp whether it is a price worth buying at.",
+        "For example, even if you are dying to buy it at full price, wishlisting it and waiting for the next sale often lets you grab the same game for nearly half off. In Lowstamp too, when you star a game you like, you can compare the current price and the lowest tracked price at a glance, so it works well to pair the two: get the sale alert from Steam, then check on Lowstamp whether it is a price worth buying at.",
     },
     {
       type: "h2",
@@ -79,7 +79,7 @@ export default {
     },
     {
       type: "h2",
-      text: "Two things to check before your first purchase: all-time low and reviews",
+      text: "Two things to check before your first purchase: lowest tracked price and reviews",
     },
     {
       type: "p",
@@ -89,7 +89,7 @@ export default {
     {
       type: "p",
       text:
-        "For price, do not be swayed by the discount percentage. Judge by the all-time low, the lowest price this game has ever dropped to. For example, even if a 70% discount looks cheap, if the all-time low was lower than that, then this is not really rock bottom. Lowstamp shows the all-time low and a price-history chart for each game, and sums up how close the current price is to that low with its 〈Buy now?〉 verdict. Just reading that one line lets you quickly gauge whether the price is fine to buy at right now.",
+        "For price, do not be swayed by the discount percentage. Judge by the lowest tracked price, the cheapest we've recorded this game dropping to. For example, even if a 70% discount looks cheap, if the lowest tracked price was lower than that, then this is not really rock bottom. Lowstamp shows the lowest tracked price and a price-history chart for each game, and sums up how close the current price is to that low with its 〈Buy now?〉 verdict. Just reading that one line lets you quickly gauge whether the price is fine to buy at right now.",
     },
     {
       type: "p",
@@ -126,7 +126,7 @@ export default {
     {
       type: "p",
       text:
-        "To sum up: create your account safely and turn on security, buy at the won price as shown but avoid region workarounds, wishlist the games you want and wait for the alert, know the refund system as a safety net, check the all-time low and the reviews before you buy, and stay away from outside key shops. Those six things are the whole foundation of buying safely and cheaply on Steam. Learn them once and they become second nature from then on. Right before your first purchase, make it your final check to glance at the all-time low and the 〈Buy now?〉 verdict on Lowstamp.",
+        "To sum up: create your account safely and turn on security, buy at the won price as shown but avoid region workarounds, wishlist the games you want and wait for the alert, know the refund system as a safety net, check the lowest tracked price and the reviews before you buy, and stay away from outside key shops. Those six things are the whole foundation of buying safely and cheaply on Steam. Learn them once and they become second nature from then on. Right before your first purchase, make it your final check to glance at the lowest tracked price and the 〈Buy now?〉 verdict on Lowstamp.",
     },
     {
       type: "quote",

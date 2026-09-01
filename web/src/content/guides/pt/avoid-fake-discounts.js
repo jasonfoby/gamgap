@@ -1,9 +1,9 @@
 export default {
   "slug": "avoid-fake-discounts",
   "title": "Como evitar as \"falsas promoções\" nas ofertas da Steam",
-  "description": "Um jogo com 80% de desconto nem sempre é realmente barato. Veja como identificar preços cheios inflados, descontos permanentes e a ilusão da porcentagem, comparando com o menor preço histórico para saber se vale a pena de verdade.",
+  "description": "Um jogo com 80% de desconto nem sempre é realmente barato. Veja como identificar preços cheios inflados, descontos permanentes e a ilusão da porcentagem, comparando com o menor preço registrado para saber se vale a pena de verdade.",
   "date": "2026-06-18",
-  "tags": ["ofertas da Steam", "menor preço histórico", "identificar descontos", "dicas de compra"],
+  "tags": ["ofertas da Steam", "preço mínimo", "identificar descontos", "dicas de compra"],
   "readMins": 6,
   "body": [
     {
@@ -36,24 +36,24 @@ export default {
     },
     {
       "type": "h2",
-      "text": "A referência é o \"menor preço histórico\" — a linha que define se está barato de verdade"
+      "text": "A referência é o \"menor preço registrado\" — a linha que define se está barato de verdade"
     },
     {
       "type": "p",
-      "text": "O critério mais simples para filtrar de uma vez as falsas promoções é o menor preço histórico. Basta ver o quão perto o preço atual está do menor valor que esse jogo já atingiu. Se o preço atual for igual ou menor que o menor preço histórico, quase não há motivo para hesitar; se estiver bem acima do menor preço histórico, por maior que pareça o desconto, significa que já houve um preço mais baixo que esse."
+      "text": "O critério mais simples para filtrar de uma vez as falsas promoções é o menor preço registrado. Basta ver o quão perto o preço atual está do menor valor que esse jogo já atingiu. Se o preço atual for igual ou menor que o menor preço registrado, quase não há motivo para hesitar; se estiver bem acima do menor preço registrado, por maior que pareça o desconto, significa que já houve um preço mais baixo que esse."
     },
     {
       "type": "ol",
       "items": [
         "Confira o preço atual (em won) que aparece na tela agora.",
-        "Descubra qual foi o menor preço histórico desse jogo.",
-        "Se o preço atual for igual ou estiver perto do menor preço histórico, é uma boa hora; se estiver bem acima, espere.",
-        "Se você não tem pressa, aguarde a próxima grande promoção mirando um novo recorde de menor preço histórico."
+        "Descubra qual foi o menor preço registrado desse jogo.",
+        "Se o preço atual for igual ou estiver perto do menor preço registrado, é uma boa hora; se estiver bem acima, espere.",
+        "Se você não tem pressa, aguarde a próxima grande promoção mirando um novo menor preço registrado."
       ]
     },
     {
       "type": "p",
-      "text": "No Lowstamp, mostramos lado a lado o preço cheio, o preço atual e o menor preço histórico de cada jogo, e com um gráfico de evolução que registra apenas os dias em que o preço mudou, você distingue num relance se é desconto permanente ou promoção de verdade. O veredito \"Vale comprar agora?\" é justamente o cálculo da distância entre esse preço atual e o menor preço histórico, carimbado para você, o que ajuda a decidir rápido sem se deixar levar pelos números grandes de desconto."
+      "text": "No Lowstamp, mostramos lado a lado o preço cheio, o preço atual e o menor preço registrado de cada jogo, e com um gráfico de evolução que registra apenas os dias em que o preço mudou, você distingue num relance se é desconto permanente ou promoção de verdade. O veredito \"Vale comprar agora?\" é justamente o cálculo da distância entre esse preço atual e o menor preço registrado, carimbado para você, o que ajuda a decidir rápido sem se deixar levar pelos números grandes de desconto."
     },
     {
       "type": "h2",
@@ -61,7 +61,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "A Steam costuma fazer suas maiores promoções no verão e no inverno, e também realiza promoções de porte médio na primavera, no outono e por volta dos feriados, num ciclo que tende a se repetir todos os anos. Mas as datas exatas mudam de ano para ano, então use isso apenas como uma estimativa de \"mais ou menos nessa época\". O menor preço histórico costuma ser batido justamente nessas grandes promoções, então, se não houver urgência, muitas vezes vale a pena esperar a próxima grande promoção."
+      "text": "A Steam costuma fazer suas maiores promoções no verão e no inverno, e também realiza promoções de porte médio na primavera, no outono e por volta dos feriados, num ciclo que tende a se repetir todos os anos. Mas as datas exatas mudam de ano para ano, então use isso apenas como uma estimativa de \"mais ou menos nessa época\". O menor preço registrado costuma ser batido justamente nessas grandes promoções, então, se não houver urgência, muitas vezes vale a pena esperar a próxima grande promoção."
     },
     {
       "type": "p",
@@ -69,11 +69,11 @@ export default {
     },
     {
       "type": "quote",
-      "text": "Não olhe o grande número vermelho, e sim o quão perto o valor que você paga está do menor preço histórico."
+      "text": "Não olhe o grande número vermelho, e sim o quão perto o valor que você paga está do menor preço registrado."
     },
     {
       "type": "p",
-      "text": "Resumindo, o segredo para evitar falsas promoções está em três pontos. Primeiro, olhe o valor que você realmente vai pagar, em vez da porcentagem (%) de desconto. Segundo, confira o histórico de preços para distinguir desconto permanente de promoção de verdade. Terceiro, compare o preço atual com o menor preço histórico para julgar se está barato mesmo. Basta criar esse hábito para não sair correndo atrás dos selos vermelhos da promoção e só abrir a carteira quando realmente valer a pena. Se você favoritar com antecedência os jogos que te interessam e, na próxima promoção, só conferir se houve um novo recorde de menor preço histórico, não vai deixar passar o melhor momento."
+      "text": "Resumindo, o segredo para evitar falsas promoções está em três pontos. Primeiro, olhe o valor que você realmente vai pagar, em vez da porcentagem (%) de desconto. Segundo, confira o histórico de preços para distinguir desconto permanente de promoção de verdade. Terceiro, compare o preço atual com o menor preço registrado para julgar se está barato mesmo. Basta criar esse hábito para não sair correndo atrás dos selos vermelhos da promoção e só abrir a carteira quando realmente valer a pena. Se você favoritar com antecedência os jogos que te interessam e, na próxima promoção, só conferir se houve um novo menor preço registrado, não vai deixar passar o melhor momento."
     }
   ]
 };

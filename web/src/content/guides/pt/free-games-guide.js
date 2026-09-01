@@ -48,7 +48,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "Se você sair resgatando qualquer coisa só por ser de graça, sua biblioteca vai virar uma pilha de jogos que você nunca abre. Se, mesmo na distribuição gratuita, você pensar uma vezinha 'será que eu vou jogar isso algum dia', sua lista fica bem mais organizada lá na frente. E, se você testou um jogo no fim de semana grátis e gostou, é só conferir no Lowstamp o menor preço histórico daquele jogo e ver 'se agora é a hora de comprar' antes de fechar negócio. Testar a sua praia de graça e, na hora de comprar, pegar no momento mais barato — essa é a ordem mais econômica de todas."
+      "text": "Se você sair resgatando qualquer coisa só por ser de graça, sua biblioteca vai virar uma pilha de jogos que você nunca abre. Se, mesmo na distribuição gratuita, você pensar uma vezinha 'será que eu vou jogar isso algum dia', sua lista fica bem mais organizada lá na frente. E, se você testou um jogo no fim de semana grátis e gostou, é só conferir no Lowstamp o menor preço registrado daquele jogo e ver 'se agora é a hora de comprar' antes de fechar negócio. Testar a sua praia de graça e, na hora de comprar, pegar no momento mais barato — essa é a ordem mais econômica de todas."
     },
     {
       "type": "quote",
@@ -56,7 +56,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "Resumindo, existem três caminhos para aumentar sua coleção sem gastar. A 'distribuição gratuita' por tempo limitado é posse permanente só de resgatar, então garanta sempre; o 'fim de semana grátis' serve para testar de graça aquele jogo que te deixa na dúvida; e os jogos 'free to play' você aproveita protegendo a carteira. Se você aproveitar bem essas oportunidades gratuitas e só comprar no menor preço histórico os jogos que você realmente quer, dá pra curtir muito mais jogos com o mesmo dinheiro."
+      "text": "Resumindo, existem três caminhos para aumentar sua coleção sem gastar. A 'distribuição gratuita' por tempo limitado é posse permanente só de resgatar, então garanta sempre; o 'fim de semana grátis' serve para testar de graça aquele jogo que te deixa na dúvida; e os jogos 'free to play' você aproveita protegendo a carteira. Se você aproveitar bem essas oportunidades gratuitas e só comprar no menor preço registrado os jogos que você realmente quer, dá pra curtir muito mais jogos com o mesmo dinheiro."
     }
   ]
 };

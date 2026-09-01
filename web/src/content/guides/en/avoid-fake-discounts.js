@@ -1,9 +1,9 @@
 export default {
   "slug": "avoid-fake-discounts",
   "title": "How to Spot Fake Steam Sale Discounts",
-  "description": "A game tagged 80% off isn't always actually cheap. Here's how to see through inflated list prices, permanent discounts, and discount-percentage illusions, and check whether a price is truly low by comparing it to the all-time low.",
+  "description": "A game tagged 80% off isn't always actually cheap. Here's how to see through inflated list prices, permanent discounts, and discount-percentage illusions, and check whether a price is truly low by comparing it to the lowest tracked price.",
   "date": "2026-06-18",
-  "tags": ["Steam sales", "all-time low", "spotting real discounts", "buying tips"],
+  "tags": ["Steam sales", "lowest price", "spotting real discounts", "buying tips"],
   "readMins": 6,
   "body": [
     {
@@ -36,24 +36,24 @@ export default {
     },
     {
       "type": "h2",
-      "text": "The benchmark is the all-time low — the one line that settles whether it's really cheap"
+      "text": "The benchmark is the lowest tracked price — the one line that settles whether it's really cheap"
     },
     {
       "type": "p",
-      "text": "The simplest benchmark for filtering out fake discounts in one shot is the all-time low. Just see how close the current price is to the lowest price the game has ever reached. If the current price matches or beats the all-time low, there's little reason to hesitate; if it's well above the all-time low, then no matter how big the discount percentage looks, it just means the game has been cheaper before."
+      "text": "The simplest benchmark for filtering out fake discounts in one shot is the lowest tracked price. Just see how close the current price is to the lowest price we've recorded for the game. If the current price matches or beats that low, there's little reason to hesitate; if it's well above the lowest tracked price, then no matter how big the discount percentage looks, it just means the game has been cheaper before."
     },
     {
       "type": "ol",
       "items": [
         "Check the current price shown on screen right now (in won).",
-        "Find out what that game's all-time low was.",
-        "If the current price matches or comes close to the all-time low, it's good timing; if it's well above, hold off.",
-        "If you can wait, hold out until the next big sale and aim for a new all-time low."
+        "Find out what that game's lowest tracked price was.",
+        "If the current price matches or comes close to the lowest tracked price, it's good timing; if it's well above, hold off.",
+        "If you can wait, hold out until the next big sale and aim for a fresh low."
       ]
     },
     {
       "type": "p",
-      "text": "Lowstamp shows each game's list price, current price, and all-time low side by side, and with a history graph that records only the days the price changed, you can tell at a glance whether something is a permanent discount or a real sale. The 'Should I buy now?' verdict is exactly this — it measures the distance between the current price and the all-time low and stamps a call on it, so you can decide fast without getting swayed by a big discount-percentage number."
+      "text": "Lowstamp shows each game's list price, current price, and lowest tracked price side by side, and with a history graph that records only the days the price changed, you can tell at a glance whether something is a permanent discount or a real sale. The 'Should I buy now?' verdict is exactly this — it measures the distance between the current price and the lowest tracked price and stamps a call on it, so you can decide fast without getting swayed by a big discount-percentage number."
     },
     {
       "type": "h2",
@@ -61,7 +61,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "Steam usually runs its biggest sales in summer and winter, with mid-sized sales around spring, fall, and holiday periods — a rhythm that tends to repeat every year. The exact dates shift from year to year, though, so treat it only as a rough 'around this time' estimate. All-time lows are most often set during these big sales, so if you're not in a hurry, waiting for the next major sale is frequently the better move."
+      "text": "Steam usually runs its biggest sales in summer and winter, with mid-sized sales around spring, fall, and holiday periods — a rhythm that tends to repeat every year. The exact dates shift from year to year, though, so treat it only as a rough 'around this time' estimate. New tracked lows are most often set during these big sales, so if you're not in a hurry, waiting for the next major sale is frequently the better move."
     },
     {
       "type": "p",
@@ -69,11 +69,11 @@ export default {
     },
     {
       "type": "quote",
-      "text": "Don't look at the big red number — look at how close what you're paying is to the all-time low."
+      "text": "Don't look at the big red number — look at how close what you're paying is to the lowest tracked price."
     },
     {
       "type": "p",
-      "text": "To sum up, avoiding fake discounts comes down to three things. First, look at the actual amount you'll pay instead of the discount percentage. Second, check the price history to tell a permanent discount from a real sale. Third, compare the current price to the all-time low to judge whether it's genuinely cheap. Build these habits and you won't be led around by the red sale badges — you'll only open your wallet when something is truly worth buying. Wishlist the games you're interested in ahead of time, and at the next sale just check whether they've hit a new all-time low, and you won't miss the best moment."
+      "text": "To sum up, avoiding fake discounts comes down to three things. First, look at the actual amount you'll pay instead of the discount percentage. Second, check the price history to tell a permanent discount from a real sale. Third, compare the current price to the lowest tracked price to judge whether it's genuinely cheap. Build these habits and you won't be led around by the red sale badges — you'll only open your wallet when something is truly worth buying. Wishlist the games you're interested in ahead of time, and at the next sale just check whether they've dropped to a new low we haven't recorded before, and you won't miss the best moment."
     }
   ]
 };

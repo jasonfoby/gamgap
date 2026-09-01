@@ -1,14 +1,14 @@
 export default {
   "slug": "wishlist-alerts",
   "title": "Get the Most Out of Steam Wishlists and Price Alerts",
-  "description": "A complete walkthrough: cleaning up your Steam wishlist, setting up sale and release alerts, and pairing all-time-low tracking with those alerts so you stop impulse-buying and only buy when it's genuinely the right time.",
+  "description": "A complete walkthrough: cleaning up your Steam wishlist, setting up sale and release alerts, and pairing lowest-price tracking with those alerts so you stop impulse-buying and only buy when it's genuinely the right time.",
   "date": "2026-06-18",
   "tags": ["Steam", "Wishlist", "Price Alerts", "Sales"],
   "readMins": 6,
   "body": [
     {
       "type": "p",
-      "text": "We've all done it: added a game to the wishlist, forgotten about it, and then missed the sale because no alert ever showed up. A Steam wishlist isn't just a \"games I want\" list. Used well, it quietly watches for sales and releases for you and even helps curb impulse buying. In this guide we'll walk through how to tidy up your wishlist, how to make sure no alert slips past you, and how to use Lowstamp to track the all-time low alongside it so you only buy when it's truly the right time."
+      "text": "We've all done it: added a game to the wishlist, forgotten about it, and then missed the sale because no alert ever showed up. A Steam wishlist isn't just a \"games I want\" list. Used well, it quietly watches for sales and releases for you and even helps curb impulse buying. In this guide we'll walk through how to tidy up your wishlist, how to make sure no alert slips past you, and how to use Lowstamp to track the lowest tracked price alongside it so you only buy when it's truly the right time."
     },
     {
       "type": "h2",
@@ -40,22 +40,22 @@ export default {
     },
     {
       "type": "p",
-      "text": "Steam alerts do have one weakness, though. They only tell you a sale has started; they won't tell you whether the price is an all-time bargain or just a run-of-the-mill 20% off. An alert fires even at -20%, so it's indistinguishable from the -70% seasonal sale you were actually waiting for. So treat alerts purely as a signal, and judge the price separately."
+      "text": "Steam alerts do have one weakness, though. They only tell you a sale has started; they won't tell you whether the price is a genuine low or just a run-of-the-mill 20% off. An alert fires even at -20%, so it's indistinguishable from the -70% seasonal sale you were actually waiting for. So treat alerts purely as a signal, and judge the price separately."
     },
     {
       "type": "h2",
-      "text": "3. Pair All-Time-Low Tracking With Your Alerts"
+      "text": "3. Pair Lowest-Price Tracking With Your Alerts"
     },
     {
       "type": "p",
-      "text": "This is where Lowstamp comes in. When a Steam alert gives you the \"sale started\" signal, the move we'd recommend is to search that game on Lowstamp and immediately see how close the current price is to its all-time low. Lowstamp shows each game's all-time low and when it hit that price, then compares it to the current price and stamps a verdict, receipt-style, on whether it's a good time to buy. Say a game with a list price of 66,000 won shows up at 19,800 won (-70%), but its all-time low is 16,500 won. Buying on the alert alone versus thinking \"it's 3,300 won above the all-time low, so maybe I'll wait a bit longer\" are two completely different decisions."
+      "text": "This is where Lowstamp comes in. When a Steam alert gives you the \"sale started\" signal, the move we'd recommend is to search that game on Lowstamp and immediately see how close the current price is to its lowest tracked price. Lowstamp shows each game's lowest tracked price and when it hit that price, then compares it to the current price and stamps a verdict, receipt-style, on whether it's a good time to buy. Say a game with a list price of 66,000 won shows up at 19,800 won (-70%), but its lowest tracked price is 16,500 won. Buying on the alert alone versus thinking \"it's 3,300 won above the lowest tracked price, so maybe I'll wait a bit longer\" are two completely different decisions."
     },
     {
       "type": "ol",
       "items": [
         "Get a wishlist discount alert from Steam.",
-        "Search the game on Lowstamp to see its current price, all-time low, and the \"good time to buy?\" verdict.",
-        "If it's about the same as the all-time low or cheaper, buy. If the gap is big, hold out for the next seasonal sale."
+        "Search the game on Lowstamp to see its current price, lowest tracked price, and the \"good time to buy?\" verdict.",
+        "If it's about the same as the lowest tracked price or cheaper, buy. If the gap is big, hold out for the next seasonal sale."
       ]
     },
     {
@@ -72,7 +72,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "The most realistic way to curb impulse buying is to set yourself a rule: don't buy on the spot, just add it to the wishlist first. Once it's on the list, an alert will reach you at the next sale, so there's no fear of missing out, and in the meantime your urge cools off enough to judge whether you really want it. If you're still thinking about it days later, that's when you check the all-time low and buy. And if you'd completely forgotten about it, well, it was a game you didn't need anyway."
+      "text": "The most realistic way to curb impulse buying is to set yourself a rule: don't buy on the spot, just add it to the wishlist first. Once it's on the list, an alert will reach you at the next sale, so there's no fear of missing out, and in the meantime your urge cools off enough to judge whether you really want it. If you're still thinking about it days later, that's when you check the lowest tracked price and buy. And if you'd completely forgotten about it, well, it was a game you didn't need anyway."
     },
     {
       "type": "quote",
@@ -88,7 +88,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "It really comes down to three things: trim your wishlist to a size you can actually respond to, catch every sale and release signal through Steam alerts, and each time a signal arrives, check the all-time low and price history on Lowstamp to judge whether it's genuinely the right time to buy. Build this routine into a habit and you'll naturally shift away from being dragged around by alerts and impulse-buying, toward grabbing the games you really wanted at the cheapest moment."
+      "text": "It really comes down to three things: trim your wishlist to a size you can actually respond to, catch every sale and release signal through Steam alerts, and each time a signal arrives, check the lowest tracked price and price history on Lowstamp to judge whether it's genuinely the right time to buy. Build this routine into a habit and you'll naturally shift away from being dragged around by alerts and impulse-buying, toward grabbing the games you really wanted at the cheapest moment."
     }
   ]
 };

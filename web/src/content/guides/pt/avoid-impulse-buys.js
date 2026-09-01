@@ -31,7 +31,7 @@ export default {
       "items": [
         "Você pararia o jogo que está jogando agora para abrir esse na hora? Se não, não tem pressa nenhuma.",
         "Já não tem um jogo do mesmo gênero parado na sua biblioteca, que você também nem encostou?",
-        "Esse preço está perto do menor preço histórico? Se não, na próxima promoção ele volta por mais ou menos o mesmo valor."
+        "Esse preço está perto do menor preço registrado? Se não, na próxima promoção ele volta por mais ou menos o mesmo valor."
       ]
     },
     {
@@ -44,7 +44,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "Viu um jogo que você quer? Por enquanto, só favorita. Isso não é comprar, é ficar de olho. Se for um jogo que você realmente quer, ele vai continuar na sua cabeça até a próxima promoção; e se você esqueceu nesse meio tempo, é porque, na real, dava para não jogar mesmo. O Lowstamp mostra de forma fácil de notar quando um jogo favoritado desce perto do menor preço histórico, então dá para usar isso para esperar a \"hora de ficar barato de verdade\" em vez de comprar por impulso agora."
+      "text": "Viu um jogo que você quer? Por enquanto, só favorita. Isso não é comprar, é ficar de olho. Se for um jogo que você realmente quer, ele vai continuar na sua cabeça até a próxima promoção; e se você esqueceu nesse meio tempo, é porque, na real, dava para não jogar mesmo. O Lowstamp mostra de forma fácil de notar quando um jogo favoritado desce perto do menor preço registrado, então dá para usar isso para esperar a \"hora de ficar barato de verdade\" em vez de comprar por impulso agora."
     },
     {
       "type": "h2",
@@ -68,7 +68,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "Resumindo, o segredo para conter a compra por impulso está em três pontos. Em vez de olhar a porcentagem de desconto, pergunte primeiro \"eu vou jogar de verdade?\"; se ficar na dúvida, em vez de comprar, segure a onda jogando nos favoritos; e, antes de comprar mais, diminua a pilha de jogos parados. Basta criar esse hábito para a biblioteca parar de acumular jogo que você não joga, e o dinheiro ir só para o que você realmente vai curtir. Favorite os jogos que te interessam e fique de olho em quando eles chegarem perto do menor preço histórico, que comprar caro por impulso vai diminuir naturalmente."
+      "text": "Resumindo, o segredo para conter a compra por impulso está em três pontos. Em vez de olhar a porcentagem de desconto, pergunte primeiro \"eu vou jogar de verdade?\"; se ficar na dúvida, em vez de comprar, segure a onda jogando nos favoritos; e, antes de comprar mais, diminua a pilha de jogos parados. Basta criar esse hábito para a biblioteca parar de acumular jogo que você não joga, e o dinheiro ir só para o que você realmente vai curtir. Favorite os jogos que te interessam e fique de olho em quando eles chegarem perto do menor preço registrado, que comprar caro por impulso vai diminuir naturalmente."
     }
   ]
 };

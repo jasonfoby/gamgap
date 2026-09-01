@@ -1,7 +1,7 @@
 export default {
   "slug": "seasonal-sale-strategy",
   "title": "Como aproveitar ao máximo as promoções de verão e inverno da Steam: estratégia, não datas",
-  "description": "Um guia prático para realmente tirar proveito das grandes promoções sazonais, como as de verão e inverno. Organize sua lista de desejos antes, compare o preço atual com o menor preço histórico quando a promoção começar, evite compras por impulso, defina um orçamento e fique de olho nos extras do meio e do fim.",
+  "description": "Um guia prático para realmente tirar proveito das grandes promoções sazonais, como as de verão e inverno. Organize sua lista de desejos antes, compare o preço atual com o menor preço registrado quando a promoção começar, evite compras por impulso, defina um orçamento e fique de olho nos extras do meio e do fim.",
   "date": "2026-06-20",
   "tags": ["promoções Steam", "promoções sazonais", "estratégia de compra", "orçamento"],
   "readMins": 6,
@@ -22,29 +22,29 @@ export default {
       "type": "ul",
       "items": [
         "Deixe só os jogos que você realmente vai jogar; tire os que perderam a graça.",
-        "Anote de antemão o menor preço histórico de cada jogo (sua referência para saber se o preço da promoção é mesmo barato).",
+        "Anote de antemão o menor preço registrado de cada jogo (sua referência para saber se o preço da promoção é mesmo barato).",
         "Separe mentalmente um primeiro grupo de compra certa e um segundo grupo de comprar-se-estiver-barato."
       ]
     },
     {
       "type": "note",
-      "text": "Marque com estrela no Lowstamp os jogos que você tem em mente e, quando a promoção chegar, basta abrir sua lista de favoritos para comparar num relance o preço atual com o menor preço histórico. É o jeito mais simples de não ficar perdido no primeiro dia da promoção."
+      "text": "Marque com estrela no Lowstamp os jogos que você tem em mente e, quando a promoção chegar, basta abrir sua lista de favoritos para comparar num relance o preço atual com o menor preço registrado. É o jeito mais simples de não ficar perdido no primeiro dia da promoção."
     },
     {
       "type": "h2",
-      "text": "Quando a promoção começa: olhe o menor preço histórico, não a porcentagem"
+      "text": "Quando a promoção começa: olhe o menor preço registrado, não a porcentagem"
     },
     {
       "type": "p",
-      "text": "Quando a promoção abre, a primeira coisa é não se empolgar com o número vermelho do desconto. Uma promoção sazonal não significa, nem de longe, que todos os jogos chegam ao menor preço da história. Um jogo pode mostrar 60% na promoção de verão e ainda custar mais do que os 67% que atingiu no inverno passado. Então o que você deve olhar não é a porcentagem de desconto, e sim o quão perto o preço atual está do menor preço histórico daquele jogo."
+      "text": "Quando a promoção abre, a primeira coisa é não se empolgar com o número vermelho do desconto. Uma promoção sazonal não significa, nem de longe, que todos os jogos batem o menor preço que já registramos. Um jogo pode mostrar 60% na promoção de verão e ainda custar mais do que os 67% que atingiu no inverno passado. Então o que você deve olhar não é a porcentagem de desconto, e sim o quão perto o preço atual está do menor preço registrado daquele jogo."
     },
     {
       "type": "p",
-      "text": "Se o preço atual iguala ou quase encosta no menor preço histórico, é uma boa hora. Por outro lado, se está claramente acima do recorde, mesmo com uma etiqueta de desconto chamativa, você tem um bom motivo para esperar a próxima promoção. O Lowstamp faz essa comparação por você: mostra o menor preço histórico de cada jogo e a data em que ele foi marcado, confronta com o preço atual e carimba um veredito claro de 'Vale comprar agora?' como um carimbo de recibo. O gráfico de evolução de preços também dá uma noção de até onde esse jogo costuma cair."
+      "text": "Se o preço atual iguala ou quase encosta no menor preço registrado, é uma boa hora. Por outro lado, se está claramente acima desse mínimo, mesmo com uma etiqueta de desconto chamativa, você tem um bom motivo para esperar a próxima promoção. O Lowstamp faz essa comparação por você: mostra o menor preço registrado de cada jogo e a data em que ele foi marcado, confronta com o preço atual e carimba um veredito claro de 'Vale comprar agora?' como um carimbo de recibo. O gráfico de evolução de preços também dá uma noção de até onde esse jogo costuma cair."
     },
     {
       "type": "quote",
-      "text": "Ser promoção sazonal não quer dizer que tudo está barato. O que importa é a distância até o menor preço histórico."
+      "text": "Ser promoção sazonal não quer dizer que tudo está barato. O que importa é a distância até o menor preço registrado."
     },
     {
       "type": "h2",
@@ -77,7 +77,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "Outra coisa que vale saber: os campeões de vendas recentes muito populares com frequência não recebem um corte maior só por ser promoção sazonal. Jogos que vendem bem não precisam de grandes descontos para continuar vendendo. Por isso, quem espera que 'na promoção de verão vai estar pela metade do preço' costuma se decepcionar ao ver o mesmo desconto de sempre. Para esses títulos, é mais realista ficar atento ao momento em que o menor preço histórico é de fato superado."
+      "text": "Outra coisa que vale saber: os campeões de vendas recentes muito populares com frequência não recebem um corte maior só por ser promoção sazonal. Jogos que vendem bem não precisam de grandes descontos para continuar vendendo. Por isso, quem espera que 'na promoção de verão vai estar pela metade do preço' costuma se decepcionar ao ver o mesmo desconto de sempre. Para esses títulos, é mais realista ficar atento ao momento em que o menor preço registrado é de fato superado."
     },
     {
       "type": "note",
@@ -85,7 +85,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "Resumindo, tirar 200% de proveito de uma grande promoção é surpreendentemente simples: organize a lista de desejos com antecedência, defina um orçamento para segurar o FOMO e, na hora de comprar, olhe a distância até o menor preço histórico em vez da porcentagem de desconto. Só com essas três coisas você reduz bastante tanto o arrependimento de 'por que comprei isso' quanto o de 'eu devia ter pegado' depois que a promoção acaba."
+      "text": "Resumindo, tirar 200% de proveito de uma grande promoção é surpreendentemente simples: organize a lista de desejos com antecedência, defina um orçamento para segurar o FOMO e, na hora de comprar, olhe a distância até o menor preço registrado em vez da porcentagem de desconto. Só com essas três coisas você reduz bastante tanto o arrependimento de 'por que comprei isso' quanto o de 'eu devia ter pegado' depois que a promoção acaba."
     }
   ]
 };

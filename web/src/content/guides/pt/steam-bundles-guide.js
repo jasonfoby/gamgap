@@ -70,7 +70,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "Há mais uma coisa para conferir. Mesmo que o preço do pacote pareça barato, ainda é preciso julgar se é de fato uma mínima histórica ou só um pouco abaixo do preço de sempre. Confira no Lowstamp se o preço atual do jogo base está perto da mínima histórica e veja ao lado o veredito de Compro agora?. Assim fica bem mais fácil decidir se leva o pacote agora ou espera a próxima promoção. E dar uma olhada no gráfico do histórico de preços para ver a tendência recente deixa você ainda mais seguro."
+      "text": "Há mais uma coisa para conferir. Mesmo que o preço do pacote pareça barato, ainda é preciso julgar se é de fato uma mínima registrada ou só um pouco abaixo do preço de sempre. Confira no Lowstamp se o preço atual do jogo base está perto da mínima registrada e veja ao lado o veredito de Compro agora?. Assim fica bem mais fácil decidir se leva o pacote agora ou espera a próxima promoção. E dar uma olhada no gráfico do histórico de preços para ver a tendência recente deixa você ainda mais seguro."
     },
     {
       "type": "h2",
@@ -103,7 +103,7 @@ export default {
         "Abra o que há dentro do pacote e separe os itens que você realmente vai aproveitar.",
         "Se já tem alguns itens, confirme se eles são abatidos do preço (o valor do Complete o conjunto).",
         "Compare o total de comprar separadamente só o que você quer com o preço do pacote.",
-        "Avalie se o jogo base está agora perto da mínima histórica, ou se uma promoção maior provavelmente vem logo.",
+        "Avalie se o jogo base está agora perto da mínima registrada, ou se uma promoção maior provavelmente vem logo.",
         "Caso precise de reembolso, lembre que um pacote conta o tempo de jogo somado de todos os itens incluídos.",
         "Decidido, confira o valor final no carrinho mais uma vez antes de pagar."
       ]
@@ -118,11 +118,11 @@ export default {
     },
     {
       "type": "p",
-      "text": "Bem usado, um pacote é uma ótima ferramenta para conseguir o mesmo conteúdo por menos, mas parecer barato nem sempre quer dizer que você ganha. Se ele está cheio de jogos que você não vai jogar, comprar avulso pode ser melhor; e se o preço atual é só o de sempre, esperar a próxima promoção pode ser mais esperto. O critério é sempre duas coisas: o preço contando só o que você de fato vai aproveitar, e se agora é realmente um momento barato. Confirme as duas com a mínima histórica do Lowstamp e o veredito de Compro agora?, e você vai comprar pacotes com cabeça, sem se deixar levar."
+      "text": "Bem usado, um pacote é uma ótima ferramenta para conseguir o mesmo conteúdo por menos, mas parecer barato nem sempre quer dizer que você ganha. Se ele está cheio de jogos que você não vai jogar, comprar avulso pode ser melhor; e se o preço atual é só o de sempre, esperar a próxima promoção pode ser mais esperto. O critério é sempre duas coisas: o preço contando só o que você de fato vai aproveitar, e se agora é realmente um momento barato. Confirme as duas com a mínima registrada do Lowstamp e o veredito de Compro agora?, e você vai comprar pacotes com cabeça, sem se deixar levar."
     },
     {
       "type": "quote",
-      "text": "Um pacote não é barato, ele é barato quando combina com você. Conte só o que vai jogar e use a mínima histórica para acertar o momento."
+      "text": "Um pacote não é barato, ele é barato quando combina com você. Conte só o que vai jogar e use a mínima registrada para acertar o momento."
     }
   ]
 };

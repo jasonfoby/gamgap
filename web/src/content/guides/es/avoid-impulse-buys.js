@@ -31,7 +31,7 @@ export default {
       "items": [
         "¿Vas a dejar el juego que tienes ahora entre manos para ponerte con este al momento? Si no, no hay ninguna prisa.",
         "¿Ya tienes en la biblioteca algún juego parecido del mismo estilo que tampoco has tocado?",
-        "¿Este precio está cerca del mínimo histórico? Si no lo está, en la próxima rebaja volverá a bajar a un precio parecido."
+        "¿Este precio está cerca del mínimo registrado? Si no lo está, en la próxima rebaja volverá a bajar a un precio parecido."
       ]
     },
     {
@@ -44,7 +44,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "Cuando veas un juego que te apetece, lo primero es añadirlo a favoritos. Eso no es comprarlo, es tenerlo vigilado. Si de verdad te apetece, seguirá rondándote la cabeza hasta la próxima rebaja; y si para entonces ya se te ha olvidado, es que en realidad no lo necesitabas. En Lowstamp te marcamos de forma clara cuándo un juego que tienes en favoritos baja cerca de su mínimo histórico, así que úsalo para esperar al \"momento de verdad\" en lugar de comprar de golpe por impulso."
+      "text": "Cuando veas un juego que te apetece, lo primero es añadirlo a favoritos. Eso no es comprarlo, es tenerlo vigilado. Si de verdad te apetece, seguirá rondándote la cabeza hasta la próxima rebaja; y si para entonces ya se te ha olvidado, es que en realidad no lo necesitabas. En Lowstamp te marcamos de forma clara cuándo un juego que tienes en favoritos baja cerca de su mínimo registrado, así que úsalo para esperar al \"momento de verdad\" en lugar de comprar de golpe por impulso."
     },
     {
       "type": "h2",
@@ -68,7 +68,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "En resumen, la clave para frenar las compras impulsivas son tres cosas. Primero, en vez del porcentaje, pregúntate \"¿esto lo voy a jugar de verdad?\". Segundo, si dudas, no compres: déjalo en favoritos y espera un poco. Y tercero, antes de comprar otro, reduce el montón de juegos pendientes. Solo con coger este hábito, dejarás de acumular juegos sin jugar en la biblioteca y gastarás el dinero únicamente en lo que de verdad vas a disfrutar. Si guardas en favoritos los juegos que te interesan y esperas a que se acerquen a su mínimo histórico, también dejarás de pagar de más por impulso casi sin darte cuenta."
+      "text": "En resumen, la clave para frenar las compras impulsivas son tres cosas. Primero, en vez del porcentaje, pregúntate \"¿esto lo voy a jugar de verdad?\". Segundo, si dudas, no compres: déjalo en favoritos y espera un poco. Y tercero, antes de comprar otro, reduce el montón de juegos pendientes. Solo con coger este hábito, dejarás de acumular juegos sin jugar en la biblioteca y gastarás el dinero únicamente en lo que de verdad vas a disfrutar. Si guardas en favoritos los juegos que te interesan y esperas a que se acerquen a su mínimo registrado, también dejarás de pagar de más por impulso casi sin darte cuenta."
     }
   ]
 };
