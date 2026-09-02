@@ -76,6 +76,10 @@ export default {
 
   "card.atl": "Menor preço {p}",
 
+  "card.series": "+{n} da mesma série",
+
+  "card.seriesCollapse": "Recolher",
+
   "skel.listAria": "Carregando a lista",
 
   "trust.officialK": "Comprar ou esperar?",

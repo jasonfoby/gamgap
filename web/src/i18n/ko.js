@@ -88,6 +88,8 @@ export default {
 
   // 카드
   "card.atl": "최저 {p}",
+  "card.series": "시리즈 {n}개 더",
+  "card.seriesCollapse": "접기",
 
   // 스켈레톤
   "skel.listAria": "목록 불러오는 중",

@@ -70,6 +70,12 @@ h2{display:flex;align-items:center;gap:8px;color:var(--txt);font-weight:800;font
 /* ===== 카드 그리드 (세로 포스터형) ===== */
 .list{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;align-items:stretch}
 .card-wrap{position:relative;height:100%}
+/* 시리즈 묶음 카드: 카드 아래 '시리즈 N개 더 / 접기' 스트립(어두운 배경 위, 영수증 밖) */
+.card-wrap.has-series{display:flex;flex-direction:column}
+.card-wrap.has-series .card{flex:1 1 auto}
+.card-series{margin-top:6px;width:100%;font-family:var(--kr);font-size:12px;font-weight:700;color:var(--txt-dim);
+  background:rgba(255,255,255,.04);border:1px dashed var(--line);border-radius:4px;padding:7px 10px;cursor:pointer;transition:color .12s,border-color .12s}
+.card-series:hover{color:var(--gold);border-color:var(--gold)}
 .card{display:flex;flex-direction:column;width:100%;height:100%;padding:0;text-align:left;background:var(--paper);border:1px solid var(--rule);
   border-radius:6px;overflow:hidden;cursor:pointer;box-shadow:0 1px 0 rgba(0,0,0,.25),0 12px 26px -20px rgba(0,0,0,.7);transition:transform .14s,box-shadow .14s}
 .card:active{transform:scale(.99)}

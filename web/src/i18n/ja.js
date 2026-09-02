@@ -76,6 +76,10 @@ export default {
 
   "card.atl": "最安値 {p}",
 
+  "card.series": "シリーズ他{n}本",
+
+  "card.seriesCollapse": "たたむ",
+
   "skel.listAria": "一覧を読み込み中",
 
   "trust.officialK": "いま買い時?",

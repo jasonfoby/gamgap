@@ -76,6 +76,10 @@ export default {
 
   "card.atl": "最低 {p}",
 
+  "card.series": "同系列还有 {n} 款",
+
+  "card.seriesCollapse": "收起",
+
   "skel.listAria": "列表加载中",
 
   "trust.officialK": "该买还是再等",

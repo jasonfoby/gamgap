@@ -8,6 +8,7 @@ import { navigate } from "../lib/router";
 import { useT } from "../lib/i18n";
 import { regionForLang } from "../lib/region";
 import { useWishlistState, WishlistProvider } from "../lib/wishlist";
+import { useSeriesCollapse } from "../lib/series";
 import "./LowsPage.css";
 
 // "이번 주 새 최저가" — 우리가 기록해온 가장 싼 값을 최근에 갈아치운 게임만 모아 보여주는 페이지.
@@ -92,6 +93,7 @@ export default function LowsPage() {
       : { picked: week, days: DAYS_PRIMARY };
   }, [state.rows]);
 
+  const series = useSeriesCollapse(picked); // 같은 시리즈는 한 장으로
   const onCardClick = (g) => navigate("/game/" + g.appid);
 
   return (
@@ -123,8 +125,8 @@ export default function LowsPage() {
           (picked.length ? (
             <WishlistProvider value={wl}>
               <div className="list lows-list">
-                {picked.map((g, i) => (
-                  <GameCard key={g.appid} game={g} onClick={onCardClick} priority={i < 4} />
+                {series.items.map((g, i) => (
+                  <GameCard key={g.appid} game={g} onClick={onCardClick} priority={i < 4} onSeriesToggle={series.toggle} />
                 ))}
               </div>
             </WishlistProvider>

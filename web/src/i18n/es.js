@@ -76,6 +76,10 @@ export default {
 
   "card.atl": "Mínimo registrado {p}",
 
+  "card.series": "+{n} más de la serie",
+
+  "card.seriesCollapse": "Plegar",
+
   "skel.listAria": "Cargando la lista",
 
   "trust.officialK": "¿Comprar o esperar?",

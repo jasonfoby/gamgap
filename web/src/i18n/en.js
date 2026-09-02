@@ -76,6 +76,10 @@ export default {
 
   "card.atl": "Lowest {p}",
 
+  "card.series": "+{n} more in this series",
+
+  "card.seriesCollapse": "Collapse",
+
   "skel.listAria": "Loading list",
 
   "trust.officialK": "Buy now or wait?",
