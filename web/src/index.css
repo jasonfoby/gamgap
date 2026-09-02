@@ -179,6 +179,14 @@ input[type=range]{flex:1;accent-color:var(--gold);min-width:110px}
 .cd-unit{font-size:11px;color:var(--mute);display:flex;flex-direction:column;align-items:center;gap:2px}
 .cd-unit b{font-family:var(--num);font-size:22px;font-weight:700;color:var(--gold);letter-spacing:-.5px}
 .cd-foot{margin-top:9px;font-size:11px;color:var(--mute)}
+/* 배지 3상태: 진행 중(금색 채움) / 공식 일정(금색 테두리) / 예상(흐림) */
+.cd-state.live{color:var(--ink);background:var(--gold);border-color:var(--gold);font-weight:700}
+.cd-state.confirmed{color:var(--gold);border-color:rgba(200,145,43,.6)}
+.cd-state.est{color:var(--mute);border-style:dashed}
+/* 카운트다운 아래 실제 시작/종료 시각(보는 사람 시간대) */
+.cd-date{margin-top:8px;font-family:var(--num);font-size:12px;color:var(--txt-dim)}
+/* 추정 상태: 카운트다운 대신 '2027년 3월 중순 시작 예상' 한 줄 */
+.cd-est{margin-top:11px;font-size:15px;font-weight:700;color:#EDE9DD;line-height:1.4}
 
 /* ===== 신뢰 배너 ===== */
 .trust{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:11px 13px;display:flex;flex-direction:column;gap:8px}
