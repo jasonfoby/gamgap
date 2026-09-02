@@ -25,13 +25,13 @@
   letter-spacing: -0.4px;
   color: var(--ink-txt);
   line-height: 1.35;
-  margin: 1.9em 0 0.7em;
+  /* 위 여백은 아래보다 뚜렷이 크게 — 앞 문단과 떨어져 '새 절이 시작된다'가 눈에 읽히도록. */
+  margin: 2.3em 0 0.7em;
   padding-bottom: 0.4em;
   border-bottom: 1px solid var(--rule);
 }
-.ab-h2:first-child {
-  margin-top: 0;
-}
+/* (예전의 '.ab-h2:first-child{margin-top:0}' 은 제거 — 본문이 광고 자리를 사이에 두고 두 토막으로
+   나뉘어 그려지는데, 둘째 토막이 항상 소제목으로 시작해 그 규칙에 걸리면서 앞 문단에 딱 붙어 보였다.) */
 
 /* 목록 */
 .ab-ul,
@@ -71,7 +71,7 @@
   padding: 12px 14px;
   background: #f8efd3;
   border: 1px solid var(--gold);
-  border-radius: 10px;
+  border-radius: 4px;
   color: #7a560f;
   font-size: 14.5px;
   line-height: 1.6;

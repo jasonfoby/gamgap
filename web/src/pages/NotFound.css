@@ -38,7 +38,7 @@
   color: var(--ink);
   background: var(--gold);
   border: 1px solid var(--gold);
-  border-radius: 99px;
+  border-radius: 4px;
   padding: 11px 24px;
   transition: filter 0.12s;
 }
