@@ -1,79 +1,64 @@
 export default {
   "slug": "avoid-fake-discounts",
-  "title": "How to Spot Fake Steam Sale Discounts",
-  "description": "A game tagged 80% off isn't always actually cheap. Here's how to see through inflated list prices, permanent discounts, and discount-percentage illusions, and check whether a price is truly low by comparing it to the all-time low.",
-  "date": "2026-06-18",
-  "tags": ["Steam sales", "all-time low", "spotting real discounts", "buying tips"],
+  "title": "80% Off and Still Not Cheap: How to Spot Inflated Steam Discounts",
+  "description": "A discount percentage gets bigger the higher the list price is set. How to spot an inflated list price, a game that's been 'on sale' all year, and the trick the percentage plays on your eyes, plus the one number to check before you pay.",
+  "date": "2026-09-03",
+  "tags": ["Steam sales", "lowest price", "spotting real discounts", "buying tips"],
   "readMins": 6,
   "body": [
     {
       "type": "p",
-      "text": "When a Steam sale kicks off, the screen fills with red discount badges. See a number like -80% or -90% and you feel like you'll lose out if you don't buy right now. But that big number doesn't always mean a game is genuinely cheap. It's surprisingly common to inflate the list price so the discount percentage looks bigger, or to slap a sale tag on something that's sold at the exact same price all year round. This article lays out concrete ways to spot these fake discounts."
+      "text": "When a sale opens, the store turns into a wall of red badges. See -80% or -90% and it feels like you'll lose out by not buying today. But the badge doesn't tell you whether the game is actually cheap. It's common for a list price to be set high so the percentage looks bigger, and just as common for a 'sale' price to be the same price the game has carried all year. Three patterns account for most of it, and each one has a tell."
     },
-    {
-      "type": "h2",
-      "text": "A big discount percentage doesn't mean cheap — inflated list prices"
-    },
+    { "type": "h2", "text": "1. The inflated list price" },
     {
       "type": "p",
-      "text": "The discount percentage tells you how much was knocked off the list price, so if the list price is set high, the percentage naturally looks big too. For example, taking a game with a 22,000 won list price and selling it at 11,000 won with -50% off, versus bumping the list price up to 44,000 won and selling at that same 11,000 won with a -75% tag — the money leaving your wallet is identical. But the second one looks far cheaper. That's why you should look at the actual price you'll pay first, not the discount percentage."
+      "text": "The percentage measures how much came off the list price, and the seller sets the list price. A $19.99 game sold at $9.99 is 50% off. Raise the list price to $39.99 and sell it at the same $9.99, and it's 75% off. Same money out of your wallet, bigger badge. So the first habit is to look at the amount you'll actually pay before you look at the percentage."
     },
     {
       "type": "note",
-      "text": "Quick check: the same -90% can mean 1,000 won on one game and 6,000 won on another. Compare the won amount that shows up at checkout, not the percentage."
+      "text": "The same -90% can mean $1 on one game and $6 on another. Compare the checkout amount, not the badge."
     },
-    {
-      "type": "h2",
-      "text": "The 'always on sale' permanent discount"
-    },
+    { "type": "h2", "text": "2. The permanent sale" },
     {
       "type": "p",
-      "text": "The second trap is games that are almost always on sale. Quite a few titles essentially lock in a price like -75% from some point after release and keep it there. There's no reason to rush just because the page says 'on sale now' — the price will very likely be the same at the next sale, and the one after that. The opposite kind of game, one that rarely discounts but drops briefly only during the big seasonal sales, is the one where that moment is a real opportunity."
+      "text": "Some games settle at something like 75% off a year after launch and never really leave it. For those, 'on sale now' means nothing, because next month will show the same price. The opposite kind, a game that sits at full price and only drops during the big seasonal sales, is the one where the moment is real. The price chart tells them apart in a second. A line glued to the bottom for a year is a permanent sale. A line that sits high and dips sharply now and then is a real one."
     },
+    { "type": "h2", "text": "3. The trick the percentage plays on your eyes" },
     {
       "type": "p",
-      "text": "The surest way to tell them apart is to look at the price history — how the price has moved over time. If the price line has been glued to the bottom for the past year or two, it's a permanent discount; if it normally sits high and only drops sharply once in a while, that's a game with real sale timing."
+      "text": "Steam shows the percentage in the biggest, reddest type on the card, and the actual price in smaller text beside it. A 90% badge on a $2.99 game pulls your eye harder than a 40% badge on a $59.99 game, even though the second one saves you $24 and the first saves you $2.70. Read the price, then the percentage."
     },
-    {
-      "type": "h2",
-      "text": "The benchmark is the all-time low — the one line that settles whether it's really cheap"
-    },
+    { "type": "h2", "text": "The one number that settles it" },
     {
       "type": "p",
-      "text": "The simplest benchmark for filtering out fake discounts in one shot is the all-time low. Just see how close the current price is to the lowest price the game has ever reached. If the current price matches or beats the all-time low, there's little reason to hesitate; if it's well above the all-time low, then no matter how big the discount percentage looks, it just means the game has been cheaper before."
+      "text": "The fastest way through all three is to compare today's price with the lowest price we've tracked for this game. If today's price matches or beats it, there's little reason to hesitate. If it's well above, then however big the badge, the game has sold for less and probably will again."
     },
     {
       "type": "ol",
       "items": [
-        "Check the current price shown on screen right now (in won).",
-        "Find out what that game's all-time low was.",
-        "If the current price matches or comes close to the all-time low, it's good timing; if it's well above, hold off.",
-        "If you can wait, hold out until the next big sale and aim for a new all-time low."
+        "Look at the amount you'd actually pay today.",
+        "Find the tracked low for this game.",
+        "At or near the low: good timing. Well above it: hold off.",
+        "If you can wait, aim for the next big sale, where lows tend to get reset."
       ]
     },
     {
       "type": "p",
-      "text": "Lowstamp shows each game's list price, current price, and all-time low side by side, and with a history graph that records only the days the price changed, you can tell at a glance whether something is a permanent discount or a real sale. The 'Should I buy now?' verdict is exactly this — it measures the distance between the current price and the all-time low and stamps a call on it, so you can decide fast without getting swayed by a big discount-percentage number."
+      "text": "Every Lowstamp game page lines up list price, today's price and tracked low, plus a chart that plots a dot only on the days the price changed. The stamp does the comparison for you. A big percentage next to a 'you can wait' stamp is the inflated-discount pattern in one glance."
     },
-    {
-      "type": "h2",
-      "text": "Sale timing and the refund safety net"
-    },
+    { "type": "h2", "text": "Timing, and the safety net" },
     {
       "type": "p",
-      "text": "Steam usually runs its biggest sales in summer and winter, with mid-sized sales around spring, fall, and holiday periods — a rhythm that tends to repeat every year. The exact dates shift from year to year, though, so treat it only as a rough 'around this time' estimate. All-time lows are most often set during these big sales, so if you're not in a hurry, waiting for the next major sale is frequently the better move."
-    },
-    {
-      "type": "p",
-      "text": "And if you buy and later feel you misjudged the price, there's a safety net. Under Steam's official policy, you can request a refund within a certain window after purchase as long as your playtime is short (the specific conditions follow Steam's policy and can change, so check directly on the refund request screen). If you think you bought the wrong thing, looking into a refund quickly is one way out."
+      "text": "Steam's big sales are summer and winter, with shorter ones in March and at the start of October. Tracked lows are set most often in the big two, so if you're not in a hurry, that's usually the better bet. And if you buy and realize you misjudged it, Steam refunds anything under 2 hours of play bought within 14 days. That's the way out if a 'deal' turns out to be nothing of the sort."
     },
     {
       "type": "quote",
-      "text": "Don't look at the big red number — look at how close what you're paying is to the all-time low."
+      "text": "Don't read the big red number. Read how close what you're paying is to the lowest this game has been."
     },
     {
       "type": "p",
-      "text": "To sum up, avoiding fake discounts comes down to three things. First, look at the actual amount you'll pay instead of the discount percentage. Second, check the price history to tell a permanent discount from a real sale. Third, compare the current price to the all-time low to judge whether it's genuinely cheap. Build these habits and you won't be led around by the red sale badges — you'll only open your wallet when something is truly worth buying. Wishlist the games you're interested in ahead of time, and at the next sale just check whether they've hit a new all-time low, and you won't miss the best moment."
+      "text": "Look at the amount instead of the percentage, use the chart to tell a permanent sale from a real one, and check today's price against the tracked low. Do that and the red badges stop steering you. Star the games you want, and at the next sale all you check is whether the low moved."
     }
   ]
 };

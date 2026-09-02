@@ -1,86 +1,68 @@
-// Guide: Should you buy Early Access (unfinished) games — how to judge without regret.
-// The body array is drawn by the ArticleBody renderer. Don't write raw HTML tags.
-
 export default {
   "slug": "early-access-guide",
-  "title": "Should You Buy Early Access Games? How to Judge Without Regret",
-  "description": "That game sold as 'Early Access' before it's finished — not sure whether to buy it now? Here's a plain-English rundown of what Early Access is, which ones are worth grabbing, and which ones you should wait on.",
-  "date": "2026-07-05",
+  "title": "Early Access Games: Which Ones to Buy Now and Which to Wait On",
+  "description": "Unfinished games are cheap, but some stay unfinished. How the studio's track record, update cadence and recent reviews separate the ones worth buying now from the ones to wait on.",
+  "date": "2026-09-03",
   "tags": ["Early Access", "unfinished games", "buying tips"],
   "readMins": 7,
   "body": [
     {
       "type": "p",
-      "text": "You've probably seen an 'Early Access' tag on a Steam game you were about to buy. It means the game isn't finished yet and is being sold while it's still in development — you get to play early and usually cheaper, but you also take on the risk that it might never actually get finished. That trade-off makes it easy to hesitate. This article breaks down, without the jargon, how to pick Early Access games without regretting it."
+      "text": "You've probably seen an 'Early Access' tag on a game you were about to buy. It means the game isn't finished and is being sold while it's still being built. You get to play early and usually cheaper, but you take on the risk that it never gets finished. That trade makes it easy to hesitate, so here's how I sort the ones worth buying now from the ones to wait on."
     },
-    {
-      "type": "h2",
-      "text": "What is Early Access?"
-    },
+    { "type": "h2", "text": "What Early Access is" },
     {
       "type": "p",
-      "text": "It's the 'sell it in its current state and keep building it' approach — the game goes on sale before development wraps up. The developer gets funding and player feedback, and buyers get to jump in early and usually for less than the full release price. The catch is there may be bugs, or the content might still be thin. Plenty of games launched in Early Access and went on to huge success (Valheim, PUBG, Hades, to name a few), but just as many sit unfinished for years or fizzle out when development quietly stalls. So it's not 'Early Access is always good' or 'always bad' — you have to weigh each game on its own."
+      "text": "It's 'sell it as it is and keep building'. The studio gets funding and feedback, and buyers get in early for less than the eventual full price. The catch is bugs, or content that's still thin. Plenty of games launched this way and became huge (Valheim, PUBG, Hades), and just as many sit unfinished for years or fade out when development quietly stalls. So it's neither always good nor always bad. You weigh each game on its own."
     },
-    {
-      "type": "h2",
-      "text": "Signs an Early Access game is worth buying"
-    },
+    { "type": "h2", "text": "Signs it's worth buying now" },
     {
       "type": "p",
-      "text": "The key isn't 'this'll be fun once it's finished' — it's 'does it already earn its price right now?' Nobody can guarantee it'll ever be completed, so judging by what it is today is the safe bet. When you're sizing up whether an Early Access game is worth it, check these things."
+      "text": "The question isn't 'will this be fun once it's finished'. It's 'does it already earn its price today'. Nobody can guarantee it'll be completed, so judging by what it is right now is the safe bet."
     },
     {
       "type": "ol",
       "items": [
-        "Are updates still active and recent? Look at the store page's latest announcements and patch dates. Months of silence is a red flag.",
-        "Does the developer regularly post a roadmap and news about what they're building next?",
-        "Do a lot of reviews say it's fun as-is? You want 'satisfied right now,' not 'I'll buy it once it's finished.'",
-        "Is the overall Steam review rating 'Very Positive' or better?"
+        "Are updates recent and regular? Check the latest announcements and patch dates on the store page. Months of silence is a red flag.",
+        "Does the studio post a roadmap and news about what's coming next?",
+        "Do a lot of reviews say it's fun as it is? You want 'satisfied now', not 'I'll buy it once it's finished'.",
+        "Is the overall rating 'Very Positive' or better?"
       ]
     },
     {
       "type": "note",
-      "text": "Checkpoint: with Early Access you're not buying 'the finished version of the future' — you're buying 'this current build.' If it doesn't earn its price right now, don't buy it on the hope alone that it'll get better later."
+      "text": "With Early Access you're not buying the finished version of the future. You're buying this build. If it doesn't earn its price now, don't buy it on the hope that it'll get better."
     },
-    {
-      "type": "h2",
-      "text": "Signs you're better off waiting"
-    },
+    { "type": "h2", "text": "Signs you're better off waiting" },
     {
       "type": "p",
-      "text": "Flip side: if you see any of these, it's smarter to hold off and keep watching. Updates have been missing for months or years, there's no roadmap, the developer has basically gone silent in the community, or the rating sits at 'Mixed' or worse. Especially if lots of reviews say 'they promised they'd fix it someday and never did,' that promise probably won't get kept. Buy a game like that and it gets abandoned, and your money's just tied up in it."
+      "text": "Updates missing for months or years, no roadmap, a studio that's gone silent in the community, or a rating stuck at 'Mixed' or worse. Especially if reviews keep saying 'they promised a fix and never delivered', that promise probably won't be kept. Buy a game like that and it gets abandoned with your money in it."
     },
-    {
-      "type": "h2",
-      "text": "Let's look at an example"
-    },
+    { "type": "h2", "text": "Two examples" },
     {
       "type": "p",
-      "text": "Game A is $19.99 in Early Access. Check its store announcements and there's a fresh patch every couple of weeks, a clear roadmap laying out 'here's what we're adding this year,' and a 'Very Positive' rating (91%) with plenty of reviews saying it's already plenty of fun as-is. That's an Early Access game worth grabbing early and cheap. Game B, on the other hand, has been in Early Access for over three years, its last patch was 14 months ago, its roadmap stalled long ago, and its rating is 'Mixed' with reviews full of 'they said they'd update it and then went totally dark.' No matter how cheap that one is, buying it likely just leaves your money tied up, so waiting or skipping is the right call. Look at nothing but the price tag and both are just 'a game on sale,' but peek at the development status and they're sending opposite signals."
+      "text": "Game A is $19.99 in Early Access. Its announcements show a fresh patch every couple of weeks, a clear roadmap for the year, and a 'Very Positive' rating with plenty of reviews saying it's already fun. That's one worth grabbing early and cheap. Game B has been in Early Access for over three years, its last patch was 14 months ago, the roadmap stalled long ago, and the reviews are full of 'they went dark'. However cheap that one is, waiting or skipping is the right call. On the price tag alone both are just 'a game on sale'. The development status tells opposite stories."
     },
     {
       "type": "note",
-      "text": "Checkpoint: if you're on the fence, drop it on your wishlist. You'll get a heads-up at the full release or a big sale, and watching how the updates go in the meantime gives you a real feel for whether it's actually going to get finished."
+      "text": "If you're on the fence, wishlist it. You'll get a heads-up at the full release or a big sale, and watching the updates in the meantime tells you whether it's really going to get finished."
     },
+    { "type": "h2", "text": "How Early Access prices move" },
     {
-      "type": "h2",
-      "text": "How Early Access prices move"
+      "type": "p",
+      "text": "The Early Access price is usually lower than the full-release price, and studios often bump it up at launch. So if you're confident about a game, buying it during Early Access can pay off. If you're unsure, waiting for the full release and a sale, and picking it up near its tracked low, is no worse. Either way, checking today's price and the price chart on Lowstamp gives you a feel for where it sits."
     },
     {
       "type": "p",
-      "text": "Usually the Early Access price is lower than the full release price — developers often bump the price up when the game officially launches. So if you're confident about a game, buying it cheap during Early Access can pay off. If you're unsure, though, waiting for the full release plus a sale and picking it up near its all-time low is no worse. Either way, checking the game's current price, all-time low, and price trend on Lowstamp to see whether now's the time to buy is a great way to get a feel for it."
-    },
-    {
-      "type": "p",
-      "text": "And if you buy and it turns out worse than you expected, there's a safety net. Steam lets you request a refund within a certain window after purchase as long as your playtime is short (the exact conditions follow Steam's policy and can change, so check directly on the refund screen). If an Early Access game just isn't there yet in its current state, looking into a refund quickly is one way to go."
+      "text": "And if you buy and it's worse than expected, Steam refunds anything under 2 hours of play bought within 14 days. If an Early Access game just isn't there yet, looking into a refund quickly is a fine way out."
     },
     {
       "type": "quote",
-      "text": "You're not betting on the game it'll become — you're buying based on whether it earns its price as it is right now."
+      "text": "You're not betting on the game it'll become. You're buying the game it is right now."
     },
     {
       "type": "p",
-      "text": "To sum up, Early Access is a great chance to play early and cheap when three things line up: active development, good reviews, and it's already plenty fun right now. If development looks stalled or the reviews are bad, waiting or skipping is the right call. And if you're not in a hurry, aiming for the all-time low during a big sale after the full release is a smart move too. Wishlist the Early Access games you're interested in and keep an eye on their updates and prices, and you can buy at the best possible moment without ever rushing."
+      "text": "Early Access is a great chance to play early and cheap when three things line up: active development, good reviews, and it's already fun. If development looks stalled or the reviews are bad, wait or skip. Not in a hurry? Aim for the tracked low in a big sale after the full release. Wishlist the ones you're curious about, watch their updates, and you'll buy at the right moment without rushing."
     }
   ]
 };

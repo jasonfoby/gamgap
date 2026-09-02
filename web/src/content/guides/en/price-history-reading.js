@@ -1,104 +1,82 @@
-// Guide: How to read a price history chart - spotting whether this sale is the real bottom
-// The body block array is rendered by ArticleBody. Do not write raw HTML tags.
-
 export default {
-  slug: "price-history-reading",
-  title: "How to Read a Price History Chart - Is This Sale the Real Bottom?",
-  description:
-    "Once you can read a price history chart, you can tell in seconds whether a sale is the real bottom. Learn to spot the all-time-low line, fake always-on discounts, summer and winter sale cycles, and why new releases have short histories.",
-  date: "2026-06-20",
-  tags: ["price history", "reading charts", "all-time low", "sale cycles", "buying tips"],
-  readMins: 6,
-  body: [
+  "slug": "price-history-reading",
+  "title": "How to Read a Price History Chart (and Tell If This Sale Is the Bottom)",
+  "description": "One price chart tells you whether this sale is really the bottom. How to spot the tracked-low line, what an always-on discount looks like, the marks summer and winter sales leave, and why new releases have almost no history.",
+  "date": "2026-09-03",
+  "tags": ["price history", "reading charts", "lowest price", "sale cycles", "buying tips"],
+  "readMins": 6,
+  "body": [
     {
-      type: "p",
-      text: "When you see a red -75% badge during a sale, panic sets in. But that badge alone cannot tell you whether the game is truly at its lowest right now, or whether it will be the exact same price next month. The thing that answers this at a glance is the price history chart. It is simply a line that shows how the price rose and fell over time, and once you know how to read it, you can separate a genuine opportunity from false excitement in a few seconds. In this guide I will walk through it piece by piece, even if you have never looked at one before.",
+      "type": "p",
+      "text": "A red -75% badge during a sale makes you want to click before it's gone. The badge alone can't tell you whether the game is at its lowest right now, or whether it'll be exactly this price again next month. The price chart can. It's just a line showing how the price rose and fell over time, and once you know what to look for, you can tell a real opportunity from noise in a few seconds."
+    },
+    { "type": "h2", "text": "What you're looking at" },
+    {
+      "type": "p",
+      "text": "The chart plots one game's price over months or years. Time runs left to right, older on the left. Price runs bottom to top. A $59.99 game that dropped to $19.99 last summer and climbed back shows as a high line with one deep valley cut into it. The valleys are the sales."
     },
     {
-      type: "h2",
-      text: "What is a price history chart?",
+      "type": "p",
+      "text": "It can look busy, but you only want two things from it. How low the line has ever gone, which is the tracked low, and how close today's price is to that bottom. Read those two and you've read the chart."
+    },
+    { "type": "h2", "text": "Find the bottom line first" },
+    {
+      "type": "p",
+      "text": "The first thing to find is the deepest dip. Lowstamp draws that low as its own line, so you can see immediately whether today's dot is sitting on it or floating well above. Dot on the line, or below it: a genuinely good price. Dot far above: no matter how big the badge, the game has been cheaper."
     },
     {
-      type: "p",
-      text: "A price history chart is a line that shows how a single game's price has moved over the past months or years. The horizontal axis is time (older on the left, now on the right), and the vertical axis is price (higher up means more expensive). For example, if a game normally sits high near 60 dollars, then dropped to around 20 dollars last summer before climbing back up, the chart will show a high line with one deep valley carved into it. Those valleys are the moments the game went on sale.",
+      "type": "note",
+      "text": "Look at how close the dot is to the bottom line, not at the percentage. Even -90% may not be a good price if the dot sits well above the line."
+    },
+    { "type": "h2", "text": "The flat line: a permanent sale" },
+    {
+      "type": "p",
+      "text": "The shape to be wary of is a long, flat line lying along the bottom. Plenty of games settle at a low price a year or so after release and never really move. A -75% badge on those is the everyday price, not a sale. There's no reason to hurry at 'on sale now', because next month will show the same thing."
     },
     {
-      type: "p",
-      text: "It can look busy, but really there are only two things you want from a chart. One is how low the price has ever fallen (the all-time low), and the other is how close the current price is to that bottom. Read those two and you have basically mastered the chart.",
+      "type": "p",
+      "text": "Two examples. Game A sits high and plunges into a valley two or three times a year. Those valleys are the real chance. Game B dropped once and its line has stayed flat and low ever since. Buy it whenever; the price is the same. The same -75% means a real bottom for A and just another Tuesday for B."
+    },
+    { "type": "h2", "text": "Valleys in the same spot every summer and winter" },
+    {
+      "type": "p",
+      "text": "Look at a chart over a long span and a rhythm shows up. Many games drop to the same price around summer and winter, climb back, and repeat. On the chart it's valleys of similar depth at regular intervals. Once you see that, you can guess where the next sale will land. If the last two summer and winter sales both bottomed at $19.99, today's $29.99 discount can wait."
     },
     {
-      type: "h2",
-      text: "How to read the all-time-low line",
+      "type": "p",
+      "text": "Steam's big sales are summer and winter, with shorter ones in March and early October. The spacing of the valleys tells you whether a game follows that cycle, or only drops now and then with no pattern at all."
+    },
+    { "type": "h2", "text": "New releases have short charts" },
+    {
+      "type": "p",
+      "text": "A brand-new game has only a few dots, so there's no low to compare against yet. New releases usually barely discount for the first few months and take their first real cut at a seasonal sale. Treat a short chart as 'not enough history to judge', and unless you're in a hurry, watch through at least the first sale."
     },
     {
-      type: "p",
-      text: "The first thing to find on the chart is the deepest dip the line ever reached, which is the all-time low. Lowstamp marks this all-time low separately, so you can immediately see whether today's price dot is sitting right on that bottom line or floating far above it. If the dot is at the same level as the bottom line or below it, this is a genuinely good price with little reason to hesitate. If it is well above the bottom, then no matter how big the red discount looks, it simply means the game has been cheaper before.",
+      "type": "ol",
+      "items": [
+        "Find the deepest dip on the chart. That's the tracked low.",
+        "Check whether today's dot is on that bottom line or well above it.",
+        "A long flat line at the bottom is a permanent sale. No need to rush.",
+        "Valleys repeating every summer and winter mean the next big sale is worth waiting for.",
+        "A chart with only a few dots isn't enough to judge. Watch the first sale."
+      ]
+    },
+    { "type": "h2", "text": "On Lowstamp" },
+    {
+      "type": "p",
+      "text": "Each game page shows list price, today's price and the tracked low on one line, with the chart underneath. The chart plots a dot only on days the price changed, so the shape is easy to read: deep valleys, a flat bottom, or a handful of dots. The stamp measures the gap between today's dot and the low for you, so on days you don't feel like reading the chart, the stamp is enough."
     },
     {
-      type: "note",
-      text: "Checkpoint: Look at how close the dot is to the bottom line, not at the discount percentage. Even -90% may not be a good price if it sits far above the bottom.",
+      "type": "note",
+      "text": "Lowstamp's records start in June 2026, so the chart's earliest dot is from then. A game may have gone cheaper before that. The longer the chart, the more it's worth."
     },
     {
-      type: "h2",
-      text: "Fake always-on discounts - the flat bottom line",
+      "type": "quote",
+      "text": "Not the red percentage. How close today's dot is to the bottom line."
     },
     {
-      type: "p",
-      text: "The shape to watch out for most is a long, flat line lying along the bottom. Plenty of games settle into a low price at some point after release and barely move from it, and even with a -75% badge attached, that is essentially the game's everyday price. There is no reason to rush at the words 'on sale now', because it will most likely be the same price next month and at the sale after that too.",
-    },
-    {
-      type: "p",
-      text: "Here is an example. Game A normally floats high and only plunges into a valley two or three times a year. For that game, those valley moments are the real opportunity. Game B, on the other hand, dropped once and then its line stayed flat and low ever since. For that one the price is the same whenever you buy, so there is no need to be swayed by sale wording. The same -75% means a real bottom for A's valley, but just the everyday price for B's flat stretch.",
-    },
-    {
-      type: "h2",
-      text: "Sale cycle patterns - the same spot every summer and winter",
-    },
-    {
-      type: "p",
-      text: "Look at a chart over a long span and a fun rule appears. Many games drop to the same spot around summer and winter, then climb back, repeating this every year. On the chart it shows up as valleys of similar depth lined up at regular intervals. Once you see that, you can roughly guess how low the next sale will go. For example, if both of the last two summer and winter sales dropped to around 20 dollars, you might skip today's 30-dollar discount and wait for the next big sale instead.",
-    },
-    {
-      type: "p",
-      text: "Steam usually holds its biggest sales in summer and winter, with mid-sized sales around spring, autumn, and holidays, and this rhythm tends to repeat each year. That said, the exact dates change from year to year, so treat them only as a rough estimate of 'around this time'. Still, the spacing of the valleys on the chart tells you whether a game follows that cycle or only drops irregularly now and then.",
-    },
-    {
-      type: "h2",
-      text: "New releases have short charts - do not judge too soon",
-    },
-    {
-      type: "p",
-      text: "One thing to be careful about: a brand-new release has a short price history, so the chart has only a few dots. When the line is short, the very benchmark of 'the lowest it has ever been' has not formed yet, which makes it hard to tell whether today's price is good or bad. New releases usually barely discount right after launch and only come down for the first time at a sale a few months later. So treat a game with a short chart as 'there is not enough past to compare against yet', and unless you are in a real hurry, it is safer to watch through at least the first sale.",
-    },
-    {
-      type: "ol",
-      items: [
-        "Find the deepest dip in the line on the chart (the all-time low).",
-        "Check whether today's price dot is touching that bottom line or floating well above it.",
-        "If the line is long and flat, it may be a fake always-on discount, so do not rush.",
-        "If similar valleys repeat every summer and winter, it can be worth waiting for the next sale.",
-        "If a new release has only a few dots, there is not enough past to compare, so watch the first sale.",
-      ],
-    },
-    {
-      type: "h2",
-      text: "Using the Lowstamp chart",
-    },
-    {
-      type: "p",
-      text: "Lowstamp shows each game's regular price, current price, and all-time low side by side on one line, and below that it shows a history chart that plots a dot only on days the price changed. That lets you tell at a glance whether a game is a real-sale title with deep valleys, an always-on-discount title lying flat at the bottom, or a new release with only a few dots. You can finish the judgment on this one screen without digging through other sites.",
-    },
-    {
-      type: "p",
-      text: "And the 'Should I buy now?' verdict is a feature that calculates the distance between this current price and the all-time low and stamps it for you. Even when you do not feel like dissecting the chart yourself, that stamp lets you decide quickly. If you wishlist the games you care about, then at the next sale you only need to check whether a new valley appeared on the chart, meaning the all-time low was updated.",
-    },
-    {
-      type: "quote",
-      text: "Look at how close today's dot is to the bottom line on the chart, not at the red discount percentage.",
-    },
-    {
-      type: "p",
-      text: "To sum up, the price history chart is the most honest tool for telling whether a sale is the real bottom. If today's dot is touching a deep carved valley, it is a good chance; a long flat stretch means a fake always-on price; the same spot every summer and winter is a signal worth waiting for the next sale; and only a few dots means hold off for now. Remember just these four shapes and you will stop being dragged around by red badges, opening your wallet only when it is truly worth it.",
-    },
-  ],
+      "type": "p",
+      "text": "Four shapes are all you need. A dot touching a deep valley is a good chance. A long flat stretch is a permanent price. The same valley every summer and winter means wait for the next one. A few dots means hold off. Remember those and the badges stop steering you."
+    }
+  ]
 };
