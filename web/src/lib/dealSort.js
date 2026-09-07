@@ -1,10 +1,30 @@
-// "할인 중" 목록의 정렬 기준들.
+// "할인 중" 목록의 정렬 기준들. 기본값은 "popular"(아는 게임 먼저) — 아래 curate 설명 참고.
 export const SORTS = [
+  { key: "popular", labelKey: "sort.popular" },
   { key: "discount", labelKey: "sort.discount" },
   { key: "price", labelKey: "sort.price" },
   { key: "depth", labelKey: "sort.depth" },
   { key: "normal", labelKey: "sort.normal" },
 ];
+
+// "얼마나 알려진 게임인가" 점수. 클수록 앞. 스팀 리뷰 수가 곧 산 사람 수의 대리 지표다.
+// 목록이 CheapShark 딜 평점 순으로 오다 보니 그냥 두면 리뷰 3천짜리 저가 인디가 맨 앞에 서고
+// 리뷰 91만짜리 레드 데드 2가 한참 아래로 밀린다 — 첫인상이 "아무거나 긁어온 사이트"가 되는 이유.
+// 메타크리틱 점수가 있으면 언론 리뷰가 붙은 상업작이라는 뜻이라 하한을 얹어준다.
+export function popularityScore(g) {
+  const reviews = Number(g && g.reviewTotal) || 0;
+  const meta = Number(g && g.metacritic) || 0;
+  return Math.max(reviews, meta > 0 ? 3000 : 0);
+}
+
+// 알려진 순으로 다시 세운다. 숨기는 게 아니라 순서만 바꾸므로 목록 개수는 그대로.
+// 점수가 같으면 서버가 준 원래 순서를 지키는 안정 정렬.
+export function curate(rows) {
+  return (rows || [])
+    .map((g, i) => [g, i])
+    .sort((a, b) => popularityScore(b[0]) - popularityScore(a[0]) || a[1] - b[1])
+    .map(([g]) => g);
+}
 
 // 현재가가 역대최저에 얼마나 가까운지(작을수록 지금이 쌈). 역대최저 없으면 뒤로.
 const depth = (g) => {
@@ -61,7 +81,7 @@ export function popularPicks(rows, n = 6, minReviews = 5000) {
 }
 
 export const defaultDealOpts = (maxBound) => ({
-  sort: "discount",
+  sort: "popular",
   onlyLow: false, // 지금이 역대최저인 것만
   min50: false, // 50% 이상 할인만
   maxPrice: maxBound, // 최대 가격(슬라이더). maxBound면 제한 없음.
@@ -91,8 +111,15 @@ export function applyDealOpts(rows, opts) {
       case "depth":
         return depth(a) - depth(b);
       case "discount":
-      default:
         return (Number(b.discountPercent) || 0) - (Number(a.discountPercent) || 0);
+      // 기본: 알려진 게임을 앞에, 같은 점수면 할인율이 큰 순.
+      // "할인율 높은 순"을 고르면 인기와 무관한 순수 할인율 정렬이 되므로 선택권은 그대로 있다.
+      case "popular":
+      default:
+        return (
+          popularityScore(b) - popularityScore(a) ||
+          (Number(b.discountPercent) || 0) - (Number(a.discountPercent) || 0)
+        );
     }
   });
   return out;

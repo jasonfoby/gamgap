@@ -43,6 +43,7 @@ export default {
   "side.nextSale": "다음 스팀 세일",
 
   // 정렬
+  "sort.popular": "인기 게임 먼저",
   "sort.discount": "할인율 높은 순",
   "sort.price": "현재가 낮은 순",
   "sort.depth": "최저 근접 순",

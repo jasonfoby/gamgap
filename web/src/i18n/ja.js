@@ -35,6 +35,7 @@ export default {
   "side.filterToggle": "絞り込み・並べ替え",
   "side.nextSale": "次の Steam セール",
 
+  "sort.popular": "人気のゲームから",
   "sort.discount": "割引率が高い順",
   "sort.price": "現在価格が安い順",
   "sort.depth": "最安値に近い順",

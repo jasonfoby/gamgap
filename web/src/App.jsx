@@ -1,4 +1,4 @@
-import { Fragment, useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Sidebar from "./components/Sidebar";
@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 import AdSlot from "./components/AdSlot";
 import { ListSkeleton, SkelCards, Skeleton } from "./components/Skeleton";
 import { getLowestToday, getDeals, searchGames } from "./api";
-import { applyDealOpts, defaultDealOpts, availableGenres, popularPicks } from "./lib/dealSort";
+import { applyDealOpts, curate, defaultDealOpts, availableGenres, popularPicks } from "./lib/dealSort";
 import { activeFilterChips, clearedOpts } from "./lib/filterUi";
 import { useWishlistState, WishlistProvider } from "./lib/wishlist";
 import { resetHead } from "./lib/head";
@@ -149,6 +149,9 @@ function LoadMore({ hasMore, loading, onLoadMore }) {
   );
 }
 
+// 목록 맨 앞에서 큰 카드로 세울 개수(그 뒤는 장부 행). 3개면 데스크탑 한 줄에 딱 맞는다.
+const FEAT_COUNT = 3;
+
 const VALID_TABS = ["lowest", "deals", "wishlist"];
 function initialTab() {
   const params = new URLSearchParams(window.location.search);
@@ -171,8 +174,13 @@ function initialQuery() {
 function Section({ title, state, emptyMsg, errMsg, onCardClick, onRetry, hasMore, loadingMore, onLoadMore }) {
   const { t } = useT();
   const count = state.status === "ok" ? state.rows.length : "·";
+  // 리뷰가 거의 없는 양산형 게임은 뒤로 미룬다 — 개수는 그대로 두고 순서만 바꿔
+  // 첫 화면에 이름을 아는 게임이 먼저 오게 한다.
+  const ordered = useMemo(() => curate(state.rows), [state.rows]);
   // 같은 시리즈(권·편만 다른 같은 값의 게임들)는 한 장으로 접어 목록 도배를 막는다.
-  const series = useSeriesCollapse(state.rows);
+  const series = useSeriesCollapse(ordered);
+  const feat = series.items.slice(0, FEAT_COUNT);
+  const rest = series.items.slice(FEAT_COUNT);
   return (
     <section className="block">
       <h2>
@@ -192,12 +200,19 @@ function Section({ title, state, emptyMsg, errMsg, onCardClick, onRetry, hasMore
       {state.status === "ok" &&
         (state.rows.length ? (
           <>
-            <div className="list">
-              {series.items.map((g, i) => (
-                <GameCard key={g.appid} game={g} onClick={onCardClick} priority={i < 4} onSeriesToggle={series.toggle} />
+            {/* 맨 앞 몇 개만 큰 카드로 — 전부 같은 크기로 늘어놓으면 무엇이 중요한지 화면이 말해주지 못한다. */}
+            <div className="list list-feat">
+              {feat.map((g, i) => (
+                <GameCard key={g.appid} game={g} feat onClick={onCardClick} priority={i < FEAT_COUNT} onSeriesToggle={series.toggle} />
               ))}
-              {/* 다음 묶음 자리표시 — 같은 격자 안에 넣어 진짜 카드와 간격·정렬을 맞춘다. */}
-              {loadingMore && <SkelCards count={4} />}
+            </div>
+            {/* 나머지는 장부 한 줄씩 — 한 화면에 훨씬 많이 담기고 영수증 컨셉에도 더 맞는다. */}
+            <div className="list ledger">
+              {rest.map((g) => (
+                <GameCard key={g.appid} game={g} onClick={onCardClick} onSeriesToggle={series.toggle} />
+              ))}
+              {/* 다음 묶음 자리표시 — 같은 목록 안에 넣어 진짜 행과 간격·정렬을 맞춘다. */}
+              {loadingMore && <SkelCards count={6} />}
             </div>
             {onLoadMore && (
               <LoadMore hasMore={hasMore} loading={loadingMore} onLoadMore={onLoadMore} />
@@ -230,9 +245,9 @@ function SearchSection({ q, state, onCardClick, onRetry }) {
       )}
       {state.status === "ok" &&
         (state.rows.length ? (
-          <div className="list">
+          <div className="list ledger">
             {state.rows.map((g, i) => (
-              <GameCard key={g.appid} game={g} onClick={onCardClick} priority={i < 4} />
+              <GameCard key={g.appid} game={g} onClick={onCardClick} priority={i < 6} />
             ))}
           </div>
         ) : (
@@ -248,6 +263,8 @@ function DealsView({ state, opts, onCardClick, onRetry, onOptsChange, currency, 
   const filtered = state.status === "ok" && opts ? applyDealOpts(state.rows, opts) : [];
   const chips = opts ? activeFilterChips(opts, currency) : [];
   const series = useSeriesCollapse(filtered); // 필터를 거친 뒤에 시리즈를 접는다
+  const feat = series.items.slice(0, FEAT_COUNT);
+  const rest = series.items.slice(FEAT_COUNT);
   return (
     <section className="block">
       <h2>
@@ -285,16 +302,20 @@ function DealsView({ state, opts, onCardClick, onRetry, onOptsChange, currency, 
       {state.status === "ok" &&
         (filtered.length ? (
           <>
-            <div className="list">
-              {series.items.map((g, i) => (
-                <Fragment key={g.appid}>
-                  <GameCard game={g} onClick={onCardClick} priority={i < 4} onSeriesToggle={series.toggle} />
-                  {/* 첫 6장 뒤에 인라인 광고 한 자리(슬롯 ID 없으면 안 보임). */}
-                  {i === 5 && <AdSlot slot="dealsInline" />}
-                </Fragment>
+            {/* 맨 앞 몇 개만 큰 카드, 나머지는 장부 행 — 홈 '오늘 최저가'와 같은 리듬. */}
+            <div className="list list-feat">
+              {feat.map((g, i) => (
+                <GameCard key={g.appid} game={g} feat onClick={onCardClick} priority={i < FEAT_COUNT} onSeriesToggle={series.toggle} />
               ))}
-              {/* 다음 묶음 자리표시 — 같은 격자 안에 넣어 진짜 카드와 간격·정렬을 맞춘다. */}
-              {loadingMore && <SkelCards count={4} />}
+            </div>
+            {/* 큰 카드 줄과 장부 사이에 인라인 광고 한 자리(슬롯 ID 없으면 안 보임). */}
+            <AdSlot slot="dealsInline" />
+            <div className="list ledger">
+              {rest.map((g) => (
+                <GameCard key={g.appid} game={g} onClick={onCardClick} onSeriesToggle={series.toggle} />
+              ))}
+              {/* 다음 묶음 자리표시 — 같은 목록 안에 넣어 진짜 행과 간격·정렬을 맞춘다. */}
+              {loadingMore && <SkelCards count={6} />}
             </div>
             {onLoadMore && (
               <LoadMore hasMore={hasMore} loading={loadingMore} onLoadMore={onLoadMore} />

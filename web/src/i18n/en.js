@@ -34,6 +34,7 @@ export default {
   "side.filterToggle": "Filter & sort",
   "side.nextSale": "Next Steam sale",
 
+  "sort.popular": "Popular first",
   "sort.discount": "Biggest discount",
   "sort.price": "Lowest price",
   "sort.depth": "Closest to lowest price",

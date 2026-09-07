@@ -32,14 +32,23 @@ export function SkelCards({ count = 4 }) {
   return Array.from({ length: count }, (_, i) => <SkelCard key={"skel" + i} />);
 }
 
-// 카드 그리드 자리표시. count: 깔아둘 카드 수(기본 8).
-export function ListSkeleton({ count = 8 }) {
+// 목록 자리표시. 실제 목록과 같은 골격(앞머리 큰 카드 3장 + 그 아래 장부 행)으로 깔아야
+// 데이터가 도착할 때 화면이 밀리지 않는다(CLS). count: 전체 자리 수(기본 8).
+export function ListSkeleton({ count = 8, feat = 3 }) {
   const { t } = useT();
+  const rows = Math.max(0, count - feat);
   return (
-    <div className="list" role="status" aria-busy="true" aria-label={t("skel.listAria")}>
-      {Array.from({ length: count }, (_, i) => (
-        <SkelCard key={i} />
-      ))}
+    <div role="status" aria-busy="true" aria-label={t("skel.listAria")}>
+      <div className="list list-feat">
+        {Array.from({ length: feat }, (_, i) => (
+          <SkelCard key={"f" + i} />
+        ))}
+      </div>
+      <div className="list ledger">
+        {Array.from({ length: rows }, (_, i) => (
+          <SkelCard key={i} />
+        ))}
+      </div>
       <span className="skel-sr">{t("common.loading")}</span>
     </div>
   );

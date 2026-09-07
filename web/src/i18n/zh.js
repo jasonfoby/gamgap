@@ -35,6 +35,7 @@ export default {
   "side.filterToggle": "筛选 · 排序",
   "side.nextSale": "下一场 Steam 特卖",
 
+  "sort.popular": "热门游戏优先",
   "sort.discount": "折扣力度从高到低",
   "sort.price": "现价从低到高",
   "sort.depth": "最接近最低价",

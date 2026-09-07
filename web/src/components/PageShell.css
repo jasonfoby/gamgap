@@ -55,7 +55,7 @@
   transition: color 0.12s;
 }
 .ps-nav-link:hover {
-  color: var(--gold);
+  color: var(--txt);
 }
 
 /* 본문 — 종이 카드 위 가독형 영역 */
