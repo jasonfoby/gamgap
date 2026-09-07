@@ -2,7 +2,7 @@ export default {
   "slug": "steam-store-page-checklist",
   "title": "Five Things to Check on a Steam Store Page Before You Buy",
   "description": "Bought something cheap and it wouldn't run, or had no language you speak? It happens more than you'd think. System requirements, supported languages, recent reviews, release status and edition contents. Five lines to read before the buy button.",
-  "date": "2026-09-03",
+  "date": "2026-07-05",
   "tags": ["buying tips", "Steam", "system requirements", "beginner guide"],
   "readMins": 6,
   "body": [

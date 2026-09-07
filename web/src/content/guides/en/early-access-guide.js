@@ -2,7 +2,7 @@ export default {
   "slug": "early-access-guide",
   "title": "Early Access Games: Which Ones to Buy Now and Which to Wait On",
   "description": "Unfinished games are cheap, but some stay unfinished. How the studio's track record, update cadence and recent reviews separate the ones worth buying now from the ones to wait on.",
-  "date": "2026-09-03",
+  "date": "2026-07-05",
   "tags": ["Early Access", "unfinished games", "buying tips"],
   "readMins": 7,
   "body": [

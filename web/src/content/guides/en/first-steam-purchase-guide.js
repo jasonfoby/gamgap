@@ -2,7 +2,7 @@ export default {
   "slug": "first-steam-purchase-guide",
   "title": "Buying Your First Game on Steam: What to Know Before You Pay",
   "description": "Account security, how payment works, wishlists and sale alerts, the refund rules, the two things to check before you pay, and why cheap key sites aren't worth it. Only what a first-time buyer actually needs.",
-  "date": "2026-09-03",
+  "date": "2026-06-20",
   "tags": ["Steam", "beginner", "buying guide", "newcomer", "safe shopping"],
   "readMins": 7,
   "body": [

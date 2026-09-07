@@ -2,7 +2,7 @@ export default {
   "slug": "review-bomb-guide",
   "title": "When a Game's Rating Suddenly Tanks: Is It a Review Bomb?",
   "description": "Sometimes the game hasn't changed but its rating drops to Mixed overnight. Whether it actually got worse or people are angry about something else shows in the recent-vs-overall split, the review dates, and what the reviews say.",
-  "date": "2026-09-03",
+  "date": "2026-07-05",
   "tags": ["Steam reviews", "review bombs", "buying tips"],
   "readMins": 7,
   "body": [

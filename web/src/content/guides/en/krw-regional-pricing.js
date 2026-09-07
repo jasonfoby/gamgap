@@ -2,7 +2,7 @@ export default {
   "slug": "krw-regional-pricing",
   "title": "Why the Same Steam Game Costs Different Amounts in Different Countries",
   "description": "Why the same game costs a different amount in every country, how Valve's suggested prices and exchange rates shape what you see, how to catch a price hike coming, and why region-hopping with a VPN puts your account at risk.",
-  "date": "2026-09-03",
+  "date": "2026-06-18",
   "tags": ["Steam", "regional pricing", "currency", "exchange rates"],
   "readMins": 6,
   "body": [

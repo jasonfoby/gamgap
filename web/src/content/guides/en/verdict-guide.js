@@ -2,7 +2,7 @@ export default {
   "slug": "verdict-guide",
   "title": "How the 'Buy Now?' Stamp Is Decided",
   "description": "Lowstamp's stamp isn't based on the discount percentage. It's based on how close today's price is to the lowest price we've tracked. What each tier means and how to use the stamp when you're deciding.",
-  "date": "2026-09-03",
+  "date": "2026-06-18",
   "tags": ["buying guide", "lowest price", "Steam sales"],
   "readMins": 6,
   "body": [

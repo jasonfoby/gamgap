@@ -2,7 +2,7 @@ export default {
   "slug": "free-games-guide",
   "title": "Three Ways to Grow Your Steam Library for Free",
   "description": "A limited-time giveaway is yours for good if you claim it in time. Free weekends let you try before you buy, and free-to-play games cost nothing up front. Where to find each and what to watch for.",
-  "date": "2026-09-03",
+  "date": "2026-07-05",
   "tags": ["free games", "giveaways", "buying tips", "saving money"],
   "readMins": 6,
   "body": [

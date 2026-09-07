@@ -2,7 +2,7 @@ export default {
   "slug": "historical-low-meaning",
   "title": "Why the Lowest Tracked Price Matters More Than the Discount Percentage",
   "description": "The discount percentage only tells you how much came off the list price. Whether that's cheap for this game depends on how low it's gone before, which is what the tracked low tells you. What it is, how to use it, and where our records fall short.",
-  "date": "2026-09-02",
+  "date": "2026-06-20",
   "tags": ["lowest price", "discount percentage", "Steam buying", "beginner"],
   "readMins": 6,
   "body": [

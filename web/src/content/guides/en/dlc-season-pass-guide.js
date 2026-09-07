@@ -2,7 +2,7 @@ export default {
   "slug": "dlc-season-pass-guide",
   "title": "When to Buy DLC and Season Passes Without Wasting Money",
   "description": "There's almost never a reason to buy DLC before you've finished the base game. When to buy the base game alone, when the complete edition is cheaper, and the rare case where a season pass pays off.",
-  "date": "2026-09-03",
+  "date": "2026-06-21",
   "tags": ["DLC", "season pass", "complete edition", "buying tips"],
   "readMins": 7,
   "body": [

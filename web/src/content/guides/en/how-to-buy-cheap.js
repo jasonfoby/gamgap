@@ -2,7 +2,7 @@ export default {
   "slug": "how-to-buy-cheap",
   "title": "Seven Ways to Pay Less for Steam Games",
   "description": "Check the tracked low, wishlist and wait for alerts, time the big sales, look at bundles, understand regional pricing, filter out inflated discounts, and lean on the refund rules. Know these seven and you'll rarely pay full price again.",
-  "date": "2026-09-03",
+  "date": "2026-06-18",
   "tags": ["Steam discounts", "lowest price", "money-saving tips", "sales"],
   "readMins": 6,
   "body": [

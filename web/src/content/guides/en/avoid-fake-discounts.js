@@ -2,7 +2,7 @@ export default {
   "slug": "avoid-fake-discounts",
   "title": "80% Off and Still Not Cheap: How to Spot Inflated Steam Discounts",
   "description": "A discount percentage gets bigger the higher the list price is set. How to spot an inflated list price, a game that's been 'on sale' all year, and the trick the percentage plays on your eyes, plus the one number to check before you pay.",
-  "date": "2026-09-03",
+  "date": "2026-06-18",
   "tags": ["Steam sales", "lowest price", "spotting real discounts", "buying tips"],
   "readMins": 6,
   "body": [

@@ -2,7 +2,7 @@ export default {
   "slug": "steam-family-sharing",
   "title": "Steam Family Sharing: Buy Once, Play Together",
   "description": "Turn on Family Sharing and you don't each have to buy the same game. How to set it up, the limits on playing at the same time, games that block sharing, and what goes wrong when you share with strangers.",
-  "date": "2026-09-03",
+  "date": "2026-07-05",
   "tags": ["family sharing", "saving money", "Steam", "buying tips"],
   "readMins": 7,
   "body": [

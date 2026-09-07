@@ -2,7 +2,7 @@ export default {
   "slug": "wishlist-alerts",
   "title": "Steam Wishlists and Price Alerts, Done Right",
   "description": "Wishlist a game and Steam emails you when it goes on sale. The catch: it emails you for any discount at all. How to filter alerts by the tracked low, and how to buy only at a price you set in advance.",
-  "date": "2026-09-03",
+  "date": "2026-06-18",
   "tags": ["Steam", "wishlist", "price alerts", "sales"],
   "readMins": 6,
   "body": [

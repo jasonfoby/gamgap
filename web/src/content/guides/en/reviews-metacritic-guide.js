@@ -2,7 +2,7 @@ export default {
   "slug": "reviews-metacritic-guide",
   "title": "How to Read Steam Reviews and Metacritic Scores",
   "description": "What 'Overwhelmingly Positive' actually means, why a rating with few reviews behind it is hard to trust, what to do when recent and overall reviews disagree, and why critic and user scores drift apart.",
-  "date": "2026-09-03",
+  "date": "2026-06-20",
   "tags": ["Steam reviews", "Metacritic", "review count", "buying tips", "game ratings"],
   "readMins": 6,
   "body": [

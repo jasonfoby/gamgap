@@ -2,7 +2,7 @@ export default {
   "slug": "best-value-indies",
   "title": "Indie Games That Drop Hard on Sale (and Are Worth the Wait)",
   "description": "Roguelikes, metroidvanias, automation games and story games that drop hard on sale and review well. Picked by tracked low, not by discount percentage.",
-  "date": "2026-09-03",
+  "date": "2026-06-18",
   "tags": ["indie games", "best value", "Steam sales", "buying guide"],
   "readMins": 6,
   "body": [

@@ -2,7 +2,7 @@ export default {
   "slug": "when-to-buy-or-wait",
   "title": "Buy Now or Wait for the Next Sale?",
   "description": "Distance from the tracked low, how often and how deep this game discounts, whether you'd play it tonight, how big your backlog is, and whether you can refund. Ask those five in order and the answer usually falls out.",
-  "date": "2026-09-03",
+  "date": "2026-06-20",
   "tags": ["Steam", "sales", "buying guide", "lowest price"],
   "readMins": 6,
   "body": [

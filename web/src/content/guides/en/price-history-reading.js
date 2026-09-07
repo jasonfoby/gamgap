@@ -2,7 +2,7 @@ export default {
   "slug": "price-history-reading",
   "title": "How to Read a Price History Chart (and Tell If This Sale Is the Bottom)",
   "description": "One price chart tells you whether this sale is really the bottom. How to spot the tracked-low line, what an always-on discount looks like, the marks summer and winter sales leave, and why new releases have almost no history.",
-  "date": "2026-09-03",
+  "date": "2026-06-20",
   "tags": ["price history", "reading charts", "lowest price", "sale cycles", "buying tips"],
   "readMins": 6,
   "body": [

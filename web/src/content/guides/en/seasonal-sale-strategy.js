@@ -2,7 +2,7 @@ export default {
   "slug": "seasonal-sale-strategy",
   "title": "How to Shop the Summer and Winter Sales Without Regrets",
   "description": "Clean up your wishlist before the sale, check tracked lows once it opens, set a budget, and sort your list into buy-now and wait-till-the-end. After a few sales, this is the order I've found leaves the fewest regrets.",
-  "date": "2026-09-03",
+  "date": "2026-06-20",
   "tags": ["Steam sales", "seasonal sales", "buying strategy", "budget"],
   "readMins": 6,
   "body": [

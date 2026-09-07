@@ -2,7 +2,7 @@ export default {
   "slug": "avoid-impulse-buys",
   "title": "Why You Never Play the Games You Bought on Sale",
   "description": "Every sale my cart filled up, and my library filled with games I installed once. Why that happens, three questions to ask before you buy, and how a budget fixes most of it.",
-  "date": "2026-09-03",
+  "date": "2026-06-22",
   "tags": ["impulse buying", "Steam sales", "backlog", "buying tips"],
   "readMins": 6,
   "body": [

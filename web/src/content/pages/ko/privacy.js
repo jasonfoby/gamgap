@@ -4,7 +4,7 @@ export default {
   slug: "privacy",
   title: "개인정보처리방침",
   description:
-    "Lowstamp이 수집하는 정보, 쿠키와 제3자 광고(Google AdSense) 이용, 이용자의 권리와 개인정보 문의 방법을 안내합니다.",
+    "Lowstamp가 수집하는 정보, 쿠키와 제3자 광고(Google AdSense) 이용, 이용자의 권리와 개인정보 문의 방법을 안내합니다.",
   updated: "2026-06-18",
   body: [
     {

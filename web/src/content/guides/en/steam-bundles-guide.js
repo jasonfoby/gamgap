@@ -2,7 +2,7 @@ export default {
   "slug": "steam-bundles-guide",
   "title": "How Much Do Steam Bundles Actually Save? Complete the Set, Franchise Packs, DLC Bundles",
   "description": "How to work out whether a bundle beats the sum of its parts, how Steam subtracts what you already own, when bundles win for series and DLC-heavy games, and what to check before you pay.",
-  "date": "2026-09-03",
+  "date": "2026-06-20",
   "tags": ["Steam", "bundles", "discounts", "DLC", "buying guide"],
   "readMins": 6,
   "body": [
