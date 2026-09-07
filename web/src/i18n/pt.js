@@ -76,6 +76,10 @@ export default {
 
   "card.atl": "Menor preço {p}",
 
+  "card.series": "+{n} da mesma série",
+
+  "card.seriesCollapse": "Recolher",
+
   "skel.listAria": "Carregando a lista",
 
   "trust.officialK": "Comprar ou esperar?",
@@ -95,6 +99,16 @@ export default {
   "cd.footUpcoming": "para começar · data prevista",
   "cd.footOngoingConfirmed": "para acabar · datas oficiais da Steam",
   "cd.footUpcomingConfirmed": "para começar · datas oficiais da Steam",
+  "cd.confirmed": "Datas oficiais",
+  "cd.estimated": "Estimativa",
+  "cd.partEarly": "início de",
+  "cd.partMid": "meados de",
+  "cd.partLate": "fim de",
+  "cd.estWhen": "{part} {month} de {year}",
+  "cd.estStart": "Deve começar em {when}",
+  "cd.footEstimated": "Vira contagem regressiva quando a Valve anunciar as datas",
+  "cd.startsAt": "Começa em {d}",
+  "cd.endsAt": "Termina em {d}",
   "sale.spring": "Promoção de Primavera",
   "sale.summer": "Promoção de Verão",
   "sale.autumn": "Promoção de Outono",

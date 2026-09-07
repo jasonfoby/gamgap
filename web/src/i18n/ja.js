@@ -76,6 +76,10 @@ export default {
 
   "card.atl": "最安値 {p}",
 
+  "card.series": "シリーズ他{n}本",
+
+  "card.seriesCollapse": "たたむ",
+
   "skel.listAria": "一覧を読み込み中",
 
   "trust.officialK": "いま買い時?",
@@ -95,6 +99,16 @@ export default {
   "cd.footUpcoming": "開始まで・予想の日程です",
   "cd.footOngoingConfirmed": "終了まで・Steam 公式発表の日程",
   "cd.footUpcomingConfirmed": "開始まで・Steam 公式発表の日程",
+  "cd.confirmed": "公式日程",
+  "cd.estimated": "予想",
+  "cd.partEarly": "上旬",
+  "cd.partMid": "中旬",
+  "cd.partLate": "下旬",
+  "cd.estWhen": "{year}年{month}{part}",
+  "cd.estStart": "{when}に開始予想",
+  "cd.footEstimated": "Valveが日程を発表するとカウントダウンに変わります",
+  "cd.startsAt": "{d} 開始",
+  "cd.endsAt": "{d} 終了",
   "sale.spring": "スプリングセール",
   "sale.summer": "サマーセール",
   "sale.autumn": "オータムセール",

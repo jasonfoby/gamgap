@@ -11,7 +11,7 @@ export default {
     { "type": "h2", "text": "1. Nature of the Service" },
     {
       "type": "p",
-      "text": "The Site is an information service that organizes and presents the official prices, all-time lows, and current discount status of games sold on Steam in an easy-to-read format. The Site does not sell games directly; all payments, refunds, and account management take place on Steam."
+      "text": "The Site is an information service that organizes and presents the official prices, lowest tracked prices, and current discount status of games sold on Steam in an easy-to-read format. The Site does not sell games directly; all payments, refunds, and account management take place on Steam."
     },
     {
       "type": "note",

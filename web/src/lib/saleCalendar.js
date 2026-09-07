@@ -90,3 +90,16 @@ export function nextSale(now = new Date()) {
   const upcoming = all.find((o) => o.start > now);
   return upcoming ? build(upcoming, "upcoming", upcoming.start, now) : null;
 }
+
+// 추정 일정을 '2027년 3월 중순'처럼 뭉뚱그려 표기하기 위한 조각. 추정치를 날짜까지 못 박아 보여주면
+// 확정처럼 읽히므로, 위젯은 확정(confirmed)일 때만 정확한 날짜·카운트다운을 쓰고 추정일 땐 이 조각만 쓴다.
+// part: 1~10일 early(초) / 11~20일 mid(중순) / 21일~ late(말). UTC 기준(수집·발표 기준과 동일).
+export function estimateParts(start) {
+  const d = start instanceof Date ? start : new Date(start);
+  const day = d.getUTCDate();
+  return {
+    year: d.getUTCFullYear(),
+    month: d.getUTCMonth() + 1,
+    part: day <= 10 ? "early" : day <= 20 ? "mid" : "late",
+  };
+}

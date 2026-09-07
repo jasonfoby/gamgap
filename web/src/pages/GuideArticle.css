@@ -2,7 +2,7 @@
 .guide-article {
   background: var(--paper);
   border: 1px solid var(--rule);
-  border-radius: 14px;
+  border-radius: 6px;
   padding: 28px 22px 32px;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25), 0 16px 34px -22px rgba(0, 0, 0, 0.7);
 }
@@ -51,7 +51,7 @@
   color: #7a560f;
   background: #f8efd3;
   border: 1px solid var(--gold);
-  border-radius: 99px;
+  border-radius: 4px;
   padding: 3px 10px;
 }
 
@@ -70,7 +70,7 @@
   color: var(--ink);
   background: var(--gold);
   border: 1px solid var(--gold);
-  border-radius: 99px;
+  border-radius: 4px;
   padding: 10px 20px;
   transition: filter 0.12s;
 }

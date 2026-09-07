@@ -17,6 +17,7 @@ import { track } from "./lib/analytics";
 import { useT } from "./lib/i18n";
 import { regionForLang } from "./lib/region";
 import { expandQuery } from "./lib/searchAlias";
+import { useSeriesCollapse } from "./lib/series";
 import { loadGuide } from "./content/guides";
 
 // 입력이 멈춘 뒤 delay(ms)가 지나야 값을 반영하는 디바운스 (원본 250ms 검색 지연).
@@ -170,6 +171,8 @@ function initialQuery() {
 function Section({ title, state, emptyMsg, errMsg, onCardClick, onRetry, hasMore, loadingMore, onLoadMore }) {
   const { t } = useT();
   const count = state.status === "ok" ? state.rows.length : "·";
+  // 같은 시리즈(권·편만 다른 같은 값의 게임들)는 한 장으로 접어 목록 도배를 막는다.
+  const series = useSeriesCollapse(state.rows);
   return (
     <section className="block">
       <h2>
@@ -190,8 +193,8 @@ function Section({ title, state, emptyMsg, errMsg, onCardClick, onRetry, hasMore
         (state.rows.length ? (
           <>
             <div className="list">
-              {state.rows.map((g, i) => (
-                <GameCard key={g.appid} game={g} onClick={onCardClick} priority={i < 4} />
+              {series.items.map((g, i) => (
+                <GameCard key={g.appid} game={g} onClick={onCardClick} priority={i < 4} onSeriesToggle={series.toggle} />
               ))}
               {/* 다음 묶음 자리표시 — 같은 격자 안에 넣어 진짜 카드와 간격·정렬을 맞춘다. */}
               {loadingMore && <SkelCards count={4} />}
@@ -244,6 +247,7 @@ function DealsView({ state, opts, onCardClick, onRetry, onOptsChange, currency, 
   const { t } = useT();
   const filtered = state.status === "ok" && opts ? applyDealOpts(state.rows, opts) : [];
   const chips = opts ? activeFilterChips(opts, currency) : [];
+  const series = useSeriesCollapse(filtered); // 필터를 거친 뒤에 시리즈를 접는다
   return (
     <section className="block">
       <h2>
@@ -282,9 +286,9 @@ function DealsView({ state, opts, onCardClick, onRetry, onOptsChange, currency, 
         (filtered.length ? (
           <>
             <div className="list">
-              {filtered.map((g, i) => (
+              {series.items.map((g, i) => (
                 <Fragment key={g.appid}>
-                  <GameCard game={g} onClick={onCardClick} priority={i < 4} />
+                  <GameCard game={g} onClick={onCardClick} priority={i < 4} onSeriesToggle={series.toggle} />
                   {/* 첫 6장 뒤에 인라인 광고 한 자리(슬롯 ID 없으면 안 보임). */}
                   {i === 5 && <AdSlot slot="dealsInline" />}
                 </Fragment>

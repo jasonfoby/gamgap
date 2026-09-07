@@ -16,27 +16,27 @@ const LOCALE = { ko: "ko_KR", en: "en_US", ja: "ja_JP", zh: "zh_CN", es: "es_ES"
 const META = {
   ko: {
     t: "Lowstamp — 스팀 게임 최저가·지금 사도 돼?",
-    d: "스팀 게임이 지금 살 만한 가격인지, 역대 최저가와 비교해 '지금 사도 돼?'를 한 줄로. 비싸게 사지 않게 도와드려요.",
+    d: "스팀 게임 지금 가격이 살 만한지, 기록된 최저가랑 비교해서 한 줄로 알려드려요.",
   },
   en: {
     t: "Lowstamp — Steam game lowest prices & should you buy now?",
-    d: "Is a Steam game a good price right now, or should you wait? We check it against its all-time low and tell you in one line — so you don't overpay.",
+    d: "Is this Steam game a good price right now? We check it against the lowest price we've tracked and answer in one line.",
   },
   ja: {
     t: "Lowstamp — Steam ゲームの最安値・今買っていい?",
-    d: "Steam ゲームが今買い時か、それとも待つべきか。過去最安値と比べて「今買っていい?」を一行で。高く買って損しないように。",
+    d: "Steam ゲームが今買い時か、それとも待つべきか。記録した最安値と比べて「今買っていい?」を一行で。高く買って損しないように。",
   },
   zh: {
     t: "Lowstamp —— Steam 游戏最低价 · 现在入手合适吗？",
-    d: "Steam 游戏现在这个价该不该买，还是再等等？对比历史最低价，一行告诉你“现在入手合适吗”，帮你别买贵了。",
+    d: "Steam 游戏现在这个价该不该买，还是再等等？对比我们记录到的最低价，一行告诉你“现在入手合适吗”，帮你别买贵了。",
   },
   es: {
     t: "Lowstamp — Mínimos de juegos de Steam y ¿conviene comprar ahora?",
-    d: "¿Es buen precio ahora un juego de Steam o conviene esperar? Lo comparamos con su mínimo histórico y te decimos en una línea si conviene comprarlo, para que no pagues de más.",
+    d: "¿Es buen precio ahora un juego de Steam o conviene esperar? Lo comparamos con el mínimo que hemos registrado y te decimos en una línea si conviene comprarlo, para que no pagues de más.",
   },
   pt: {
     t: "Lowstamp — menor preço de jogos da Steam e vale a pena comprar agora?",
-    d: "Um jogo da Steam está num bom preço agora ou é melhor esperar? Comparamos com o menor preço histórico e dizemos em uma linha se vale a pena comprar, pra você não pagar caro.",
+    d: "Um jogo da Steam está num bom preço agora ou é melhor esperar? Comparamos com o menor preço que registramos e dizemos em uma linha se vale a pena comprar, pra você não pagar caro.",
   },
 };
 

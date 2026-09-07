@@ -3,7 +3,7 @@
 .content-card {
   background: var(--paper);
   border: 1px solid var(--rule);
-  border-radius: 14px;
+  border-radius: 6px;
   padding: 28px 22px 32px;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25), 0 16px 34px -22px rgba(0, 0, 0, 0.7);
 }

@@ -8,7 +8,7 @@ import { activeFilterCount } from "../lib/filterUi";
 import { useT } from "../lib/i18n";
 
 // 좌측 사이드바(데스크탑 상주 / 모바일 본문 위로 접힘).
-// 둘러보기 탭 + (할인 탭일 때) 정렬·필터 + 다음 세일 카운트다운 + 신뢰 배너.
+// 다음 세일 카운트다운(맨 위, 자리 고정) + 둘러보기 탭 + (할인 탭일 때) 정렬·필터 + 신뢰 배너.
 export default function Sidebar({ tab, onTabChange, wishCount, searching, dealOpts, onDealOptsChange, genreOptions = [], currency = "KRW" }) {
   const { t } = useT();
   const showFilters = !searching && tab === "deals" && dealOpts;
@@ -17,6 +17,13 @@ export default function Sidebar({ tab, onTabChange, wishCount, searching, dealOp
 
   return (
     <aside className="side">
+      {/* 다음 세일 위젯을 맨 위에 둔다 — 아래 '정렬·필터' 상자는 할인 탭에서만 나타나서,
+          그 아래 있으면 탭을 바꿀 때마다 위젯 자리가 오르내려 어수선했다. */}
+      <div className="side-block side-countdown">
+        <div className="side-label">{t("side.nextSale")}</div>
+        <SaleCountdown />
+      </div>
+
       <nav className="side-block">
         <div className="side-label">{t("side.browse")}</div>
         <Tabs active={searching ? null : tab} onChange={onTabChange} wishCount={wishCount} />
@@ -38,11 +45,6 @@ export default function Sidebar({ tab, onTabChange, wishCount, searching, dealOp
           </div>
         </div>
       )}
-
-      <div className="side-block side-countdown">
-        <div className="side-label">{t("side.nextSale")}</div>
-        <SaleCountdown />
-      </div>
 
       {/* 사이드바 광고(데스크탑 전용). 슬롯 ID 없으면 AdSlot이 null → :empty 로 자리 숨김. */}
       <div className="side-ad">
