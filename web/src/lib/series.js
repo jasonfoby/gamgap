@@ -1,8 +1,11 @@
-import { useCallback, useMemo, useState } from "react";
+import { useMemo } from "react";
 
 // 시리즈 묶기 — 같은 개발사의 "권·편·부제만 다른" 게임들이 같은 값·같은 할인율로 줄지어 나오면
 // (예: UBERMOSH Vol.3 / Vol.5 / :WRAITH / :BLACK … 8개가 전부 550원·-90%) 목록을 도배하지 않게
-// 한 장으로 접고, 카드 아래 "시리즈 N개 더" 버튼으로 펼쳐 볼 수 있게 한다.
+// 대표 한 장만 보여준다. 나머지는 그 게임의 상세 페이지에서 '같은 시리즈'로 이어 볼 수 있다
+// (목록에 접었다 펴는 버튼을 두면 방문자가 그게 무슨 뜻인지 알기 어려웠다).
+// ※ 검색 노출과는 무관하다 — 사이트맵은 워커의 /api/appids 로 만들어져 목록 UI 와 별개이고,
+//    묶인 게임들도 각자 /game/:appid 페이지를 그대로 갖는다.
 //
 // 묶는 조건(넷 다 만족해야 함 — 엉뚱한 게임이 섞이지 않게 일부러 좁게 잡음):
 //   ① 개발사가 같다(없으면 안 묶음)  ② 이름의 밑동(부제·권수·에디션 표기를 뗀 앞부분)이 같다
@@ -43,9 +46,8 @@ export function seriesKey(g) {
 }
 
 // rows 를 같은 순서로 돌려주되, 묶음(2개 이상)은 대표 한 장으로 접는다.
-//   접힌 대표: { ...대표게임, seriesKey, seriesCount, seriesItems }
-//   펼친 묶음(expanded 에 키가 있음): 첫 장에만 { seriesKey, seriesCount, seriesExpanded:true } 표시(접기 버튼용)
-export function collapseSeries(rows, expanded) {
+// 대표는 리뷰가 가장 많은 것(=제일 알려진 것). 검색 결과·찜 목록에는 쓰지 않는다.
+export function collapseSeries(rows) {
   const groups = new Map();
   const order = [];
   for (const g of rows || []) {
@@ -71,32 +73,16 @@ export function collapseSeries(rows, expanded) {
       out.push(items[0]);
       continue;
     }
-    if (expanded && expanded.has(o.key)) {
-      items.forEach((g, i) =>
-        out.push(i === 0 ? { ...g, seriesKey: o.key, seriesCount: items.length, seriesExpanded: true } : g)
-      );
-      continue;
-    }
     const rep = items.reduce(
       (a, b) => ((Number(b.reviewTotal) || 0) > (Number(a.reviewTotal) || 0) ? b : a),
       items[0]
     );
-    out.push({ ...rep, seriesKey: o.key, seriesCount: items.length, seriesItems: items });
+    out.push(rep);
   }
   return out;
 }
 
-// 목록 컴포넌트용 훅: 접힌 목록(items)과 묶음 펼치기/접기 토글(toggle)을 돌려준다.
+// 목록 컴포넌트용 훅: 시리즈를 접은 목록만 돌려준다.
 export function useSeriesCollapse(rows) {
-  const [expanded, setExpanded] = useState(() => new Set());
-  const items = useMemo(() => collapseSeries(rows, expanded), [rows, expanded]);
-  const toggle = useCallback((key) => {
-    setExpanded((prev) => {
-      const next = new Set(prev);
-      if (next.has(key)) next.delete(key);
-      else next.add(key);
-      return next;
-    });
-  }, []);
-  return { items, toggle };
+  return useMemo(() => collapseSeries(rows), [rows]);
 }

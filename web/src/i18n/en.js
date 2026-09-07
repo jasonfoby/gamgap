@@ -14,9 +14,9 @@ export default {
   "header.badge": "{n} new lows today",
   "header.badgeTitle": "Number of games that hit a new low today",
 
-  "hero.title": "Should you grab this game {hl}?",
-  "hero.titleHl": "right now",
-  "hero.sub": "We line today's price up against the {b} and tell you in one line whether it's a good time to buy.",
+  "hero.title": "See if a Steam game is at its {hl}",
+  "hero.titleHl": "lowest tracked price",
+  "hero.sub": "We line today's price up against the {b} and say in one line whether it's a good time to buy.",
   "hero.subB": "lowest tracked price",
 
   "search.placeholder": "Search for a game",
@@ -75,9 +75,7 @@ export default {
 
   "card.atl": "Lowest {p}",
 
-  "card.series": "+{n} more in this series",
 
-  "card.seriesCollapse": "Collapse",
 
   "skel.listAria": "Loading list",
 
@@ -128,6 +126,7 @@ export default {
   "gp.copied": "Copied!",
   "gp.share": "Share",
   "gp.relatedTitle": "Same genre, on sale now",
+  "gp.seriesTitle": "More in this series",
   "gp.moreGuides": "Want to pay less? Tips for buying games cheaper",
   "ad.label": "Advertisement",
   "gp.freshness": "Prices refresh once a day. Check the final price on Steam before you pay.",

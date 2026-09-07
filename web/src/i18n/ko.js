@@ -19,9 +19,9 @@ export default {
   "header.badge": "오늘 최저가 {n}개",
   "header.badgeTitle": "지금 최저가인 게임 수",
   // 히어로
-  "hero.title": "이 게임, {hl} 사도 돼?",
-  "hero.titleHl": "지금",
-  "hero.sub": "지금 가격이 이 게임 {b}랑 얼마나 차이 나는지 보고, 살 때인지 아닌지 한 줄로 알려드려요.",
+  "hero.title": "스팀 게임, 지금이 {hl}인지 알려드려요",
+  "hero.titleHl": "최저가",
+  "hero.sub": "지금 가격을 {b}랑 나란히 놓고, 살 때인지 기다릴 때인지 한 줄로 짚어드려요.",
   "hero.subB": "최저가",
 
   // 검색
@@ -32,7 +32,7 @@ export default {
   "search.err": "가격을 불러오지 못했어요. 잠시 뒤에 다시 시도해 주세요.",
   "search.empty": "검색 결과가 없어요. 영어 제목이나 다른 표기로 한번 찾아보세요.",
   // 탭
-  "tab.lowest": "오늘의 최저가",
+  "tab.lowest": "오늘 최저가",
   "tab.deals": "할인 중",
   "tab.wishlist": "내 찜",
 
@@ -46,11 +46,11 @@ export default {
   "sort.popular": "인기 게임 먼저",
   "sort.discount": "할인율 높은 순",
   "sort.price": "현재가 낮은 순",
-  "sort.depth": "최저 근접 순",
+  "sort.depth": "최저가에 가까운 순",
   "sort.normal": "정가 높은 순",
 
   // 필터 컨트롤
-  "ctrl.onlyLow": "최저만",
+  "ctrl.onlyLow": "최저가만",
   "ctrl.min50": "50%+",
   "ctrl.priceLabel": "가격",
   "ctrl.noLimit": "제한 없음",
@@ -67,7 +67,7 @@ export default {
   "preset.u50": "5만원 이하",
 
   // 적용 필터 칩
-  "chip.onlyLow": "최저만",
+  "chip.onlyLow": "최저가만",
   "chip.min50": "50%+ 할인",
   "chip.under": "{p} 이하",
   "chip.removeAria": "{label} 필터 제거",
@@ -89,8 +89,6 @@ export default {
 
   // 카드
   "card.atl": "최저 {p}",
-  "card.series": "시리즈 {n}개 더",
-  "card.seriesCollapse": "접기",
 
   // 스켈레톤
   "skel.listAria": "목록 불러오는 중",
@@ -145,6 +143,7 @@ export default {
   "gp.copied": "복사 완료!",
   "gp.share": "공유",
   "gp.relatedTitle": "같은 장르, 지금 할인 중",
+  "gp.seriesTitle": "같은 시리즈",
   "gp.moreGuides": "가이드: 게임 싸게 사는 법",
   "ad.label": "광고",
   "gp.freshness": "가격은 하루 한 번 갱신돼요. 결제 전에 스팀에서 최종 가격 한 번 더 확인하세요.",
@@ -186,7 +185,7 @@ export default {
   "verdict.full.sub": "세일을 기다리세요",
   "verdict.full.tip": "지금은 할인이 없어요. 스팀은 세일이 자주 도니까, 위시리스트에 넣어두고 알림 오면 그때 보세요.",
   // 푸터
-  "footer.tagline": "스팀 게임 가격을 기록된 최저가랑 비교해서 살 때인지 알려드려요.",
+  "footer.tagline": "스팀 게임 가격을 기록된 최저가랑 비교해서, 지금 구매해도 좋은지 알려드려요.",
   "footer.about": "소개",
   "footer.privacy": "개인정보처리방침",
   "footer.terms": "이용약관",
@@ -211,13 +210,13 @@ export default {
   "guide.empty": "아직 올라온 글이 없어요.",
   "guide.readMins": "읽는 시간 {n}분",
   "author.name": "Lowstamp 운영자",
-  "author.by": "글 {name}",
+  "author.by": "글쓴이 {name}",
   "guide.back": "다른 가이드 보기",
   "guide.tagsAria": "태그",
-  "page.updated": "최종 수정 {d}",
+  "page.updated": "마지막 수정 {d}",
 
   // 쿠키 동의
-  "cookie.text": "Lowstamp은 맞춤형 광고와 방문 분석을 위해 쿠키를 사용합니다.",
+  "cookie.text": "Lowstamp는 맞춤형 광고와 방문 분석을 위해 쿠키를 사용해요.",
   "cookie.more": "자세히",
   "cookie.deny": "거부",
   "cookie.allow": "동의",
@@ -296,7 +295,7 @@ export default {
   "lows.intro3": "목록은 가격 수집이 매일 돌 때마다 알아서 바뀌어요. 따로 챙길 것 없이 이 주소에 오면 최근 일주일 치가 있어요. 눈여겨보는 게임이 있으면 일주일에 한 번쯤 들르면 충분해요.",
   "lows.listHeading": "최근 {days}일 안에 최저가를 갈아치운 게임",
   "lows.empty": "최근에 최저가를 새로 찍은 게임이 없네요. 큰 세일 끝난 직후엔 한동안 조용해요. 며칠 뒤에 다시 와보세요.",
-  "lows.error": "목록을 불러오지 못했습니다.",
+  "lows.error": "목록을 불러오지 못했어요.",
   "lows.updated": "이 목록은 하루에 한 번, 가격을 새로 확인할 때마다 자동으로 갱신돼요.",
   "lows.readHeading": "이 목록 읽는 법",
   "lows.read1": "카드의 도장이 '지금 사도 되나'에 대한 답이에요. 최저가를 갈아치웠다고 무조건 좋은 값은 아니에요. 5천 원짜리가 4천 원 된 것과 6만 원짜리가 만 원 된 건 다른 얘기니까요. 카드에 같이 적힌 정가랑 견줘보세요.",

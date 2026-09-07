@@ -14,9 +14,9 @@ export default {
   "header.badge": "{n} mínimos registrados hoy",
   "header.badgeTitle": "Juegos que han tocado un nuevo mínimo registrado hoy",
 
-  "hero.title": "Este juego, ¿lo pillo {hl}?",
-  "hero.titleHl": "ahora",
-  "hero.sub": "Cogemos un juego de Steam, lo comparamos con su {b} y te decimos en una línea si es momento de comprar o de esperar. Así no pagas de más.",
+  "hero.title": "Te decimos si un juego de Steam está en su {hl}",
+  "hero.titleHl": "mínimo registrado",
+  "hero.sub": "Ponemos el precio de hoy junto al {b} y resumimos en una línea si conviene comprar o esperar. Así no pagas de más.",
   "hero.subB": "mínimo registrado",
 
   "search.placeholder": "Escribe el nombre de un juego",
@@ -77,9 +77,7 @@ export default {
 
   "card.atl": "Mínimo registrado {p}",
 
-  "card.series": "+{n} más de la serie",
 
-  "card.seriesCollapse": "Plegar",
 
   "skel.listAria": "Cargando la lista",
 
@@ -130,6 +128,7 @@ export default {
   "gp.copied": "¡Copiado!",
   "gp.share": "Compartir",
   "gp.relatedTitle": "Del mismo género y en oferta ahora",
+  "gp.seriesTitle": "Más de la serie",
   "gp.moreGuides": "Sigue leyendo: cómo pillar juegos más baratos",
   "ad.label": "Publicidad",
   "gp.freshness": "Los precios se actualizan una vez al día · confirma el precio final en Steam antes de pagar",

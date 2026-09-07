@@ -143,3 +143,46 @@
     font-size: 19px;
   }
 }
+
+/* ===== "같은 시리즈" =====
+   목록에서 대표 한 장으로 접힌 나머지 편들. 값이 같은 묶음이라 가격은 오른쪽에 한 번씩만.
+   링크로 두어 검색 로봇이 각 게임 페이지로 따라갈 수 있게 한다(내부 링크). */
+.gp-series {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--rule);
+}
+.gp-series-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 2px;
+  border-bottom: 1px dashed var(--rule);
+  cursor: pointer;
+  transition: background 0.12s;
+}
+.gp-series-item:hover {
+  background: rgba(0, 0, 0, 0.035);
+}
+.gp-series-name {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-family: var(--kr);
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--ink-txt);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.gp-series-item:hover .gp-series-name {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.gp-series-price {
+  flex: 0 0 auto;
+  font-family: var(--num);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--mute);
+}

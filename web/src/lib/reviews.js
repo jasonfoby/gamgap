@@ -3,15 +3,16 @@
 // 영어 표준 문구 그대로라, 비한국어 UI에서도 같은 매핑으로 번역해 보여줄 수 있다.
 // 매핑에 없거나 빈 값이면 reviewKey()는 null → 호출부에서 평가 줄을 그리지 않는다.
 const MAP = {
-  "Overwhelmingly Positive": { key: "review.overwhelmingly_positive", tier: "positive" },
-  "Very Positive":           { key: "review.very_positive",           tier: "positive" },
-  "Positive":                { key: "review.positive",                tier: "positive" },
-  "Mostly Positive":         { key: "review.mostly_positive",         tier: "positive" },
-  "Mixed":                   { key: "review.mixed",                   tier: "mixed" },
-  "Mostly Negative":         { key: "review.mostly_negative",         tier: "negative" },
-  "Negative":                { key: "review.negative",                tier: "negative" },
-  "Very Negative":           { key: "review.very_negative",           tier: "negative" },
-  "Overwhelmingly Negative": { key: "review.overwhelmingly_negative", tier: "negative" },
+  // level = 9단계를 그대로 구분하는 슬러그(색상용). tier = 옛 3분류(호환용).
+  "Overwhelmingly Positive": { key: "review.overwhelmingly_positive", tier: "positive", level: "op" },
+  "Very Positive":           { key: "review.very_positive",           tier: "positive", level: "vp" },
+  "Positive":                { key: "review.positive",                tier: "positive", level: "p"  },
+  "Mostly Positive":         { key: "review.mostly_positive",         tier: "positive", level: "mp" },
+  "Mixed":                   { key: "review.mixed",                   tier: "mixed",    level: "mx" },
+  "Mostly Negative":         { key: "review.mostly_negative",         tier: "negative", level: "mn" },
+  "Negative":                { key: "review.negative",                tier: "negative", level: "n"  },
+  "Very Negative":           { key: "review.very_negative",           tier: "negative", level: "vn" },
+  "Overwhelmingly Negative": { key: "review.overwhelmingly_negative", tier: "negative", level: "on" },
 };
 
 // 영어 평가 문구 → i18n 키. 모르는/빈 값이면 null. 앞뒤 공백·중복 공백에 관대.
@@ -24,4 +25,11 @@ export function reviewKey(desc) {
 export function reviewTier(desc) {
   const norm = String(desc || "").trim().replace(/\s+/g, " ");
   return MAP[norm] ? MAP[norm].tier : "";
+}
+
+// 영어 평가 문구 → 9단계 슬러그("op"…"on"). 모르는/빈 값이면 "".
+// 3분류(reviewTier)만으로는 '압도적으로 긍정적'과 '매우 긍정적'이 같은 색이 되어 구분이 안 됐다.
+export function reviewLevel(desc) {
+  const norm = String(desc || "").trim().replace(/\s+/g, " ");
+  return MAP[norm] ? MAP[norm].level : "";
 }

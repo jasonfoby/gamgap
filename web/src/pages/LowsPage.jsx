@@ -93,7 +93,7 @@ export default function LowsPage() {
       : { picked: week, days: DAYS_PRIMARY };
   }, [state.rows]);
 
-  const series = useSeriesCollapse(picked); // 같은 시리즈는 한 장으로
+  const items = useSeriesCollapse(picked); // 같은 시리즈는 대표 한 장으로
   const onCardClick = (g) => navigate("/game/" + g.appid);
 
   return (
@@ -125,8 +125,8 @@ export default function LowsPage() {
           (picked.length ? (
             <WishlistProvider value={wl}>
               <div className="list lows-list">
-                {series.items.map((g, i) => (
-                  <GameCard key={g.appid} game={g} onClick={onCardClick} priority={i < 4} onSeriesToggle={series.toggle} />
+                {items.map((g, i) => (
+                  <GameCard key={g.appid} game={g} onClick={onCardClick} priority={i < 4} />
                 ))}
               </div>
             </WishlistProvider>

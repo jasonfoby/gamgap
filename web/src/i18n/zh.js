@@ -14,9 +14,9 @@ export default {
   "header.badge": "今日 {n} 款创新低",
   "header.badgeTitle": "今天刷新最低价的游戏数量",
 
-  "hero.title": "这游戏，{hl} 入手划算吗？",
-  "hero.titleHl": "现在",
-  "hero.sub": "拿 Steam 游戏跟它的{b}比一比，一句话告诉你现在该买还是再等，省得多花钱。",
+  "hero.title": "告诉你 Steam 游戏现在是不是{hl}",
+  "hero.titleHl": "最低价",
+  "hero.sub": "把现在的价格和{b}放在一起比，一句话判断该买还是再等，省得多花钱。",
   "hero.subB": "最低价",
 
   "search.placeholder": "搜游戏名",
@@ -77,9 +77,7 @@ export default {
 
   "card.atl": "最低 {p}",
 
-  "card.series": "同系列还有 {n} 款",
 
-  "card.seriesCollapse": "收起",
 
   "skel.listAria": "列表加载中",
 
@@ -130,6 +128,7 @@ export default {
   "gp.copied": "已复制！",
   "gp.share": "分享",
   "gp.relatedTitle": "同类型，正在打折",
+  "gp.seriesTitle": "同系列作品",
   "gp.moreGuides": "想省得更多？看看捡便宜攻略",
   "ad.label": "广告",
   "gp.freshness": "价格每天更新一次 · 在 Steam 付款前记得再确认下最终价格",

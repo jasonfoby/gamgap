@@ -14,8 +14,8 @@ export default {
   "header.badge": "今日 {n} 本が最安値を更新",
   "header.badgeTitle": "本日、最安値を更新したゲームの数",
 
-  "hero.title": "このゲーム、{hl} 買っていい?",
-  "hero.titleHl": "今",
+  "hero.title": "Steam ゲームが今{hl}かどうか、すぐわかります",
+  "hero.titleHl": "最安値",
   "hero.sub": "Steam ゲームの値段を{b}と見くらべて、今が買い時かどうかをパッと判定。高づかみを防ぎます。",
   "hero.subB": "最安値",
 
@@ -77,9 +77,7 @@ export default {
 
   "card.atl": "最安値 {p}",
 
-  "card.series": "シリーズ他{n}本",
 
-  "card.seriesCollapse": "たたむ",
 
   "skel.listAria": "一覧を読み込み中",
 
@@ -130,6 +128,7 @@ export default {
   "gp.copied": "コピーしました!",
   "gp.share": "共有",
   "gp.relatedTitle": "同じジャンルのセール中タイトル",
+  "gp.seriesTitle": "同じシリーズ",
   "gp.moreGuides": "もっと知る：ゲームを安く買うコツ",
   "ad.label": "広告",
   "gp.freshness": "価格は1日1回更新・Steam で買う直前に最終価格をご確認ください",

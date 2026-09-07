@@ -11,7 +11,10 @@ const LOCALE = { ko: "ko-KR", en: "en-US", ja: "ja-JP", zh: "zh-CN", es: "es-ES"
 
 // 원화 정수를 화면용 문자열로. 예(ko): 66000 → "66,000원" / (en): "₩66,000"
 export function won(n) {
-  const v = Number(n) || 0;
+  // 원화는 소수점을 쓰지 않는다. 평균가처럼 나눗셈으로 생긴 값을 그대로 넘기면
+  // toLocaleString 이 "785.714원" 처럼 소수점을 붙여 버려서, 여기서 정수로 맞춘다.
+  // (달러·유로 등은 money() 가 Intl 통화 서식으로 따로 처리한다.)
+  const v = Math.round(Number(n) || 0);
   const num = v.toLocaleString(LOCALE[_lang] || "en-US");
   return _lang === "ko" ? num + "원" : "₩" + num;
 }

@@ -14,9 +14,9 @@ export default {
   "header.badge": "{n} jogos no menor preço registrado hoje",
   "header.badgeTitle": "Quantos jogos bateram um novo menor preço hoje",
 
-  "hero.title": "Vale a pena comprar este jogo {hl}?",
-  "hero.titleHl": "agora",
-  "hero.sub": "A gente pega um jogo da Steam, compara com o {b} dele e te diz em uma linha se é hora de comprar — assim você não paga caro à toa.",
+  "hero.title": "Dizemos se um jogo da Steam está no seu {hl}",
+  "hero.titleHl": "menor preço registrado",
+  "hero.sub": "Colocamos o preço de hoje ao lado do {b} e resumimos em uma linha se vale comprar ou esperar — assim você não paga caro à toa.",
   "hero.subB": "menor preço registrado",
 
   "search.placeholder": "Digite o nome de um jogo",
@@ -77,9 +77,7 @@ export default {
 
   "card.atl": "Menor preço {p}",
 
-  "card.series": "+{n} da mesma série",
 
-  "card.seriesCollapse": "Recolher",
 
   "skel.listAria": "Carregando a lista",
 
@@ -130,6 +128,7 @@ export default {
   "gp.copied": "Copiado!",
   "gp.share": "Compartilhar",
   "gp.relatedTitle": "Mesmo gênero, em promoção agora",
+  "gp.seriesTitle": "Mais da série",
   "gp.moreGuides": "Aprenda mais: como comprar jogos pagando menos",
   "ad.label": "Publicidade",
   "gp.freshness": "Os preços são atualizados uma vez por dia · confira o valor final na Steam antes de pagar",

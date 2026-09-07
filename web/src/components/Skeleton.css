@@ -116,10 +116,10 @@
   }
 }
 
-/* 장부 행 안에 놓인 자리표시 — 실제 행(.ledger .card)과 같은 높이·구성으로 맞춘다.
+/* 장부 행 안에 놓인 자리표시 — 실제 행(.ledger-list .card)과 같은 높이·구성으로 맞춘다.
    여기가 어긋나면 데이터가 오는 순간 목록 높이가 바뀌어 화면이 밀린다. */
 @media (min-width: 720px) {
-  .ledger .skel-card {
+  .ledger-list .skel-card {
     flex-direction: row;
     align-items: center;
     gap: 13px;
@@ -130,11 +130,11 @@
     border-bottom: 1px solid var(--rule);
     border-radius: 0;
   }
-  .ledger .skel-card:last-child { border-bottom: 0; }
-  .ledger .skel-img { flex: 0 0 82px; width: 82px; margin: 0; }
-  .ledger .skel-body { flex-direction: row; align-items: center; gap: 13px; padding: 0; flex: 1; min-width: 0; }
-  .ledger .skel-title { flex: 1 1 auto; min-height: 0; gap: 0; }
-  .ledger .skel-title2 { display: none; }
-  .ledger .skel-price { flex: 0 0 152px; width: 152px; height: 16px; margin: 0; }
-  .ledger .skel-stamp { flex: 0 0 138px; width: 138px; height: 24px; margin: 0; }
+  .ledger-list .skel-card:last-child { border-bottom: 0; }
+  .ledger-list .skel-img { flex: 0 0 82px; width: 82px; margin: 0; }
+  .ledger-list .skel-body { flex-direction: row; align-items: center; gap: 13px; padding: 0; flex: 1; min-width: 0; }
+  .ledger-list .skel-title { flex: 1 1 auto; min-height: 0; gap: 0; }
+  .ledger-list .skel-title2 { display: none; }
+  .ledger-list .skel-price { flex: 0 0 152px; width: 152px; height: 16px; margin: 0; }
+  .ledger-list .skel-stamp { flex: 0 0 138px; width: 138px; height: 24px; margin: 0; }
 }

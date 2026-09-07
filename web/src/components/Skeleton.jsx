@@ -44,7 +44,7 @@ export function ListSkeleton({ count = 8, feat = 3 }) {
           <SkelCard key={"f" + i} />
         ))}
       </div>
-      <div className="list ledger">
+      <div className="list ledger-list">
         {Array.from({ length: rows }, (_, i) => (
           <SkelCard key={i} />
         ))}

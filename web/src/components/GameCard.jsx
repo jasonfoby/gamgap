@@ -3,13 +3,13 @@ import Stamp from "./Stamp";
 import StarButton from "./StarButton";
 import { verdict } from "../lib/verdict";
 import { money } from "../lib/format";
-import { reviewKey, reviewTier } from "../lib/reviews";
+import { reviewKey, reviewLevel } from "../lib/reviews";
 import { useT, tNodes } from "../lib/i18n";
 
 // 게임 한 장. 좁은 화면과 '오늘의 추천'(feat)에서는 세로 포스터형 영수증 카드,
 // 넓은 화면 목록에서는 같은 마크업이 CSS 로 장부 한 줄(가로 행)로 접힌다 — 실제 영수증·장부처럼
 // 한 화면에 많은 줄이 보이게 하려는 것. 구조를 하나로 두어 컴포넌트가 갈라지지 않게 했다.
-export default function GameCard({ game, onClick, priority = false, onSeriesToggle, feat = false }) {
+export default function GameCard({ game, onClick, priority = false, feat = false }) {
   const { t } = useT();
   const v = verdict(game);
   const onSale = Number(game.discountPercent) > 0;
@@ -21,13 +21,7 @@ export default function GameCard({ game, onClick, priority = false, onSeriesTogg
   const rKey = game.reviewDesc ? reviewKey(game.reviewDesc) : null; // 평가 i18n 키(없으면 null)
 
   return (
-    <div
-      className={
-        "card-wrap" +
-        (feat ? " is-feat" : "") +
-        (game.seriesCount > 1 && onSeriesToggle ? " has-series" : "")
-      }
-    >
+    <div className={"card-wrap" + (feat ? " is-feat" : "")}>
       <button className="card" onClick={() => onClick(game)}>
         <div className="card-img">
           <Cover appid={game.appid} name={game.name} priority={priority} />
@@ -36,7 +30,7 @@ export default function GameCard({ game, onClick, priority = false, onSeriesTogg
         <div className="card-body">
           <div className="name">{game.name}</div>
           {rKey && (
-            <span className={"card-review review-" + reviewTier(game.reviewDesc)}>{t(rKey)}</span>
+            <span className={"card-review rv-" + reviewLevel(game.reviewDesc)}>{t(rKey)}</span>
           )}
           <div className="price-row">
             <span className="cur">{money(game.currentPrice, game.currency)}</span>
@@ -52,14 +46,6 @@ export default function GameCard({ game, onClick, priority = false, onSeriesTogg
           />
         </div>
       </button>
-      {/* 시리즈 묶음(같은 개발사·같은 값의 권/편 여러 개)을 접었을 때: 카드 아래 펼치기/접기 스트립.
-          카드 자체가 <button> 이라 그 안에 넣을 수 없어 형제로 둔다. */}
-      {game.seriesCount > 1 && onSeriesToggle && (
-        <button type="button" className="card-series" onClick={() => onSeriesToggle(game.seriesKey)}>
-          {game.seriesExpanded ? t("card.seriesCollapse") : t("card.series", { n: game.seriesCount - 1 })}
-          <span aria-hidden="true">{game.seriesExpanded ? " ▴" : " ▾"}</span>
-        </button>
-      )}
       <StarButton appid={game.appid} className="star-overlay" />
     </div>
   );

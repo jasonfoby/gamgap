@@ -11,13 +11,14 @@ import { verdict } from "../lib/verdict";
 import { money, ym } from "../lib/format";
 import { priceStats, lowPoints, chartSeries } from "../lib/stats";
 import { setGameHead, resetHead } from "../lib/head";
-import { getGame, getDeals } from "../api";
+import { getGame, getDeals, searchGames } from "../api";
 import { track } from "../lib/analytics";
 import { useT, tNodes } from "../lib/i18n";
 import { regionForLang } from "../lib/region";
 import { gameGenres } from "../lib/dealSort";
 import { genreKey } from "../lib/genres";
 import { reviewKey } from "../lib/reviews";
+import { seriesBase, seriesKey } from "../lib/series";
 import { SUPPORTED } from "../i18n";
 import "./GamePage.css";
 
@@ -95,6 +96,32 @@ export default function GamePage({ appid }) {
 
 // 같은 장르의 "지금 할인 중" 게임을 모아 내부 링크 레일을 만든다(체류·페이지뷰↑).
 // 충분히(3개 이상) 못 모으면 그냥 상위 할인작으로 채워서라도 내부 링크를 남긴다.
+// 같은 시리즈(같은 개발사·같은 이름 밑동·같은 값)의 다른 편들을 찾아온다.
+// 목록에서는 도배를 막으려고 대표 한 장만 보여주므로, 접힌 나머지를 볼 수 있는 곳이 여기다.
+// 이름 밑동으로 검색해 같은 묶음 키를 가진 것만 남긴다. 못 찾거나 실패하면 빈 배열 → 섹션을 안 그린다.
+function useSeriesSiblings(g, cc) {
+  const [items, setItems] = useState([]);
+  useEffect(() => {
+    let alive = true;
+    setItems([]);
+    const base = seriesBase(g.name);
+    const key = seriesKey(g);
+    if (!base || !key) return;
+    searchGames(base, cc)
+      .then((rows) => {
+        if (!alive || !Array.isArray(rows)) return;
+        setItems(rows.filter((x) => x.appid !== g.appid && seriesKey(x) === key).slice(0, 8));
+      })
+      .catch(() => {
+        /* 실패하면 섹션을 그냥 숨긴다 */
+      });
+    return () => {
+      alive = false;
+    };
+  }, [g.appid, g.name, g.developer, g.currentPrice, g.discountPercent, cc]);
+  return items;
+}
+
 function useRelated(g, cc) {
   const [related, setRelated] = useState([]);
   useEffect(() => {
@@ -132,6 +159,7 @@ function useRelated(g, cc) {
 // 가격 상세 본문(영수증 카드).
 function GameDetail({ g, copied, onCopy, t, cc }) {
   const related = useRelated(g, cc);
+  const siblings = useSeriesSiblings(g, cc);
   const v = verdict(g);
   const stats = priceStats(g.history);
   const lows = lowPoints(g.history, 5);
@@ -251,6 +279,7 @@ function GameDetail({ g, copied, onCopy, t, cc }) {
       {prose2.length > 0 && <p className="gp-prose">{prose2.join(" ")}</p>}
 
       <GameInfo g={g} t={t} />
+      <SeriesList items={siblings} t={t} />
 
       {/* 본문 안 광고(가격 위쪽이 아닌, 정보 아래). 슬롯 ID 없으면 아무것도 안 그림. */}
       <AdSlot slot="gameTop" />
@@ -358,6 +387,33 @@ function ShareButtons({ g, t }) {
 }
 
 // 같은 장르(없으면 인기) 할인작 레일 — 카드 클릭 시 그 게임 페이지로 이동.
+// "같은 시리즈" — 목록에서 대표 한 장으로 접힌 나머지 편들. 값이 같은 묶음이라 가격은 한 번만 적는다.
+// 링크(<a href>)로 두어 검색 로봇이 이 게임들 페이지를 따라갈 수 있게 한다(내부 링크).
+function SeriesList({ items, t }) {
+  if (!items || items.length === 0) return null;
+  return (
+    <>
+      <div className="subhead">{t("gp.seriesTitle")}</div>
+      <div className="gp-series">
+        {items.map((x) => (
+          <a
+            key={x.appid}
+            className="gp-series-item"
+            href={"/game/" + x.appid}
+            onClick={(e) => {
+              e.preventDefault();
+              navigate("/game/" + x.appid);
+            }}
+          >
+            <span className="gp-series-name">{x.name}</span>
+            <span className="gp-series-price">{money(x.currentPrice, x.currency)}</span>
+          </a>
+        ))}
+      </div>
+    </>
+  );
+}
+
 function RelatedRail({ related, t }) {
   if (!related || related.length === 0) return null;
   return (
