@@ -74,7 +74,7 @@
 }
 @media (hover: hover) {
   .gi-card:hover {
-    background: #ede8da;
+    background: #223143;
   }
   .gi-card:hover .gi-card-title {
     text-decoration: underline;
@@ -96,7 +96,7 @@
   font-family: var(--kr);
   font-size: 13.5px;
   line-height: 1.55;
-  color: #5b554a;
+  color: #A6B4C2;
   margin: 0 0 7px;
   display: -webkit-box;
   -webkit-line-clamp: 2;

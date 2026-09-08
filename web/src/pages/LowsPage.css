@@ -47,7 +47,7 @@
 
 /* 비었을 때 / 에러 */
 .lows-empty {
-  color: #8e886f;
+  color: #7E8B99;
   font-size: 14px;
   text-align: center;
   padding: 30px 12px;
@@ -67,9 +67,9 @@
   border: 1px solid var(--txt-dim);
 }
 .lows-retry:hover {
-  background: rgba(200, 145, 43, 0.14);
-  border-color: var(--gold);
-  color: #f3efe3;
+  background: rgba(126, 151, 172, 0.14);
+  border-color: var(--sel-bd);
+  color: #EAF1F8;
 }
 
 /* 목록 아래 갱신 안내 */
@@ -85,8 +85,8 @@
   max-width: 720px;
   margin: 22px 0 0;
   padding: 13px 15px;
-  background: rgba(200, 145, 43, 0.09);
-  border: 1px solid rgba(200, 145, 43, 0.55);
+  background: rgba(232, 179, 57, 0.09);
+  border: 1px solid rgba(232, 179, 57, 0.55);
   border-radius: 4px;
   color: #d8ccae;
   font-size: 14px;

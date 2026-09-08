@@ -52,15 +52,15 @@
 }
 .ab-ul li::marker,
 .ab-ol li::marker {
-  color: var(--gold);
+  color: var(--mute);
 }
 
 /* 인용 */
 .ab-quote {
   margin: 1.3em 0;
   padding: 4px 0 4px 16px;
-  border-left: 3px solid var(--gold);
-  color: #5b554a;
+  border-left: 3px solid #3E5468;
+  color: #A6B4C2;
   font-style: italic;
   line-height: 1.65;
 }
@@ -69,10 +69,10 @@
 .ab-note {
   margin: 1.3em 0;
   padding: 12px 14px;
-  background: #f8efd3;
-  border: 1px solid var(--gold);
+  background: #1E2A38;
+  border: 1px solid #3E5468;
   border-radius: 4px;
-  color: #7a560f;
+  color: var(--txt);
   font-size: 14.5px;
   line-height: 1.6;
 }

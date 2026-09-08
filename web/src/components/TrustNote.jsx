@@ -13,7 +13,7 @@ export default function TrustNote() {
     <div className="trust">
       {items.map((it) => (
         <div className="trust-row" key={it.k}>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#7E97AC" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <path d="M20 6 9 17l-5-5" />
           </svg>
           <span className="trust-k">{it.k}</span>

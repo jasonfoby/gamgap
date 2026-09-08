@@ -1,12 +1,12 @@
 :root{
-  --ink:#0F1320; --ink-bar:#161B2B; --panel:#171D2E; --paper:#F4F1E8; --paper2:#FBF9F3;
-  --rule:#E2DBC9; --ink-txt:#1C1B17; --mute:#8C8674; --gold:#C8912B;
-  --line:rgba(255,255,255,.07); --txt:#E7E2D4; --txt-dim:#A7A18F;
+  --ink:#0D141D; --ink-bar:#121A24; --panel:#16202B; --paper:#1B2838; --paper2:#202F41;
+  --rule:#2A3B4E; --ink-txt:#DDE6EF; --mute:#8FA0B3; --gold:#E8B339;
+  --line:rgba(255,255,255,.07); --txt:#C6D4DF; --txt-dim:#8B929A;
   --max:1280px; --side:264px; --header-h:60px;
   /* 모서리: 예전엔 전부 6px 로 똑같이 둥글어 '자동 생성' 느낌이 강했다. 종이·장부에 맞게 거의 각지게. */
   --r:3px; --r-sm:2px;
   /* 선택 상태(탭·토글·필터칩)용 중립색. 금색은 '기록상 최저가' 한 가지 뜻으로만 쓴다. */
-  --sel:#2A3245; --sel-bd:#3E4860;
+  --sel:#22303F; --sel-bd:#3A4C60;
   --kr:'Apple SD Gothic Neo','Pretendard','Malgun Gothic','Noto Sans KR',sans-serif;
   --num:'SF Mono','SFMono-Regular','Consolas','Roboto Mono',ui-monospace,monospace;
 }
@@ -20,12 +20,12 @@ button{font-family:inherit}
 *:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 
 /* ===== 상단 바 (검색 상주) ===== */
-header{position:sticky;top:0;z-index:40;background:rgba(22,27,43,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header{position:sticky;top:0;z-index:40;background:rgba(18,26,36,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .bar{max-width:var(--max);margin:0 auto;height:var(--header-h);padding:0 20px;display:flex;align-items:center;gap:16px}
-.logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:19px;letter-spacing:-.5px;color:#EDE9DD;flex:0 0 auto}
+.logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:19px;letter-spacing:-.5px;color:#E6EDF4;flex:0 0 auto}
 .dot{width:10px;height:10px;border-radius:99px;background:var(--gold);box-shadow:0 0 10px var(--gold)}
 .bar-search{display:none;flex:1;min-width:0}
-.badge{flex:0 0 auto;margin-left:auto;font-size:12.5px;color:#C9C3B2;background:rgba(255,255,255,.05);border:1px solid var(--line);padding:5px 11px;border-radius:var(--r-sm);white-space:nowrap}
+.badge{flex:0 0 auto;margin-left:auto;font-size:12.5px;color:#B4C2CF;background:rgba(255,255,255,.05);border:1px solid var(--line);padding:5px 11px;border-radius:var(--r-sm);white-space:nowrap}
 .badge b{font-family:var(--num);color:var(--gold)}
 .bar-nav{display:flex;align-items:center;gap:16px;flex:0 0 auto}
 .bar-nav-link{font-size:14px;font-weight:700;color:var(--txt-dim);white-space:nowrap;transition:color .12s}
@@ -36,20 +36,20 @@ header{position:sticky;top:0;z-index:40;background:rgba(22,27,43,.92);backdrop-f
 .searchbox .s-ico{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--mute);pointer-events:none}
 .searchbox .q{width:100%;border-radius:var(--r);border:1px solid var(--rule);background:var(--paper);color:var(--ink-txt);
   font-family:var(--kr);font-size:16px;padding:14px 40px 14px 42px;outline:none}
-.searchbox .q::placeholder{color:#A9A492}
+.searchbox .q::placeholder{color:#93A3B3}
 .searchbox.sb-bar .q{font-size:14.5px;padding:9px 38px 9px 40px;box-shadow:none}
 .searchbox.sb-bar .s-ico{left:12px}
 .clear{position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:0;color:var(--mute);padding:6px;cursor:pointer;display:flex}
 
 /* ===== 히어로 (전체폭 배너) ===== */
 .hero{max-width:var(--max);margin:0 auto;padding:20px 20px 4px}
-.hero h1{color:#F3EFE3;font-weight:800;font-size:25px;letter-spacing:-.8px;line-height:1.2;margin:0}
+.hero h1{color:#EAF1F8;font-weight:800;font-size:25px;letter-spacing:-.8px;line-height:1.2;margin:0}
 .hero h1 .g{color:var(--gold)}
 .hero .sub{color:var(--txt-dim);font-size:13.5px;margin-top:7px;line-height:1.5;max-width:640px}
-.hero .sub b{color:#D9D2BF;font-weight:700}
+.hero .sub b{color:#DDE6EF;font-weight:700}
 .hero-search{margin-top:18px;max-width:560px}
 .chips{margin-top:11px;display:flex;flex-wrap:wrap;gap:8px}
-.chip{font-size:12.5px;color:#CFC9B8;background:rgba(255,255,255,.05);border:1px solid var(--line);padding:6px 12px;border-radius:var(--r-sm);cursor:pointer;transition:background .12s,border-color .12s}
+.chip{font-size:12.5px;color:#B4C2CF;background:rgba(255,255,255,.05);border:1px solid var(--line);padding:6px 12px;border-radius:var(--r-sm);cursor:pointer;transition:background .12s,border-color .12s}
 .chip:hover{background:var(--sel);border-color:var(--sel-bd);color:var(--txt)}
 /* 인기 칩 로딩 자리표시(스켈레톤) — 유명작→동적 깜빡임 대신 잠깐 회색 칩 */
 .chip-skel{display:inline-block;height:31px;border-radius:var(--r-sm);background:rgba(255,255,255,.06);border:1px solid var(--line);animation:chipPulse 1.1s ease-in-out infinite}
@@ -80,13 +80,13 @@ h2{display:flex;align-items:center;gap:8px;color:var(--txt);font-weight:800;font
   border-radius:var(--r);overflow:hidden;cursor:pointer;transition:background .12s,border-color .12s}
 .card:active{transform:scale(.99)}
 @media(hover:hover){
-  .card:hover{background:#EDE8DA;border-color:#D2C9B2}
+  .card:hover{background:#223143;border-color:#36495E}
 }
 /* 상단 표지 배너: 좌우 콘텐츠 여백(13px)과 같은 값으로 상·좌·우를 들여 액자처럼 띄운다 */
-.card-img{position:relative;aspect-ratio:460 / 215;background:#0d1018;overflow:hidden;border-radius:var(--r-sm);margin:13px 13px 0}
-.card-disc{position:absolute;left:8px;top:8px;font-family:var(--num);font-weight:800;font-size:12.5px;color:#fff;background:#B5483C;padding:3px 8px;border-radius:var(--r-sm);box-shadow:0 1px 3px rgba(0,0,0,.45)}
+.card-img{position:relative;aspect-ratio:460 / 215;background:#0A1016;overflow:hidden;border-radius:var(--r-sm);margin:13px 13px 0}
+.card-disc{position:absolute;left:8px;top:8px;font-family:var(--num);font-weight:800;font-size:12.5px;color:#BEEE11;background:#3F5A1B;padding:3px 8px;border-radius:var(--r-sm)}
 /* 표지 이미지/그라데이션 폴백 공용 (크기·모양은 쓰는 곳이 정함) */
-.cover{object-fit:cover;display:flex;align-items:center;justify-content:center;color:#F4F1E8;font-weight:800;letter-spacing:-1px;background-size:cover;transition:transform .25s ease}
+.cover{object-fit:cover;display:flex;align-items:center;justify-content:center;color:#1B2838;font-weight:800;letter-spacing:-1px;background-size:cover;transition:transform .25s ease}
 .card-img .cover{width:100%;height:100%;font-size:30px}
 /* 본문: 제목 → 가격 → 도장 (모든 카드 정렬) */
 .card-body{display:flex;flex-direction:column;gap:8px;padding:12px 13px 14px;flex:1}
@@ -109,27 +109,32 @@ h2{display:flex;align-items:center;gap:8px;color:var(--txt);font-weight:800;font
 .card-body .stamp .s{font-size:10.5px;opacity:.95}
 .stamp .lcnum{font-family:var(--num);font-weight:800}
 /* 카드 안 스팀 종합 평가 배지 — 9단계를 각각 다른 색으로.
-   예전엔 긍정/복합/부정 3분류라 '압도적으로 긍정적'과 '매우 긍정적'이 같은 색이었다.
-   등급이 올라갈수록 진하고 눈에 띄게(맨 위 단계만 꽉 채운 칩), 내려갈수록 옅게.
-   금색(--gold)은 '기록상 최저가' 전용이라 여기선 쓰지 않는다 — 초록·회색·붉은색 계열만. */
+   색 갈래는 스팀 관습을 따랐다(스팀은 긍정 평가를 파랑, 부정을 붉은색으로 쓴다).
+   덕분에 색마다 뜻이 하나로 유지된다 — 파랑=평가 긍정, 붉은색=평가 부정, 카키=복합적,
+   앰버=기록상 최저가, 연두=할인율.
+
+   배경은 반투명이 아니라 불투명으로 잡았다. 처음엔 붉은색을 10~20% 투명도로 얹었는데,
+   카드(#1B2838)가 파란 계열이라 붉은 기가 거의 안 살아서 부정 단계 배경이 긍정 단계와
+   구분되지 않았다(인접 단계 색차 dE 2.7까지 떨어짐). 불투명으로 바꾼 뒤 인접 단계
+   최저 색차 10.0, 단계별 명암비는 모두 4.9 이상. */
 .card-review{align-self:flex-start;font-size:11px;font-weight:700;letter-spacing:-.2px;
   padding:2px 7px;border-radius:var(--r-sm);line-height:1.3;margin-top:-2px;border:1px solid transparent}
 /* 긍정 4단계 — 위로 갈수록 진하게 */
-.card-review.rv-op{color:#F2F5F0;background:#2E6B33;border-color:#2E6B33}   /* 압도적으로 긍정적 */
-.card-review.rv-vp{color:#255A2B;background:#C7DEC3;border-color:#79A876}   /* 매우 긍정적 */
-.card-review.rv-p {color:#35673A;background:#DBEAD7;border-color:#A5C6A1}   /* 긍정적 */
-.card-review.rv-mp{color:#4C7050;background:#E9F0E6;border-color:#C6D9C2}   /* 대체로 긍정적 */
-/* 복합 — 중립 회색(종이 톤) */
-.card-review.rv-mx{color:#635D4C;background:#E6E2D3;border-color:#CDC5AE}
+.card-review.rv-op{color:#EAF5FD;background:#2A6E9E;border-color:#3A82B4}  /* 압도적으로 긍정적 */
+.card-review.rv-vp{color:#AEDBF5;background:#26566F;border-color:#37708D}  /* 매우 긍정적 */
+.card-review.rv-p {color:#8FC0DC;background:#1F4055;border-color:#2E5A72}  /* 긍정적 */
+.card-review.rv-mp{color:#7BA0B9;background:#1B2E3C;border-color:#2A4557}  /* 대체로 긍정적 */
+/* 복합 — 스팀과 같은 카키 계열(파랑도 붉은색도 아님을 한눈에) */
+.card-review.rv-mx{color:#C3B995;background:#383528;border-color:#544F3B}
 /* 부정 4단계 — 아래로 갈수록 진하게 */
-.card-review.rv-mn{color:#87554C;background:#F3E5E1;border-color:#DCBFB8}   /* 대체로 부정적 */
-.card-review.rv-n {color:#8A473B;background:#EEDBD5;border-color:#D0A79D}   /* 부정적 */
-.card-review.rv-vn{color:#7E3628;background:#E6C9C1;border-color:#BE8B7F}   /* 매우 부정적 */
-.card-review.rv-on{color:#F7EEEB;background:#93372A;border-color:#93372A}   /* 압도적으로 부정적 */
+.card-review.rv-mn{color:#C68D7C;background:#382A26;border-color:#54403A}  /* 대체로 부정적 */
+.card-review.rv-n {color:#E2A08B;background:#52312A;border-color:#6E463C}  /* 부정적 */
+.card-review.rv-vn{color:#F5B29B;background:#6E3B2D;border-color:#8B4E3B}  /* 매우 부정적 */
+.card-review.rv-on{color:#FAEBE7;background:#9E3B2C;border-color:#B84C3B}  /* 압도적으로 부정적 */
 
 /* ===== 상태 ===== */
-.empty,.loading{color:#8E886F;font-size:14px;text-align:center;padding:30px 12px;border:1px dashed var(--line);border-radius:var(--r)}
-.errbox{background:#2A1A18;border:1px solid #6E3B34;color:#E9C3BC;border-radius:var(--r-sm);padding:12px 14px;font-size:13.5px}
+.empty,.loading{color:#7E8B99;font-size:14px;text-align:center;padding:30px 12px;border:1px dashed var(--line);border-radius:var(--r)}
+.errbox{background:#2A1C21;border:1px solid #7E4238;color:#E6BDB4;border-radius:var(--r-sm);padding:12px 14px;font-size:13.5px}
 
 /* ===== '더 보기'(무한 스크롤) ===== */
 .loadmore{display:flex;justify-content:center;margin-top:18px;min-height:44px}
@@ -137,17 +142,17 @@ h2{display:flex;align-items:center;gap:8px;color:var(--txt);font-weight:800;font
 .loadmore-btn{display:inline-flex;align-items:center;justify-content:center;min-width:180px;
   padding:12px 26px;border-radius:var(--r-sm);background:rgba(255,255,255,.04);color:var(--txt);
   border:1px solid var(--txt-dim);font-family:var(--kr);font-size:14px;font-weight:700;cursor:pointer;transition:all .12s}
-.loadmore-btn:hover{background:var(--sel);border-color:var(--sel-bd);color:#F3EFE3}
+.loadmore-btn:hover{background:var(--sel);border-color:var(--sel-bd);color:#EAF1F8}
 /* 불러오는 중 표시(빙글 도는 원 + 글자) */
 .loadmore-status{display:inline-flex;align-items:center;gap:9px;color:var(--txt-dim);font-size:14px;font-weight:600}
 .spinner{width:16px;height:16px;border-radius:50%;border:2px solid rgba(255,255,255,.18);
-  border-top-color:var(--gold);animation:spin .7s linear infinite}
+  border-top-color:var(--txt-dim);animation:spin .7s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 
 /* ===== 홈 '가이드' 섹션 (콘텐츠 앞세우기) ===== */
 .home-guides{max-width:var(--max);margin:6px auto 0;padding:22px 20px 6px}
 .hg-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:14px}
-.hg-head h2{font-size:19px;font-weight:800;color:#F3EFE3;letter-spacing:-.4px;margin:0}
+.hg-head h2{font-size:19px;font-weight:800;color:#EAF1F8;letter-spacing:-.4px;margin:0}
 .hg-all{font-size:13.5px;font-weight:700;color:var(--txt-dim);white-space:nowrap}
 .hg-all:hover{color:var(--txt);text-decoration:underline}
 .hg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:14px}
@@ -155,7 +160,7 @@ h2{display:flex;align-items:center;gap:8px;color:var(--txt);font-weight:800;font
 .hg-skel:hover{transform:none;box-shadow:none}
 .hg-card:hover{transform:translateY(-3px);box-shadow:0 18px 30px -18px rgba(0,0,0,.7)}
 .hg-card h3{font-size:15px;font-weight:800;color:var(--ink-txt);margin:0 0 7px;line-height:1.35;letter-spacing:-.3px}
-.hg-card p{font-size:13px;color:#6E6A59;margin:0;line-height:1.55;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.hg-card p{font-size:13px;color:#93A3B3;margin:0;line-height:1.55;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 
 /* ===== 탭 (사이드바에선 세로) ===== */
 .tabs{display:flex;gap:8px;flex-wrap:wrap}
@@ -168,11 +173,11 @@ h2{display:flex;align-items:center;gap:8px;color:var(--txt);font-weight:800;font
 .controls{display:flex;flex-direction:column;gap:10px}
 .ctrl-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .sel{font-family:var(--kr);font-size:13px;color:var(--txt);background:var(--ink-bar);border:1px solid rgba(255,255,255,.12);border-radius:var(--r-sm);padding:8px 10px;cursor:pointer;width:100%}
-.toggle{font-family:var(--kr);font-size:12.5px;color:#CFC9B8;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);padding:7px 11px;border-radius:var(--r-sm);cursor:pointer}
+.toggle{font-family:var(--kr);font-size:12.5px;color:#B4C2CF;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);padding:7px 11px;border-radius:var(--r-sm);cursor:pointer}
 .toggle.on{color:var(--txt);background:var(--sel);border-color:var(--sel-bd);font-weight:700}
 .ctrl-lab{color:var(--mute);font-size:12.5px}
 .ctrl-val{font-family:var(--num);color:var(--txt);font-size:12.5px;min-width:64px;text-align:right}
-input[type=range]{flex:1;accent-color:#8A93A3;min-width:110px}
+input[type=range]{flex:1;accent-color:#7E97AC;min-width:110px}
 .ctrl-genres{display:flex;flex-direction:column;gap:7px}
 .ctrl-genres-top{display:flex;align-items:center;justify-content:space-between}
 .ctrl-clear{font-family:var(--kr);font-size:11.5px;color:var(--mute);background:none;border:0;cursor:pointer;text-decoration:underline;padding:0}
@@ -180,40 +185,40 @@ input[type=range]{flex:1;accent-color:#8A93A3;min-width:110px}
 
 /* ===== 다음 세일 카운트다운 ===== */
 .countdown{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:13px 14px}
-.countdown.live{border-color:rgba(200,145,43,.55);box-shadow:0 0 0 1px rgba(200,145,43,.25)}
+.countdown.live{border-color:rgba(190,238,17,.45);box-shadow:0 0 0 1px rgba(190,238,17,.18)}
 .cd-head{display:flex;align-items:center;flex-wrap:wrap;gap:7px;font-size:13.5px}
 .cd-ico{color:var(--txt-dim);font-size:10px}
-.countdown.live .cd-ico{color:var(--gold)}
+.countdown.live .cd-ico{color:#BEEE11}
 .countdown.live .cd-ico{animation:pulse 1.6s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-.cd-name{font-weight:800;color:#EDE9DD}
+.cd-name{font-weight:800;color:#E6EDF4}
 .cd-state{margin-left:auto;white-space:nowrap;font-size:11px;color:var(--mute);border:1px solid var(--line);padding:1px 7px;border-radius:var(--r-sm)}
 .cd-clock{display:flex;gap:10px;margin-top:11px}
 .cd-unit{font-size:11px;color:var(--mute);display:flex;flex-direction:column;align-items:center;gap:2px}
-.cd-unit b{font-family:var(--num);font-size:22px;font-weight:700;color:#EDE9DD;letter-spacing:-.5px}
-.countdown.live .cd-unit b{color:var(--gold)}
+.cd-unit b{font-family:var(--num);font-size:22px;font-weight:700;color:#E6EDF4;letter-spacing:-.5px}
+.countdown.live .cd-unit b{color:#BEEE11}
 .cd-foot{margin-top:9px;font-size:11px;color:var(--mute)}
 /* 배지 3상태: 진행 중(금색 채움) / 공식 일정(금색 테두리) / 예상(흐림) */
-.cd-state.live{color:var(--ink);background:var(--gold);border-color:var(--gold);font-weight:700}
+.cd-state.live{color:#BEEE11;background:#3F5A1B;border-color:#3F5A1B;font-weight:700}
 .cd-state.confirmed{color:var(--txt-dim);border-color:var(--sel-bd)}
 .cd-state.est{color:var(--mute);border-style:dashed}
 /* 카운트다운 아래 실제 시작/종료 시각(보는 사람 시간대) */
 .cd-date{margin-top:8px;font-family:var(--num);font-size:12px;color:var(--txt-dim)}
 /* 추정 상태: 카운트다운 대신 '2027년 3월 중순 시작 예상' 한 줄 */
-.cd-est{margin-top:11px;font-size:15px;font-weight:700;color:#EDE9DD;line-height:1.4}
+.cd-est{margin-top:11px;font-size:15px;font-weight:700;color:#E6EDF4;line-height:1.4}
 
 /* ===== 신뢰 배너 ===== */
 .trust{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:11px 13px;display:flex;flex-direction:column;gap:8px}
 .trust-row{display:flex;flex-direction:column;align-items:flex-start;gap:2px;font-size:12.5px}
-.trust-k{font-weight:700;color:#DCD6C5}
+.trust-k{font-weight:700;color:#C6D4DF}
 .trust-v{color:var(--mute)}
 
 /* ===== 찜 요약 ===== */
-.wishnote{color:#CFC9B8;font-size:14px;background:rgba(200,145,43,.1);border:1px solid rgba(200,145,43,.35);border-radius:var(--r-sm);padding:12px 14px;margin-bottom:14px}
+.wishnote{color:#B4C2CF;font-size:14px;background:rgba(232,179,57,.1);border:1px solid rgba(232,179,57,.35);border-radius:var(--r-sm);padding:12px 14px;margin-bottom:14px}
 .wishnote b{font-family:var(--num)}
 
 /* ===== 상세 모달 ===== */
-.overlay{position:fixed;inset:0;background:rgba(8,10,18,.7);display:flex;align-items:flex-end;justify-content:center;padding:0;z-index:50;backdrop-filter:blur(2px)}
+.overlay{position:fixed;inset:0;background:rgba(5,9,14,.72);display:flex;align-items:flex-end;justify-content:center;padding:0;z-index:50;backdrop-filter:blur(2px)}
 .modal{width:100%;max-width:520px;background:var(--paper);border:1px solid var(--rule);border-radius:6px 6px 0 0;overflow:hidden;max-height:92vh;display:flex;flex-direction:column}
 .mhead{display:flex;align-items:flex-start;gap:12px;padding:16px;border-bottom:1px solid var(--rule);background:var(--paper2);flex-shrink:0}
 .mhead .cover{width:104px;height:49px;border-radius:var(--r-sm);font-size:22px;flex:0 0 auto}
@@ -225,14 +230,14 @@ input[type=range]{flex:1;accent-color:#8A93A3;min-width:110px}
 
 /* 2단 가격헤더 */
 .pricehead{display:flex;flex-direction:column;gap:2px}
-.ph-pct{font-family:var(--num);color:#fff;background:#B5483C;font-weight:800;font-size:12.5px;padding:2px 8px;border-radius:var(--r-sm);align-self:flex-start}
+.ph-pct{font-family:var(--num);color:#BEEE11;background:#3F5A1B;font-weight:800;font-size:12.5px;padding:2px 8px;border-radius:var(--r-sm);align-self:flex-start}
 .ph-cur{font-family:var(--num);color:var(--ink-txt);font-weight:800;font-size:34px;letter-spacing:-1px;line-height:1.1;margin-top:4px}
 .ph-normal{font-size:12.5px;color:var(--mute)}
 .ph-normal s{font-family:var(--num)}
-.ph-atl{margin-top:8px;font-size:13px;color:#7A560F;background:#F4E5BD;border:1px solid var(--gold);border-radius:var(--r-sm);padding:6px 10px;align-self:flex-start}
+.ph-atl{margin-top:8px;font-size:13px;color:#F0C866;background:#33291A;border:1px solid var(--gold);border-radius:var(--r-sm);padding:6px 10px;align-self:flex-start}
 .ph-atl b{font-family:var(--num);font-weight:800}
 .ph-atl .atl-star{color:var(--gold)}
-.ph-atl .atl-date{color:#9A7B33}
+.ph-atl .atl-date{color:#B99A5E}
 
 .verdict{margin-top:14px;border-radius:var(--r-sm);padding:11px 13px}
 .verdict .vt{font-weight:800;font-size:14px;margin-bottom:3px}
@@ -247,32 +252,33 @@ input[type=range]{flex:1;accent-color:#8A93A3;min-width:110px}
 /* 이전 저점 기록 */
 .lows{display:flex;flex-wrap:wrap;gap:8px}
 .lowchip{display:flex;flex-direction:column;align-items:flex-start;gap:1px;background:var(--paper2);border:1px solid var(--rule);border-radius:var(--r-sm);padding:6px 10px}
-.lowchip.best{border-color:var(--gold);background:#F8EFD3}
+.lowchip.best{border-color:var(--gold);background:#332A1B}
 .lc-p{font-family:var(--num);font-weight:700;font-size:13.5px;color:var(--ink-txt)}
 .lc-d{font-size:10.5px;color:var(--mute)}
 
 .mfoot{padding:16px;border-top:1px solid var(--rule);background:var(--paper2);flex-shrink:0}
-.steam{width:100%;display:flex;align-items:center;justify-content:center;gap:8px;background:var(--ink);color:var(--paper);font-weight:700;font-size:14.5px;border-radius:var(--r);padding:13px;border:0;cursor:pointer}
+.steam{width:100%;display:flex;align-items:center;justify-content:center;gap:8px;background:#2C3E52;color:#E6EDF4;font-weight:700;font-size:14.5px;border-radius:var(--r);padding:13px;border:1px solid #3E5468;cursor:pointer;transition:background .12s}
+.steam:hover{background:#36495E}
 .mfoot-row{display:flex;gap:8px;margin-top:8px}
 .ghostbtn{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;background:transparent;color:var(--ink-txt);border:1px solid var(--rule);border-radius:var(--r-sm);padding:10px;font-size:13px;font-weight:700;cursor:pointer;font-family:var(--kr)}
-.ghostbtn:hover{background:rgba(0,0,0,.04)}
+.ghostbtn:hover{background:rgba(255,255,255,.06)}
 .freshness{margin-top:10px;font-size:11.5px;color:var(--mute);text-align:center;line-height:1.5}
 
 /* 차트 */
 .chartblock{display:flex;flex-direction:column;gap:8px}
 .chart-presets{display:flex;gap:6px}
 .preset{font-family:var(--kr);font-size:11.5px;color:var(--mute);background:transparent;border:1px solid var(--rule);border-radius:var(--r-sm);padding:3px 10px;cursor:pointer}
-.preset.on{color:var(--ink-txt);background:#EAE3D0;border-color:#CFC6AE;font-weight:700}
+.preset.on{color:var(--ink-txt);background:#28394C;border-color:#3E5468;font-weight:700}
 .chartwrap{position:relative}
-.charttip{position:absolute;top:0;transform:translateX(-50%);background:#1C1B17;color:#F4F1E8;border-radius:var(--r-sm);padding:4px 7px;pointer-events:none;white-space:nowrap;z-index:3;font-family:var(--num);box-shadow:0 4px 10px rgba(0,0,0,.3)}
+.charttip{position:absolute;top:0;transform:translateX(-50%);background:#DDE6EF;color:#1B2838;border-radius:var(--r-sm);padding:4px 7px;pointer-events:none;white-space:nowrap;z-index:3;font-family:var(--num);box-shadow:0 4px 10px rgba(0,0,0,.3)}
 .charttip .tt-d{opacity:.7;font-size:10px}
 .charttip .tt-p{font-weight:700;font-size:12px}
 
 /* 찜 별 버튼 */
 .starbtn{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border:1px solid var(--rule);border-radius:var(--r-sm);background:var(--paper2);color:var(--mute);cursor:pointer;flex:0 0 auto}
-.starbtn.on{color:var(--gold);border-color:var(--gold)}
-.star-overlay{position:absolute;top:21px;right:21px;z-index:2;width:32px;height:32px;border:0;background:rgba(15,19,32,.62);color:#EDE9DD}
-.star-overlay.on{color:var(--gold)}
+.starbtn.on{color:#E6EDF4;border-color:#5A6E82}
+.star-overlay{position:absolute;top:21px;right:21px;z-index:2;width:32px;height:32px;border:0;background:rgba(10,16,24,.66);color:#E6EDF4}
+.star-overlay.on{color:#E6EDF4}
 
 /* ===== 태블릿: 모달 2단 ===== */
 @media(min-width:720px){
@@ -332,7 +338,7 @@ input[type=range]{flex:1;accent-color:#8A93A3;min-width:110px}
   padding-left:9px;border-left:3px solid var(--flag,var(--rule))}
 .vflag-l{font-size:12px;font-weight:800;letter-spacing:-.3px;color:var(--ink-txt);
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.vflag-s{font-size:10.5px;color:#6E6A59;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.vflag-s{font-size:10.5px;color:#93A3B3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .vflag .lcnum{font-family:var(--num);font-weight:700;color:var(--ink-txt)}
 .vflag-star{color:var(--gold)}
 .card-body .vflag{margin-top:auto;align-self:stretch}
@@ -366,7 +372,7 @@ input[type=range]{flex:1;accent-color:#8A93A3;min-width:110px}
   /* 찜 별: 행 오른쪽 끝(위 padding-right 46px 이 이 자리를 비워둔 것) */
   .ledger-list .star-overlay{top:50%;right:9px;transform:translateY(-50%);width:28px;height:28px}
   @media(hover:hover){
-    .ledger-list .card:hover{background:#EDE8DA;border-color:transparent;border-bottom-color:var(--rule)}
+    .ledger-list .card:hover{background:#223143;border-color:transparent;border-bottom-color:var(--rule)}
   }
   /* 앞머리 카드는 데스크탑에서 정확히 3열 */
   .list-feat{grid-template-columns:repeat(3,1fr)}
@@ -376,3 +382,20 @@ input[type=range]{flex:1;accent-color:#8A93A3;min-width:110px}
 @media(max-width:719px){
   .list-feat{grid-template-columns:1fr}
 }
+
+/* ===== 도장 뒤 영수증 조각 =====
+   패널 테마에서는 배경이 어두워 도장이 '색깔 있는 네모'로 읽힌다. 도장은 종이에 찍혀야
+   도장이므로, 도장 뒤에만 영수증 조각을 깔았다(이미지 없이 CSS 그라데이션으로만).
+   조각은 도장과 반대 방향으로 살짝 기울여 두 장이 겹친 느낌을 주고, 바닥 그림자로 띄웠다. */
+.stamp.on-paper{position:relative;z-index:0}
+.stamp.on-paper::before{
+  content:"";position:absolute;inset:-7px -11px;z-index:-1;border-radius:1px;
+  /* 가로 괘선 결 + 위아래 미묘한 명암으로 종이 질감 */
+  background:
+    repeating-linear-gradient(0deg, rgba(90,74,42,.05) 0 1px, transparent 1px 3px),
+    linear-gradient(180deg,#F8F4EA 0%,#EDE6D4 100%);
+  transform:rotate(1.4deg);
+  box-shadow:0 1px 0 rgba(0,0,0,.45), 0 10px 20px -12px rgba(0,0,0,.95);
+}
+/* 큰 도장(게임 페이지 머리)은 조각도 조금 넉넉하게 */
+.stamp.on-paper.big::before{inset:-9px -13px}

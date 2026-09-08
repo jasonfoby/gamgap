@@ -24,11 +24,11 @@
   transition: color 0.12s, border-color 0.12s;
 }
 .langsw select:hover {
-  color: var(--gold);
-  border-color: rgba(200, 145, 43, 0.4);
+  color: var(--txt);
+  border-color: rgba(232, 179, 57, 0.4);
 }
 /* 드롭다운 항목은 밝은 배경 위 어두운 글자로(브라우저 기본 대비 가독성). */
 .langsw option {
-  color: #1c1b17;
+  color: #DDE6EF;
   background: #fff;
 }

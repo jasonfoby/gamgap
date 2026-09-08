@@ -98,20 +98,20 @@ export default function PriceChart({ hist, low, currency }) {
         >
           <defs>
             <linearGradient id="grad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#C8912B" stopOpacity="0.32" />
-              <stop offset="100%" stopColor="#C8912B" stopOpacity="0.02" />
+              <stop offset="0%" stopColor="#66C0F4" stopOpacity="0.22" />
+              <stop offset="100%" stopColor="#66C0F4" stopOpacity="0.02" />
             </linearGradient>
           </defs>
           <path d={area} fill="url(#grad)" />
-          <path d={line} fill="none" stroke="#C8912B" strokeWidth="2" vectorEffect="non-scaling-stroke" />
-          <line x1={pl} y1={lowY} x2={W - pr} y2={lowY} stroke="#C8912B" strokeDasharray="4 4" strokeWidth="1" vectorEffect="non-scaling-stroke" />
-          <text x={pl} y={Number(lowY) - 5} fill="#C8912B" fontSize="10" fontFamily="sans-serif">
+          <path d={line} fill="none" stroke="#8FBEDC" strokeWidth="2" vectorEffect="non-scaling-stroke" />
+          <line x1={pl} y1={lowY} x2={W - pr} y2={lowY} stroke="#E8B339" strokeDasharray="4 4" strokeWidth="1" vectorEffect="non-scaling-stroke" />
+          <text x={pl} y={Number(lowY) - 5} fill="#E8B339" fontSize="10" fontFamily="sans-serif">
             {t("chart.atl")}
           </text>
-          <text x="2" y={pt + 8} fill="#8C8674" fontSize="10" fontFamily="monospace">
+          <text x="2" y={pt + 8} fill="#8FA0B3" fontSize="10" fontFamily="monospace">
             {compactMoney(max, currency)}
           </text>
-          <text x="2" y={H - pb} fill="#8C8674" fontSize="10" fontFamily="monospace">
+          <text x="2" y={H - pb} fill="#8FA0B3" fontSize="10" fontFamily="monospace">
             {compactMoney(min, currency)}
           </text>
           {/* 구간 최저점 ★ 마커 */}
@@ -119,7 +119,7 @@ export default function PriceChart({ hist, low, currency }) {
             <text
               x={X(minIdx)}
               y={Y(viewVals[minIdx]) - 7}
-              fill="#C8912B"
+              fill="#E8B339"
               fontSize="12"
               textAnchor="middle"
             >
@@ -128,8 +128,8 @@ export default function PriceChart({ hist, low, currency }) {
           )}
           {hover != null && (
             <g>
-              <line x1={X(hover)} y1={pt} x2={X(hover)} y2={H - pb} stroke="#1C1B17" strokeOpacity="0.25" strokeWidth="1" vectorEffect="non-scaling-stroke" />
-              <circle cx={X(hover)} cy={Y(Number(view[hover].p) || 0)} r="3.5" fill="#C8912B" stroke="#FBF9F3" strokeWidth="1.5" vectorEffect="non-scaling-stroke" />
+              <line x1={X(hover)} y1={pt} x2={X(hover)} y2={H - pb} stroke="#DDE6EF" strokeOpacity="0.25" strokeWidth="1" vectorEffect="non-scaling-stroke" />
+              <circle cx={X(hover)} cy={Y(Number(view[hover].p) || 0)} r="3.5" fill="#8FBEDC" stroke="#202F41" strokeWidth="1.5" vectorEffect="non-scaling-stroke" />
             </g>
           )}
         </svg>

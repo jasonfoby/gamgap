@@ -75,7 +75,7 @@ export default function WishlistView({ onCardClick }) {
         <div className="wishnote">
           {tNodes(t("wish.note"), {
             a: <b>{loaded.length}</b>,
-            b: <b style={{ color: "#C8912B" }}>{buyNow}</b>,
+            b: <b style={{ color: "#E8B339" }}>{buyNow}</b>,
           })}
         </div>
       )}

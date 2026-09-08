@@ -6,6 +6,21 @@ import { useT } from "../lib/i18n";
 //
 // flat=true면 기울지 않은 한 줄 표시로 그린다. 목록에서 카드마다 도장이 찍혀 있으면
 // 시그니처가 벽지가 되어 버려서, 목록에선 최상위 단계(★)만 도장을 쓰고 나머지는 이 납작한 형태를 쓴다.
+
+// 도장은 종이에 찍혀야 도장으로 읽힌다. 패널 테마에선 배경이 어두워 도장이 그냥 '색깔 있는 네모'가
+// 되어 버려서, 도장 뒤에만 영수증 조각을 깔고(CSS ::before) 그 위에 찍는 방식으로 되돌렸다.
+// 그래서 도장 잉크색은 어두운 패널용(verdict.js 의 v.fg/bg/bd)이 아니라 아래 '종이 위' 값을 쓴다.
+// 납작한 표시(flat)는 어두운 행 위에 그대로 놓이므로 v 의 색을 그대로 쓴다.
+const PAPER = {
+  "low-new": { fg: "#7A560F", bg: "#F4E5BD", bd: "#C8912B" },
+  "low":     { fg: "#7A560F", bg: "#F4E5BD", bd: "#C8912B" },
+  "near":    { fg: "#6B4E12", bg: "#EFE5C9", bd: "#B98A2C" },
+  "recent":  { fg: "#33424E", bg: "#E3E8ED", bd: "#7E97AC" },
+  "ok":      { fg: "#3E4C5C", bg: "#E8ECF0", bd: "#8FA3B4" },
+  "weak":    { fg: "#4C5765", bg: "#EDEFF2", bd: "#A3ADB8" },
+  "full":    { fg: "#7E2B22", bg: "#F0DAD6", bd: "#B5483C" },
+};
+
 export default function Stamp({ v, big, note, flat }) {
   const { t } = useT();
   const label = t("verdict." + v.tier + ".label");
@@ -23,21 +38,22 @@ export default function Stamp({ v, big, note, flat }) {
     );
   }
 
+  const ink = PAPER[v.tier] || PAPER.weak;
   return (
     <div
-      className={"stamp" + (big ? " big" : "") + (v.tier ? " tier-" + v.tier : "")}
+      className={"stamp on-paper" + (big ? " big" : "") + (v.tier ? " tier-" + v.tier : "")}
       style={{
-        color: v.fg,
-        background: v.bg,
-        border: `2px solid ${v.bd}`,
-        boxShadow: `0 0 0 2px ${v.bg},0 0 0 3px ${v.bd}`,
+        color: ink.fg,
+        background: ink.bg,
+        border: `2px solid ${ink.bd}`,
+        boxShadow: `0 0 0 2px ${ink.bg},0 0 0 3px ${ink.bd}`,
       }}
     >
       <span className="l">
         {v.star ? "★ " : ""}
         {label}
       </span>
-      <span className="s" style={{ color: v.fg }}>
+      <span className="s" style={{ color: ink.fg }}>
         {note || sub}
       </span>
     </div>

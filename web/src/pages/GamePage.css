@@ -8,7 +8,7 @@
   color: var(--txt-dim);
 }
 .gp-back:hover {
-  color: var(--gold);
+  color: var(--txt);
 }
 
 .gp-card {
@@ -107,8 +107,8 @@
   text-underline-offset: 2px;
 }
 .gp-genrelink:hover {
-  color: var(--gold);
-  text-decoration-color: var(--gold);
+  color: var(--ink-txt);
+  text-decoration-color: var(--mute);
 }
 
 /* 관련작 레일 — 같은 list 그리드를 재사용하되 위에 여백. */
@@ -127,7 +127,7 @@
   font-family: var(--kr);
   font-size: 14px;
   font-weight: 700;
-  color: var(--gold);
+  color: var(--txt);
 }
 .gp-guides-link:hover {
   text-decoration: underline;

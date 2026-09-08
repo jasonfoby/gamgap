@@ -25,7 +25,7 @@ export default function Sparkline({ hist, color }) {
         cx={pts[mi][0].toFixed(1)}
         cy={pts[mi][1].toFixed(1)}
         r="2.6"
-        fill="#C8912B"
+        fill="#8FBEDC"
       />
     </svg>
   );

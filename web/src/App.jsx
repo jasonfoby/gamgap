@@ -571,7 +571,7 @@ export default function App() {
               <Section
                 title={
                   <>
-                    <span style={{ color: "#C8912B" }}>★</span> {t("home.lowestTitle")}
+                    <span style={{ color: "#E8B339" }}>★</span> {t("home.lowestTitle")}
                   </>
                 }
                 state={lowest}

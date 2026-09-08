@@ -5,6 +5,9 @@
 //   - 그래서 할인율(disc)보다 역대최저 근접도(gap)를 먼저 본다.
 //   - isLowToday(오늘 역대최저 갱신)는 최상위로 끌어올려 별도 강조한다.
 // 색만으로 읽지 않도록(색맹 안전) 라벨/서브 문구가 본체이고 색은 보조다.
+// 2026-09 스팀 계열 테마로 바꾸면서 색값만 교체했다(단계·문턱값·순서는 그대로).
+// 새 팔레트에선 초록=할인율, 파랑=스팀 평가 긍정 으로 뜻이 이미 배정돼 판정에 쓸 수 없어,
+// 사다리를 '밝은 앰버 → 흐린 앰버 → 중립 남회색 → 더 흐린 중립 → 붉은색' 으로 다시 잡았다.
 export function verdict(g) {
   const low = Number(g.allTimeLow) || 0,
     cur = Number(g.currentPrice) || 0,
@@ -17,9 +20,9 @@ export function verdict(g) {
     return {
       label: "오늘 역대최저 갱신",
       sub: "지금이 가장 쌀 때",
-      fg: "#7A560F",
-      bg: "#F4E5BD",
-      bd: "#C8912B",
+      fg: "#F0C866",
+      bg: "rgba(232,179,57,.16)",
+      bd: "#E8B339",
       star: true,
       tier: "low-new",
       tip: "오늘 역대 최저가를 새로 찍었어요. 기록상 가장 싼 가격이라, 원하던 게임이면 지금이 살 때예요.",
@@ -30,9 +33,9 @@ export function verdict(g) {
     return {
       label: "지금이 역대 최저가",
       sub: "살 때예요",
-      fg: "#7A560F",
-      bg: "#F4E5BD",
-      bd: "#C8912B",
+      fg: "#F0C866",
+      bg: "rgba(232,179,57,.14)",
+      bd: "#E8B339",
       star: true,
       tier: "low",
       tip: "기록상 가장 싼 가격이에요. 더 기다린다고 떨어진다는 보장이 없으니, 원하던 게임이면 지금이 사기 좋은 시점이에요.",
@@ -43,9 +46,9 @@ export function verdict(g) {
     return {
       label: "거의 역대 최저가",
       sub: "사도 좋아요",
-      fg: "#6B4E12",
-      bg: "#EFE5C9",
-      bd: "#B98A2C",
+      fg: "#D8B87A",
+      bg: "rgba(232,179,57,.08)",
+      bd: "#A98A44",
       tier: "near",
       tip: "역대 최저가와 거의 차이가 없어요. 몇백 원 더 아끼려고 무한정 기다리기보단 지금 사도 아깝지 않은 가격이에요.",
     };
@@ -55,9 +58,9 @@ export function verdict(g) {
     return {
       label: "최근 최저가 수준",
       sub: "사도 무난해요",
-      fg: "#2F5D3A",
-      bg: "#DDE9DC",
-      bd: "#4E8A5A",
+      fg: "#A9BBCB",
+      bg: "rgba(126,151,172,.10)",
+      bd: "#4E6478",
       tier: "recent",
       tip: "역대 최저가와 큰 차이가 없는 가격대예요. 급하면 지금 사도 괜찮고, 여유가 있으면 큰 세일에서 조금 더 빠질 수 있어요.",
     };
@@ -67,9 +70,9 @@ export function verdict(g) {
     return {
       label: "괜찮은 할인",
       sub: "더 내려간 적은 있어요",
-      fg: "#0F5E58",
-      bg: "#D6E8E5",
-      bd: "#1C7C76",
+      fg: "#9FB0C0",
+      bg: "rgba(126,151,172,.08)",
+      bd: "#44586B",
       tier: "ok",
       tip: "할인폭은 괜찮지만, 과거엔 이보다 더 싸게 풀린 적이 있어요. 급하지 않다면 큰 세일(여름·겨울)을 노려도 좋아요.",
     };
@@ -79,9 +82,9 @@ export function verdict(g) {
     return {
       label: "약한 할인",
       sub: "세일을 더 기다려도 OK",
-      fg: "#3E4654",
-      bg: "#E4E7EC",
-      bd: "#8A93A3",
+      fg: "#8B98A6",
+      bg: "rgba(126,151,172,.06)",
+      bd: "#3E4E5C",
       tier: "weak",
       tip: "할인이 크지 않아요. 위시리스트에 담아두고 더 큰 세일을 기다리는 편을 추천해요.",
     };
@@ -90,9 +93,9 @@ export function verdict(g) {
   return {
     label: "지금은 정가",
     sub: "세일을 기다리세요",
-    fg: "#7E2B22",
-    bg: "#F0DAD6",
-    bd: "#B5483C",
+    fg: "#D08A7E",
+    bg: "rgba(192,72,58,.12)",
+    bd: "#8C4A3E",
     tier: "full",
     tip: "지금은 할인이 없어요. 스팀은 세일을 자주 하니, 위시리스트에 담아두고 알림을 기다리는 게 좋아요.",
   };

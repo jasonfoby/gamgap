@@ -63,7 +63,7 @@
   transition: filter 0.12s, background 0.12s;
 }
 .cc-deny {
-  color: #cfc9b8;
+  color: #B4C2CF;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--line);
 }
