@@ -321,7 +321,13 @@ function GameDetail({ g, copied, onCopy, t, cc }) {
       )}
 
       <div className="gp-foot">
-        <a className="steam" href={`https://store.steampowered.com/app/${g.appid}/`} target="_blank" rel="noreferrer">
+        <a
+          className="steam"
+          href={`https://store.steampowered.com/app/${g.appid}/`}
+          target="_blank"
+          rel="noreferrer"
+          onClick={() => track("steam_click", { appid: Number(g.appid) })}
+        >
           {t("gp.steam")}
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
             <path d="M15 3h6v6" />

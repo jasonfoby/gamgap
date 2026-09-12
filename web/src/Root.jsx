@@ -1,7 +1,8 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { useRoute } from "./lib/router";
 import App from "./App";
 import CookieConsent from "./components/CookieConsent";
+import { pageview } from "./lib/analytics";
 
 // 홈(App)만 첫 화면에 필요하므로 즉시 로드하고, 나머지 라우트는 그 페이지로 이동할 때만
 // 코드를 받아온다(lazy). 이렇게 하면 홈 첫 화면용 JS 번들이 가벼워져 모바일 FCP/LCP 가 준다
@@ -34,6 +35,11 @@ function safeDecode(s) {
 
 export default function Root() {
   const path = useRoute();
+
+  // SPA 라 주소가 바뀌어도 새 문서를 받지 않는다 — 경로가 바뀔 때마다 직접 페이지뷰를 남긴다.
+  useEffect(() => {
+    pageview(path);
+  }, [path]);
 
   let page;
   if (path === "/" || path === "") {

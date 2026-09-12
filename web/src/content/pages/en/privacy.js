@@ -2,7 +2,7 @@ export default {
   "slug": "privacy",
   "title": "Privacy Policy",
   "description": "How Lowstamp uses information, cookies, and third-party advertising (Google AdSense), along with your rights and how to reach us about your data.",
-  "updated": "2026-06-18",
+  "updated": "2026-09-12",
   "body": [
     {
       "type": "p",
@@ -77,7 +77,7 @@ export default {
     { "type": "h2", "text": "5. Analytics Tools" },
     {
       "type": "p",
-      "text": "We may use analytics tools such as Cloudflare Web Analytics to measure visits and improve the service. These tools are designed not to collect personal information that identifies individual users, and are used only to produce anonymized statistics such as page views and approximate visitor environment."
+      "text": "We may use analytics tools such as Google Analytics and Cloudflare Web Analytics to measure visits and improve the service. Cloudflare Web Analytics does not use cookies and only produces anonymous statistics such as page views and approximate visitor environment. Google Analytics stores analytics cookies only if you accept cookies, and uses them to produce usage statistics such as whether visitors return, which pages they view, and actions like adding a game to a wishlist or going to the Steam store. If you do not accept, only anonymized signals without cookies are sent. This information is processed under Google's Privacy Policy (https://policies.google.com/privacy). You can decline in the cookie banner, and if you have already accepted, you can withdraw consent at any time by deleting this site's cookies and site data in your browser settings."
     },
 
     { "type": "h2", "text": "6. Data Retention" },

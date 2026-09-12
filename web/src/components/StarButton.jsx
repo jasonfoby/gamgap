@@ -1,5 +1,6 @@
 import { useWishlist } from "../lib/wishlist";
 import { useT } from "../lib/i18n";
+import { track } from "../lib/analytics";
 
 // 찜 토글 별 버튼. className으로 카드 오버레이(.star-overlay) 등 위치 변형을 받는다.
 export default function StarButton({ appid, className = "" }) {
@@ -15,6 +16,8 @@ export default function StarButton({ appid, className = "" }) {
       onClick={(e) => {
         e.stopPropagation();
         wl?.toggle(appid);
+        // 누르기 전 상태 기준: 켜져 있었으면 해제, 아니면 추가.
+        track(on ? "wishlist_remove" : "wishlist_add", { appid: Number(appid) });
       }}
     >
       <svg

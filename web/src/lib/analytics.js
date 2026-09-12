@@ -1,53 +1,70 @@
-// 가벼운 분석(애널리틱스) 래퍼.
+// 방문 분석 — Google Analytics 4(GA4).
 //
-// 용도: 검색 결과 0건(이벤트명 "search_zero")과 게임 상세 열람(이벤트명 "game_view")
-// 같은 커스텀 이벤트를 호출하는 곳에서 이 모듈의 track()을 쓴다.
+// 왜 GA4 인가:
+//   이 사이트에서 알고 싶은 건 "사람이 다시 오는가"와 "찜·게임 조회·스팀 이동을 하는가"다.
+//   Cloudflare Web Analytics 는 쿠키 없는 페이지뷰 집계라 재방문도 커스텀 이벤트도 못 잰다.
+//   GA4 는 재방문 사용자·이벤트를 기본으로 보여주고, 같은 구글 계정의 서치 콘솔과 연결하면
+//   "어떤 검색어로 들어와서 무엇을 했는지"까지 한곳에서 볼 수 있다.
+//   게다가 Google 동의 모드 v2(index.html 의 consent default + lib/consent.js 의 update)가
+//   이미 깔려 있어, 동의 전에는 분석 쿠키 없이 익명 신호만 가고 동의하면 정상 수집된다.
 //
-// 왜 이렇게 단순한가:
-//   Cloudflare Web Analytics(비콘 방식)는 페이지뷰를 '자동'으로 잡아주지만,
-//   임의의 커스텀 이벤트를 보내는 공개 API가 없다(향후 별도 엔드포인트나 Zaraz가 필요).
-//   그래서 여기서는 "안전한 no-op + 확장 가능한 훅" 형태로만 둔다:
-//     - 브라우저(window)가 없으면 아무 것도 안 함(서버 사이드/빌드 안전).
-//     - 개발 중 흐름 확인용으로 console.debug 로깅만 남김.
-//     - window.__gamgapTrack 같은 외부 훅이 있으면 그쪽으로 넘겨준다
-//       (나중에 진짜 수집 엔드포인트를 붙일 때 이 훅만 끼우면 됨).
-//   어떤 경우에도 예외를 던지지 않는다 — 분석 코드가 화면을 깨뜨리면 안 되므로.
+// 켜는 법: 아래 GA_ID 에 GA4 측정 ID(G-로 시작)를 넣거나, Cloudflare Pages 환경변수
+//   VITE_GA_MEASUREMENT_ID 로 넣고 다시 배포한다. 비어 있으면 모든 수집이 꺼진 채(no-op)로 돈다.
+//
+// 어떤 경우에도 예외를 던지지 않는다 — 분석 코드가 화면을 깨뜨리면 안 되므로.
 
-// 커스텀 이벤트 한 건을 기록한다.
-//   event: 이벤트 이름 문자열. 예: "search_zero", "game_view".
-//   props: 이벤트에 딸린 속성 객체(선택). 예: { q: "사이버펑크" }, { appid: 1091500 }.
-// window가 없으면 no-op. 실패해도 절대 throw 하지 않는다.
+const GA_ID = (import.meta.env && import.meta.env.VITE_GA_MEASUREMENT_ID) || "";
+
+let gaStarted = false; // gtag.js 를 한 번만 불러오기 위한 표식
+let lastPath = null; // 같은 경로 페이지뷰 중복 방지(StrictMode 이중 실행·리렌더 대비)
+
+// GA4 스크립트를 처음 필요할 때 한 번만 붙인다. 준비되면 true.
+function ensureGA() {
+  if (!GA_ID || typeof window === "undefined" || typeof window.gtag !== "function") return false;
+  if (!gaStarted) {
+    gaStarted = true;
+    const s = document.createElement("script");
+    s.async = true;
+    s.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(GA_ID);
+    document.head.appendChild(s);
+    window.gtag("js", new Date());
+    // SPA 라 페이지뷰는 경로가 바뀔 때 직접 보낸다(자동 페이지뷰를 켜면 첫 화면만 잡힌다).
+    window.gtag("config", GA_ID, { send_page_view: false });
+  }
+  return true;
+}
+
+// 커스텀 이벤트 한 건. 예: track("wishlist_add", { appid: 1091500 })
+// 쓰는 이벤트: game_view · wishlist_add · wishlist_remove · steam_click · search_zero
 export function track(event, props = {}) {
   try {
-    if (typeof window === "undefined") return; // 브라우저 밖(빌드/SSR)에선 아무 것도 안 함
-    // 개발 중 흐름 확인용 디버그 로그(프로덕션 콘솔엔 debug 레벨이라 거의 안 보임).
-    if (typeof console !== "undefined" && console.debug) {
-      console.debug("[analytics] track", event, props);
-    }
-    // 외부 수집 훅이 끼워져 있으면 그쪽으로 위임(향후 실제 전송 지점).
-    if (typeof window.__gamgapTrack === "function") {
-      window.__gamgapTrack(event, props);
-    }
+    if (typeof window === "undefined") return;
+    if (typeof console !== "undefined" && console.debug) console.debug("[analytics] track", event, props);
+    // 바깥으로 나가는 클릭(스팀 이동 등)에서도 전송이 끊기지 않게 beacon 방식으로 보낸다.
+    if (ensureGA()) window.gtag("event", event, { ...props, transport_type: "beacon" });
+    if (typeof window.__gamgapTrack === "function") window.__gamgapTrack(event, props);
   } catch {
-    // 분석은 부가 기능 — 어떤 에러도 삼켜서 화면 동작을 방해하지 않는다.
+    // 분석은 부가 기능 — 어떤 에러도 삼킨다.
   }
 }
 
-// 페이지뷰 한 건을 기록한다.
-//   path: 현재 경로 문자열(선택). 안 주면 현재 location.pathname 사용.
-// Cloudflare Web Analytics 비콘이 페이지뷰는 자동으로 잡으므로 기본은 안전한 no-op.
-// SPA 라우팅에서 수동 페이지뷰가 필요해지면 여기 훅을 채우면 된다.
+// 페이지뷰 한 건. Root 가 경로가 바뀔 때마다 부른다.
 export function pageview(path) {
   try {
     if (typeof window === "undefined") return;
     const p = path || (window.location && window.location.pathname) || "/";
-    if (typeof console !== "undefined" && console.debug) {
-      console.debug("[analytics] pageview", p);
+    if (p === lastPath) return;
+    lastPath = p;
+    if (typeof console !== "undefined" && console.debug) console.debug("[analytics] pageview", p);
+    if (ensureGA()) {
+      window.gtag("event", "page_view", {
+        page_path: p,
+        page_location: window.location.href,
+        page_title: document.title,
+      });
     }
-    if (typeof window.__gamgapPageview === "function") {
-      window.__gamgapPageview(p);
-    }
+    if (typeof window.__gamgapPageview === "function") window.__gamgapPageview(p);
   } catch {
-    // no-op: 분석 실패가 앱을 멈추게 두지 않는다.
+    // no-op
   }
 }

@@ -1,6 +1,6 @@
 // Cloudflare Pages 함수: /guide/:slug (가이드 상세) — self-canonical(/guide/:slug)로 보정하고
 // 해당 글의 제목·설명·첫 문단을 서버에서 주입한다(JS 미실행 봇에도 고유 본문이 보이도록).
-import { pickLang, getGuide, renderContent } from "../_shared/content.js";
+import { pickLang, getGuide, renderContent, guideJsonLd } from "../_shared/content.js";
 
 export async function onRequest(context) {
   const { request, env, params } = context;
@@ -15,6 +15,7 @@ export async function onRequest(context) {
     pathname: `/guide/${slug}`,
     mod, // 못 찾으면 null → canonical 만 self 로 보정.
     fallbackTitle: "Lowstamp",
+    jsonld: guideJsonLd(lang, slug, mod), // Article + (있으면) FAQPage
   });
 
   const out = new Response(res.body, res);

@@ -3,6 +3,7 @@ export default {
   "title": "Steam Refunds: How Many Hours You Get, and Every Exception to the 2-Hour Rule",
   "description": "You can refund a Steam game for any reason if you've played it under 2 hours and bought it within 14 days. What happens past either limit, the separate clocks for pre-orders, DLC, in-game items, Wallet funds and subscriptions, what can never be refunded, and how long the money takes.",
   "date": "2026-08-29",
+  "updated": "2026-09-12",
   "tags": ["Steam", "refunds", "refund policy", "buying guide"],
   "readMins": 9,
   "body": [
@@ -13,6 +14,62 @@ export default {
     {
       "type": "note",
       "text": "Everything here comes from Steam's official refund policy, but Valve can change that policy whenever it likes, and it did change one part of it in 2024. Before you actually file a request, glance at the current wording on Steam's refund page."
+    },
+    {
+      "type": "table",
+      "caption": "Steam refund rules at a glance",
+      "head": [
+        "What you bought",
+        "Refund window",
+        "Condition"
+      ],
+      "rows": [
+        [
+          "Game",
+          "14 days from purchase",
+          "Under 2 hours played"
+        ],
+        [
+          "Pre-order you can't play yet",
+          "Any time before release",
+          "None"
+        ],
+        [
+          "Pre-order you can already play",
+          "14 days from the release date",
+          "Time played before launch counts toward the 2 hours"
+        ],
+        [
+          "DLC or expansion",
+          "14 days from purchase",
+          "Under 2 hours in the base game since buying the DLC, and the DLC not consumed, modified or transferred"
+        ],
+        [
+          "In-game item (Valve games)",
+          "48 hours from purchase",
+          "Not used or transferred. Other studios often don't offer this"
+        ],
+        [
+          "Steam Wallet top-up",
+          "14 days",
+          "None of the balance spent"
+        ],
+        [
+          "Bundle",
+          "14 days from purchase",
+          "Under 2 hours across every game combined, and nothing transferred"
+        ],
+        [
+          "Subscription",
+          "48 hours after the first charge or a renewal",
+          "Not used during that billing period"
+        ],
+        [
+          "VAC-banned game, free game, or key bought on another site",
+          "Not refundable",
+          "—"
+        ]
+      ]
     },
     { "type": "h2", "text": "The two limits are AND, not OR" },
     {
@@ -111,15 +168,42 @@ export default {
       "type": "p",
       "text": "Once approved, the full amount is processed within a week. Actually seeing it land on your card or in your bank can take a few more days on top of that, because your bank or payment provider has to process it too. If you want the money fast, taking it as Wallet credit is the quickest route. Just remember that money can then only be spent on Steam. If more than about ten days pass with nothing showing up, go back to Steam Support and ask."
     },
-    { "type": "h2", "text": "Questions that come up a lot" },
     {
-      "type": "ul",
+      "type": "faq",
+      "title": "Common Steam refund questions",
       "items": [
-        "I went one minute over 2 hours. Is that really it? You've left the automatic window, but you can still file a request, and explaining the situation often works. It costs nothing to try.",
-        "Will refunding too often get me in trouble? Within normal use, no. But repeatedly finishing games and then refunding them can get your refund privileges restricted.",
-        "If I refund a game I bought on sale, how much do I get back? Exactly what you paid, not the list price.",
-        "Can I buy the game again after refunding it? Yes. Bear in mind that if the sale has ended in the meantime, you'll pay whatever it costs then.",
-        "Can a gift be refunded? Yes. If it's already in the recipient's library, the recipient files the request, and the money goes back to whoever paid for it."
+        {
+          "q": "How many hours can you play a Steam game and still get a refund?",
+          "a": "Under 2 hours of total playtime, and no more than 14 days since you bought it. Both have to be true for the refund to go through automatically."
+        },
+        {
+          "q": "Can you get a Steam refund after 2 hours?",
+          "a": "Not automatically, but you can still send a request and a person at Steam will review it. Explaining the situation helps, for example that the game keeps crashing on your PC. Going a minute over is worth asking about. Finishing a long game and then asking usually isn't approved."
+        },
+        {
+          "q": "Can you get a Steam refund after 14 days?",
+          "a": "The same applies. You're outside the automatic window, but you can still request one, and it may be approved if there's a real reason, such as a game you bought and forgot about entirely."
+        },
+        {
+          "q": "How long does a Steam refund take?",
+          "a": "Once approved, Steam processes the full amount within a week. Your bank or card provider can take a few more days to show it. Taking it as Steam Wallet credit is the fastest option. If nothing arrives after about ten days, contact Steam Support."
+        },
+        {
+          "q": "Can you refund a pre-order on Steam?",
+          "a": "Yes. If you can't play it yet, you can cancel any time before release. If the game lets you play before launch, that time counts toward the 2-hour limit, and the 14-day window starts on the release date rather than the purchase date."
+        },
+        {
+          "q": "Will refunding games often get your account restricted?",
+          "a": "Not with normal use. Repeatedly finishing games and then refunding them can get your refund privileges limited."
+        },
+        {
+          "q": "How much do you get back when you refund a game bought on sale?",
+          "a": "Exactly what you paid, not the full list price. If you buy it again later and the sale has ended, you'll pay the price at that time."
+        },
+        {
+          "q": "Can a Steam gift be refunded?",
+          "a": "Yes. If the recipient hasn't accepted it yet, the sender requests the refund. If it's already in the recipient's library, the recipient requests it, and the money goes back to whoever paid."
+        }
       ]
     },
     { "type": "h2", "text": "The best outcome is never needing a refund" },

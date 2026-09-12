@@ -2,7 +2,7 @@ export default {
   "slug": "privacy",
   "title": "プライバシーポリシー",
   "description": "Lowstampが収集する情報、Cookieおよび第三者広告（Google AdSense）の利用、利用者の権利と個人情報に関するお問い合わせ方法についてご案内します。",
-  "updated": "2026-06-18",
+  "updated": "2026-09-12",
   "body": [
     {
       "type": "p",
@@ -77,7 +77,7 @@ export default {
     { "type": "h2", "text": "5. 訪問分析ツール" },
     {
       "type": "p",
-      "text": "本サイトは、訪問統計とサービス改善のために、Cloudflare Web Analyticsなどの分析ツールを使用する場合があります。当該ツールは、個々の利用者を識別するための個人情報を収集しない方式で運用されており、ページ閲覧数やおおよそのアクセス環境など、匿名化された統計情報を算出するために活用されます。"
+      "text": "本サイトは、訪問統計とサービス改善のために、Google AnalyticsおよびCloudflare Web Analyticsなどの分析ツールを使用する場合があります。Cloudflare Web AnalyticsはCookieを使用せず、ページ閲覧数やおおよそのアクセス環境などの匿名の統計のみを算出します。Google Analyticsは、利用者がCookieの使用に同意した場合に限り分析用Cookieを保存し、再訪問の有無、閲覧したページ、お気に入り登録やSteamストアへの移動などのサイト利用統計を算出します。同意しない場合は、Cookieを使用しない匿名化された信号のみが送信されます。これらの情報はGoogleのプライバシーポリシー（https://policies.google.com/privacy）に従って処理されます。Cookieバナーで拒否でき、すでに同意した場合も、ブラウザの設定で本サイトのCookieとサイトデータを削除することで、いつでも同意を撤回できます。"
     },
 
     { "type": "h2", "text": "6. 個人情報の保有および利用期間" },

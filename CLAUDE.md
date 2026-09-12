@@ -68,11 +68,11 @@ Vite + React 18(순수 JS/JSX). **추가 런타임 의존성 없음** — 차트
 - **다지역 가격·게임정보·스팀평가(최근 추가)**: 언어별로 그 지역 스팀 가격을 통화까지 맞춰 표시(워커 `?cc=`). 게임 상세에 **게임 정보** 섹션(개발사·출시연도·메타크리틱·컨트롤러·플랫폼·DLC·지원언어 — `appdetails`에서 함께 수집) + **스팀 종합 평가** 배지(압도적 긍정적 등 9단계, `lib/reviews.js` 라벨 매핑, 카드+상세). 히어로 인기 칩은 **'지금 할인 중 + 리뷰 많은 유명작'** 동적 선정(`popularPicks`, 리뷰 5천+ 기준, 로딩 중 스켈레톤).
 - **체감 품질**: 스켈레톤 로더(`Skeleton`), 에러 시 "다시 시도" 버튼, `preconnect`, `public/_headers`(에셋 캐시 + 보안 헤더).
 - **라우팅(애드센스 대비)**: 자체 라우터(`src/lib/router.jsx`)로 `/`, `/game/:appid`, `/guide`, `/guide/:slug`, `/privacy`, `/terms`, `/about`, `/contact`, 404(`src/Root.jsx`에서 분기). 콘텐츠는 `ArticleBody`/`PageShell`로 렌더(`src/pages/`). 콘텐츠 페이지(`ContentPage`)는 slug만 받고 언어별 데이터를 직접 로드.
-- **광고·동의·분석**: 쿠키 동의 배너(`CookieConsent`)가 **Google 동의 모드 v2**(`lib/consent.js`)와 연동(동의 전 광고 쿠키 거부, 기본 denied). `index.html`에 **실제 게시자 ID `ca-pub-6033148215263757`** 애드센스 스니펫 + 소유권 메타, `public/ads.txt`도 **실제 ID**, 개인정보처리방침에 애드센스/DART 쿠키 고지. 방문자 분석은 **Cloudflare Web Analytics 자동 설정**(엣지 주입 — 페이지에 비콘 스니펫 없음).
+- **광고·동의·분석**: 쿠키 동의 배너(`CookieConsent`)가 **Google 동의 모드 v2**(`lib/consent.js`)와 연동(동의 전 광고 쿠키 거부, 기본 denied). `index.html`에 **실제 게시자 ID `ca-pub-6033148215263757`** 애드센스 스니펫 + 소유권 메타, `public/ads.txt`도 **실제 ID**, 개인정보처리방침에 애드센스/DART 쿠키 고지. 방문자 분석은 **Google Analytics 4**(`src/lib/analytics.js`, 동의 모드 v2 연동 — 동의 전엔 쿠키 없는 익명 신호만). 측정 ID(`G-…`)는 `VITE_GA_MEASUREMENT_ID` 환경변수로 넣으며, **비어 있으면 수집이 꺼진 상태**다. 이벤트: `page_view`(경로 변경마다, `Root.jsx`)·`game_view`·`wishlist_add`/`wishlist_remove`·`steam_click`·`search_zero`. ⚠ 예전에 "Cloudflare Web Analytics 자동 설정"이라고 적혀 있었지만 2026-09-12 라이브 확인 결과 **비콘이 어느 페이지에도 없었다**(실제로는 꺼져 있었음). 쿠키 없는 기준선이 필요하면 Cloudflare 대시보드에서 직접 켜야 한다.
 
 ## 해야 할 일 (TODO)
 
-**완료됨 (개발·애드센스 준비 — 사실상 완성)**: Lowstamp 리브랜딩·lowstamp.com 라이브(SSL), 개별 게임 페이지(`/game/:appid`) 색인화, 6개 언어 다국어, Search Console+사이트맵, **쿠키 동의→Google 동의 모드 v2**, **실제 애드센스 게시자 ID·ads.txt 라이브**, **언어별 OG 공유 이미지**, **봇용 SSR**(게임·가이드·법적 페이지 본문/자기 canonical/404), **기본 영어화**, **다지역 가격(USD·JPY 등)**, **게임 상세 정보(#3a)·스팀 평가(#3b)·동적 인기칩(#2)**, 현지 자연스러운 문구, 화폐 표기 모순 수정, 가이드 8→15편, Cloudflare Web Analytics(자동), 저장소 공개 전환 + 크롤러 D1 최적화(선로드+batch).
+**완료됨 (개발·애드센스 준비 — 사실상 완성)**: Lowstamp 리브랜딩·lowstamp.com 라이브(SSL), 개별 게임 페이지(`/game/:appid`) 색인화, 6개 언어 다국어, Search Console+사이트맵, **쿠키 동의→Google 동의 모드 v2**, **실제 애드센스 게시자 ID·ads.txt 라이브**, **언어별 OG 공유 이미지**, **봇용 SSR**(게임·가이드·법적 페이지 본문/자기 canonical/404), **기본 영어화**, **다지역 가격(USD·JPY 등)**, **게임 상세 정보(#3a)·스팀 평가(#3b)·동적 인기칩(#2)**, 현지 자연스러운 문구, 화폐 표기 모순 수정, 가이드 8→15편, GA4 분석 연동(측정 ID 입력 대기), 저장소 공개 전환 + 크롤러 D1 최적화(선로드+batch).
 
 **남은 일 — 심사/승인:**
 - [ ] 구글 애드센스 **검토 요청(Request review)** 제출 → 결과 대기(보통 며칠~2주). 거절 시 적힌 사유만 보정.
@@ -106,4 +106,5 @@ Vite + React 18(순수 JS/JSX). **추가 런타임 의존성 없음** — 차트
 - **`localStorage` 사용함**(찜·쿠키 동의·언어 선택 기억). 과거 "localStorage 불필요" 지침은 폐기됨.
 - 가격 단위: 스팀 정수는 보통 1/100. `crawler.py`의 `PRICE_DIVISOR`가 원화 스케일을 맞춤(현재 100). 카드 가격이 100배로 보이면 이 값을 1로.
 - D1 무료: 저장 5GB, 하루 쓰기 10만/읽기 500만. change-only라 여유 큼. 스팀은 5분에 200회 제한 → 크롤러는 호출 사이 `STEAM_SLEEP`(기본 1.0초) 대기(로그에 429/조회실패 잦으면 올림). 저장소가 공개라 GitHub Actions 분은 무제한 → `crawl.yml` `timeout-minutes`로 완주 보장.
+- **가이드 본문 블록**: `p`·`h2`·`ul`·`ol`·`quote`·`note`에 더해 `table`(caption·head·rows)과 `faq`(title·items[{q,a}])가 있다. `faq` 블록은 화면 표시와 봇용 FAQPage 구조화 데이터(`functions/_shared/content.js`의 `guideJsonLd`)를 **같은 데이터에서** 만든다 — 질문을 스키마에만 따로 넣지 말 것(구글 요구: 화면에 보이는 질문만 허용).
 - **새 가이드 글 추가 시**: ① `src/content/guides/ko/<slug>.js`에 원본 작성 → ② 각 언어 폴더(`en/ja/zh/es/pt`)에도 번역본을 같은 파일명으로 추가(없으면 영어→한국어 폴백되긴 함) → ③ `functions/sitemap.xml.js`의 `GUIDE_PATHS` 배열 갱신 → ④ **`functions/_shared/content.js`의 `import`와 `GUIDES` 표에 6개 언어 모두 등록**(이게 봇 SSR 본문 주입용 — 빠지면 그 글은 검색 로봇에 제목·본문 없이 빈 껍데기로 나가 색인이 안 됨). ③④ 모두 함수 런타임은 `import.meta.glob` 불가라 하드코딩이 필수. (가이드의 목적이 검색 유입이므로 ④를 빠뜨리지 말 것.)

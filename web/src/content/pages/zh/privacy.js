@@ -2,7 +2,7 @@ export default {
   "slug": "privacy",
   "title": "隐私政策",
   "description": "说明 Lowstamp 收集哪些信息、Cookie 与第三方广告（Google AdSense）的使用方式，以及用户享有的权利和隐私事宜的联系方式。",
-  "updated": "2026-06-18",
+  "updated": "2026-09-12",
   "body": [
     {
       "type": "p",
@@ -87,7 +87,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "本网站可能会使用 Cloudflare Web Analytics 等分析工具来进行访问统计和服务改进。该工具以不收集用于识别个别用户的个人信息的方式运行，用于生成页面浏览量、大致访问环境等经过匿名化处理的统计信息。"
+      "text": "本网站可能会使用 Google Analytics 和 Cloudflare Web Analytics 等分析工具来进行访问统计和服务改进。Cloudflare Web Analytics 不使用 Cookie，仅生成页面浏览量、大致访问环境等匿名统计信息。Google Analytics 仅在用户同意使用 Cookie 时才会保存分析 Cookie，用于生成是否再次访问、浏览的页面、加入收藏、前往 Steam 商店等网站使用统计；如用户不同意，则仅发送不含 Cookie 的匿名化信号。上述信息依据 Google 隐私权政策（https://policies.google.com/privacy）处理。用户可在 Cookie 横幅中拒绝；如已同意，也可随时在浏览器设置中删除本网站的 Cookie 和网站数据以撤回同意。"
     },
     {
       "type": "h2",

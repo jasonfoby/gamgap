@@ -5,7 +5,7 @@ export default {
   title: "개인정보처리방침",
   description:
     "Lowstamp가 수집하는 정보, 쿠키와 제3자 광고(Google AdSense) 이용, 이용자의 권리와 개인정보 문의 방법을 안내합니다.",
-  updated: "2026-06-18",
+  updated: "2026-09-12",
   body: [
     {
       type: "p",
@@ -91,7 +91,7 @@ export default {
     {
       type: "p",
       text:
-        "본 사이트는 방문 통계와 서비스 개선을 위해 Cloudflare Web Analytics 등 분석 도구를 사용할 수 있습니다. 해당 도구는 개별 이용자를 식별하기 위한 개인정보를 수집하지 않는 방식으로 운영되며, 페이지 조회수·대략적인 접속 환경 등 익명화된 통계 정보를 산출하는 데 활용됩니다.",
+        "본 사이트는 방문 통계와 서비스 개선을 위해 Google Analytics와 Cloudflare Web Analytics 등 분석 도구를 사용할 수 있습니다. Cloudflare Web Analytics는 쿠키를 사용하지 않으며 페이지 조회수·대략적인 접속 환경 같은 익명 통계만 산출합니다. Google Analytics는 이용자가 쿠키 사용에 동의한 경우에만 분석 쿠키를 저장하여 재방문 여부, 조회한 페이지, 찜하기·스팀 상점 이동 같은 사이트 이용 통계를 산출하며, 동의하지 않은 경우에는 쿠키 없이 익명화된 신호만 전송됩니다. 이 정보는 Google 개인정보처리방침(https://policies.google.com/privacy)에 따라 처리됩니다. 쿠키 배너에서 거부할 수 있고, 이미 동의한 경우에도 브라우저 설정에서 이 사이트의 쿠키와 사이트 데이터를 삭제하면 언제든 동의를 철회할 수 있습니다.",
     },
 
     { type: "h2", text: "6. 개인정보의 보유 및 이용 기간" },

@@ -400,10 +400,65 @@ function renderBody(mod) {
         case "ul": return `<ul>${li(b.items)}</ul>`;
         case "ol": return `<ol>${li(b.items)}</ol>`;
         case "quote": return `<blockquote>${esc(b.text)}</blockquote>`;
+        case "table": {
+          const head = (b.head || []).map((h) => `<th scope="col">${esc(h)}</th>`).join("");
+          const rows = (b.rows || [])
+            .map((r) => `<tr>${(r || []).map((c, k) => (k === 0 ? `<th scope="row">${esc(c)}</th>` : `<td>${esc(c)}</td>`)).join("")}</tr>`)
+            .join("");
+          return `<table>${b.caption ? `<caption>${esc(b.caption)}</caption>` : ""}<thead><tr>${head}</tr></thead><tbody>${rows}</tbody></table>`;
+        }
+        case "faq":
+          return (
+            (b.title ? `<h2>${esc(b.title)}</h2>` : "") +
+            (b.items || []).map((it) => `<h3>${esc(it.q)}</h3><p>${esc(it.a)}</p>`).join("")
+          );
         default: return `<p>${esc(b.text)}</p>`; // p, note → 문단
       }
     })
     .join("");
+}
+
+// 가이드 글의 구조화 데이터(JSON-LD). renderContent 의 jsonld 옵션으로 head 에 붙인다.
+//  - Article: 모든 가이드. 제목·설명·언어·게시/수정일·글쓴이를 로봇이 명시적으로 읽게 한다.
+//  - FAQPage: 본문에 faq 블록이 있을 때만. 화면에 보이는 질문·답을 그대로 옮기므로 둘이 어긋나지 않는다.
+//    ※ 구글은 2023년 8월부터 FAQ 리치 결과(검색 결과에 질문이 펼쳐지는 모양)를 정부·보건 사이트로
+//      제한했다. 그래서 이 사이트에서 FAQ 가 검색 결과에 펼쳐져 보일 거라 기대하면 안 된다. 실제 효과는
+//      "검색어와 같은 문장의 질문이 본문에 소제목으로 있는 것" 쪽에서 나온다. 스키마는 비용이 거의 없고
+//      빙 등 다른 엔진이 읽을 수 있어 함께 둔다.
+export function guideJsonLd(lang, slug, mod) {
+  if (!mod || !mod.title) return [];
+  const url = `${SITE}/guide/${slug}`;
+  const out = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: mod.title,
+      ...(mod.description ? { description: mod.description } : {}),
+      inLanguage: lang,
+      ...(mod.date ? { datePublished: mod.date } : {}),
+      ...(mod.updated || mod.date ? { dateModified: mod.updated || mod.date } : {}),
+      author: { "@type": "Person", name: translate(lang, "author.name") },
+      publisher: { "@type": "Organization", name: "Lowstamp", url: SITE },
+      mainEntityOfPage: url,
+      url,
+    },
+  ];
+  const faq = (Array.isArray(mod.body) ? mod.body : [])
+    .filter((b) => b && b.type === "faq")
+    .flatMap((b) => b.items || [])
+    .filter((it) => it && it.q && it.a);
+  if (faq.length) {
+    out.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faq.map((it) => ({
+        "@type": "Question",
+        name: it.q,
+        acceptedAnswer: { "@type": "Answer", text: it.a },
+      })),
+    });
+  }
+  return out;
 }
 
 // 가이드 목록(현재 언어, 없으면 영어→한국어 폴백). 날짜 내림차순. [{slug,title,description,date}]
@@ -457,7 +512,7 @@ export function homeBody(lang) {
 
 // 공통 렌더: shell(index.html) 위에 self-canonical + 제목/설명/og + (가능하면) #root 첫 문단을 주입.
 // mod 가 없으면(콘텐츠를 못 찾으면) canonical 만 self 로 바로잡고 끝낸다(본문 주입은 생략).
-export function renderContent(shell, { lang, pathname, mod, fallbackTitle, bodyHtml }) {
+export function renderContent(shell, { lang, pathname, mod, fallbackTitle, bodyHtml, jsonld }) {
   const self = SITE + pathname;
   const locale = LOCALE[lang] || "en_US";
   const title = (mod && mod.title) ? `${mod.title} · Lowstamp` : (fallbackTitle || "Lowstamp");
@@ -500,6 +555,14 @@ export function renderContent(shell, { lang, pathname, mod, fallbackTitle, bodyH
     const wrapped =
       `<noscript><main style="max-width:760px;margin:0 auto;padding:24px;font-family:sans-serif;line-height:1.6">${inner}</main></noscript>`;
     rw = rw.on("#root", { element(e) { e.setInnerContent(wrapped, { html: true }); } });
+  }
+
+  // 구조화 데이터(가이드 등). 값 안의 '<' 를 < 로 바꿔 </script> 로 태그가 끊기는 일을 막는다.
+  if (Array.isArray(jsonld) && jsonld.length) {
+    const tags = jsonld
+      .map((o) => `<script type="application/ld+json">${JSON.stringify(o).replace(/</g, "\\u003c")}</script>`)
+      .join("");
+    rw = rw.on("head", { element(e) { e.append(tags, { html: true }); } });
   }
 
   return rw.transform(shell);
