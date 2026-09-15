@@ -4,6 +4,8 @@
 
 ## 1. GA4 측정 ID 넣기 — 아직 안 됨
 
+> 참고(2026-09-15): 쿠키 없는 기본 방문 집계는 Cloudflare Web Analytics로 이미 켜졌다(대시보드 Workers & Pages → lowstamp → Metrics, 비콘 부착 확인). GA4는 재방문, 찜, 스팀 이동 같은 행동까지 보고 싶을 때 넣으면 된다.
+
 방문 분석 코드(`web/src/lib/analytics.js`)는 배포돼 있지만 측정 ID가 비어 있어서 **수집이 꺼진 상태**다.
 ID가 비어 있으면 빌드할 때 수집 코드 자체가 빠진다(2026-09-15 라이브 번들로 확인).
 캘린더 알림 버튼 클릭(`calendar_add`)과 가이드 안 버튼 클릭(`guide_cta_click`)도 기록되게 만들어 뒀지만,
