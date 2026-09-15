@@ -412,6 +412,9 @@ function renderBody(mod) {
             (b.title ? `<h2>${esc(b.title)}</h2>` : "") +
             (b.items || []).map((it) => `<h3>${esc(it.q)}</h3><p>${esc(it.a)}</p>`).join("")
           );
+        case "cta":
+          return (b.text ? `<p>${esc(b.text)}</p>` : "") + `<p><a href="${esc(b.to).replace(/"/g, "&quot;")}">${esc(b.label)}</a></p>`;
+        case "sale-reminder": return ""; // 달력 버튼은 화면 전용 — 로봇에게 줄 글이 없다
         default: return `<p>${esc(b.text)}</p>`; // p, note → 문단
       }
     })

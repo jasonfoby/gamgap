@@ -205,6 +205,9 @@ input[type=range]{flex:1;accent-color:#7E97AC;min-width:110px}
 /* 카운트다운 아래 실제 시작/종료 시각(보는 사람 시간대) */
 .cd-date{margin-top:8px;font-family:var(--num);font-size:12px;color:var(--txt-dim)}
 /* 추정 상태: 카운트다운 대신 '2027년 3월 중순 시작 예상' 한 줄 */
+/* 달력 알림 버튼 — 중립색(앰버·연두는 뜻이 정해져 있어 쓰지 않는다) */
+.cd-cal{margin-top:10px;width:100%;font-family:var(--kr);font-size:12.5px;font-weight:700;color:var(--txt);background:var(--sel);border:1px solid var(--sel-bd);border-radius:var(--r-sm);padding:7px 10px;cursor:pointer;transition:background .12s}
+.cd-cal:hover{background:#2c3d52}
 .cd-est{margin-top:11px;font-size:15px;font-weight:700;color:#E6EDF4;line-height:1.4}
 
 /* ===== 신뢰 배너 ===== */

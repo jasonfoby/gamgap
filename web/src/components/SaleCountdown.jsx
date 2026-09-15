@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { nextSale, estimateParts } from "../lib/saleCalendar";
+import { calendarTexts, downloadSaleIcs } from "../lib/saleIcs";
 import { useT } from "../lib/i18n";
 
 const pad = (n) => String(n).padStart(2, "0");
@@ -8,7 +9,7 @@ const pad = (n) => String(n).padStart(2, "0");
 const LOCALE = { ko: "ko-KR", en: "en-US", ja: "ja-JP", zh: "zh-CN", es: "es-ES", pt: "pt-BR" };
 
 // 절대 시각 한 줄: "10월 2일 (금) 오전 2:00" 처럼, 카운트다운(상대)과 짝을 이루는 실제 날짜.
-function fmtWhen(d, lang) {
+export function fmtWhen(d, lang) {
   try {
     return new Intl.DateTimeFormat(LOCALE[lang] || "en-US", {
       month: "long",
@@ -95,6 +96,12 @@ export default function SaleCountdown() {
           <div className="cd-date">
             {ongoing ? t("cd.endsAt", { d: fmtWhen(sale.end, lang) }) : t("cd.startsAt", { d: fmtWhen(sale.start, lang) })}
           </div>
+          {/* 확정된 예정 세일이면 달력에 알림을 걸 수 있게 한다 — 세일이 열리는 순간 다시 오게 만드는 장치 */}
+          {!ongoing && (
+            <button type="button" className="cd-cal" onClick={() => downloadSaleIcs(sale, calendarTexts(t, sale))}>
+              {t("cd.addCalendar")}
+            </button>
+          )}
         </>
       )}
 

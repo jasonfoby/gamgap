@@ -1,4 +1,7 @@
 import "./ArticleBody.css";
+import SaleReminder from "./SaleReminder";
+import { navigate } from "../lib/router";
+import { track } from "../lib/analytics";
 
 // 글 본문 렌더러. 콘텐츠 데이터의 '블록 배열'을 받아 HTML로 그린다.
 // 블록 종류(type)별 모양:
@@ -12,6 +15,9 @@ import "./ArticleBody.css";
 //   { type:"faq", title, items:[{q,a},..] } → 질문·답 묶음. 검색 로봇용 FAQPage 구조화 데이터도
 //                                             이 블록에서 뽑으므로(functions/_shared/content.js), 화면에
 //                                             보이는 질문과 구조화 데이터가 항상 같다(구글 요구 사항).
+//   { type:"cta", text, label, to:"/?tab=deals" } → 글 흐름 안의 행동 버튼(사이트 안 경로만). 배너가 아니라
+//                                             글을 읽다 자연스럽게 가격 확인으로 넘어가게 하는 다리.
+//   { type:"sale-reminder" }                → 다음 확정 세일 + 캘린더 알림 추가 버튼(봇용 본문에는 안 그림)
 // props: { blocks: Array<블록> }  (없거나 비면 아무 것도 안 그림)
 export default function ArticleBody({ blocks }) {
   if (!Array.isArray(blocks) || blocks.length === 0) return null;
@@ -93,6 +99,25 @@ export default function ArticleBody({ blocks }) {
                 ))}
               </section>
             );
+          case "cta":
+            return (
+              <div key={i} className="ab-cta">
+                {b.text && <p className="ab-cta-text">{b.text}</p>}
+                <a
+                  className="ab-cta-btn"
+                  href={b.to}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    track("guide_cta_click", { to: b.to });
+                    navigate(b.to);
+                  }}
+                >
+                  {b.label}
+                </a>
+              </div>
+            );
+          case "sale-reminder":
+            return <SaleReminder key={i} />;
           case "note":
             return (
               <div key={i} className="ab-note">
