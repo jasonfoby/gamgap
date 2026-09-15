@@ -1,78 +1,204 @@
+// 가이드 글(스페인어): 스팀 가족 공유 — 한 개 사서 가족이 같이 하기
+// ⚠ 사실 기준: 스팀 고객지원 공식 FAQ "Steam Families"
+//   (help.steampowered.com/en/faqs/view/054C-3167-DD7F-49D4), 2026-09-15 확인.
+// ⚠ 2024년 3월 이후 '스팀 가족' 방식이다. "주인이 게임을 켜면 빌린 사람이 못 한다"는 옛 설명으로 되돌리지 말 것.
+// 공식 기능 이름은 스팀 고객지원 스페인어 페이지 제목 기준 "grupos familiares de Steam". 메뉴 이름은 괄호에 영어를 함께 적는다.
+// 영어판(en/steam-family-sharing.js)과 블록 구성이 같아야 한다. 스페인 기준(유로)이라 vosotros·ustedes 명령형은 피하고 tú로 쓴다.
+
 export default {
   "slug": "steam-family-sharing",
-  "title": "Cómo ahorrar en juegos con la familia compartida de Steam: compra una vez y disfrútenlo juntos",
-  "description": "Ni la familia ni los amigos tienen que comprar el mismo juego cada uno por su lado: con la 'familia compartida' de Steam pueden repartirse sus bibliotecas y disfrutarlas entre todos. Aquí te explicamos, en palabras sencillas, cómo se ahorra y qué debes tener en cuenta.",
+  "title": "Grupos familiares de Steam: compra una vez y juega en familia",
+  "description": "Los grupos familiares de Steam permiten que hasta seis personas compartan sus juegos. Cuándo se puede jugar a la vez, qué juegos no se comparten, el límite de un año al salir de un grupo y cómo crearlo, según la página oficial de soporte de Steam.",
   "date": "2026-07-05",
-  "tags": ["familia compartida", "ahorro", "Steam", "consejos de compra"],
-  "readMins": 7,
+  "updated": "2026-09-15",
+  "tags": [
+    "familia compartida",
+    "grupos familiares de Steam",
+    "ahorro",
+    "consejos de compra"
+  ],
+  "readMins": 8,
   "body": [
     {
       "type": "p",
-      "text": "Si en una misma casa, o entre amigos cercanos, cada uno compra el mismo juego por su lado, el gasto se duplica. Pero Steam tiene una función llamada 'familia compartida' que te permite repartir tu biblioteca de juegos con otras personas. Bien usada, deja que varios disfruten un juego que compraste una sola vez, así que puedes ahorrar bastante. En este artículo te explicamos, sin tecnicismos, cómo ahorrar con la familia compartida y qué precauciones tomar."
-    },
-    {
-      "type": "h2",
-      "text": "¿Qué es la familia compartida?"
-    },
-    {
-      "type": "p",
-      "text": "Dicho de forma sencilla, es 'prestar tu estantería de juegos a la familia y a los amigos'. Es una función que permite que los juegos de tu cuenta también se puedan instalar y jugar desde la cuenta de otra persona. Esa persona no tiene que comprar el juego por su lado, y como cada uno juega con su propia cuenta, las partidas guardadas (tu progreso) y los logros se acumulan por separado, cada quien los suyos. Steam agrupa todo esto en un grupo de 'Familias de Steam', donde, hasta un número determinado de miembros, pueden compartirse los juegos entre sí."
+      "text": "Si en una misma casa cada persona compra el mismo juego, se paga dos veces por lo mismo. Steam tiene una función llamada grupos familiares que permite a los miembros de una familia compartir sus juegos. Resumiendo: dentro del mismo grupo familiar, cualquier miembro puede instalar y jugar desde su propia cuenta los juegos que tenga otro miembro. Un grupo admite hasta seis personas, y se pueden jugar juegos distintos al mismo tiempo."
     },
     {
       "type": "note",
-      "text": "Punto a revisar: es parecido a pedir un libro prestado en la biblioteca. Varias personas pueden leer un mismo ejemplar (juego), pero normalmente hay un límite para leer 'el mismo libro al mismo tiempo'. Te lo explicamos más abajo."
+      "text": "En marzo de 2024, Steam sustituyó el antiguo Préstamo familiar y el Modo familiar por los grupos familiares de Steam. Por internet todavía circula la explicación de que, cuando el dueño abre un juego, la persona que lo tiene prestado ya no puede jugar. Eso era el sistema antiguo y ya no funciona así. Esta guía sigue las preguntas frecuentes oficiales del soporte de Steam, consultadas en septiembre de 2026."
+    },
+    {
+      "type": "table",
+      "caption": "Grupos familiares de Steam de un vistazo",
+      "head": [
+        "Tema",
+        "Cómo funciona"
+      ],
+      "rows": [
+        [
+          "Tamaño del grupo",
+          "Hasta 6 personas, contándote a ti"
+        ],
+        [
+          "Qué se comparte",
+          "Los juegos de cualquier miembro y los DLC del dueño que el editor permita compartir"
+        ],
+        [
+          "Partidas guardadas y logros",
+          "Se guardan por separado en la cuenta de cada persona"
+        ],
+        [
+          "Jugar a la vez",
+          "Juegos distintos: sí. El mismo juego: solo tantas personas como copias haya en el grupo"
+        ],
+        [
+          "Juegos que no se comparten",
+          "Los que el editor ha excluido, los que necesitan otra cuenta o una suscripción y los que no están disponibles en tu región o en tu sistema operativo"
+        ],
+        [
+          "Funciones",
+          "Adulto (puede invitar y gestionar) o menor (con controles parentales)"
+        ],
+        [
+          "Salir del grupo",
+          "Los adultos pueden salir cuando quieran, pero para crear otro grupo o unirse a uno nuevo deben esperar un año desde que entraron en el anterior"
+        ],
+        [
+          "Plazas libres",
+          "La plaza que deja alguien no puede ocuparla un miembro nuevo hasta que pase un año"
+        ]
+      ]
     },
     {
       "type": "h2",
-      "text": "Cómo se ahorra dinero"
+      "text": "Cómo te ahorra dinero"
     },
     {
       "type": "p",
-      "text": "La clave es 'comprar una vez y que varios lo disfruten'. Por ejemplo, si dos hermanos quieren jugar el mismo juego para un jugador, basta con que uno lo compre y lo comparta por la familia compartida para que el otro lo disfrute gratis. Si los miembros de la familia se abren entre sí los juegos que cada uno ha comprado, todo el grupo termina disfrutando muchísimos más juegos sin gastar de más. Sobre todo si toda la familia usa Steam, con solo comprar cada uno juegos distintos y juntarlos en el grupo compartido, la biblioteca se multiplica varias veces."
+      "text": "La idea es comprar una vez y disfrutar entre todos. Si dos hermanos quieren el mismo juego para un jugador, basta con que lo compre uno. Y si cada persona de la familia compra juegos distintos, la biblioteca de todos se multiplica."
     },
     {
       "type": "h2",
-      "text": "Pongamos un ejemplo"
+      "text": "Un ejemplo rápido"
     },
     {
       "type": "p",
-      "text": "Imagina que dos hermanos quieren jugar el mismo juego para un jugador. Si un juego que cuesta 59,99 € lo compra cada uno por su lado, se van 119,98 €; pero si solo uno lo compra y lo reparte por la familia compartida, con esos 59,99 € lo disfrutan los dos: justo la mitad de ahorro. Y si toda la familia compra juegos distintos y los junta en el grupo compartido, el efecto es todavía mayor. Si el padre compra un juego de carreras, el hermano mayor uno de acción y el pequeño uno de puzles, los tres pagan solo un juego cada uno pero disfrutan los tres juntos: en la práctica la biblioteca se multiplica por tres. Eso sí, como ya dijimos, si dos quieren jugar 'el mismo juego a la misma hora', al final toca comprarlo cada uno; entonces no ahorras compartiendo, pero puedes compensarlo comprándolo barato en las rebajas."
+      "text": "Un juego para un jugador de 59,99 € comprado dos veces cuesta 119,98 €. Si se compra una vez y se comparte en el grupo familiar, los dos hermanos juegan por 59,99 €. Si el padre compra un juego de carreras, un hermano uno de acción y el otro uno de puzles, los tres tienen los tres juegos pagando uno cada uno. Y con el sistema actual, un hermano puede jugar al de acción mientras el otro juega al de carreras al mismo tiempo."
     },
     {
       "type": "h2",
-      "text": "Cosas que debes tener en cuenta"
+      "text": "Jugar al mismo juego a la vez"
     },
     {
       "type": "p",
-      "text": "Que sea gratis no significa que sirva para todo. Hay algunas limitaciones. Primera: normalmente es difícil que dos personas jueguen 'a la vez juegos de la biblioteca de la misma persona'; mientras alguien juega un juego compartido, si el dueño original enciende ese juego, la persona que lo tenía prestado puede tener que salir al poco rato (parecido a que no se puede leer un mismo libro al mismo tiempo). Segunda: algunos juegos (sobre todo los que requieren vincular otra cuenta aparte o los que son solo en línea) a veces no se pueden compartir. Tercera: si te comparten la cuenta de otra persona y rompes las reglas, tu cuenta puede sufrir consecuencias, así que úsalo siempre dentro de la función de familia compartida tal como la define Steam."
+      "text": "Hay un único límite real: cada copia de un juego solo la puede usar una persona a la vez. El ejemplo del propio Steam lo deja claro. Si alguien del grupo tiene Portal 2 y Half-Life, una persona puede jugar a Portal 2 mientras otra juega a Half-Life. Pero si dos personas quieren jugar a Portal 2 en el mismo momento, alguien del grupo tiene que comprar una segunda copia."
     },
     {
       "type": "p",
-      "text": "Y por más confianza que tengas, intercambiar 'la cuenta entera con desconocidos' es peligroso. Si tus datos de cuenta caen en otras manos, hay riesgo de robo o de bloqueo, así que lo seguro es usar la familia compartida como función oficial de Steam y solo con 'personas de confianza'."
+      "text": "Si el grupo tiene más de una copia, Steam abre por ti la que esté libre. Si las copias tienen DLC distintos, puede que las partidas guardadas no pasen bien de una a otra, así que conviene igualar los DLC de los juegos que se juegan en común. Si no hay ninguna copia libre, toca esperar a que la otra persona termine o jugar a otra cosa mientras tanto."
     },
     {
       "type": "h2",
-      "text": "Cómo activarlo, más o menos"
+      "text": "Algunos juegos no se pueden compartir"
     },
     {
-      "type": "p",
-      "text": "Configurarlo es más fácil de lo que parece. A grandes rasgos, quien presta los juegos y quien los recibe solo tienen que registrarse mutuamente como 'familia de confianza'. Dentro de los ajustes de Steam hay un menú relacionado con la familia compartida (Familias) y desde ahí apruebas a las personas con las que quieres compartir tu biblioteca. Una vez registrada la persona, a partir de ese momento podrá instalar y disfrutar tus juegos desde su propia cuenta. Como Steam cambia de vez en cuando el nombre o la ubicación exacta del menú, basta con buscar 'Familia' en los ajustes de Steam y seguir las indicaciones de la pantalla. Ten en cuenta que primero debes iniciar sesión y configurarlo desde la cuenta que tiene los juegos que vas a compartir, y que quien los recibe también necesita su propia cuenta de Steam."
+      "type": "ul",
+      "items": [
+        "Juegos que el editor ha marcado como no disponibles para compartir.",
+        "Juegos que necesitan una cuenta de terceros o una suscripción aparte.",
+        "Juegos o DLC restringidos en tu región.",
+        "Juegos que no son compatibles con tu sistema operativo."
+      ]
     },
     {
       "type": "h2",
-      "text": "Los juegos que no se pueden compartir, mejor cómpralos baratos"
+      "text": "¿Se puede meter a amigos? Antes, la regla del año"
     },
     {
       "type": "p",
-      "text": "También hay juegos que no se pueden compartir, o que cada uno tiene que comprar porque quieren jugarlos juntos a la vez (por ejemplo, un juego multijugador para jugar en grupo). En esos casos toca comprarlos igual, y ya que hay que hacerlo, lo mejor es comprarlos cuando estén al precio más bajo. En Lowstamp puedes comparar el precio actual de ese juego con su mínimo registrado y ver el veredicto de '¿Lo compro ahora?': si cada uno compra cuando esté cerca del mínimo registrado, lo que no pudiste ahorrar por la vía de compartir lo recuperas gracias a la rebaja."
+      "text": "Steam describe los grupos familiares como una función pensada para un hogar de hasta seis familiares cercanos, y avisa de que los requisitos pueden cambiar según vea cómo se usa. Por eso no recomendamos añadir amigos a la ligera."
+    },
+    {
+      "type": "p",
+      "text": "Además hay un motivo práctico. Los adultos pueden salir de un grupo cuando quieran, pero para crear otro o unirse a uno nuevo tienen que esperar un año desde que entraron en el anterior. La plaza que deja alguien tampoco puede ocuparla un miembro nuevo hasta dentro de un año. Entrar y salir por capricho puede dejarte bloqueado un año entero. Los miembros adultos también pueden expulsar a otros miembros. Y pase lo que pase, nunca des tus datos de inicio de sesión: compartir contraseñas es la forma más habitual de que roben o bloqueen una cuenta."
+    },
+    {
+      "type": "h2",
+      "text": "Cómo crear el grupo"
+    },
+    {
+      "type": "ol",
+      "items": [
+        "En la tienda de Steam, haz clic en el nombre de tu cuenta, arriba a la derecha, y abre los detalles de la cuenta (Account Details).",
+        "Entra en la gestión del grupo familiar (Family Management).",
+        "Haz clic en crear un grupo familiar (Create a Family) y ponle un nombre. Puedes cambiarlo más adelante.",
+        "Pulsa invitar a un miembro (Invite a Member), busca a la persona y elige si la añades como adulto o como menor.",
+        "Le llegará un aviso. Cuando acepte, los juegos del grupo aparecerán en la biblioteca de cada miembro."
+      ]
+    },
+    {
+      "type": "note",
+      "text": "En Steam en español los menús pueden llamarse un poco distinto. Guíate por el nombre en inglés entre paréntesis y, si no los encuentras, busca «grupos familiares de Steam» en el soporte de Steam."
+    },
+    {
+      "type": "h2",
+      "text": "Los juegos que hay que tener dos veces, cómpralos baratos"
+    },
+    {
+      "type": "p",
+      "text": "Si dos personas quieren jugar al mismo juego a la vez, o el juego no se puede compartir, alguien tendrá que comprar otra copia. Ya que hay que comprarla, mejor hacerlo en el momento más barato. Antes de decidir quién la compra, comprueba si el precio de hoy está cerca del mínimo que hemos registrado para ese juego."
+    },
+    {
+      "type": "cta",
+      "text": "¿Pensando en comprar un juego para jugar en familia? Mira primero si de verdad está barato ahora. Cada juego rebajado se compara con su mínimo registrado en una sola línea.",
+      "label": "Ver juegos en oferta",
+      "to": "/?tab=deals"
+    },
+    {
+      "type": "faq",
+      "title": "Preguntas frecuentes sobre los grupos familiares de Steam",
+      "items": [
+        {
+          "q": "¿Cuántas personas caben en un grupo familiar de Steam?",
+          "a": "Hasta seis personas, contándote a ti."
+        },
+        {
+          "q": "¿Pueden dos personas jugar a la vez al mismo juego compartido?",
+          "a": "Solo si el grupo tiene dos copias de ese juego. Los juegos distintos sí se pueden jugar a la vez. Con una sola copia, toca esperar a que la otra persona termine o comprar otra."
+        },
+        {
+          "q": "¿Puedo jugar al juego de un familiar mientras juega a otra cosa?",
+          "a": "Sí. Los grupos familiares funcionan por copia de cada juego, así que el dueño jugando a otro juego no te lo impide. Quedarse bloqueado cada vez que el dueño abría algo era el funcionamiento del antiguo Préstamo familiar, anterior a 2024."
+        },
+        {
+          "q": "¿Las partidas guardadas y los logros quedan en mi cuenta?",
+          "a": "Sí. Las partidas guardadas y los logros se guardan en la cuenta de cada persona, incluidos los logros que consigas en un juego prestado."
+        },
+        {
+          "q": "¿Se comparten los DLC?",
+          "a": "Tienes acceso a los DLC que tenga el dueño del juego, siempre que el editor permita compartirlos."
+        },
+        {
+          "q": "¿Qué juegos no se pueden compartir?",
+          "a": "Los que el editor ha excluido, los que necesitan otra cuenta o una suscripción, y los que no están disponibles en tu región o en tu sistema operativo."
+        },
+        {
+          "q": "¿Puedo añadir amigos a un grupo familiar de Steam?",
+          "a": "Steam dice que la función está pensada para un hogar de hasta seis familiares cercanos y que los requisitos pueden cambiar. Si sales de un grupo tienes que esperar un año para entrar en otro, y las plazas libres tardan un año en volver a ocuparse, así que elige con cuidado."
+        },
+        {
+          "q": "¿Puedo volver a un grupo familiar después de salir?",
+          "a": "Puedes volver sin esperar al último grupo en el que estuviste, siempre que tenga menos de seis miembros. Para crear otro grupo o unirte a uno distinto hay que esperar un año desde que entraste en el anterior."
+        },
+        {
+          "q": "¿Cómo se configura un grupo familiar de Steam?",
+          "a": "En la tienda de Steam, ve a los detalles de la cuenta (Account Details), abre la gestión del grupo familiar (Family Management), crea el grupo e invita a los miembros."
+        }
+      ]
     },
     {
       "type": "quote",
-      "text": "Compra una vez y compártelo con la familia; y lo que no se puede compartir, cómpralo cuando esté al precio más bajo."
-    },
-    {
-      "type": "p",
-      "text": "En resumen, la familia compartida de Steam es una buena forma de ahorrar en juegos, porque 'un juego comprado una sola vez se disfruta compartido con familia y amigos de confianza'. Eso sí, hay que conocer sus límites, como la restricción de jugar el mismo juego a la vez o los juegos que no se pueden compartir, y hay que evitar la vía peligrosa de intercambiar la cuenta entera. Si ahorras por la vía de compartir lo que se puede compartir, y compras al mínimo registrado los juegos que cada uno necesita por separado, toda la familia puede disfrutar muchísimos más juegos con el mismo dinero."
+      "text": "Compra una vez y compártelo con tu familia. Y para los juegos que hay que jugar a la vez, compra la segunda copia cuando esté más barata."
     }
   ]
 };
