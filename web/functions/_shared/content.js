@@ -163,6 +163,13 @@ import GUIDE_pt_steam_store_page_checklist from "../../src/content/guides/pt/ste
 import GUIDE_pt_free_games_guide from "../../src/content/guides/pt/free-games-guide.js";
 import GUIDE_pt_review_bomb_guide from "../../src/content/guides/pt/review-bomb-guide.js";
 import GUIDE_pt_steam_family_sharing from "../../src/content/guides/pt/steam-family-sharing.js";
+// 2026-09-16 증편 (1편)
+import GUIDE_ko_steam_remote_play_together from "../../src/content/guides/ko/steam-remote-play-together.js";
+import GUIDE_en_steam_remote_play_together from "../../src/content/guides/en/steam-remote-play-together.js";
+import GUIDE_ja_steam_remote_play_together from "../../src/content/guides/ja/steam-remote-play-together.js";
+import GUIDE_zh_steam_remote_play_together from "../../src/content/guides/zh/steam-remote-play-together.js";
+import GUIDE_es_steam_remote_play_together from "../../src/content/guides/es/steam-remote-play-together.js";
+import GUIDE_pt_steam_remote_play_together from "../../src/content/guides/pt/steam-remote-play-together.js";
 // 가이드 목록 주제 분류 + 번역 함수(클라이언트와 동일 분류·문구 사용). i18n index.js 는 순수 JS라 함수 런타임에서 안전.
 import { groupGuides } from "../../src/content/guideCategories.js";
 import { translate } from "../../src/i18n/index.js";
@@ -235,7 +242,8 @@ const GUIDES = {
     "steam-store-page-checklist": GUIDE_ko_steam_store_page_checklist,
     "free-games-guide": GUIDE_ko_free_games_guide,
     "review-bomb-guide": GUIDE_ko_review_bomb_guide,
-    "steam-family-sharing": GUIDE_ko_steam_family_sharing
+    "steam-family-sharing": GUIDE_ko_steam_family_sharing,
+    "steam-remote-play-together": GUIDE_ko_steam_remote_play_together
   },
   "en": {
     "steam-sale-calendar": GUIDE_en_steam_sale_calendar,
@@ -259,7 +267,8 @@ const GUIDES = {
     "steam-store-page-checklist": GUIDE_en_steam_store_page_checklist,
     "free-games-guide": GUIDE_en_free_games_guide,
     "review-bomb-guide": GUIDE_en_review_bomb_guide,
-    "steam-family-sharing": GUIDE_en_steam_family_sharing
+    "steam-family-sharing": GUIDE_en_steam_family_sharing,
+    "steam-remote-play-together": GUIDE_en_steam_remote_play_together
   },
   "ja": {
     "steam-sale-calendar": GUIDE_ja_steam_sale_calendar,
@@ -283,7 +292,8 @@ const GUIDES = {
     "steam-store-page-checklist": GUIDE_ja_steam_store_page_checklist,
     "free-games-guide": GUIDE_ja_free_games_guide,
     "review-bomb-guide": GUIDE_ja_review_bomb_guide,
-    "steam-family-sharing": GUIDE_ja_steam_family_sharing
+    "steam-family-sharing": GUIDE_ja_steam_family_sharing,
+    "steam-remote-play-together": GUIDE_ja_steam_remote_play_together
   },
   "zh": {
     "steam-sale-calendar": GUIDE_zh_steam_sale_calendar,
@@ -307,7 +317,8 @@ const GUIDES = {
     "steam-store-page-checklist": GUIDE_zh_steam_store_page_checklist,
     "free-games-guide": GUIDE_zh_free_games_guide,
     "review-bomb-guide": GUIDE_zh_review_bomb_guide,
-    "steam-family-sharing": GUIDE_zh_steam_family_sharing
+    "steam-family-sharing": GUIDE_zh_steam_family_sharing,
+    "steam-remote-play-together": GUIDE_zh_steam_remote_play_together
   },
   "es": {
     "steam-sale-calendar": GUIDE_es_steam_sale_calendar,
@@ -331,7 +342,8 @@ const GUIDES = {
     "steam-store-page-checklist": GUIDE_es_steam_store_page_checklist,
     "free-games-guide": GUIDE_es_free_games_guide,
     "review-bomb-guide": GUIDE_es_review_bomb_guide,
-    "steam-family-sharing": GUIDE_es_steam_family_sharing
+    "steam-family-sharing": GUIDE_es_steam_family_sharing,
+    "steam-remote-play-together": GUIDE_es_steam_remote_play_together
   },
   "pt": {
     "steam-sale-calendar": GUIDE_pt_steam_sale_calendar,
@@ -355,7 +367,8 @@ const GUIDES = {
     "steam-store-page-checklist": GUIDE_pt_steam_store_page_checklist,
     "free-games-guide": GUIDE_pt_free_games_guide,
     "review-bomb-guide": GUIDE_pt_review_bomb_guide,
-    "steam-family-sharing": GUIDE_pt_steam_family_sharing
+    "steam-family-sharing": GUIDE_pt_steam_family_sharing,
+    "steam-remote-play-together": GUIDE_pt_steam_remote_play_together
   }
 };
 

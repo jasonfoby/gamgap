@@ -34,6 +34,8 @@ const GUIDE_PATHS = [
   "/guide/free-games-guide",
   "/guide/review-bomb-guide",
   "/guide/steam-family-sharing",
+  // 2026-09-16 증편
+  "/guide/steam-remote-play-together",
 ];
 
 export async function onRequest(context) {

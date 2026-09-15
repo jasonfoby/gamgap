@@ -23,6 +23,7 @@ export const GUIDE_CATEGORIES = [
       "dlc-season-pass-guide",
       "free-games-guide",
       "steam-family-sharing",
+      "steam-remote-play-together",
       "steam-refund-policy",
       "avoid-impulse-buys",
     ],
