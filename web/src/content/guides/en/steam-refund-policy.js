@@ -3,7 +3,7 @@ export default {
   "title": "Steam Refunds: How Many Hours You Get, and Every Exception to the 2-Hour Rule",
   "description": "You can refund a Steam game for any reason if you've played it under 2 hours and bought it within 14 days. What happens past either limit, the separate clocks for pre-orders, DLC, in-game items, Wallet funds and subscriptions, what can never be refunded, and how long the money takes.",
   "date": "2026-08-29",
-  "updated": "2026-09-12",
+  "updated": "2026-09-16",
   "tags": ["Steam", "refunds", "refund policy", "buying guide"],
   "readMins": 9,
   "body": [
@@ -127,7 +127,7 @@ export default {
         "Steam Wallet top-ups: within 14 days, and only if you haven't spent a single cent of that balance. Spend any of it and the top-up can't be reversed.",
         "Bundles: the playtime across every game in the bundle is added together and must total under 2 hours, and none of the items can have been transferred. Refunding just one piece of a bundle generally isn't possible.",
         "Subscriptions: within 48 hours of the first charge, or within 48 hours of an automatic renewal, provided you haven't used the service during that billing period.",
-        "Gifts: if the recipient hasn't accepted it yet, the sender requests the refund. Once accepted, the recipient does, and the money goes back to whoever paid.",
+        "Gifts: if the recipient hasn't accepted it yet, the sender requests the refund. Once accepted, the recipient first agrees to the refund on Steam Support, then the sender requests it, and the money goes back to whoever paid.",
         "Hardware like a Steam Deck: that's a physical product and falls under a separate return policy."
       ]
     },
@@ -202,7 +202,7 @@ export default {
         },
         {
           "q": "Can a Steam gift be refunded?",
-          "a": "Yes. If the recipient hasn't accepted it yet, the sender requests the refund. If it's already in the recipient's library, the recipient requests it, and the money goes back to whoever paid."
+          "a": "Yes. If the recipient hasn't accepted it yet, the sender requests the refund. If it's already in the recipient's library, the recipient first agrees to the refund on Steam Support, then the sender requests it. The money goes back to whoever paid."
         }
       ]
     },

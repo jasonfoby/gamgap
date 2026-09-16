@@ -170,6 +170,13 @@ import GUIDE_ja_steam_remote_play_together from "../../src/content/guides/ja/ste
 import GUIDE_zh_steam_remote_play_together from "../../src/content/guides/zh/steam-remote-play-together.js";
 import GUIDE_es_steam_remote_play_together from "../../src/content/guides/es/steam-remote-play-together.js";
 import GUIDE_pt_steam_remote_play_together from "../../src/content/guides/pt/steam-remote-play-together.js";
+// 2026-09-16 증편 (2편째)
+import GUIDE_ko_steam_gifts from "../../src/content/guides/ko/steam-gifts.js";
+import GUIDE_en_steam_gifts from "../../src/content/guides/en/steam-gifts.js";
+import GUIDE_ja_steam_gifts from "../../src/content/guides/ja/steam-gifts.js";
+import GUIDE_zh_steam_gifts from "../../src/content/guides/zh/steam-gifts.js";
+import GUIDE_es_steam_gifts from "../../src/content/guides/es/steam-gifts.js";
+import GUIDE_pt_steam_gifts from "../../src/content/guides/pt/steam-gifts.js";
 // 가이드 목록 주제 분류 + 번역 함수(클라이언트와 동일 분류·문구 사용). i18n index.js 는 순수 JS라 함수 런타임에서 안전.
 import { groupGuides } from "../../src/content/guideCategories.js";
 import { translate } from "../../src/i18n/index.js";
@@ -243,7 +250,8 @@ const GUIDES = {
     "free-games-guide": GUIDE_ko_free_games_guide,
     "review-bomb-guide": GUIDE_ko_review_bomb_guide,
     "steam-family-sharing": GUIDE_ko_steam_family_sharing,
-    "steam-remote-play-together": GUIDE_ko_steam_remote_play_together
+    "steam-remote-play-together": GUIDE_ko_steam_remote_play_together,
+    "steam-gifts": GUIDE_ko_steam_gifts
   },
   "en": {
     "steam-sale-calendar": GUIDE_en_steam_sale_calendar,
@@ -268,7 +276,8 @@ const GUIDES = {
     "free-games-guide": GUIDE_en_free_games_guide,
     "review-bomb-guide": GUIDE_en_review_bomb_guide,
     "steam-family-sharing": GUIDE_en_steam_family_sharing,
-    "steam-remote-play-together": GUIDE_en_steam_remote_play_together
+    "steam-remote-play-together": GUIDE_en_steam_remote_play_together,
+    "steam-gifts": GUIDE_en_steam_gifts
   },
   "ja": {
     "steam-sale-calendar": GUIDE_ja_steam_sale_calendar,
@@ -293,7 +302,8 @@ const GUIDES = {
     "free-games-guide": GUIDE_ja_free_games_guide,
     "review-bomb-guide": GUIDE_ja_review_bomb_guide,
     "steam-family-sharing": GUIDE_ja_steam_family_sharing,
-    "steam-remote-play-together": GUIDE_ja_steam_remote_play_together
+    "steam-remote-play-together": GUIDE_ja_steam_remote_play_together,
+    "steam-gifts": GUIDE_ja_steam_gifts
   },
   "zh": {
     "steam-sale-calendar": GUIDE_zh_steam_sale_calendar,
@@ -318,7 +328,8 @@ const GUIDES = {
     "free-games-guide": GUIDE_zh_free_games_guide,
     "review-bomb-guide": GUIDE_zh_review_bomb_guide,
     "steam-family-sharing": GUIDE_zh_steam_family_sharing,
-    "steam-remote-play-together": GUIDE_zh_steam_remote_play_together
+    "steam-remote-play-together": GUIDE_zh_steam_remote_play_together,
+    "steam-gifts": GUIDE_zh_steam_gifts
   },
   "es": {
     "steam-sale-calendar": GUIDE_es_steam_sale_calendar,
@@ -343,7 +354,8 @@ const GUIDES = {
     "free-games-guide": GUIDE_es_free_games_guide,
     "review-bomb-guide": GUIDE_es_review_bomb_guide,
     "steam-family-sharing": GUIDE_es_steam_family_sharing,
-    "steam-remote-play-together": GUIDE_es_steam_remote_play_together
+    "steam-remote-play-together": GUIDE_es_steam_remote_play_together,
+    "steam-gifts": GUIDE_es_steam_gifts
   },
   "pt": {
     "steam-sale-calendar": GUIDE_pt_steam_sale_calendar,
@@ -368,7 +380,8 @@ const GUIDES = {
     "free-games-guide": GUIDE_pt_free_games_guide,
     "review-bomb-guide": GUIDE_pt_review_bomb_guide,
     "steam-family-sharing": GUIDE_pt_steam_family_sharing,
-    "steam-remote-play-together": GUIDE_pt_steam_remote_play_together
+    "steam-remote-play-together": GUIDE_pt_steam_remote_play_together,
+    "steam-gifts": GUIDE_pt_steam_gifts
   }
 };
 

@@ -3,6 +3,7 @@ export default {
   "title": "Reembolso na Steam: quantas horas você tem e todas as exceções à regra das 2 horas",
   "description": "Você pode pedir reembolso de um jogo na Steam sem justificar nada se jogou menos de 2 horas e comprou há menos de 14 dias. Veja o que acontece quando você passa de qualquer um dos limites, os prazos diferentes para pré-venda, DLC, compras dentro do jogo, saldo da carteira e assinaturas, o que nunca é reembolsado, e quanto tempo o dinheiro leva para voltar.",
   "date": "2026-08-29",
+  "updated": "2026-09-16",
   "tags": ["Steam", "reembolso", "política de reembolso", "guia de compras"],
   "readMins": 9,
   "body": [
@@ -82,7 +83,7 @@ export default {
         "Recargas da carteira Steam — dentro de 14 dias, e só se você não tiver gasto um centavo desse saldo. Gastou qualquer valor, a recarga não volta mais.",
         "Pacotes (bundles) — o tempo de jogo de todos os jogos do pacote é somado e o total precisa ficar abaixo de 2 horas, e nenhum dos itens pode ter sido transferido. Devolver só uma parte do pacote geralmente não é possível.",
         "Assinaturas — dentro de 48 horas da primeira cobrança, ou dentro de 48 horas de uma renovação automática, desde que você não tenha usado o serviço naquele período.",
-        "Presentes — se a pessoa ainda não aceitou, quem pede é quem enviou; depois de aceito, quem pede é quem recebeu, e o dinheiro volta para quem pagou.",
+        "Presentes — se a pessoa ainda não aceitou, quem pede é quem enviou; depois de aceito, quem recebeu precisa autorizar o reembolso primeiro, e aí quem enviou faz o pedido. O dinheiro volta para quem pagou.",
         "Hardware como o Steam Deck — é produto físico e segue uma política de devolução completamente separada."
       ]
     },
@@ -140,7 +141,7 @@ export default {
         "Pedir reembolso muitas vezes me prejudica? — Dentro do uso normal, não. Mas terminar jogos e devolvê-los repetidamente pode acabar restringindo seus reembolsos.",
         "Se eu devolver um jogo comprado em promoção, quanto recebo? — Exatamente o que você pagou, não o preço de tabela.",
         "Posso comprar de novo depois de devolver? — Pode. Só lembre que, se a promoção acabou nesse meio-tempo, você paga o preço da hora.",
-        "Presente pode ser reembolsado? — Pode. Se já está na biblioteca de quem recebeu, é essa pessoa que solicita, e o dinheiro volta para quem pagou."
+        "Presente pode ser reembolsado? — Pode. Se já está na biblioteca de quem recebeu, essa pessoa precisa autorizar o reembolso primeiro, e depois quem enviou faz o pedido. O dinheiro volta para quem pagou."
       ]
     },
     {

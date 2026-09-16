@@ -3,6 +3,7 @@ export default {
   "title": "Reembolsos de Steam: cuántas horas tienes y todas las excepciones a la regla de las 2 horas",
   "description": "Puedes devolver un juego de Steam sin dar explicaciones si lo has jugado menos de 2 horas y lo compraste hace menos de 14 días. Aquí tienes qué pasa cuando superas cualquiera de los dos límites, los plazos distintos de reservas, DLC, compras dentro del juego, saldo del monedero y suscripciones, lo que nunca se devuelve, y cuánto tarda en volver el dinero.",
   "date": "2026-08-29",
+  "updated": "2026-09-16",
   "tags": ["Steam", "reembolsos", "política de reembolso", "guía de compra"],
   "readMins": 9,
   "body": [
@@ -82,7 +83,7 @@ export default {
         "Recargas del monedero de Steam — dentro de 14 días, y solo si no has gastado ni un céntimo de ese saldo. En cuanto gastas algo, la recarga ya no se puede revertir.",
         "Packs y bundles — se suma el tiempo jugado de todos los juegos del pack y el total debe quedar por debajo de 2 horas, y ninguno de los artículos puede haberse transferido. Devolver solo una parte del pack normalmente no es posible.",
         "Suscripciones — dentro de las 48 horas del primer cobro, o de las 48 horas de una renovación automática, siempre que no hayas usado el servicio durante ese periodo de facturación.",
-        "Regalos — si la otra persona todavía no lo ha aceptado, lo solicita quien lo envió; una vez aceptado, lo solicita quien lo recibió, y el dinero vuelve a quien pagó.",
+        "Regalos — si la otra persona todavía no lo ha aceptado, lo solicita quien lo envió; una vez aceptado, quien lo recibió tiene que autorizar primero el reembolso y después lo solicita quien lo envió. El dinero vuelve a quien pagó.",
         "Hardware como una Steam Deck — es un producto físico y se rige por una política de devoluciones completamente distinta."
       ]
     },
@@ -140,7 +141,7 @@ export default {
         "¿Pedir muchos reembolsos me perjudica? — Dentro de un uso normal, no. Pero terminarte juegos y devolverlos una y otra vez puede acabar con tus reembolsos restringidos.",
         "Si devuelvo un juego comprado en rebajas, ¿cuánto recupero? — Exactamente lo que pagaste, no el precio de catálogo.",
         "¿Puedo volver a comprarlo después de devolverlo? — Sí. Ten en cuenta que si la oferta ya terminó, pagarás lo que cueste en ese momento.",
-        "¿Se puede devolver un regalo? — Sí. Si ya está en la biblioteca de quien lo recibió, es esa persona quien lo solicita, y el dinero vuelve a quien pagó."
+        "¿Se puede devolver un regalo? — Sí. Si ya está en la biblioteca de quien lo recibió, esa persona tiene que autorizar primero el reembolso y después lo solicita quien lo envió. El dinero vuelve a quien pagó."
       ]
     },
     {

@@ -25,6 +25,7 @@ export const GUIDE_CATEGORIES = [
       "steam-family-sharing",
       "steam-remote-play-together",
       "steam-refund-policy",
+      "steam-gifts",
       "avoid-impulse-buys",
     ],
   },

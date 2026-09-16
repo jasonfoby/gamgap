@@ -36,6 +36,7 @@ const GUIDE_PATHS = [
   "/guide/steam-family-sharing",
   // 2026-09-16 증편
   "/guide/steam-remote-play-together",
+  "/guide/steam-gifts",
 ];
 
 export async function onRequest(context) {
