@@ -4,6 +4,7 @@
 // - navigate(to): 코드에서 경로를 바꿀 때.
 // - Link: 일반 <a>처럼 보이되 클릭 시 전체 새로고침 없이 이동하는 컴포넌트.
 import { useEffect, useState } from "react";
+import { splitLang, localize } from "./langPath";
 
 // 라우터 내부에서 쓰는 커스텀 이벤트 이름.
 // navigate()가 history.pushState로 주소만 바꾸면 popstate가 안 뜨므로,
@@ -11,15 +12,16 @@ import { useEffect, useState } from "react";
 const NAV_EVENT = "gamgap:navigate";
 
 // 현재 브라우저 경로(window.location.pathname, 예: "/guide")를 state로 구독한다.
+// 언어 접두어(/ko/ 등)는 떼고 돌려준다 — 화면 분기는 언어와 상관없이 같은 기본 경로로 한다(langPath.js).
 // - 뒤로/앞으로 가기(popstate)와 navigate()가 쏘는 NAV_EVENT 둘 다 듣는다.
 // - 반환값은 현재 pathname 문자열.
 export function useRoute() {
   const [path, setPath] = useState(
-    typeof window !== "undefined" ? window.location.pathname : "/"
+    typeof window !== "undefined" ? splitLang(window.location.pathname).base : "/"
   );
 
   useEffect(() => {
-    const onChange = () => setPath(window.location.pathname);
+    const onChange = () => setPath(splitLang(window.location.pathname).base);
     window.addEventListener("popstate", onChange);
     window.addEventListener(NAV_EVENT, onChange);
     return () => {
@@ -36,8 +38,9 @@ export function useRoute() {
 // - 그 외엔 pushState로 주소를 바꾸고 NAV_EVENT를 쏜 뒤 스크롤을 맨 위로 올린다.
 export function navigate(to) {
   if (typeof window === "undefined") return;
-  if (window.location.pathname === to) return;
-  window.history.pushState(null, "", to);
+  const target = localize(to); // 지금 보고 있는 언어판(/ko/ 등)을 유지
+  if (window.location.pathname + window.location.search === target || window.location.pathname === target) return;
+  window.history.pushState(null, "", target);
   window.dispatchEvent(new Event(NAV_EVENT));
   window.scrollTo(0, 0);
 }
@@ -66,7 +69,7 @@ export function Link({ to, children, className, onClick, ...rest }) {
   };
 
   return (
-    <a href={to} className={className} onClick={handleClick} {...rest}>
+    <a href={localize(to)} className={className} onClick={handleClick} {...rest}>
       {children}
     </a>
   );

@@ -1,5 +1,6 @@
 // Cloudflare Pages 함수: /sitemap.xml — 구글이 정적 페이지·가이드 글·개별 게임 페이지를
 // 모두 발견하도록, 고정 경로 + 가이드 글 + (현재가 있는) 모든 게임 페이지를 사이트맵으로 내보낸다.
+import { langPath, PREFIX_LANGS } from "./_shared/langPath.js";
 const API = "https://gamgap-api.ibanisac.workers.dev";
 
 // 고정 정적 경로(라우터에 등록된 페이지).
@@ -56,13 +57,16 @@ export async function onRequest(context) {
     /* 실패해도 정적 경로/가이드는 포함 */
   }
 
-  const locs = [
-    ...STATIC_PATHS.map((p) => `${origin}${p}`),
-    ...GUIDE_PATHS.map((p) => `${origin}${p}`),
+  const bases = [
+    ...STATIC_PATHS,
+    ...GUIDE_PATHS,
     // 현재가 있는 모든 게임 페이지를 색인 대상으로 내보낸다.
-    ...appids
-      .filter((id) => Number(id) > 0)
-      .map((id) => `${origin}/game/${id}`),
+    ...appids.filter((id) => Number(id) > 0).map((id) => `/game/${id}`),
+  ];
+  // 영어(접두어 없는 기존 주소) + 언어별 고정 주소(/ko/… 등, functions/_shared/langPath.js).
+  const locs = [
+    ...bases.map((p) => `${origin}${p}`),
+    ...PREFIX_LANGS.flatMap((l) => bases.map((p) => `${origin}${langPath(l, p)}`)),
   ];
   const body =
     `<?xml version="1.0" encoding="UTF-8"?>\n` +

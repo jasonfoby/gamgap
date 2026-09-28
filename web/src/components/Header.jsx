@@ -1,6 +1,7 @@
 import SearchBar from "./SearchBar";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { Link } from "../lib/router";
+import { localize } from "../lib/langPath";
 import { useT, tNodes } from "../lib/i18n";
 
 // 상단 바: 로고 + (데스크탑) 상주 검색 + 가이드 내비 + 언어 전환 + "오늘 N개 역대 최저가" 배지.
@@ -10,7 +11,7 @@ export default function Header({ lowCount, query, onQueryChange }) {
   return (
     <header>
       <div className="bar">
-        <a className="logo" href="/" aria-label={"Lowstamp " + t("nav.home")}>
+        <a className="logo" href={localize("/")} aria-label={"Lowstamp " + t("nav.home")}>
           <span className="dot" />
           Lowstamp
         </a>

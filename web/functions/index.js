@@ -7,6 +7,7 @@
 //     분리는 추후 언어별 URL(/en/ 등) + hreflang 단계에서 마무리.
 // (게임별 메타·OG는 functions/game/[appid].js, 백엔드는 건드리지 않음.)
 import { homeBody } from "./_shared/content.js";
+import { hreflangTags } from "./_shared/langPath.js";
 
 const SUPPORTED = ["ko", "en", "ja", "zh", "es", "pt"];
 const DEFAULT = "en"; // 글로벌 타깃 — 못 알아보는 언어는 영어로.
@@ -89,6 +90,7 @@ export async function onRequest(context) {
     .on('meta[name="twitter:description"]', { element(e) { e.setAttribute("content", m.d); } })
     .on('meta[name="twitter:image"]', { element(e) { e.setAttribute("content", img); } })
     .on("#root", { element(e) { e.setInnerContent(wrapped, { html: true }); } })
+    .on("head", { element(e) { e.append(hreflangTags("/"), { html: true }); } })
     .transform(shell);
 
   // 언어별로 응답이 달라지므로 한 언어로 캐시가 굳지 않게.

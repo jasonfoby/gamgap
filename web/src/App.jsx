@@ -13,6 +13,7 @@ import { activeFilterChips, clearedOpts } from "./lib/filterUi";
 import { useWishlistState, WishlistProvider } from "./lib/wishlist";
 import { resetHead } from "./lib/head";
 import { navigate } from "./lib/router";
+import { localize } from "./lib/langPath";
 import { track } from "./lib/analytics";
 import { useT } from "./lib/i18n";
 import { regionForLang } from "./lib/region";
@@ -377,7 +378,7 @@ function HomeGuides() {
         <h2>{t("home.guidesTitle")}</h2>
         <a
           className="hg-all"
-          href="/guide"
+          href={localize("/guide")}
           onClick={(e) => {
             e.preventDefault();
             navigate("/guide");

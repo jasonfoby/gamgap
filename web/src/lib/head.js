@@ -1,5 +1,6 @@
 import { money } from "./format";
 import { translate, getCurrentLang } from "../i18n";
+import { localize } from "./langPath";
 
 // 문서의 제목·메타·구조화데이터를 화면 상태(+현재 언어)에 맞춰 갱신한다.
 // - 브라우저 탭 제목, 구글(JS 실행함) 색인, SPA 내 공유 미리보기에 반영.
@@ -48,12 +49,12 @@ export function resetHead() {
   set('meta[name="description"]', "content", desc);
   set('meta[property="og:title"]', "content", title);
   set('meta[property="og:description"]', "content", desc);
-  set('meta[property="og:url"]', "content", location.origin + "/");
+  set('meta[property="og:url"]', "content", location.origin + localize("/"));
   set('meta[property="og:image"]', "content", "");
   set('meta[name="twitter:title"]', "content", title);
   set('meta[name="twitter:description"]', "content", desc);
   set('meta[name="twitter:image"]', "content", "");
-  setCanonical(location.origin + "/");
+  setCanonical(location.origin + localize("/"));
   setRobots(false);
   removeJsonLd();
 }
@@ -76,7 +77,7 @@ export function setGameHead(game) {
   else if (rt > 0) fact = ` ${translate(L, "info.reviewCount", { n: rt.toLocaleString() })}.`;
   const desc = translate(L, "meta.gameDesc", { name: game.name, cur, sale, atl }) + fact;
   const img = steamHeader(game.appid);
-  const url = `${location.origin}/game/${game.appid}`;
+  const url = location.origin + localize(`/game/${game.appid}`);
 
   document.title = title;
   set('meta[name="description"]', "content", desc);
@@ -140,7 +141,7 @@ export function setPageHead({ title, description, path, type } = {}) {
   const hasBrand = typeof title === "string" && title.includes("Lowstamp");
   const docTitle = title ? (hasBrand ? title : `${title} · Lowstamp`) : def;
   const desc = description || translate(L, "meta.defaultDesc");
-  const url = location.origin + (path || "/");
+  const url = location.origin + localize(path || "/");
 
   document.title = docTitle;
   set('meta[name="description"]', "content", desc);

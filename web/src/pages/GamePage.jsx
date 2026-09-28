@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import PageShell from "../components/PageShell";
+import { localize } from "../lib/langPath";
 import Cover from "../components/Cover";
 import Stamp from "../components/Stamp";
 import StarButton from "../components/StarButton";
@@ -56,7 +57,7 @@ export default function GamePage({ appid }) {
 
   const copyLink = async () => {
     try {
-      await navigator.clipboard.writeText(window.location.origin + "/game/" + appid);
+      await navigator.clipboard.writeText(window.location.origin + localize("/game/" + appid));
       setCopied(true);
       setTimeout(() => setCopied(false), 1500);
     } catch {
@@ -360,7 +361,7 @@ function GameDetail({ g, copied, onCopy, t, cc }) {
 
 // 공유 버튼들 — 네이티브 공유(navigator.share, 지원 기기만) + X·레딧 공유 인텐트 링크.
 function ShareButtons({ g, t }) {
-  const url = (typeof window !== "undefined" ? window.location.origin : "https://lowstamp.com") + "/game/" + g.appid;
+  const url = (typeof window !== "undefined" ? window.location.origin : "https://lowstamp.com") + localize("/game/" + g.appid);
   const title = g.name;
   const canNative = typeof navigator !== "undefined" && !!navigator.share;
 

@@ -1,9 +1,11 @@
 // Cloudflare Pages 함수 공용 헬퍼: 콘텐츠 페이지(/guide, /guide/:slug, /privacy, /terms, /about,
 // /contact)에 (1) 자기 자신을 가리키는 canonical 과 (2) 실제 제목·설명·첫 문단을 서버에서 주입한다.
 // 정적 index.html 의 canonical 은 홈을 가리켜 색인 위험이 있고, JS 미실행 봇에는 빈 본문이 나가므로
-// 그 둘을 바로잡는다. 본문 텍스트는 src/content 의 언어별 모듈을 그대로 import 해서 쓴다(빌드에 번들됨).
+// 그 둘을 바로잡는다. 본문 텍스트는 src/content 의 언어별 모듈을 그대로
+// import 해서 쓴다(빌드에 번들됨).
 // (가격/판정 로직과는 무관 — 메타·SSR 텍스트 주입만.)
 
+import { hreflangTags } from "./langPath.js";
 import PAGE_ko_about from "../../src/content/pages/ko/about.js";
 import PAGE_ko_privacy from "../../src/content/pages/ko/privacy.js";
 import PAGE_ko_terms from "../../src/content/pages/ko/terms.js";
@@ -584,6 +586,8 @@ export function renderContent(shell, { lang, pathname, mod, fallbackTitle, bodyH
     const wrapped =
       `<noscript><main style="max-width:760px;margin:0 auto;padding:24px;font-family:sans-serif;line-height:1.6">${inner}</main></noscript>`;
     rw = rw.on("#root", { element(e) { e.setInnerContent(wrapped, { html: true }); } });
+    // 언어판 안내(hreflang) — 본문이 있는(=실제로 있는) 페이지에만 단다. 자세한 이유는 langPath.js.
+    rw = rw.on("head", { element(e) { e.append(hreflangTags(pathname), { html: true }); } });
   }
 
   // 구조화 데이터(가이드 등). 값 안의 '<' 를 < 로 바꿔 </script> 로 태그가 끊기는 일을 막는다.

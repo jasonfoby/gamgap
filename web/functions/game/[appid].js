@@ -6,6 +6,7 @@
 // 클라이언트 GamePage 와 같은 분석 문단(역대 최저가 격차·추적 기간 통계)을 봇 본문에도 넣기 위해
 // i18n 사전의 gp.prose* 키를 재사용한다(순수 JS라 함수 런타임에서 안전).
 import { translate } from "../../src/i18n/index.js";
+import { hreflangTags } from "../_shared/langPath.js";
 const API = "https://gamgap-api.ibanisac.workers.dev";
 
 const SUPPORTED = ["ko", "en", "ja", "zh", "es", "pt"];
@@ -350,6 +351,7 @@ export async function onRequest(context) {
     .on("head", {
       element(e) {
         if (thin) e.append(`<meta name="robots" content="noindex,follow">`, { html: true });
+        else e.append(hreflangTags(`/game/${game.appid}`), { html: true }); // 언어판 안내(langPath.js)
         e.append(`<script type="application/ld+json">${esc(jsonld).replace(/&quot;/g, '"')}</script>`, { html: true });
       },
     })

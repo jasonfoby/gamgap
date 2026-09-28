@@ -1,6 +1,6 @@
 export default {
   "slug": "steam-sale-calendar",
-  "title": "When Is the Next Steam Sale? Valve's Confirmed Dates Through Summer 2027",
+  "title": "Steam Sale Dates 2026: Autumn Sale Starts October 1, Plus Every Confirmed Sale Through 2027",
   "description": "The next Steam sale is the Autumn Sale, starting October 1, 2026. Valve's officially announced dates through summer 2027, why the Autumn Sale moved from late November to early October, how Next Fest and themed sales differ from real discounts, and how to decide whether to buy now or wait.",
   "date": "2026-08-29",
   "tags": ["Steam sales", "sale dates", "discounts", "buying guide"],

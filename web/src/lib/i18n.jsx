@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState, Fragment } from "react";
 import { dicts, SUPPORTED, DEFAULT_LANG, SOURCE_LANG, setCurrentLang } from "../i18n";
 import { setFormatLang } from "./format";
+import { urlLang, splitLang, langPath } from "./langPath";
 
 // 의존성 없는 초경량 다국어(i18n) 엔진.
 // - LanguageProvider: 현재 언어 상태를 들고 localStorage·<html lang>에 반영.
@@ -11,8 +12,10 @@ const codes = SUPPORTED.map((l) => l.code);
 
 const LangContext = createContext({ lang: DEFAULT_LANG, setLang: () => {}, t: (k) => k });
 
-// 첫 진입 언어: 저장값 우선 → 브라우저 언어 매핑 → 기본(en).
+// 첫 진입 언어: 주소의 언어(/ko/ 등) → 저장값 → 브라우저 언어 매핑 → 기본(en).
 function detectInitial() {
+  const fixed = urlLang();
+  if (fixed) return fixed;
   try {
     const saved = localStorage.getItem(KEY);
     if (saved && codes.includes(saved)) return saved;
@@ -43,7 +46,13 @@ export function LanguageProvider({ children }) {
   }, [lang]);
 
   const setLang = (l) => {
-    if (codes.includes(l)) setLangState(l);
+    if (!codes.includes(l)) return;
+    setLangState(l);
+    // 언어 고정 주소(/ko/…)에서 언어를 바꾸면 주소도 그 언어판으로 옮긴다(영어는 접두어 없는 주소).
+    if (typeof window !== "undefined" && urlLang()) {
+      const { base } = splitLang(window.location.pathname);
+      window.history.replaceState(null, "", langPath(l, base) + window.location.search + window.location.hash);
+    }
   };
 
   const t = (key, vars) => {

@@ -83,7 +83,7 @@ Vite + React 18(순수 JS/JSX). **추가 런타임 의존성 없음** — 차트
 - [ ] 네이버/커뮤니티 채널(아카라이브·펨코·루리웹·레딧 등)에 주간 "오늘의 역대최저가" → 백링크·직접 방문.
 - [ ] 공식 리셀러 제휴(어필리에이트) 링크 — 광고 외 둘째 수익원.
 - [ ] 가격 알림(목표가/할인율 도달 시) — 재방문 장치.
-- [ ] 언어별 URL(`/en/` 등) + `hreflang` — 언어별 색인(현재는 단일 URL).
+- [x] 언어별 URL + `hreflang` (2026-09-28). 영어 = 접두어 없는 기존 주소, 나머지 = `/ko/`·`/ja/`·`/zh/`·`/es/`·`/pt/` 고정 주소. 아래 주의사항 참고.
 - [ ] 가이드 글 주기적 추가(현재 24편, 2026-09-16 `steam-remote-play-together`·`steam-gifts` 추가 — 주 1편 안팎 목표. 통과·유지·트래픽에 가장 효과적).
 
 **참고**: 자세한 성장·수익 전략 메모는 공개 저장소에 두지 않는다(작업 환경 메모에서 관리).
@@ -109,4 +109,6 @@ Vite + React 18(순수 JS/JSX). **추가 런타임 의존성 없음** — 차트
 - **가이드 본문 블록**: `p`·`h2`·`ul`·`ol`·`quote`·`note`에 더해 `table`(caption·head·rows)과 `faq`(title·items[{q,a}]), `cta`(text·label·to — 사이트 안 경로로 가는 글 흐름 속 버튼), `sale-reminder`(다음 확정 세일 + 캘린더 알림 추가 버튼, 화면 전용이라 봇용 본문엔 안 그림)가 있다. `faq` 블록은 화면 표시와 봇용 FAQPage 구조화 데이터(`functions/_shared/content.js`의 `guideJsonLd`)를 **같은 데이터에서** 만든다 — 질문을 스키마에만 따로 넣지 말 것(구글 요구: 화면에 보이는 질문만 허용).
 - **세일 날짜는 세 군데가 같아야 한다**: `src/lib/saleCalendar.js`의 `CONFIRMED`, 세일 일정 가이드(`steam-sale-calendar`) 본문·표·자주 묻는 질문의 날짜. 밸브가 새 일정을 발표하면 셋을 함께 고칠 것. 세일 알림 달력 파일(`src/lib/saleIcs.js`)은 `CONFIRMED`에서 바로 만들어지므로 따로 손댈 필요 없다.
 - **가족 공유 가이드는 2024년 이후 "스팀 가족(Steam Families)" 기준**이다(최대 6명, 게임 한 카피당 한 명, 나가면 1년 제한). "주인이 게임을 켜면 빌린 사람이 쫓겨난다"는 옛 설명으로 되돌리지 말 것. 2026-09-15 공식 FAQ 기준으로 **6개 언어 모두** 고쳤다(일·중·스·포는 영어판과 블록 구성이 같고, 공식 기능 이름은 스팀 고객지원 각 언어 페이지 제목 기준: Steamファミリー · Steam 家庭 · grupos familiares de Steam · Famílias Steam).
+- **언어별 주소(2026-09-28)**: 검색 로봇은 언어 표시 없이 와서 영어판만 저장하던 문제(빙 노출 1,500·클릭 0) 때문에 도입. 서버는 `functions/<lang>/[[path]].js` → `functions/_shared/langRoute.js`가 접두어를 떼고 기존 함수를 그 언어로 불러 canonical·og:url·본문 링크만 `/ko/…`로 고친다. 모든 실제 페이지 head 에 `hreflang`(`_shared/langPath.js`의 `hreflangTags`)이 붙고, 사이트맵도 언어별 주소를 함께 낸다. 브라우저는 `src/lib/langPath.js` — `useRoute()`는 접두어 뗀 기본 경로를 돌려주고, `Link`·`navigate()`·canonical 은 지금 주소의 접두어를 유지한다. **새 라우트를 만들면 `langRoute.js`의 `route()`에도 추가**하고, 사이트 안 링크를 `<a href="/…">`로 직접 쓸 땐 `localize()`로 감쌀 것.
+- **세일 일정 가이드 제목에 날짜가 들어 있다**(2026-09-28, "가을 세일 10월 2일 시작"). 세일이 끝나면 다음 세일로 제목을 바꿀 것 — 세일 날짜 세 군데 동기화 규칙에 제목도 포함.
 - **새 가이드 글 추가 시**: ① `src/content/guides/ko/<slug>.js`에 원본 작성 → ② 각 언어 폴더(`en/ja/zh/es/pt`)에도 번역본을 같은 파일명으로 추가(없으면 영어→한국어 폴백되긴 함) → ③ `functions/sitemap.xml.js`의 `GUIDE_PATHS` 배열 갱신 → ④ **`functions/_shared/content.js`의 `import`와 `GUIDES` 표에 6개 언어 모두 등록**(이게 봇 SSR 본문 주입용 — 빠지면 그 글은 검색 로봇에 제목·본문 없이 빈 껍데기로 나가 색인이 안 됨). ③④ 모두 함수 런타임은 `import.meta.glob` 불가라 하드코딩이 필수. (가이드의 목적이 검색 유입이므로 ④를 빠뜨리지 말 것.)

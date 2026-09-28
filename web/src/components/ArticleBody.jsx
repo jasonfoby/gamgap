@@ -1,6 +1,7 @@
 import "./ArticleBody.css";
 import SaleReminder from "./SaleReminder";
 import { navigate } from "../lib/router";
+import { localize } from "../lib/langPath";
 import { track } from "../lib/analytics";
 
 // 글 본문 렌더러. 콘텐츠 데이터의 '블록 배열'을 받아 HTML로 그린다.
@@ -105,7 +106,7 @@ export default function ArticleBody({ blocks }) {
                 {b.text && <p className="ab-cta-text">{b.text}</p>}
                 <a
                   className="ab-cta-btn"
-                  href={b.to}
+                  href={localize(b.to)}
                   onClick={(e) => {
                     e.preventDefault();
                     track("guide_cta_click", { to: b.to });
