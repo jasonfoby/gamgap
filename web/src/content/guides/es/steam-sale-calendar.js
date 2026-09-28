@@ -1,6 +1,6 @@
 export default {
   "slug": "steam-sale-calendar",
-  "title": "¿Cuándo son las próximas rebajas de Steam? Fechas oficiales de Valve hasta el verano de 2027",
+  "title": "¿Cuándo son las rebajas de Steam? Rebajas de Otoño 2026 desde el 1 de octubre y próximas fechas",
   "description": "Las próximas rebajas de Steam son las de Otoño, que empiezan el 1 de octubre de 2026. Aquí tienes las fechas oficiales anunciadas por Valve con la hora española, por qué las rebajas de Otoño pasaron de finales de noviembre a principios de octubre, en qué se diferencian el Next Fest y los festivales temáticos, y cómo decidir si comprar ahora o esperar.",
   "date": "2026-08-29",
   "tags": ["rebajas de Steam", "fechas de rebajas", "descuentos", "guía de compra"],

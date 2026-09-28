@@ -1,6 +1,6 @@
 export default {
   "slug": "steam-sale-calendar",
-  "title": "Quando é a próxima promoção da Steam? Datas oficiais da Valve até o verão de 2027",
+  "title": "Promoção de Outono da Steam 2026 começa em 1º de outubro: datas das próximas promoções",
   "description": "A próxima promoção da Steam é a de Outono, que começa em 1º de outubro de 2026. Reunimos as datas oficiais anunciadas pela Valve no horário de Brasília, explicamos por que a promoção de Outono saiu do fim de novembro para o começo de outubro, qual a diferença entre o Next Fest e os festivais temáticos, e como decidir entre comprar agora ou esperar.",
   "date": "2026-08-29",
   "tags": ["promoções da Steam", "datas de promoção", "descontos", "guia de compras"],
