@@ -17,6 +17,8 @@ HOST = "lowstamp.com"
 SITE = "https://" + HOST
 KEY = "315725e33ea95956107968f9ce2ba373"
 ENDPOINT = "https://api.indexnow.org/indexnow"
+# 파이썬 기본 이름(Python-urllib)은 Cloudflare 가 막는다(403) — 이름표를 달아 보낸다.
+UA = {"User-Agent": "LowstampIndexNow/1.0 (+https://lowstamp.com)"}
 PREFIX_LANGS = ["ko", "ja", "zh", "es", "pt"]  # 영어는 접두어 없는 기존 주소(functions/_shared/langPath.js 와 같게)
 
 
@@ -52,7 +54,7 @@ def changed_urls(before, after):
 
 
 def sitemap_urls():
-    with urllib.request.urlopen(SITE + "/sitemap.xml", timeout=30) as r:
+    with urllib.request.urlopen(urllib.request.Request(SITE + "/sitemap.xml", headers=UA), timeout=30) as r:
         return re.findall(r"<loc>([^<]+)</loc>", r.read().decode("utf-8"))
 
 
@@ -64,7 +66,7 @@ def submit(urls):
     for i in range(0, len(urls), 10000):  # 한 번에 1만 개까지
         chunk = urls[i:i + 10000]
         body = json.dumps({"host": HOST, "key": KEY, "keyLocation": f"{SITE}/{KEY}.txt", "urlList": chunk}).encode("utf-8")
-        req = urllib.request.Request(ENDPOINT, data=body, headers={"Content-Type": "application/json; charset=utf-8"})
+        req = urllib.request.Request(ENDPOINT, data=body, headers={"Content-Type": "application/json; charset=utf-8", **UA})
         try:
             with urllib.request.urlopen(req, timeout=30) as r:
                 print(f"IndexNow {r.status}: {len(chunk)}개 알림")
