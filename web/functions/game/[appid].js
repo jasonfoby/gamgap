@@ -7,6 +7,7 @@
 // i18n 사전의 gp.prose* 키를 재사용한다(순수 JS라 함수 런타임에서 안전).
 import { translate } from "../../src/i18n/index.js";
 import { hreflangTags } from "../_shared/langPath.js";
+import { RESTRICT_GAME_INDEXING, INDEXABLE_LANGS, isIndexableGame } from "../../src/lib/indexableGames.js";
 const API = "https://gamgap-api.ibanisac.workers.dev";
 
 const SUPPORTED = ["ko", "en", "ja", "zh", "es", "pt"];
@@ -255,6 +256,10 @@ export async function onRequest(context) {
   // 콘텐츠' 대응 — 얕은 양산형·비주류 페이지를 색인에서 제외). 그 아래 게임은 페이지는 정상(200)으로
   // 보여주되 robots noindex 를 덧붙인다. ⚠ 워커 INDEX_MIN_REVIEWS(=2000)·/api/appids 와 반드시 같게 유지.
   const thin = !(Number(game.reviewTotal) >= 2000 || Number(game.metacritic) > 0);
+  // 애드센스 3차 심사 기간 한정(src/lib/indexableGames.js): 인기 목록 게임의 영어·한국어판만 색인한다.
+  // 나머지(다른 게임·일중스포 게임 페이지)는 화면은 그대로 두고 noindex 만 붙인다.
+  const restricted = RESTRICT_GAME_INDEXING && !isIndexableGame(game.appid, lang);
+  const noindex = thin || restricted;
 
   const onSale = Number(game.discountPercent) > 0;
   const cur = fmt(game.currentPrice);
@@ -350,8 +355,9 @@ export async function onRequest(context) {
     .on("#root", { element(e) { e.setInnerContent(`<noscript>${bodyHtml}</noscript>`, { html: true }); } })
     .on("head", {
       element(e) {
-        if (thin) e.append(`<meta name="robots" content="noindex,follow">`, { html: true });
-        else e.append(hreflangTags(`/game/${game.appid}`), { html: true }); // 언어판 안내(langPath.js)
+        if (noindex) e.append(`<meta name="robots" content="noindex,follow">`, { html: true });
+        // 언어판 안내(langPath.js). 제한 중에는 색인하는 영어·한국어판만 짝지어 알린다.
+        else e.append(hreflangTags(`/game/${game.appid}`, RESTRICT_GAME_INDEXING ? INDEXABLE_LANGS : undefined), { html: true });
         e.append(`<script type="application/ld+json">${esc(jsonld).replace(/&quot;/g, '"')}</script>`, { html: true });
       },
     })

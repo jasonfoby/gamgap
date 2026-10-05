@@ -1,6 +1,7 @@
 import { money } from "./format";
 import { translate, getCurrentLang } from "../i18n";
 import { localize } from "./langPath";
+import { RESTRICT_GAME_INDEXING, isIndexableGame } from "./indexableGames";
 
 // 문서의 제목·메타·구조화데이터를 화면 상태(+현재 언어)에 맞춰 갱신한다.
 // - 브라우저 탭 제목, 구글(JS 실행함) 색인, SPA 내 공유 미리보기에 반영.
@@ -93,9 +94,11 @@ export function setGameHead(game) {
   // 애드센스 '가치 낮은 콘텐츠' 2차 반려 대응 — 얕은 양산형·비주류 페이지를 대량 noindex해 사이트
   // 평균 품질을 올린다. ⚠ 워커 INDEX_MIN_REVIEWS(=2000)·/api/appids·functions noindex 와 같게 유지.
   const INDEX_MIN_REVIEWS = 2000;
-  const indexable =
+  let indexable =
     Number(game.currentPrice) > 0 &&
     (Number(game.reviewTotal) >= INDEX_MIN_REVIEWS || Number(game.metacritic) > 0);
+  // 애드센스 3차 심사 기간 한정(src/lib/indexableGames.js): 인기 목록 게임의 영어·한국어판만 색인.
+  if (RESTRICT_GAME_INDEXING && !isIndexableGame(game.appid, L)) indexable = false;
   setRobots(!indexable);
   setJsonLd(game, img, game.currency || "KRW");
 }

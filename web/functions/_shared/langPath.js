@@ -19,8 +19,9 @@ export function langPath(lang, base) {
 }
 
 // 기본 경로(접두어 없는 경로)에 대한 hreflang 링크 묶음.
-export function hreflangTags(base) {
-  const langs = ["en", ...PREFIX_LANGS];
+// only 를 주면 그 언어판만 안내한다(예: 게임 페이지는 색인하는 영어·한국어만).
+export function hreflangTags(base, only) {
+  const langs = ["en", ...PREFIX_LANGS].filter((l) => !only || only.includes(l));
   return (
     langs.map((l) => `<link rel="alternate" hreflang="${HREFLANG[l]}" href="${SITE}${langPath(l, base)}">`).join("") +
     `<link rel="alternate" hreflang="x-default" href="${SITE}${base}">`
