@@ -7,6 +7,7 @@
 // i18n 사전의 gp.prose* 키를 재사용한다(순수 JS라 함수 런타임에서 안전).
 import { translate } from "../../src/i18n/index.js";
 import { hreflangTags } from "../_shared/langPath.js";
+import { cachedApiJson } from "../_shared/apiCache.js";
 import { RESTRICT_GAME_INDEXING, INDEXABLE_LANGS, isIndexableGame } from "../../src/lib/indexableGames.js";
 const API = "https://gamgap-api.ibanisac.workers.dev";
 
@@ -234,8 +235,8 @@ export async function onRequest(context) {
   let game = null;
   try {
     const ccQuery = region.cc ? `?cc=${encodeURIComponent(region.cc)}` : "";
-    const r = await fetch(`${API}/api/game/${encodeURIComponent(appid)}${ccQuery}`);
-    if (r.ok) game = await r.json();
+    // 같은 게임 페이지를 로봇이 반복 요청해도 워커를 매번 부르지 않게 15분 캐시(_shared/apiCache.js).
+    game = await cachedApiJson(`${API}/api/game/${encodeURIComponent(appid)}${ccQuery}`, 900, context);
   } catch {
     /* 실패 시 아래 not-found 경로로 떨어짐 */
   }

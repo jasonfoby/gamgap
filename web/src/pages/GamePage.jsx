@@ -20,6 +20,7 @@ import { gameGenres } from "../lib/dealSort";
 import { genreKey } from "../lib/genres";
 import { reviewKey } from "../lib/reviews";
 import { seriesBase, seriesKey } from "../lib/series";
+import { isCrawler } from "../lib/crawler";
 import { SUPPORTED } from "../i18n";
 import "./GamePage.css";
 
@@ -108,6 +109,7 @@ function useSeriesSiblings(g, cc) {
     const base = seriesBase(g.name);
     const key = seriesKey(g);
     if (!base || !key) return;
+    if (isCrawler()) return; // 로봇은 이 칸을 건너뛴다(무거운 검색 — src/lib/crawler.js 참고)
     searchGames(base, cc)
       .then((rows) => {
         if (!alive || !Array.isArray(rows)) return;
@@ -123,12 +125,29 @@ function useSeriesSiblings(g, cc) {
   return items;
 }
 
+// '지금 할인 중' 목록(60개)은 게임 페이지마다 똑같다 — 한 번 받은 것을 10분간 재사용해서,
+// 게임을 여러 개 넘겨 볼 때 데이터베이스를 매번 훑지 않게 한다.
+const DEALS_TTL_MS = 10 * 60 * 1000;
+const dealsShared = new Map(); // 지역코드 → { t: 받은 시각, p: 요청 약속 }
+function getDealsShared(cc) {
+  const key = cc || "kr";
+  const hit = dealsShared.get(key);
+  if (hit && Date.now() - hit.t < DEALS_TTL_MS) return hit.p;
+  const p = getDeals(60, cc).catch((e) => {
+    dealsShared.delete(key); // 실패는 보관하지 않는다
+    throw e;
+  });
+  dealsShared.set(key, { t: Date.now(), p });
+  return p;
+}
+
 function useRelated(g, cc) {
   const [related, setRelated] = useState([]);
   useEffect(() => {
     let alive = true;
     setRelated([]);
-    getDeals(60, cc)
+    if (isCrawler()) return; // 로봇은 이 칸을 건너뛴다(무거운 목록 — src/lib/crawler.js 참고)
+    getDealsShared(cc)
       .then((rows) => {
         if (!alive || !Array.isArray(rows)) return;
         const myGenres = new Set(gameGenres(g));

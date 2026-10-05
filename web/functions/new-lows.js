@@ -6,6 +6,7 @@
 // JS를 안 돌리는 검색 로봇도 제목·설명글·실제 목록을 그대로 보게 되어 빈 껍데기로 나가지 않는다.
 import { pickLang as pickLangShared, renderContent } from "./_shared/content.js";
 import { translate } from "../src/i18n/index.js";
+import { cachedApiJson } from "./_shared/apiCache.js";
 
 const API = "https://gamgap-api.ibanisac.workers.dev";
 
@@ -76,13 +77,13 @@ export async function onRequest(context) {
 
   // 목록을 못 받아도 페이지가 깨지지 않게: 실패하면 설명글만 있는 본문으로 나간다.
   const rows = [];
+  const cacheStats = { hit: 0, miss: 0 }; // 캐시에서 준 횟수·워커를 부른 횟수(응답 헤더 확인용)
   try {
     const ccQuery = region.cc ? `&cc=${encodeURIComponent(region.cc)}` : "";
     const seen = new Set();
     for (let i = 0; i < FETCH_PAGES; i++) {
-      const r = await fetch(`${API}/api/lowest-today?limit=${PAGE}&offset=${i * PAGE}${ccQuery}`);
-      if (!r.ok) break;
-      const data = await r.json();
+      // 같은 목록을 로봇이 계속 요청해도 데이터베이스를 반복해서 훑지 않게 1시간 캐시(_shared/apiCache.js).
+      const data = await cachedApiJson(`${API}/api/lowest-today?limit=${PAGE}&offset=${i * PAGE}${ccQuery}`, 3600, context, cacheStats);
       if (!Array.isArray(data) || data.length === 0) break;
       let added = 0;
       for (const g of data) {
@@ -145,6 +146,7 @@ export async function onRequest(context) {
 
   const out = new Response(res.body, res);
   out.headers.set("Vary", "Accept-Language");
+  out.headers.set("X-Api-Cache", `hit=${cacheStats.hit} miss=${cacheStats.miss}`); // 확인용: miss 가 0 이면 데이터베이스를 안 건드림
   // 목록이 하루 한 번 바뀌므로 짧게 캐시해 봇 재방문 때 워커를 매번 때리지 않게 한다.
   out.headers.set("Cache-Control", "public, max-age=600, must-revalidate");
   return out;
