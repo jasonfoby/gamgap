@@ -6,6 +6,7 @@
 // (가격/판정 로직과는 무관 — 메타·SSR 텍스트 주입만.)
 
 import { hreflangTags } from "./langPath.js";
+import { RESTRICT_PAGE_LANG_INDEXING, INDEXABLE_PAGE_LANGS } from "../../src/lib/indexableGames.js";
 import PAGE_ko_about from "../../src/content/pages/ko/about.js";
 import PAGE_ko_privacy from "../../src/content/pages/ko/privacy.js";
 import PAGE_ko_terms from "../../src/content/pages/ko/terms.js";
@@ -442,6 +443,13 @@ function renderBody(mod) {
           );
         case "cta":
           return (b.text ? `<p>${esc(b.text)}</p>` : "") + `<p><a href="${esc(b.to).replace(/"/g, "&quot;")}">${esc(b.label)}</a></p>`;
+        case "sources":
+          return (
+            (b.title ? `<h2>${esc(b.title)}</h2>` : "") +
+            `<ul>${(b.items || [])
+              .map((it) => `<li><a href="${esc(it.url)}" rel="noopener noreferrer">${esc(it.label)}</a>${it.note ? " " + esc(it.note) : ""}</li>`)
+              .join("")}</ul>`
+          );
         case "sale-reminder": return ""; // 달력 버튼은 화면 전용 — 로봇에게 줄 글이 없다
         default: return `<p>${esc(b.text)}</p>`; // p, note → 문단
       }
@@ -459,10 +467,16 @@ function renderBody(mod) {
 export function guideJsonLd(lang, slug, mod) {
   if (!mod || !mod.title) return [];
   const url = `${SITE}/guide/${slug}`;
+  // 글 끝 '출처' 블록의 공식 문서 링크 → Article 의 citation (화면에 보이는 출처와 같은 데이터)
+  const cites = (Array.isArray(mod.body) ? mod.body : [])
+    .filter((b) => b && b.type === "sources")
+    .flatMap((b) => b.items || [])
+    .filter((it) => it && it.url && it.label);
   const out = [
     {
       "@context": "https://schema.org",
       "@type": "Article",
+      ...(cites.length ? { citation: cites.map((it) => ({ "@type": "CreativeWork", name: it.label, url: it.url })) } : {}),
       headline: mod.title,
       ...(mod.description ? { description: mod.description } : {}),
       inLanguage: lang,
@@ -587,7 +601,7 @@ export function renderContent(shell, { lang, pathname, mod, fallbackTitle, bodyH
       `<noscript><main style="max-width:760px;margin:0 auto;padding:24px;font-family:sans-serif;line-height:1.6">${inner}</main></noscript>`;
     rw = rw.on("#root", { element(e) { e.setInnerContent(wrapped, { html: true }); } });
     // 언어판 안내(hreflang) — 본문이 있는(=실제로 있는) 페이지에만 단다. 자세한 이유는 langPath.js.
-    rw = rw.on("head", { element(e) { e.append(hreflangTags(pathname), { html: true }); } });
+    rw = rw.on("head", { element(e) { e.append(hreflangTags(pathname, RESTRICT_PAGE_LANG_INDEXING ? INDEXABLE_PAGE_LANGS : undefined), { html: true }); } });
   }
 
   // 구조화 데이터(가이드 등). 값 안의 '<' 를 < 로 바꿔 </script> 로 태그가 끊기는 일을 막는다.

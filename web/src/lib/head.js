@@ -1,7 +1,7 @@
 import { money } from "./format";
 import { translate, getCurrentLang } from "../i18n";
-import { localize } from "./langPath";
-import { RESTRICT_GAME_INDEXING, isIndexableGame } from "./indexableGames";
+import { localize, urlLang } from "./langPath";
+import { RESTRICT_GAME_INDEXING, isIndexableGame, isIndexablePageLang } from "./indexableGames";
 
 // 문서의 제목·메타·구조화데이터를 화면 상태(+현재 언어)에 맞춰 갱신한다.
 // - 브라우저 탭 제목, 구글(JS 실행함) 색인, SPA 내 공유 미리보기에 반영.
@@ -38,6 +38,13 @@ function setRobots(noindex) {
   }
 }
 
+// 번역이 덜 다듬어진 언어판 주소(/ja/ 등)는 noindex 를 유지한다(서버가 넣은 것을 화면 이동 때 지우지 않게).
+// 접두어 없는 주소(영어 정본)는 방문자 언어가 일본어여도 대상이 아니다. 규칙은 src/lib/indexableGames.js.
+function pageLangNoindex() {
+  const ul = urlLang();
+  return !!ul && !isIndexablePageLang(ul);
+}
+
 function steamHeader(appid) {
   return `https://cdn.cloudflare.steamstatic.com/steam/apps/${appid}/header.jpg`;
 }
@@ -56,7 +63,7 @@ export function resetHead() {
   set('meta[name="twitter:description"]', "content", desc);
   set('meta[name="twitter:image"]', "content", "");
   setCanonical(location.origin + localize("/"));
-  setRobots(false);
+  setRobots(pageLangNoindex());
   removeJsonLd();
 }
 
@@ -155,7 +162,7 @@ export function setPageHead({ title, description, path, type } = {}) {
   set('meta[name="twitter:description"]', "content", desc);
   if (type) set('meta[property="og:type"]', "content", type);
   setCanonical(url);
-  setRobots(false);
+  setRobots(pageLangNoindex());
 
   // 콘텐츠 페이지엔 상품용 구조화데이터가 남아 있으면 안 되므로 정리.
   removeJsonLd();

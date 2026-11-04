@@ -185,3 +185,33 @@
 .ab-cta-btn:hover {
   background: #2c3d52;
 }
+
+/* ===== 출처 목록(sources) =====
+   글이 기대는 공식 문서 링크와 '언제 확인했나'. 본문보다 한 단계 조용하게, 그러나 눈에 띄게. */
+.ab-sources {
+  margin: 1.2em 0 0;
+}
+.ab-sources-list {
+  margin: 0;
+  padding-left: 1.3em;
+  list-style: disc;
+}
+.ab-sources-list li {
+  margin: 0 0 0.7em;
+  font-size: 14.5px;
+  line-height: 1.55;
+}
+.ab-sources-list li::marker {
+  color: var(--mute);
+}
+.ab-sources-list a {
+  color: var(--ink-txt);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.ab-sources-note {
+  display: block;
+  font-size: 13px;
+  color: var(--mute);
+}

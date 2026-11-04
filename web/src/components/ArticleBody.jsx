@@ -19,6 +19,8 @@ import { track } from "../lib/analytics";
 //   { type:"cta", text, label, to:"/?tab=deals" } → 글 흐름 안의 행동 버튼(사이트 안 경로만). 배너가 아니라
 //                                             글을 읽다 자연스럽게 가격 확인으로 넘어가게 하는 다리.
 //   { type:"sale-reminder" }                → 다음 확정 세일 + 캘린더 알림 추가 버튼(봇용 본문에는 안 그림)
+//   { type:"sources", title, items:[{label,url,note}] } → 출처 목록(공식 문서 링크 + 확인한 날). 글 끝에 두면
+//                                             글이 무엇에 기대는지 독자와 검색 로봇이 함께 읽는다.
 // props: { blocks: Array<블록> }  (없거나 비면 아무 것도 안 그림)
 export default function ArticleBody({ blocks }) {
   if (!Array.isArray(blocks) || blocks.length === 0) return null;
@@ -58,7 +60,7 @@ export default function ArticleBody({ blocks }) {
             );
           case "table":
             return (
-              <div key={i} className="ab-table-wrap">
+              <div key={i} className="ab-table-wrap" role="region" tabIndex={0} aria-label={b.caption || undefined}>
                 <table className="ab-table">
                   {b.caption && <caption>{b.caption}</caption>}
                   <thead>
@@ -116,6 +118,22 @@ export default function ArticleBody({ blocks }) {
                   {b.label}
                 </a>
               </div>
+            );
+          case "sources":
+            return (
+              <section key={i} className="ab-sources">
+                {b.title && <h2 className="ab-h2">{b.title}</h2>}
+                <ul className="ab-sources-list">
+                  {(b.items || []).map((it, j) => (
+                    <li key={j}>
+                      <a href={it.url} target="_blank" rel="noopener noreferrer">
+                        {it.label}
+                      </a>
+                      {it.note && <span className="ab-sources-note">{it.note}</span>}
+                    </li>
+                  ))}
+                </ul>
+              </section>
             );
           case "sale-reminder":
             return <SaleReminder key={i} />;

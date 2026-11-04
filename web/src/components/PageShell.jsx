@@ -23,7 +23,7 @@ export default function PageShell({ children, wide = false, loading = false }) {
             <Link to="/guide" className="ps-nav-link">
               {t("nav.guide")}
             </Link>
-            <Link to="/" className="ps-nav-link">
+            <Link to="/" className="ps-nav-link ps-nav-home">
               {t("nav.home")}
             </Link>
             <LanguageSwitcher className="ps-lang" />

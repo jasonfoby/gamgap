@@ -6,6 +6,7 @@
 // /ko/… 로 고치고, 봇용 본문 속 사이트 안 링크도 /ko/… 로 바꿔 로봇이 한국어판끼리 따라가게 한다.
 // (기존 함수의 로직은 손대지 않는다 — 같은 화면을 주소만 다르게 내보내는 얇은 층.)
 import { SITE, langPath } from "./langPath.js";
+import { isIndexablePageLang } from "../../src/lib/indexableGames.js";
 import * as home from "../index.js";
 import * as guideIndex from "../guide/index.js";
 import * as guideSlug from "../guide/[slug].js";
@@ -69,6 +70,13 @@ export function langHandler(lang) {
       .replace(/(<meta property="og:url" content=")[^"]*"/, `$1${self}"`)
       // 구조화 데이터 속 '이 페이지 주소'만 바꾼다(hreflang 링크의 영어판 주소는 그대로 둬야 함).
       .replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g, (blk) => blk.split(`"${oldSelf}"`).join(`"${self}"`));
+
+    // 번역이 덜 다듬어진 언어판(일·중·스·포)은 검색에서 뺀다(src/lib/indexableGames.js). 이 핸들러는 접두어가 있는
+    // 주소만 맡으므로 영어 정본(접두어 없는 주소)에는 영향이 없다. hreflang 도 같이 뺀다(noindex 페이지는 안내 불필요).
+    if (!isIndexablePageLang(lang)) {
+      if (!/<meta name="robots"/.test(html)) html = html.replace("</head>", `<meta name="robots" content="noindex,follow"></head>`);
+      html = html.replace(/<link rel="alternate" hreflang="[^"]*" href="[^"]*">/g, "");
+    }
 
     // 봇용 본문(#root 안) 속 사이트 안 링크를 같은 언어판으로.
     const i = html.indexOf('<div id="root">');

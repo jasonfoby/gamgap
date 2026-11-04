@@ -7,7 +7,7 @@
 // 규칙(서버: functions/game/[appid].js·functions/sitemap.xml.js, 브라우저: src/lib/head.js 가 같이 쓴다)
 //   · 목록(indexableGamesList.js)에 있는 게임 + 언어가 영어·한국어일 때만 색인·사이트맵에 올린다.
 //   · 나머지 게임·언어(일·중·스·포 게임 페이지)는 화면은 그대로 보여주되 robots noindex 를 붙이고 사이트맵에서 뺀다.
-//   · 가이드·홈·소개 등 글 페이지는 6개 언어 모두 그대로 색인한다.
+//   · 가이드·홈·소개 등 글 페이지는 2026-11-05 부터 영어·한국어만 색인한다(맨 아래 PAGE_LANG 규칙).
 //   · 스팀이 성적 내용 표시를 붙인 게임은 목록에서 이미 빠져 있다(scripts/build_indexable_games.py).
 //
 // 해제(승인 뒤 다시 넓힐 때): RESTRICT_GAME_INDEXING 을 false 로 바꾸고 푸시하면 예전 규칙으로 돌아간다
@@ -30,4 +30,23 @@ export function isIndexableGame(appid, lang) {
 // 사이트맵에 올릴 게임 appid 목록(제한이 켜져 있을 때).
 export function indexableGameIds() {
   return INDEXABLE_GAME_IDS.slice();
+}
+
+// ───────────────────────── 글 페이지의 언어별 색인 범위 (2026-11-05 추가) ─────────────────────────
+// 왜: 일·중·스·포 번역판 가이드 19편은 6월 초벌 번역에 문구만 바꾼 상태라 원화 예시·낡은 날짜가 남아 있다
+//     (전문가 점검에서 확인). 구글은 6/19 이후 처음으로 사이트맵을 읽었고, 그 표본이 이 번역판 124개의 몫을 갖는다.
+//     클릭이 0 인 지금은 번역판을 검색에 내보내서 얻는 게 없고 첫인상만 깎으므로, 다듬을 때까지 뺀다.
+//     화면은 그대로 열린다(언어 전환기·직접 주소 모두 정상). 영어(접두어 없는 주소)·한국어(/ko/)만 색인한다.
+// 규칙(서버: functions/_shared/langRoute.js·content.js·index.js·sitemap.xml.js, 브라우저: src/lib/head.js):
+//   · /ja/ /zh/ /es/ /pt/ 주소에만 robots noindex,follow 를 붙인다. 접두어 없는 주소에는 절대 달지 않는다
+//     (방문자 언어로 일본어가 골라져도 영어 정본이 빠지면 안 된다).
+//   · 사이트맵·hreflang(언어판 안내)에서도 뺀다. robots.txt 로는 막지 않는다(막으면 noindex 를 읽지 못한다).
+// 해제: RESTRICT_PAGE_LANG_INDEXING 을 false 로 하면 6개 언어 모두 예전처럼. 언어를 하나씩 되살리려면
+//   INDEXABLE_PAGE_LANGS 에 추가(권장 순서: 에스파냐어 → 포르투갈어 → 일본어 → 중국어, 글을 다시 다듬은 뒤).
+export const RESTRICT_PAGE_LANG_INDEXING = true;
+export const INDEXABLE_PAGE_LANGS = ["en", "ko"];
+
+// 이 언어의 글 페이지를 검색에 내보내도 되는가.
+export function isIndexablePageLang(lang) {
+  return !RESTRICT_PAGE_LANG_INDEXING || INDEXABLE_PAGE_LANGS.includes(lang);
 }

@@ -78,3 +78,24 @@
 .page.page-wide {
   max-width: 1120px;
 }
+
+/* 좁은 폰(375px): 메뉴줄이 옆으로 넘치지 않게 — '홈' 링크(로고와 같은 곳)와 지구본 아이콘을 숨기고 간격을 줄인다.
+   (2026-11-05 전문가 점검: 375px 에서 가이드 글 페이지 가로 스크롤·'New lows' 두 줄 꺾임·언어 선택 잘림) */
+@media (max-width: 719px) {
+  .ps-bar {
+    gap: 10px;
+    padding: 0 14px;
+  }
+  .ps-nav {
+    gap: 12px;
+  }
+  .ps-nav-link {
+    white-space: nowrap;
+  }
+  .ps-nav-home {
+    display: none;
+  }
+  .ps-lang .langsw-ico {
+    display: none;
+  }
+}

@@ -393,7 +393,7 @@ function HomeGuides() {
             <a
               key={g.slug}
               className="hg-card"
-              href={"/guide/" + g.slug}
+              href={localize("/guide/" + g.slug)}
               onClick={(e) => {
                 e.preventDefault();
                 navigate("/guide/" + g.slug);

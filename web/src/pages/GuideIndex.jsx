@@ -33,11 +33,12 @@ export default function GuideIndex() {
   return (
     <PageShell loading={!guides}>
       <div className="guide-index">
-        <header className="gi-head">
+        {/* <header> 태그를 쓰면 전역 규칙(index.css 의 header{position:sticky})에 걸려 스크롤 내내 사이트 메뉴를 덮는다. */}
+        <div className="gi-head">
           <h1 className="gi-title">{t("guide.indexTitle")}</h1>
           <p className="gi-desc">{t("guide.indexDesc")}</p>
           <p className="gi-desc">{t("guide.indexDesc2")}</p>
-        </header>
+        </div>
 
         {guides === null ? (
           <p className="gi-empty">{t("common.loading")}</p>

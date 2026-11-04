@@ -37,6 +37,8 @@ header{position:sticky;top:0;z-index:40;background:rgba(18,26,36,.92);backdrop-f
 .searchbox .q{width:100%;border-radius:var(--r);border:1px solid var(--rule);background:var(--paper);color:var(--ink-txt);
   font-family:var(--kr);font-size:16px;padding:14px 40px 14px 42px;outline:none}
 .searchbox .q::placeholder{color:#93A3B3}
+/* 검색창은 outline:none 이라 전역 포커스 링이 지워진다 — 키보드로 들어왔을 때만 금색 링을 되살린다(WCAG 2.4.7). */
+.searchbox .q:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 .searchbox.sb-bar .q{font-size:14.5px;padding:9px 38px 9px 40px;box-shadow:none}
 .searchbox.sb-bar .s-ico{left:12px}
 .clear{position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:0;color:var(--mute);padding:6px;cursor:pointer;display:flex}
@@ -402,3 +404,13 @@ input[type=range]{flex:1;accent-color:#7E97AC;min-width:110px}
 }
 /* 큰 도장(게임 페이지 머리)은 조각도 조금 넉넉하게 */
 .stamp.on-paper.big::before{inset:-9px -13px}
+
+/* ===== 좁은 폰(375px)에서 상단 바가 옆으로 넘치지 않게 =====
+   '오늘 N개' 배지는 숨기고(숫자는 불러온 카드 수라 정확하지도 않다), 간격·지구본 아이콘을 줄인다.
+   (2026-11-05 전문가 점검: 375px 에서 바 폭 533px → 가로 스크롤·언어 선택 잘림) */
+@media(max-width:719px){
+  .bar{gap:10px;padding:0 14px}
+  .bar .badge{display:none}
+  .bar-nav{gap:12px}
+  .bar .langsw-ico{display:none}
+}

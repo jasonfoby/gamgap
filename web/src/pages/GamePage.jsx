@@ -425,7 +425,7 @@ function SeriesList({ items, t }) {
           <a
             key={x.appid}
             className="gp-series-item"
-            href={"/game/" + x.appid}
+            href={localize("/game/" + x.appid)}
             onClick={(e) => {
               e.preventDefault();
               navigate("/game/" + x.appid);

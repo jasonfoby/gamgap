@@ -19,7 +19,9 @@ KEY = "315725e33ea95956107968f9ce2ba373"
 ENDPOINT = "https://api.indexnow.org/indexnow"
 # 파이썬 기본 이름(Python-urllib)은 Cloudflare 가 막는다(403) — 이름표를 달아 보낸다.
 UA = {"User-Agent": "LowstampIndexNow/1.0 (+https://lowstamp.com)"}
-PREFIX_LANGS = ["ko", "ja", "zh", "es", "pt"]  # 영어는 접두어 없는 기존 주소(functions/_shared/langPath.js 와 같게)
+# 색인하는 언어판만 알린다: 영어는 접두어 없는 기존 주소, 한국어는 /ko/. ja·zh·es·pt 는 2026-11-05 부터 noindex 라 뺐다
+# (web/src/lib/indexableGames.js 의 INDEXABLE_PAGE_LANGS 와 같게 유지 — 언어를 되살리면 여기도 추가).
+PREFIX_LANGS = ["ko"]
 
 
 def variants(base):

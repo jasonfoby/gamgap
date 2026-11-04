@@ -9,7 +9,7 @@ export default {
 
   "nav.home": "Inicio",
   "nav.guide": "Guías",
-  "nav.lows": "Nuevos mínimos",
+  "nav.lows": "Mínimos",
 
   "header.badge": "{n} mínimos registrados hoy",
   "header.badgeTitle": "Juegos que han tocado un nuevo mínimo registrado hoy",

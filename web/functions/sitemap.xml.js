@@ -1,7 +1,10 @@
 // Cloudflare Pages 함수: /sitemap.xml — 구글이 정적 페이지·가이드 글·개별 게임 페이지를
 // 모두 발견하도록, 고정 경로 + 가이드 글 + (현재가 있는) 모든 게임 페이지를 사이트맵으로 내보낸다.
 import { langPath, PREFIX_LANGS } from "./_shared/langPath.js";
-import { RESTRICT_GAME_INDEXING, INDEXABLE_LANGS, indexableGameIds } from "../src/lib/indexableGames.js";
+import { RESTRICT_GAME_INDEXING, INDEXABLE_LANGS, indexableGameIds, isIndexablePageLang } from "../src/lib/indexableGames.js";
+
+// 글·정적 페이지를 사이트맵에 올릴 접두어 언어(영어는 접두어 없는 주소라 따로). 일·중·스·포는 2026-11-05 부터 뺐다.
+const PAGE_PREFIX_LANGS = PREFIX_LANGS.filter(isIndexablePageLang);
 const API = "https://gamgap-api.ibanisac.workers.dev";
 
 // 고정 정적 경로(라우터에 등록된 페이지).
@@ -47,13 +50,13 @@ export async function onRequest(context) {
 
   let locs;
   if (RESTRICT_GAME_INDEXING) {
-    // 애드센스 3차 심사 기간 한정(src/lib/indexableGames.js): 글 페이지는 6개 언어 전부, 게임 가격 페이지는
-    // 인기 목록의 영어·한국어판만 올린다. API 를 부르지 않으므로 D1 읽기도 0 이다.
+    // 애드센스 3차 심사 기간 한정(src/lib/indexableGames.js): 글 페이지·게임 가격 페이지 모두 영어·한국어판만 올린다
+    // (게임은 인기 목록의 것만). API 를 부르지 않으므로 D1 읽기도 0 이다.
     const pages = [...STATIC_PATHS, ...GUIDE_PATHS];
     const games = indexableGameIds().map((id) => `/game/${id}`);
     locs = [
       ...pages.map((p) => `${origin}${p}`),
-      ...PREFIX_LANGS.flatMap((l) => pages.map((p) => `${origin}${langPath(l, p)}`)),
+      ...PAGE_PREFIX_LANGS.flatMap((l) => pages.map((p) => `${origin}${langPath(l, p)}`)),
       ...INDEXABLE_LANGS.flatMap((l) => games.map((p) => `${origin}${langPath(l, p)}`)),
     ];
   } else {
@@ -79,7 +82,7 @@ export async function onRequest(context) {
     // 영어(접두어 없는 기존 주소) + 언어별 고정 주소(/ko/… 등, functions/_shared/langPath.js).
     locs = [
       ...bases.map((p) => `${origin}${p}`),
-      ...PREFIX_LANGS.flatMap((l) => bases.map((p) => `${origin}${langPath(l, p)}`)),
+      ...PAGE_PREFIX_LANGS.flatMap((l) => bases.map((p) => `${origin}${langPath(l, p)}`)),
     ];
   }
   const body =
