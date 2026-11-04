@@ -199,6 +199,27 @@ export default {
       "text": "다른 사이트에서 '스팀 선물'을 싸게 사는 건 조심하는 게 좋아요. 선물을 산 결제가 사기나 결제 분쟁으로 환불되면, 그 게임은 받은 사람의 라이브러리에서 제거되거든요. 스팀은 스팀 밖에서 선물을 파는 걸 지원하지 않는다고 밝히고 있어서, 돈은 판매자에게 돌려달라고 해야 하고 선물을 받으려고 거래로 내준 아이템도 돌려주지 않아요. 계정이 제한되지는 않지만, 그 게임을 다시 하려면 직접 사거나 다른 선물을 받아야 해요."
     },
     {
+      "type": "sources",
+      "title": "출처와 확인한 날",
+      "items": [
+        {
+          "label": "스팀 고객지원: Steam 선물(Steam Gifts)",
+          "url": "https://help.steampowered.com/en/faqs/view/2C02-3563-B72F-F117",
+          "note": "선물 보내는 순서, 예약 발송, 수락·거절, 선물 환불. 2026년 9월 16일 확인."
+        },
+        {
+          "label": "스팀: 환불 정책(Steam Refund Policy)",
+          "url": "https://store.steampowered.com/steam_refunds/",
+          "note": "선물 환불 조건. 2026년 11월 5일 다시 읽음."
+        },
+        {
+          "label": "스팀 고객지원: 취소된 선물(Revoked Gifts)",
+          "url": "https://help.steampowered.com/en/faqs/view/558E-7FF0-1C5C-D1EE",
+          "note": "결제 사기·분쟁으로 환불되면 선물이 회수되는 경우. 2026년 9월 16일 확인."
+        }
+      ]
+    },
+    {
       "type": "faq",
       "title": "스팀 선물 자주 묻는 질문",
       "items": [

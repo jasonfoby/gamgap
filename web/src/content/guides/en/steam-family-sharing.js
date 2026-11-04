@@ -28,7 +28,7 @@ export default {
     },
     {
       "type": "note",
-      "text": "In March 2024, Steam replaced the old Family Sharing and Family View with Steam Families. You'll still find explanations online saying the borrower gets kicked off whenever the owner launches a game. That was the old system and isn't how it works now. This guide follows Steam Support's official FAQ, checked in September 2026."
+      "text": "Steam Families replaced the old Family Sharing and Family View. It started as a beta in March 2024 and opened to everyone in September 2024. You'll still find explanations online saying the borrower gets kicked off whenever the owner launches a game. That was the old system and isn't how it works now. This guide follows Steam Support's official FAQ, checked in September 2026."
     },
     {
       "type": "table",
@@ -156,6 +156,22 @@ export default {
       "text": "Planning to buy a game the family will play together? See first whether it's actually cheap right now. Every discounted game is compared against its lowest tracked price in one line.",
       "label": "See games on sale now",
       "to": "/?tab=deals"
+    },
+    {
+      "type": "sources",
+      "title": "Sources and when they were checked",
+      "items": [
+        {
+          "label": "Steam Support: Steam Families (official FAQ)",
+          "url": "https://help.steampowered.com/en/faqs/view/054C-3167-DD7F-49D4",
+          "note": "Family size, sharing rules, the one-year limit after leaving. Checked September 15, 2026."
+        },
+        {
+          "label": "The Sixth Axis: Valve's Steam Families overhaul has launched out of beta",
+          "url": "https://www.thesixthaxis.com/2024/09/12/valves-steam-families-overhaul-has-launched-out-of-beta/",
+          "note": "News report on the September 2024 launch out of beta."
+        }
+      ]
     },
     {
       "type": "faq",

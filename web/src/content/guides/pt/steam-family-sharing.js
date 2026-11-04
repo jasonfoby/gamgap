@@ -25,7 +25,7 @@ export default {
     },
     {
       "type": "note",
-      "text": "Em março de 2024, a Steam trocou o antigo Compartilhamento Familiar e o Modo Família pelas Famílias Steam. Ainda circula por aí a explicação de que, quando o dono abre um jogo, quem pegou emprestado fica sem poder jogar. Isso era o sistema antigo e não funciona mais assim. Este guia segue as perguntas frequentes oficiais do suporte da Steam, conferidas em setembro de 2026."
+      "text": "As Famílias Steam substituem o antigo Compartilhamento Familiar e o Modo Família. Começaram como beta em março de 2024 e foram abertas a todos os usuários em setembro de 2024. Ainda circula por aí a explicação de que, quando o dono abre um jogo, quem pegou emprestado fica sem poder jogar. Isso era o sistema antigo e não funciona mais assim. Este guia segue as perguntas frequentes oficiais do suporte da Steam, conferidas em setembro de 2026."
     },
     {
       "type": "table",

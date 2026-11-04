@@ -25,7 +25,7 @@ export default {
     },
     {
       "type": "note",
-      "text": "En marzo de 2024, Steam sustituyó el antiguo Préstamo familiar y el Modo familiar por los grupos familiares de Steam. Por internet todavía circula la explicación de que, cuando el dueño abre un juego, la persona que lo tiene prestado ya no puede jugar. Eso era el sistema antiguo y ya no funciona así. Esta guía sigue las preguntas frecuentes oficiales del soporte de Steam, consultadas en septiembre de 2026."
+      "text": "Los grupos familiares de Steam sustituyen al antiguo Préstamo familiar y al Modo familiar. Empezaron como beta en marzo de 2024 y se abrieron a todos los usuarios en septiembre de 2024. Por internet todavía circula la explicación de que, cuando el dueño abre un juego, la persona que lo tiene prestado ya no puede jugar. Eso era el sistema antiguo y ya no funciona así. Esta guía sigue las preguntas frecuentes oficiales del soporte de Steam, consultadas en septiembre de 2026."
     },
     {
       "type": "table",

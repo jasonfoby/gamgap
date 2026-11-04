@@ -8,7 +8,7 @@ export default {
   "body": [
     {
       "type": "p",
-      "text": "A game on your wishlist goes 50% off and it feels like the moment. Sometimes it is. Just as often the list price was set high so the badge would look big, or the same game drops further two months later. After a few years of buying this way, I've found there are really only seven things that reliably get you a lower price. None of them are clever. They're habits."
+      "text": "A game on your wishlist goes 50% off and it feels like the moment. Sometimes it is. Just as often the list price was set high so the badge would look big, or the same game drops further two months later. There are really only seven things that reliably get you a lower price. None of them are clever. They're habits."
     },
     { "type": "h2", "text": "1. Judge by the lowest price we've tracked, not the percentage" },
     {
@@ -22,7 +22,7 @@ export default {
     { "type": "h2", "text": "2. Wishlist it and let the alert come to you" },
     {
       "type": "p",
-      "text": "Add anything you're even slightly interested in to your Steam wishlist, whether or not you plan to buy. When a wishlisted game goes on sale, Steam emails you and the app pings you. You stop checking prices and let the store tell you. The alert fires for any discount, even a small one, so when it comes in, check the price against the tracked low before you act on it. Star the same games on Lowstamp and you can check the whole list in one look."
+      "text": "Add anything you're even slightly interested in to your Steam wishlist, whether or not you plan to buy. When a wishlisted game goes on sale, Steam emails you and the app pings you. You stop checking prices and let the store tell you. The alert only fires for discounts of 20% or more, so a small discount won't ping you, and when one does come in, check the price against the tracked low before you act on it. Star the same games on Lowstamp and you can check the whole list in one look."
     },
     { "type": "h2", "text": "3. Buy during the big sales" },
     {

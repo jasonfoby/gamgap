@@ -83,7 +83,7 @@ export default {
     { "type": "h2", "text": "Steam Black Friday 2026: what we know so far" },
     {
       "type": "p",
-      "text": "Steam ran its first-ever Black Friday sale in 2025, from late November through December 1, a few weeks after the Autumn Sale had moved to early October. Valve's calendar for 2026 says Black Friday discounts are coming again, with the dates still to be announced. As of November 5, 2026, the Steamworks schedule I check doesn't list dates for it."
+      "text": "Steam ran its first-ever Black Friday sale in 2025, from late November through December 1, a few weeks after the Autumn Sale had moved to early October. Valve's calendar for 2026 says Black Friday discounts are coming again, with the dates still to be announced. As of November 5, 2026, the Steamworks schedule doesn't list dates for it."
     },
     {
       "type": "p",
@@ -198,7 +198,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "I check Valve's official event schedule for developers myself and update this page whenever new dates are announced. The last check was on November 5, 2026. In the end there's only one thing to memorize: know roughly when the next big sale is, but when you're actually staring at the buy button, look at the game's price history rather than the calendar. That single habit does more than anything else to stop you overpaying."
+      "text": "This page is updated whenever Valve announces new dates. The last check against Valve's official event schedule for developers was on November 5, 2026. In the end there's only one thing to memorize: know roughly when the next big sale is, but when you're actually staring at the buy button, look at the game's price history rather than the calendar. That single habit does more than anything else to stop you overpaying."
     },
     {
       "type": "sources",

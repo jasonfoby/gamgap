@@ -8,7 +8,7 @@ export default {
   "body": [
     {
       "type": "p",
-      "text": "You pick a game, open the store page, and it's not just the base game. There's DLC, a season pass, a deluxe edition, a whole pile of extras. What do you actually need for the full experience, and are you throwing money away if you grab it all? I've bought DLC I never installed more than once. Here's the order that fixed it."
+      "text": "You pick a game, open the store page, and it's not just the base game. There's DLC, a season pass, a deluxe edition, a whole pile of extras. What do you actually need for the full experience, and are you throwing money away if you grab it all? It's easy to buy DLC you never end up installing. Here's the order that fixed it."
     },
     { "type": "h2", "text": "What DLC and season passes are" },
     {

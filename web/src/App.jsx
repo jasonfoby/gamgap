@@ -335,7 +335,7 @@ const FEATURED_GUIDES = [
   "how-to-buy-cheap",
   "when-to-buy-or-wait",
   "avoid-fake-discounts",
-  "dlc-season-pass-guide",
+  "steam-family-sharing",
   "reviews-metacritic-guide",
   "steam-refund-policy",
 ];

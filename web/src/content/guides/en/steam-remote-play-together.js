@@ -174,6 +174,27 @@ export default {
       "to": "/?tab=deals"
     },
     {
+      "type": "sources",
+      "title": "Sources and when they were checked",
+      "items": [
+        {
+          "label": "Steam Support: Steam Remote Play",
+          "url": "https://help.steampowered.com/en/faqs/view/0689-74B8-92AC-10F2",
+          "note": "Invite steps, recommended setup, controller limits. Checked September 16, 2026."
+        },
+        {
+          "label": "Steam Store: Remote Play",
+          "url": "https://store.steampowered.com/remoteplay",
+          "note": "Only one player needs to own the game, and which devices can join. Checked September 16, 2026."
+        },
+        {
+          "label": "Valve Steamworks: Remote Play",
+          "url": "https://partner.steamgames.com/doc/features/remoteplay",
+          "note": "Which games support it and whether developers can turn it off. Checked September 16, 2026."
+        }
+      ]
+    },
+    {
       "type": "faq",
       "title": "Remote Play Together questions",
       "items": [

@@ -3,17 +3,17 @@ export default {
   "title": "Steam Refunds: How Many Hours You Get, and Every Exception to the 2-Hour Rule",
   "description": "You can refund a Steam game for any reason if you've played it under 2 hours and bought it within 14 days. What happens past either limit, the separate clocks for pre-orders, DLC, in-game items, Wallet funds and subscriptions, what can never be refunded, and how long the money takes.",
   "date": "2026-08-29",
-  "updated": "2026-09-16",
+  "updated": "2026-11-05",
   "tags": ["Steam", "refunds", "refund policy", "buying guide"],
   "readMins": 9,
   "body": [
     {
       "type": "p",
-      "text": "The short answer first: you can refund a game on Steam for any reason at all, as long as you've played it for less than 2 hours and it's been no more than 14 days since you paid. You don't need a good excuse. 'I didn't enjoy it' works, and so does leaving the reason blank. Meet both conditions and the request goes through more or less automatically."
+      "text": "The short answer first: you can refund a game on Steam for any reason at all, as long as you've played it for less than 2 hours and it's been no more than 14 days since you paid. You don't need a good excuse. 'I didn't enjoy it' works, and so does leaving the reason blank. Meet both conditions and Steam's own page says you can ask for a refund for any reason."
     },
     {
       "type": "note",
-      "text": "Everything here comes from Steam's official refund policy, but Valve can change that policy whenever it likes, and it did change one part of it in 2024. Before you actually file a request, glance at the current wording on Steam's refund page."
+      "text": "The rules and numbers here come from Steam's refund page, which currently says it was last updated on 23 April 2024. We re-read it on November 5, 2026. The request steps come from Steam Support's purchase screens, and anything called a tip is our own advice, not Steam's wording. Valve can change the policy whenever it likes, so glance at the current wording before you file a request."
     },
     {
       "type": "table",
@@ -65,6 +65,11 @@ export default {
           "Not used during that billing period"
         ],
         [
+          "Video content (movies, shows)",
+          "Not refundable",
+          "Unless it came bundled with refundable non-video content"
+        ],
+        [
           "VAC-banned game, free game, or key bought on another site",
           "Not refundable",
           "—"
@@ -74,14 +79,14 @@ export default {
     { "type": "h2", "text": "The two limits are AND, not OR" },
     {
       "type": "p",
-      "text": "This is where most people trip up. The 2 hours and the 14 days aren't alternatives. You need both. Bought it three days ago but put five hours in? You're outside the automatic window. Played it for only thirty minutes but bought it twenty days ago? Same story."
+      "text": "This is where most people trip up. The 2 hours and the 14 days aren't alternatives. You need both. Bought it three days ago but put five hours in? You're outside the standard window. Played it for only thirty minutes but bought it twenty days ago? Same story."
     },
     {
       "type": "ul",
       "items": [
         "Playtime: your total time in that game, added up, must be under 2 hours.",
         "Days since purchase: no more than 14 days since you paid.",
-        "Only when both are true is it the no-questions-asked automatic window."
+        "Only when both are true are you inside the standard window, where Steam says refunds are available for any reason."
       ]
     },
     {
@@ -91,15 +96,15 @@ export default {
     { "type": "h2", "text": "What if you're past 2 hours or past 14 days?" },
     {
       "type": "p",
-      "text": "It's not over. This is probably the single most useful thing to know here. The 2-hour and 14-day limits mark the window where approval is automatic. They're not a door that slams shut. You can still submit a request outside those limits, and a person at Steam will actually read it. Plenty of those get approved."
+      "text": "It's not over. This is probably the single most useful thing to know here. Steam's refund page says that even outside the rules it describes, you can ask for a refund anyway and Steam will take a look. It doesn't say how often those requests are approved, so treat it as a fair shot, not a promise."
     },
     {
       "type": "p",
-      "text": "Requests that tend to work are the ones with a situation behind them: the game won't launch or keeps crashing on your machine, it went on a deep discount days after you paid full price, you bought it and forgot about it entirely and only just noticed. What doesn't work is finishing a 100-hour game and then asking for your money back, and doing that repeatedly can get your refund privileges restricted altogether. So the honest summary is: it costs nothing to ask, but don't treat the policy as a free trial."
+      "text": "The requests worth sending are the ones with a real situation behind them: the game won't launch or keeps crashing on your machine, it went on a deep discount days after you paid full price, you bought it and forgot about it entirely and only just noticed. Finishing a 100-hour game and then asking for your money back isn't what the policy is for. Steam describes refunds as a way to remove the risk from buying on Steam, not a way to get free games, and says it may stop offering refunds to anyone who appears to be abusing them. So the honest summary is: it costs nothing to ask, but don't treat the policy as a free trial."
     },
     {
       "type": "quote",
-      "text": "The 2-hour and 14-day limits aren't a deadline. They're the window where approval is automatic. Past them, you can still ask."
+      "text": "The 2-hour and 14-day limits aren't a deadline. They're the standard window. Past them, you can still ask, and Steam will take a look."
     },
     { "type": "h2", "text": "Pre-orders and early access: the rules changed in 2024" },
     {
@@ -108,11 +113,11 @@ export default {
     },
     {
       "type": "p",
-      "text": "So the current picture looks like this. If you've paid but can't play anything yet, you can still cancel any time before release. But if early access is open and you've already been playing, crossing 2 hours takes you out of the automatic window. The one thing in your favor is that the 14-day clock doesn't start on your purchase date. It starts on the game's release date."
+      "text": "So the current picture looks like this. If you've paid but can't play anything yet, you can still cancel any time before release. But if early access is open and you've already been playing, crossing 2 hours takes you out of the standard window. The one thing in your favor is that the 14-day clock doesn't start on your purchase date. It starts on the game's release date."
     },
     {
       "type": "note",
-      "text": "Say a game lets you start three days before launch and you put five hours in. If you change your mind on release day, the automatic refund is gone. Under the old rules it would have been fine. Treat an early-access window as playing a game you've already committed to buying. One carve-out: time spent in a developer's closed beta test doesn't count toward the limit."
+      "text": "Say a game lets you start three days before launch and you put five hours in. If you change your mind on release day, you're outside the standard window. Under the old rules it would have been fine. Treat an early-access window as playing a game you've already committed to buying. One carve-out: time spent in a developer's closed beta test doesn't count toward the limit."
     },
     { "type": "h2", "text": "DLC, in-game purchases and Wallet funds run on different clocks" },
     {
@@ -128,7 +133,8 @@ export default {
         "Bundles: the playtime across every game in the bundle is added together and must total under 2 hours, and none of the items can have been transferred. Refunding just one piece of a bundle generally isn't possible.",
         "Subscriptions: within 48 hours of the first charge, or within 48 hours of an automatic renewal, provided you haven't used the service during that billing period.",
         "Gifts: if the recipient hasn't accepted it yet, the sender requests the refund. Once accepted, the recipient first agrees to the refund on Steam Support, then the sender requests it, and the money goes back to whoever paid.",
-        "Hardware like a Steam Deck: that's a physical product and falls under a separate return policy."
+        "Hardware like a Steam Deck: that's a physical product and falls under a separate return policy.",
+        "Video content on Steam: Steam says it can't offer refunds for it, unless it came bundled with refundable non-video content."
       ]
     },
     {
@@ -146,7 +152,7 @@ export default {
         "A game you've been VAC-banned in. A cheating ban on a title permanently removes your right to refund it.",
         "Free games and free weekend trials. You never paid, so there's nothing to return.",
         "Wallet money you've already spent, and items you've already consumed. These can't be put back.",
-        "Keys bought outside Steam. A code purchased on some other site and redeemed on Steam isn't Steam's to refund. You're left with that seller's own policy, which is one of the bigger reasons cheap key resellers aren't worth it."
+        "Anything bought outside Steam, such as third-party CD keys or wallet cards. A code purchased on some other site and redeemed on Steam isn't Steam's to refund. You're left with that seller's own policy, which is one of the bigger reasons cheap key resellers aren't worth it."
       ]
     },
     { "type": "h2", "text": "How to actually request one: about five minutes" },
@@ -160,13 +166,24 @@ export default {
         "Open Steam Support and sign in. In the Steam app you can get there from Help in the top menu.",
         "Go to your purchase history and pick the game. Your most recent purchases are listed first.",
         "Choose the option along the lines of 'I would like a refund.'",
-        "Pick a reason from the list. Choose whichever is closest. Inside the automatic window it makes no difference to the outcome.",
+        "Pick a reason from the list. Choose whichever is closest. Inside the standard window, Steam says any reason is fine.",
         "Choose how you want the money back and submit. You can have it returned to your original payment method, or added to your Steam Wallet."
       ]
     },
     {
       "type": "p",
-      "text": "Once approved, the full amount is processed within a week. Actually seeing it land on your card or in your bank can take a few more days on top of that, because your bank or payment provider has to process it too. If you want the money fast, taking it as Wallet credit is the quickest route. Just remember that money can then only be spent on Steam. If more than about ten days pass with nothing showing up, go back to Steam Support and ask."
+      "text": "Steam says it issues the full refund within a week of approval. Actually seeing it land on your card or in your bank can take a few more days on top of that, because your bank or payment provider has to process it too. Tip: Wallet credit doesn't depend on your bank, so it's usually the quickest way to have the money back, but it can then only be spent on Steam. If more than a week passes after approval with nothing showing up, check the refund email and your statement, then go back to Steam Support and ask."
+    },
+    {
+      "type": "sources",
+      "title": "Sources and when they were checked",
+      "items": [
+        {
+          "label": "Steam: Steam Refund Policy",
+          "url": "https://store.steampowered.com/steam_refunds/",
+          "note": "Eligibility, pre-orders, DLC, gifts, payout timing, abuse wording. The page says it was last updated on 23 April 2024. Re-read November 5, 2026."
+        }
+      ]
     },
     {
       "type": "faq",
@@ -174,27 +191,31 @@ export default {
       "items": [
         {
           "q": "How many hours can you play a Steam game and still get a refund?",
-          "a": "Under 2 hours of total playtime, and no more than 14 days since you bought it. Both have to be true for the refund to go through automatically."
+          "a": "Under 2 hours of total playtime, and no more than 14 days since you bought it. Both have to be true for the standard window to apply."
         },
         {
           "q": "Can you get a Steam refund after 2 hours?",
-          "a": "Not automatically, but you can still send a request and a person at Steam will review it. Explaining the situation helps, for example that the game keeps crashing on your PC. Going a minute over is worth asking about. Finishing a long game and then asking usually isn't approved."
+          "a": "Not under the standard rules, but Steam says you can ask anyway and it will take a look. It doesn't promise approval. Explaining the situation helps, for example that the game keeps crashing on your PC. Finishing a long game and then asking is the pattern the policy is meant to discourage."
         },
         {
           "q": "Can you get a Steam refund after 14 days?",
-          "a": "The same applies. You're outside the automatic window, but you can still request one, and it may be approved if there's a real reason, such as a game you bought and forgot about entirely."
+          "a": "The same applies. You're outside the standard window, but you can still ask and Steam will take a look. A real reason, such as a game you bought and forgot about entirely, is the kind of request worth sending."
         },
         {
           "q": "How long does a Steam refund take?",
-          "a": "Once approved, Steam processes the full amount within a week. Your bank or card provider can take a few more days to show it. Taking it as Steam Wallet credit is the fastest option. If nothing arrives after about ten days, contact Steam Support."
+          "a": "Steam says it issues the full refund within a week of approval. Your bank or card provider can take a few more days to show it, while Wallet credit doesn't depend on your bank. If nothing arrives a week after approval, check your email and statement, then contact Steam Support."
         },
         {
           "q": "Can you refund a pre-order on Steam?",
           "a": "Yes. If you can't play it yet, you can cancel any time before release. If the game lets you play before launch, that time counts toward the 2-hour limit, and the 14-day window starts on the release date rather than the purchase date."
         },
         {
-          "q": "Will refunding games often get your account restricted?",
-          "a": "Not with normal use. Repeatedly finishing games and then refunding them can get your refund privileges limited."
+          "q": "Can Steam stop me from requesting refunds?",
+          "a": "Yes, if it looks like you're abusing them. Steam says it may stop offering refunds to you. Normal use, like returning a game that didn't work out, is what the policy is for."
+        },
+        {
+          "q": "A game went on sale right after I bought it. Can I refund it and buy it again?",
+          "a": "Steam's refund page says it doesn't consider it abuse to request a refund on a title bought just before a sale and then immediately rebuy it at the sale price. The usual conditions still apply, so the 14 days and under 2 hours still have to hold for the first purchase. The page doesn't describe any price adjustment for the difference, so refund and rebuy is the route it mentions."
         },
         {
           "q": "How much do you get back when you refund a game bought on sale?",

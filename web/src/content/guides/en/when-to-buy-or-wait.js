@@ -8,7 +8,7 @@ export default {
   "body": [
     {
       "type": "p",
-      "text": "A game on your wishlist just went on sale and you're staring at the price. Buy it and watch it drop further next week, and it stings. Wait, and the sale ends and you're back to full price. I used to decide this on gut feeling. Now I run five questions in order, and by the fourth one the answer is usually obvious."
+      "text": "A game on your wishlist just went on sale and you're staring at the price. Buy it and watch it drop further next week, and it stings. Wait, and the sale ends and you're back to full price. Plenty of people decide this on gut feeling. Now I run five questions in order, and by the fourth one the answer is usually obvious."
     },
     { "type": "h2", "text": "1. How far is today's price from the lowest we've tracked?" },
     {

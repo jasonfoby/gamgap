@@ -22,6 +22,22 @@ import { track } from "../lib/analytics";
 //   { type:"sources", title, items:[{label,url,note}] } → 출처 목록(공식 문서 링크 + 확인한 날). 글 끝에 두면
 //                                             글이 무엇에 기대는지 독자와 검색 로봇이 함께 읽는다.
 // props: { blocks: Array<블록> }  (없거나 비면 아무 것도 안 그림)
+// 본문 문장 속 이메일 주소를 mailto 링크로 바꾼다(글자로만 적혀 있으면 눌러서 보낼 수 없다).
+const EMAIL_RE = /([A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,})/g;
+function linkify(text) {
+  const s = String(text == null ? "" : text);
+  if (!s.includes("@")) return s;
+  return s.split(EMAIL_RE).map((part, i) =>
+    i % 2 === 1 ? (
+      <a key={i} href={"mailto:" + part}>
+        {part}
+      </a>
+    ) : (
+      part
+    )
+  );
+}
+
 export default function ArticleBody({ blocks }) {
   if (!Array.isArray(blocks) || blocks.length === 0) return null;
 
@@ -40,7 +56,7 @@ export default function ArticleBody({ blocks }) {
             return (
               <ul key={i} className="ab-ul">
                 {(b.items || []).map((it, j) => (
-                  <li key={j}>{it}</li>
+                  <li key={j}>{linkify(it)}</li>
                 ))}
               </ul>
             );
@@ -48,7 +64,7 @@ export default function ArticleBody({ blocks }) {
             return (
               <ol key={i} className="ab-ol">
                 {(b.items || []).map((it, j) => (
-                  <li key={j}>{it}</li>
+                  <li key={j}>{linkify(it)}</li>
                 ))}
               </ol>
             );
@@ -78,10 +94,10 @@ export default function ArticleBody({ blocks }) {
                         {(r || []).map((c, k) =>
                           k === 0 ? (
                             <th key={k} scope="row">
-                              {c}
+                              {linkify(c)}
                             </th>
                           ) : (
-                            <td key={k}>{c}</td>
+                            <td key={k}>{linkify(c)}</td>
                           )
                         )}
                       </tr>
@@ -97,7 +113,7 @@ export default function ArticleBody({ blocks }) {
                 {(b.items || []).map((it, j) => (
                   <div key={j} className="ab-faq-item">
                     <h3 className="ab-faq-q">{it.q}</h3>
-                    <p className="ab-faq-a">{it.a}</p>
+                    <p className="ab-faq-a">{linkify(it.a)}</p>
                   </div>
                 ))}
               </section>
@@ -140,14 +156,14 @@ export default function ArticleBody({ blocks }) {
           case "note":
             return (
               <div key={i} className="ab-note">
-                {b.text}
+                {linkify(b.text)}
               </div>
             );
           case "p":
           default:
             return (
               <p key={i} className="ab-p">
-                {b.text}
+                {linkify(b.text)}
               </p>
             );
         }

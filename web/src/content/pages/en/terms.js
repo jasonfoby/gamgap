@@ -2,7 +2,7 @@ export default {
   "slug": "terms",
   "title": "Terms of Service",
   "description": "The conditions for using Lowstamp, a disclaimer about the accuracy of price information, and our intellectual property and liability terms.",
-  "updated": "2026-06-18",
+  "updated": "2026-11-05",
   "body": [
     {
       "type": "p",
@@ -29,7 +29,7 @@ export default {
     { "type": "h2", "text": "3. Intellectual Property" },
     {
       "type": "p",
-      "text": "Game titles, images, logos, and similar materials shown on the Site belong to their respective rights holders, including each game's developer or publisher and Valve Corporation. The Site merely references and cites these materials within the scope of providing price information, and claims no rights to them."
+      "text": "Game titles, images, logos, and similar materials shown on the Site belong to their respective rights holders, including each game's developer or publisher and Valve Corporation. The Site merely references and cites these materials within the scope of providing price information, and claims no rights to them. The Site is independent and is not affiliated with, sponsored by, or endorsed by Valve Corporation or Steam. Steam is a trademark of Valve Corporation."
     },
     {
       "type": "p",

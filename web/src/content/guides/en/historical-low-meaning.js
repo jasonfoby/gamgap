@@ -8,7 +8,7 @@ export default {
   "body": [
     {
       "type": "p",
-      "text": "I once bought a game with a -75% badge on it and watched the same game go cheaper two months later in the Winter Sale. That's when it clicked. The discount percentage only tells you how much came off that day's list price. It says nothing about whether the price is cheap for this game. The number that does say that is a different one: how low this game has gone before. Its tracked low."
+      "text": "It happens all the time: a game wears a -75% badge, and two months later it goes cheaper in the Winter Sale. That's when it clicked. The discount percentage only tells you how much came off that day's list price. It says nothing about whether the price is cheap for this game. The number that does say that is a different one: how low this game has gone before. Its tracked low."
     },
     { "type": "h2", "text": "What the tracked low is" },
     {
@@ -55,7 +55,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "If you buy and then feel you misjudged it, Steam refunds anything under 2 hours of playtime bought within the last 14 days. And I wouldn't chase a cheaper-looking copy on some key reseller. No refunds, plus a real chance of account trouble, and in my experience buying on Steam at the tracked low ends up cheapest anyway."
+      "text": "If you buy and then feel you misjudged it, Steam refunds anything under 2 hours of playtime bought within the last 14 days. And I wouldn't chase a cheaper-looking copy on some key reseller. No refunds, plus a real chance of account trouble, and buying on Steam at the tracked low usually ends up cheapest anyway."
     },
     { "type": "quote", "text": "Not the percentage. How close what you're paying is to the lowest this game has been." },
     {

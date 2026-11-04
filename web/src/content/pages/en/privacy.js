@@ -2,7 +2,7 @@ export default {
   "slug": "privacy",
   "title": "Privacy Policy",
   "description": "How Lowstamp uses information, cookies, and third-party advertising (Google AdSense), along with your rights and how to reach us about your data.",
-  "updated": "2026-09-12",
+  "updated": "2026-11-05",
   "body": [
     {
       "type": "p",
@@ -23,12 +23,14 @@ export default {
       "items": [
         "Access logs: records that are created automatically as you use the service, such as the time of access, the page requested, your browser type and version, operating system, and approximate location.",
         "IP address: may be collected automatically when you visit, to block abnormal access, maintain security, and compile traffic statistics.",
-        "Cookies and similar technologies: small text files stored in your browser to keep features working, measure visits (analytics), and deliver personalized ads."
+        "Cookies and similar technologies: small text files stored in your browser to keep features working, measure visits (analytics), and deliver personalized ads.",
+        "Game cover images: covers load straight from Steam's (Valve's) servers, so your IP address and browser details reach those servers when an image loads.",
+        "Search words and game numbers: the words you type in the search box and the game numbers on your wishlist are sent to our price server so it can look up prices. They aren't linked to an account or a name."
       ]
     },
     {
       "type": "note",
-      "text": "Games you save to your wishlist are stored only in your browser's localStorage and are never sent to or collected by our servers. Your wishlist stays on your own device and is removed if you clear your browser data."
+      "text": "The games on your wishlist, the language you choose, and your cookie choice are stored only in your browser's localStorage, and we don't keep them anywhere else. To show current prices on your wishlist, each game's number is sent to our price server, and it isn't linked to an account. Clearing your browser data removes these stored items."
     },
 
     { "type": "h2", "text": "2. How We Use Your Information" },
@@ -59,15 +61,15 @@ export default {
     { "type": "h2", "text": "4. Third-Party Advertising and Ad Cookies" },
     {
       "type": "p",
-      "text": "The Site displays third-party ads, including Google AdSense. Third-party vendors, including Google, may use cookies to serve personalized ads based on your browsing history."
+      "text": "The Site doesn't show ads right now. We may show third-party ads, such as Google AdSense, in the future. If we do, third-party vendors, including Google, may use cookies to serve personalized ads based on your browsing history, ads will be labeled as ads, and we'll update this section first."
     },
     {
       "type": "p",
-      "text": "Google uses advertising cookies (including the DART cookie) to serve ads based on your visits to this Site and other sites across the internet. These cookies allow Google and its partners to show ads tailored to your interests."
+      "text": "If ads are shown, Google uses advertising cookies (including the DART cookie) to serve ads based on your visits to this Site and other sites across the internet. These cookies allow Google and its partners to show ads tailored to your interests."
     },
     {
       "type": "p",
-      "text": "If you would rather not see personalized ads, you can turn them off. You can manage personalized advertising at Google's Ads Settings page, https://www.google.com/settings/ads, and you can manage or opt out of cookies from many participating third-party ad providers at once at https://www.aboutads.info."
+      "text": "If you would rather not see personalized ads, you can turn them off. You can manage personalized advertising at Google's Ads Settings page, https://adssettings.google.com, and you can manage or opt out of cookies from many participating third-party ad providers at once at https://www.aboutads.info."
     },
     {
       "type": "note",
@@ -89,13 +91,17 @@ export default {
     { "type": "h2", "text": "7. Sharing With Third Parties" },
     {
       "type": "p",
-      "text": "As a rule, we do not share your personal information with outside parties. However, to serve ads and run analytics, third-party services named in Sections 4 and 5 above, such as Google and Cloudflare, may process information such as cookies under their own policies. We may also disclose information to authorities where there is a lawful request under applicable law."
+      "text": "As a rule, we do not share your personal information with outside parties. However, to serve ads and run analytics, third-party services named in Sections 4 and 5 above, such as Google and Cloudflare, may process information such as cookies under their own policies. We may also disclose information to authorities where there is a lawful request under applicable law. Services such as Google and Cloudflare may process information outside South Korea, including in the United States. You can refuse advertising and analytics cookies in the cookie banner, in the Cookie settings link at the bottom of every page, or in your browser."
     },
 
     { "type": "h2", "text": "8. Your Rights and How to Exercise Them" },
     {
       "type": "p",
       "text": "You have the right to access, correct, delete, or restrict the processing of your personal information. Because we do not store member accounts, you can delete cookies and your wishlist (localStorage) yourself in your browser settings. For any other requests, contact us at the address below and we will respond promptly in accordance with applicable law."
+    },
+    {
+      "type": "p",
+      "text": "If you visit from the European Economic Area or the United Kingdom, you also have the rights your local data protection law gives you, including access, correction, deletion, restriction, objection, and the right to complain to your local supervisory authority. We use advertising and analytics cookies only if you accept them. The minimal access records needed to run and secure the service rest on our legitimate interest in running the service."
     },
 
     { "type": "h2", "text": "9. Children's Privacy" },
@@ -117,7 +123,20 @@ export default {
     },
     {
       "type": "p",
-      "text": "This policy is effective as of June 18, 2026."
+      "text": "The Site is run by one individual based in South Korea, who is also the contact for privacy questions. We keep emails and replies only as long as needed to handle your request, then delete them."
+    },
+    {
+      "type": "p",
+      "text": "This policy first took effect on June 18, 2026, and was last revised on November 5, 2026."
+    },
+    { "type": "h2", "text": "Revision history" },
+    {
+      "type": "ul",
+      "items": [
+        "Nov 5, 2026: Corrected how wishlist items and search words reach our price server, listed what the browser stores, added game cover image loading, reworded the ad section, and added notes on processing outside South Korea, visitors from Europe, and who handles privacy questions.",
+        "Sep 12, 2026: Updated the analytics tools section.",
+        "Jun 18, 2026: First version."
+      ]
     }
   ]
 }

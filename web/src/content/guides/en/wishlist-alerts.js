@@ -1,14 +1,15 @@
 export default {
   "slug": "wishlist-alerts",
   "title": "Steam Wishlists and Price Alerts, Done Right",
-  "description": "Wishlist a game and Steam emails you when it goes on sale. The catch: it emails you for any discount at all. How to filter alerts by the tracked low, and how to buy only at a price you set in advance.",
+  "description": "Wishlist a game and Steam can email you when it goes on sale, but only for discounts of 20% or more that last over 8 hours. Why the alert you expected never came, how to filter alerts by the tracked low, and how to buy only at a price you set in advance.",
   "date": "2026-06-18",
+  "updated": "2026-11-05",
   "tags": ["Steam", "wishlist", "price alerts", "sales"],
   "readMins": 6,
   "body": [
     {
       "type": "p",
-      "text": "We've all done it. Added a game to the wishlist, forgotten about it, and missed the sale because no alert ever seemed to arrive. A Steam wishlist isn't just a list of games you want. Set up properly, it watches for sales and releases for you, and it's the best tool I know for curbing impulse buys. What follows is how to trim it, how to make sure alerts reach you, and how to filter those alerts by the tracked low so you only buy at the right moment."
+      "text": "We've all done it. Added a game to the wishlist, forgotten about it, and missed the sale because no alert ever seemed to arrive. A Steam wishlist isn't just a list of games you want. Set up properly, it watches for sales and releases for you, and it's one of the best tools for curbing impulse buys. What follows is how to trim it, how to make sure alerts reach you, and how to filter those alerts by the tracked low so you only buy at the right moment."
     },
     { "type": "h2", "text": "1. Trim the list first" },
     {
@@ -31,6 +32,10 @@ export default {
     {
       "type": "p",
       "text": "When a wishlisted game goes on sale or launches, Steam notifies you by email and in the client. If you're one of the people who say the alerts never arrive, something is switched off. Open your Steam account settings, find the notifications section, and check that wishlist discounts and releases are enabled, along with your email preferences. The Steam mobile app's push notifications are faster still."
+    },
+    {
+      "type": "p",
+      "text": "There are rules on Steam's side too. According to Steam's documentation for developers, wishlist discount emails go out only when the discount is 20% or more, lasts longer than 8 hours, and covers the game's cheapest edition. You also need a verified email address, and Steam won't notify you about the same game more than once every two weeks, a limit it can stretch during busy sales. So a 15% discount, a flash sale that ends the same day, or a sale on only the deluxe edition won't email you at all."
     },
     {
       "type": "p",
@@ -69,6 +74,17 @@ export default {
     {
       "type": "p",
       "text": "If you do buy and regret it, Steam refunds anything under 2 hours of play bought within 14 days. Knowing that takes a lot of weight off. Trim the list to a size you'll act on, make sure the alerts reach you, and check the tracked low each time one does. Do that and the alerts stop leading you around."
+    },
+    {
+      "type": "sources",
+      "title": "Sources and when they were checked",
+      "items": [
+        {
+          "label": "Valve Steamworks: Wishlists",
+          "url": "https://partner.steamgames.com/doc/marketing/wishlist",
+          "note": "Conditions for wishlist discount emails and notifications. Checked November 5, 2026."
+        }
+      ]
     }
   ]
 };

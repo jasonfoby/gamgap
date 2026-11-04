@@ -402,6 +402,10 @@ export function pickLang(al) {
 const esc = (s) =>
   String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
+// esc + 이메일 주소를 mailto 링크로(화면의 ArticleBody linkify 와 같은 규칙).
+const EMAIL_RE = /([A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,})/g;
+const lk = (s) => esc(s).replace(EMAIL_RE, '<a href="mailto:$1">$1</a>');
+
 // 언어별 모듈을 고르되, 없으면 영어 → 한국어 순으로 폴백(클라이언트 로더와 동일한 정책).
 function pick(table, lang, slug) {
   return (table[lang] && table[lang][slug]) || (table[DEFAULT] && table[DEFAULT][slug]) || (table.ko && table.ko[slug]) || null;
@@ -421,7 +425,7 @@ function firstParagraph(mod) {
 // JS 안 돌리는 봇에게도 글 전문이 보이게 해서 '얇은 콘텐츠' 오판을 막는다.
 function renderBody(mod) {
   if (!mod || !Array.isArray(mod.body)) return "";
-  const li = (items) => (items || []).map((it) => `<li>${esc(it)}</li>`).join("");
+  const li = (items) => (items || []).map((it) => `<li>${lk(it)}</li>`).join("");
   return mod.body
     .map((b) => {
       if (!b || !b.type) return "";
@@ -433,14 +437,14 @@ function renderBody(mod) {
         case "table": {
           const head = (b.head || []).map((h) => `<th scope="col">${esc(h)}</th>`).join("");
           const rows = (b.rows || [])
-            .map((r) => `<tr>${(r || []).map((c, k) => (k === 0 ? `<th scope="row">${esc(c)}</th>` : `<td>${esc(c)}</td>`)).join("")}</tr>`)
+            .map((r) => `<tr>${(r || []).map((c, k) => (k === 0 ? `<th scope="row">${lk(c)}</th>` : `<td>${lk(c)}</td>`)).join("")}</tr>`)
             .join("");
           return `<table>${b.caption ? `<caption>${esc(b.caption)}</caption>` : ""}<thead><tr>${head}</tr></thead><tbody>${rows}</tbody></table>`;
         }
         case "faq":
           return (
             (b.title ? `<h2>${esc(b.title)}</h2>` : "") +
-            (b.items || []).map((it) => `<h3>${esc(it.q)}</h3><p>${esc(it.a)}</p>`).join("")
+            (b.items || []).map((it) => `<h3>${esc(it.q)}</h3><p>${lk(it.a)}</p>`).join("")
           );
         case "cta":
           return (b.text ? `<p>${esc(b.text)}</p>` : "") + `<p><a href="${esc(b.to).replace(/"/g, "&quot;")}">${esc(b.label)}</a></p>`;
@@ -452,7 +456,7 @@ function renderBody(mod) {
               .join("")}</ul>`
           );
         case "sale-reminder": return ""; // 달력 버튼은 화면 전용 — 로봇에게 줄 글이 없다
-        default: return `<p>${esc(b.text)}</p>`; // p, note → 문단
+        default: return `<p>${lk(b.text)}</p>`; // p, note → 문단
       }
     })
     .join("");

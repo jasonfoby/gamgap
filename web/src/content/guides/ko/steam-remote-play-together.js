@@ -172,6 +172,27 @@ export default {
       "to": "/?tab=deals"
     },
     {
+      "type": "sources",
+      "title": "출처와 확인한 날",
+      "items": [
+        {
+          "label": "스팀 고객지원: Steam 리모트 플레이(Steam Remote Play)",
+          "url": "https://help.steampowered.com/en/faqs/view/0689-74B8-92AC-10F2",
+          "note": "초대 순서, 권장 환경, 컨트롤러 제한. 2026년 9월 16일 확인."
+        },
+        {
+          "label": "스팀 상점: 리모트 플레이 소개",
+          "url": "https://store.steampowered.com/remoteplay",
+          "note": "한 명만 게임을 가지고 있으면 되는 구조, 참여할 수 있는 기기. 2026년 9월 16일 확인."
+        },
+        {
+          "label": "밸브 Steamworks 문서: 리모트 플레이(Remote Play)",
+          "url": "https://partner.steamgames.com/doc/features/remoteplay",
+          "note": "지원하는 게임과 개발사가 끌 수 있는지. 2026년 9월 16일 확인."
+        }
+      ]
+    },
+    {
       "type": "faq",
       "title": "리모트 플레이 투게더 자주 묻는 질문",
       "items": [

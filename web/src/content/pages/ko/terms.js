@@ -4,7 +4,7 @@ export default {
   title: "이용약관",
   description:
     "Lowstamp 서비스의 이용 조건, 가격 정보의 정확성에 관한 면책, 지식재산권과 책임 한계를 안내합니다.",
-  updated: "2026-06-18",
+  updated: "2026-11-05",
   body: [
     {
       type: "p",
@@ -40,7 +40,7 @@ export default {
     {
       type: "p",
       text:
-        "본 사이트에 표시되는 게임명, 게임 이미지, 로고 등은 해당 게임의 개발사·배급사 및 Valve Corporation 등 각 권리자에게 귀속됩니다. 본 사이트는 이러한 자료를 가격 정보 제공이라는 목적 범위에서 소개·인용할 뿐이며, 해당 권리를 주장하지 않습니다.",
+        "본 사이트에 표시되는 게임명, 게임 이미지, 로고 등은 해당 게임의 개발사·배급사 및 Valve Corporation 등 각 권리자에게 귀속됩니다. 본 사이트는 이러한 자료를 가격 정보 제공이라는 목적 범위에서 소개·인용할 뿐이며, 해당 권리를 주장하지 않습니다. 본 사이트는 Valve Corporation 및 Steam과 제휴·후원·보증 관계가 없는 독립 사이트이며, Steam은 Valve Corporation의 상표입니다.",
     },
     {
       type: "p",

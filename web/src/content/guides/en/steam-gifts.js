@@ -200,6 +200,27 @@ export default {
       "text": "Be careful with cheap \"Steam gifts\" sold on other websites. If the payment that bought a gift is refunded because of fraud or a payment dispute, the game is removed from the recipient's library. Steam says it doesn't support selling gifts outside of Steam, so you'd have to ask the seller for your money back, and Steam won't restore any items you traded away for the gift. Your account isn't restricted, but to play the game again you'd need to buy it or get another gift copy."
     },
     {
+      "type": "sources",
+      "title": "Sources and when they were checked",
+      "items": [
+        {
+          "label": "Steam Support: Steam Gifts",
+          "url": "https://help.steampowered.com/en/faqs/view/2C02-3563-B72F-F117",
+          "note": "Sending, scheduling, accepting and declining gifts, and gift refunds. Checked September 16, 2026."
+        },
+        {
+          "label": "Steam: Steam Refund Policy",
+          "url": "https://store.steampowered.com/steam_refunds/",
+          "note": "Gift refund conditions. Re-read November 5, 2026."
+        },
+        {
+          "label": "Steam Support: Revoked Gifts",
+          "url": "https://help.steampowered.com/en/faqs/view/558E-7FF0-1C5C-D1EE",
+          "note": "When a gift is removed after a fraud or payment-dispute refund. Checked September 16, 2026."
+        }
+      ]
+    },
+    {
       "type": "faq",
       "title": "Steam gift questions",
       "items": [

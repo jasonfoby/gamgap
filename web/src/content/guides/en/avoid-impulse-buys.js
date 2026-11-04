@@ -8,7 +8,7 @@ export default {
   "body": [
     {
       "type": "p",
-      "text": "Every sale, my cart filled up with 'it's cheap, might as well' purchases. Months later I'd open my library and find game after game I'd never launched. That's money gone, and the evenings spent picking them out too. What follows is what actually stopped it for me. Not willpower, just a few questions and one rule."
+      "text": "Every sale, carts fill up with 'it's cheap, might as well' purchases. Months later the library is full of games nobody ever launched. That's money gone, and the evenings spent picking them out too. What follows is what tends to stop it. Not willpower, just a few questions and one rule."
     },
     { "type": "h2", "text": "The 'it's cheap' trap" },
     {
