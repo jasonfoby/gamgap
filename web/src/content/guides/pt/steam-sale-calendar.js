@@ -14,6 +14,8 @@
 // 지역별 시각(둘째 표·메모): 브라질·앙골라·모잠비크는 시계를 안 바꿔서 미국 여름시간 구간(봄·여름·가을 세일)엔
 //   겨울보다 1시간 이르다(브라질리아 14시). 포르투갈은 봄 세일(3월 18~25일)만 17시 — 포르투갈 여름시간이 3월 28일에 시작하기 때문.
 // 말투: 브라질 블로거식 담백한 구어체(você, 'dá para'). 'menor preço histórico' 금지 → 'o menor preço que registramos'.
+//   운영자가 직접 확인·경험했다는 1인칭 단수 문장('eu confiro', 'eu olharia' 등)은 쓰지 않는다(사이트 정직성 점검, 2026-11).
+//   확인한 사실은 "Conferido em 5 de novembro de 2026" 식의 주어 없는 문장으로 쓴다. 의견·권유 표현('vale olhar')은 그대로 둔다.
 
 export default {
   "slug": "steam-sale-calendar",
@@ -80,16 +82,16 @@ export default {
     },
     {
       "type": "p",
-      "text": "A Valve nunca explicou publicamente a mudança. O que se mexeu foi a Promoção de Outono. O fim de novembro agora é de um evento à parte, a Black Friday, que explico logo a seguir."
+      "text": "A Valve nunca explicou publicamente a mudança. O que se mexeu foi a Promoção de Outono. O fim de novembro agora é de um evento à parte, a Black Friday, explicada logo abaixo."
     },
     { "type": "h2", "text": "Black Friday da Steam 2026: o que já se sabe" },
     {
       "type": "p",
-      "text": "A Steam fez a primeira Black Friday da sua história em 2025, do fim de novembro até 1º de dezembro, algumas semanas depois de a Promoção de Outono ter ido para o começo de outubro. O calendário da Valve para 2026 diz que vêm aí descontos de Black Friday de novo, com as datas ainda a serem anunciadas. Em 5 de novembro de 2026, o calendário do Steamworks que eu confiro não trazia datas para ela."
+      "text": "A Steam fez a primeira Black Friday da sua história em 2025, do fim de novembro até 1º de dezembro, algumas semanas depois de a Promoção de Outono ter ido para o começo de outubro. O calendário da Valve para 2026 diz que vêm aí descontos de Black Friday de novo, com as datas ainda a serem anunciadas. Em 5 de novembro de 2026, o calendário do Steamworks não trazia datas para esse evento."
     },
     {
       "type": "p",
-      "text": "Então ainda não existe data para marcar no calendário. No ano passado, ela rolou na última semana de novembro, e é nessa época que eu olharia primeiro, na página inicial da Steam. Ela não é uma das quatro promoções sazonais, e ninguém prometeu que vai ser tão grande quanto uma delas, então vale a mesma regra: antes de comprar, compare o preço com o menor que registramos."
+      "text": "Por enquanto, não existe data para marcar no calendário. No ano passado, ela rolou na última semana de novembro, e é nessa época, na página inicial da Steam, que vale olhar primeiro. Ela não é uma das quatro promoções sazonais, e ninguém prometeu que vai ser tão grande quanto uma delas, então a regra é a mesma: antes de comprar, compare o preço com o menor que registramos."
     },
     { "type": "h2", "text": "Qual das quatro é a maior? A duração dá a dica" },
     {
@@ -200,7 +202,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "Eu confiro pessoalmente o calendário oficial de eventos que a Valve mantém para as desenvolvedoras e atualizo esta página sempre que saem datas novas. A última checagem foi em 5 de novembro de 2026. Só tem uma coisa para guardar: saiba mais ou menos quando é a próxima promoção grande, mas, na hora de apertar o botão de comprar, olhe o histórico de preços do jogo, e não o calendário. Esse hábito, sozinho, é o que mais ajuda a não pagar caro à toa."
+      "text": "Esta página é atualizada sempre que a Valve anuncia datas novas. A última conferência das datas com o calendário oficial de eventos da Valve para desenvolvedoras foi em 5 de novembro de 2026. Só tem uma coisa para guardar: saiba mais ou menos quando é a próxima promoção grande, mas, na hora de apertar o botão de comprar, olhe o histórico de preços do jogo, e não o calendário. Esse hábito, sozinho, é o que mais ajuda a não pagar caro à toa."
     },
     {
       "type": "sources",

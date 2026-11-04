@@ -51,6 +51,9 @@ header{position:sticky;top:0;z-index:40;background:rgba(18,26,36,.92);backdrop-f
 .hero h1 .g{color:var(--gold)}
 .hero .sub{color:var(--txt-dim);font-size:13.5px;margin-top:7px;line-height:1.5;max-width:640px}
 .hero .sub b{color:#DDE6EF;font-weight:700}
+.hero .hero-trust{color:var(--mute);font-size:12.5px;margin:6px 0 0;line-height:1.5;max-width:640px}
+.hero .hero-trust a{color:var(--txt-dim);text-decoration:underline;text-underline-offset:2px}
+.hero .hero-trust a:hover{color:var(--txt)}
 .hero-search{margin-top:18px;max-width:560px}
 .chips{margin-top:11px;display:flex;flex-wrap:wrap;gap:8px}
 .chip{font-size:12.5px;color:#B4C2CF;background:rgba(255,255,255,.05);border:1px solid var(--line);padding:6px 12px;border-radius:var(--r-sm);cursor:pointer;transition:background .12s,border-color .12s}

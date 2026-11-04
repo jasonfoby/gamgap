@@ -7,6 +7,8 @@
 // 용어: Rebajas de Invierno/Primavera/Verano/Otoño, Next Fest. 테마 축제 이름은 영어 공식명 유지.
 //   'mínimo histórico' 금지 → 'el precio más bajo que hemos registrado'(Lowstamp 기록은 2026년 6월부터).
 // 말투: tú 중립(vosotros·voseo 금지), 블로거식 담백한 문체, 줄표(—) 대신 쉼표·콜론.
+//   정직성 점검(2026-11-05): "직접 확인한다·내가 본다" 같은 운영자 1인칭 확인 문장 금지(실제로는 도구가 확인함).
+//   'Esta página se actualiza…', 'el calendario de Steamworks no incluye…' 식의 주어 없는 문장으로 쓴다. 사이트 기록('hemos registrado')은 그대로 둔다.
 // (2026-11-05) 가을 세일이 끝나 겨울 세일 기준으로 바꿨다. 겨울 세일이 끝나면(2027-01-04 19:00 스페인) 제목·설명·첫 문단을
 //   "봄 세일 3월 18일 시작" 기준으로 다시 바꿀 것 — 제목의 날짜도 CONFIRMED 와 같아야 한다.
 // (2026-11-05) 블랙프라이데이: 스팀은 2025년 11월 말~12월 1일에 첫 블랙프라이데이 세일을 열었고 2026년에도 예고했지만
@@ -82,11 +84,11 @@ export default {
     { "type": "h2", "text": "Black Friday en Steam 2026: lo que sabemos hasta ahora" },
     {
       "type": "p",
-      "text": "Steam celebró en 2025 las primeras rebajas de Black Friday de su historia, desde finales de noviembre hasta el 1 de diciembre, unas semanas después de que las rebajas de Otoño se adelantaran a principios de octubre. El calendario de Valve para 2026 dice que habrá descuentos de Black Friday otra vez, con las fechas todavía por anunciar. A fecha de 5 de noviembre de 2026, el calendario de Steamworks que reviso no incluye fechas para este evento."
+      "text": "Steam celebró en 2025 las primeras rebajas de Black Friday de su historia, desde finales de noviembre hasta el 1 de diciembre, unas semanas después de que las rebajas de Otoño se adelantaran a principios de octubre. El calendario de Valve para 2026 dice que habrá descuentos de Black Friday otra vez, con las fechas todavía por anunciar. A fecha de 5 de noviembre de 2026, el calendario de Steamworks no incluye fechas para este evento."
     },
     {
       "type": "p",
-      "text": "Así que todavía no hay ninguna fecha que apuntar en el calendario. El año pasado cayó en la última semana de noviembre y ahí es donde miraría primero, en la portada de Steam. No es una de las cuatro rebajas de temporada y nadie ha prometido que vaya a ser tan grande como una de ellas, de modo que vale la misma regla de siempre: compara el precio con el más bajo que hemos registrado antes de comprar."
+      "text": "Así que todavía no hay ninguna fecha que apuntar en el calendario. El año pasado cayó en la última semana de noviembre, de modo que ahí conviene mirar primero, en la portada de Steam. No es una de las cuatro rebajas de temporada y nadie ha prometido que vaya a ser tan grande como una de ellas, por lo que sigue valiendo la misma regla: compara el precio con el más bajo que hemos registrado antes de comprar."
     },
     { "type": "h2", "text": "¿Cuál de las cuatro es la más grande? La duración da la pista" },
     {
@@ -197,7 +199,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "Reviso personalmente el calendario oficial de eventos que Valve publica para los estudios y actualizo esta página cada vez que se anuncian fechas nuevas. La última revisión fue el 5 de noviembre de 2026. Al final solo hay una cosa que memorizar: saber más o menos cuándo es la próxima rebaja grande, pero, cuando estés delante del botón de comprar, mirar el historial de precios del juego en vez del calendario. Ese hábito, por sí solo, es lo que más te ayuda a no pagar de más."
+      "text": "Esta página se actualiza cada vez que Valve anuncia fechas nuevas. La última comprobación con el calendario oficial de eventos que Valve publica para los estudios fue el 5 de noviembre de 2026. Al final solo hay una cosa que memorizar: saber más o menos cuándo es la próxima rebaja grande, pero, cuando estés delante del botón de comprar, mirar el historial de precios del juego en vez del calendario. Ese hábito, por sí solo, es lo que más te ayuda a no pagar de más."
     },
     {
       "type": "sources",

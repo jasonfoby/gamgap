@@ -18,6 +18,7 @@ export default {
   "hero.titleHl": "最安値",
   "hero.sub": "Steam ゲームの値段を{b}と見くらべて、今が買い時かどうかをパッと判定。高づかみを防ぎます。",
   "hero.subB": "最安値",
+  "hero.trust": "Steamストアの価格を毎日確認し、2026年6月から記録しています。仕組みは{about}、読みものは{guides}でどうぞ。",
 
   "search.placeholder": "ゲーム名で検索",
   "search.aria": "ゲーム検索",

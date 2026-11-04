@@ -18,6 +18,7 @@ export default {
   "hero.titleHl": "最低价",
   "hero.sub": "把现在的价格和{b}放在一起比，一句话判断该买还是再等，省得多花钱。",
   "hero.subB": "最低价",
+  "hero.trust": "我们每天核对 Steam 商店价格，并从 2026 年 6 月开始记录。运作方式见{about}，更多文章见{guides}。",
 
   "search.placeholder": "搜游戏名",
   "search.aria": "搜索游戏",

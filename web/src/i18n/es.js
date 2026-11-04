@@ -18,6 +18,7 @@ export default {
   "hero.titleHl": "mínimo registrado",
   "hero.sub": "Ponemos el precio de hoy junto al {b} y resumimos en una línea si conviene comprar o esperar. Así no pagas de más.",
   "hero.subB": "mínimo registrado",
+  "hero.trust": "Comprobamos los precios de la tienda de Steam cada día y los registramos desde junio de 2026. Cómo funciona está en {about}; las lecturas, en {guides}.",
 
   "search.placeholder": "Escribe el nombre de un juego",
   "search.aria": "Buscar juegos",

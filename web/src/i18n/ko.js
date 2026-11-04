@@ -23,6 +23,7 @@ export default {
   "hero.titleHl": "최저가",
   "hero.sub": "지금 가격을 {b}랑 나란히 놓고, 살 때인지 기다릴 때인지 한 줄로 짚어드려요.",
   "hero.subB": "최저가",
+  "hero.trust": "스팀 상점 가격을 매일 확인하고 2026년 6월부터 기록해요. 만드는 방식은 {about}, 읽을거리는 {guides}에서 볼 수 있어요.",
 
   // 검색
   "search.placeholder": "게임 이름을 검색해 보세요",

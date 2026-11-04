@@ -18,6 +18,7 @@ export default {
   "hero.titleHl": "lowest tracked price",
   "hero.sub": "We line today's price up against the {b} and say in one line whether it's a good time to buy.",
   "hero.subB": "lowest tracked price",
+  "hero.trust": "We check Steam store prices daily and have tracked them since June 2026. See {about} for how it works, or browse the {guides}.",
 
   "search.placeholder": "Search for a game",
   "search.aria": "Search games",

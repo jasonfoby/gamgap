@@ -19,3 +19,6 @@ web/dist/
 Thumbs.db
 .vscode/
 .idea/
+
+# 서버 함수 시험 도구의 임시 묶음 파일
+scripts/fn-harness/.out/

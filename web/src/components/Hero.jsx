@@ -1,6 +1,7 @@
 import SearchBar from "./SearchBar";
 import { FAMOUS } from "../lib/dealSort";
 import { useT, tNodes } from "../lib/i18n";
+import { Link } from "../lib/router";
 
 // 로딩 중 자리표시(스켈레톤) 칩 너비들 — 유명작을 보여줬다 바꾸는 깜빡임 대신 회색 칩을 잠깐 보여준다.
 const SKEL_WIDTHS = [120, 92, 112, 84, 132, 100];
@@ -15,6 +16,13 @@ export default function Hero({ query, onQueryChange, onPickGame, popular, popula
     <section className="hero">
       <h1>{tNodes(t("hero.title"), { hl: <span className="g">{t("hero.titleHl")}</span> })}</h1>
       <p className="sub">{tNodes(t("hero.sub"), { b: <b>{t("hero.subB")}</b> })}</p>
+      {/* 처음 온 사람이 '무엇이고 누가 어떻게 만드는지'를 첫 화면에서 알 수 있게(가격 목록에 묻히지 않게) */}
+      <p className="hero-trust">
+        {tNodes(t("hero.trust"), {
+          about: <Link to="/about">{t("footer.about")}</Link>,
+          guides: <Link to="/guide">{t("nav.guide")}</Link>,
+        })}
+      </p>
 
       <div className="hero-search">
         <SearchBar query={query} onQueryChange={onQueryChange} variant="hero" />

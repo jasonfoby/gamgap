@@ -87,7 +87,7 @@ export default {
     },
     {
       "type": "p",
-      "text": "So there's no date to put in your calendar yet. Last year it ran through the last week of November, which is where I'd look first, on Steam's front page. It isn't one of the four seasonal sales, and nobody has promised it will be as big as one, so the same rule applies: compare the price with the lowest we've tracked before you buy."
+      "text": "So there's no date to put in your calendar yet. Last year it ran through the last week of November, so that's where to look first, on Steam's front page. It isn't one of the four seasonal sales, and nobody has promised it will be as big as one, so the same rule applies: compare the price with the lowest we've tracked before you buy."
     },
     { "type": "h2", "text": "Which of the four is actually the biggest? Length is your clue" },
     {
