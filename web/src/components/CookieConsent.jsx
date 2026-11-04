@@ -12,6 +12,10 @@ export default function CookieConsent() {
 
   useEffect(() => {
     if (!readConsent()) setOpen(true);
+    // 푸터 '쿠키 설정'에서 다시 열기(선택을 바꿀 수 있게)
+    const reopen = () => setOpen(true);
+    window.addEventListener("lowstamp:consent-open", reopen);
+    return () => window.removeEventListener("lowstamp:consent-open", reopen);
   }, []);
 
   const choose = (value) => () => {

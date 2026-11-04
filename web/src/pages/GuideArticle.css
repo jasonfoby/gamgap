@@ -86,3 +86,89 @@
     font-size: 31px;
   }
 }
+
+/* 빵부스러기(홈 › 가이드 › 글) — 제목 위 한 줄. 긴 글 제목은 한 줄로 줄임표 처리해 높이가 일정하다. */
+.ga-crumbs {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+  margin-bottom: 14px;
+  font-family: var(--kr);
+  font-size: 12.5px;
+  color: var(--mute);
+}
+.ga-crumbs a {
+  flex: 0 0 auto;
+  color: var(--mute);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.ga-crumbs a:hover {
+  color: var(--ink-txt);
+}
+.ga-crumb-sep {
+  flex: 0 0 auto;
+  opacity: 0.6;
+}
+.ga-crumb-now {
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* 글쓴이 줄의 소개 링크 */
+.ga-author {
+  font-weight: 700;
+  color: var(--mute);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.ga-author:hover {
+  color: var(--ink-txt);
+}
+
+/* 함께 읽으면 좋은 글 — 제목만 한 줄씩(높이 일정). */
+.ga-related {
+  margin-top: 34px;
+  padding-top: 8px;
+  border-top: 1px solid var(--rule);
+}
+.ga-related-title {
+  margin: 14px 0 6px;
+  font-family: var(--kr);
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--ink-txt);
+}
+.ga-related-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.ga-related-item {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  border-bottom: 1px solid var(--rule);
+}
+.ga-related-item:last-child {
+  border-bottom: 0;
+}
+.ga-related-item a {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-family: var(--kr);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink-txt);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.ga-related-item a:hover {
+  filter: brightness(0.9);
+}

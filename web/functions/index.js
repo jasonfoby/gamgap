@@ -79,6 +79,15 @@ export async function onRequest(context) {
   const wrapped =
     `<noscript><main style="max-width:760px;margin:0 auto;padding:24px;font-family:sans-serif;line-height:1.6">${homeBody(lang)}</main></noscript>`;
 
+  // 사이트 전체 구조화 데이터: 사이트 이름(WebSite)과 운영 주체(Organization). Organization 의 url 은 끝 슬래시 없이 —
+  // 언어 고정 주소 핸들러(langRoute.js)가 "…/" 형태의 자기 주소만 /ko/ 로 바꾸기 때문이다.
+  const siteLd = [
+    { "@context": "https://schema.org", "@type": "WebSite", name: "Lowstamp", alternateName: "lowstamp.com", url: url.origin + "/" },
+    { "@context": "https://schema.org", "@type": "Organization", name: "Lowstamp", url: url.origin },
+  ]
+    .map((o) => `<script type="application/ld+json">${JSON.stringify(o).replace(/</g, "\\u003c")}</script>`)
+    .join("");
+
   const res = new HTMLRewriter()
     .on("html", { element(e) { e.setAttribute("lang", lang); } })
     .on("title", { element(e) { e.setInnerContent(m.t); } })
@@ -91,7 +100,7 @@ export async function onRequest(context) {
     .on('meta[name="twitter:description"]', { element(e) { e.setAttribute("content", m.d); } })
     .on('meta[name="twitter:image"]', { element(e) { e.setAttribute("content", img); } })
     .on("#root", { element(e) { e.setInnerContent(wrapped, { html: true }); } })
-    .on("head", { element(e) { e.append(hreflangTags("/", RESTRICT_PAGE_LANG_INDEXING ? INDEXABLE_PAGE_LANGS : undefined), { html: true }); } })
+    .on("head", { element(e) { e.append(hreflangTags("/", RESTRICT_PAGE_LANG_INDEXING ? INDEXABLE_PAGE_LANGS : undefined) + siteLd, { html: true }); } })
     .transform(shell);
 
   // 언어별로 응답이 달라지므로 한 언어로 캐시가 굳지 않게.

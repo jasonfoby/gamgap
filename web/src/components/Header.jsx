@@ -27,6 +27,9 @@ export default function Header({ lowCount, query, onQueryChange }) {
           <Link to="/guide" className="bar-nav-link">
             {t("nav.guide")}
           </Link>
+          <Link to="/about" className="bar-nav-link bar-nav-about">
+            {t("footer.about")}
+          </Link>
         </nav>
 
         <LanguageSwitcher className="bar-lang" />

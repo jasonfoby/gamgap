@@ -57,6 +57,15 @@
 .ps-nav-link:hover {
   color: var(--txt);
 }
+/* '소개' 링크는 폭이 넉넉할 때만(좁은 폰에선 푸터에 있다) */
+.ps-nav-about {
+  display: none;
+}
+@media (min-width: 720px) {
+  .ps-nav-about {
+    display: inline;
+  }
+}
 
 /* 본문 — 종이 카드 위 가독형 영역 */
 .page {

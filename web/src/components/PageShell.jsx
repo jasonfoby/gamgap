@@ -23,6 +23,9 @@ export default function PageShell({ children, wide = false, loading = false }) {
             <Link to="/guide" className="ps-nav-link">
               {t("nav.guide")}
             </Link>
+            <Link to="/about" className="ps-nav-link ps-nav-about">
+              {t("footer.about")}
+            </Link>
             <Link to="/" className="ps-nav-link ps-nav-home">
               {t("nav.home")}
             </Link>

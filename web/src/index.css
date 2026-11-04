@@ -30,6 +30,8 @@ header{position:sticky;top:0;z-index:40;background:rgba(18,26,36,.92);backdrop-f
 .bar-nav{display:flex;align-items:center;gap:16px;flex:0 0 auto}
 .bar-nav-link{font-size:14px;font-weight:700;color:var(--txt-dim);white-space:nowrap;transition:color .12s}
 .bar-nav-link:hover{color:var(--txt)}
+.bar-nav-about{display:none}
+@media(min-width:720px){.bar-nav-about{display:inline}}
 
 /* ===== 검색창 (헤더/히어로 공용) ===== */
 .searchbox{position:relative;width:100%}

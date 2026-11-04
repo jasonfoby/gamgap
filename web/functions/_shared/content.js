@@ -5,7 +5,8 @@
 // import 해서 쓴다(빌드에 번들됨).
 // (가격/판정 로직과는 무관 — 메타·SSR 텍스트 주입만.)
 
-import { hreflangTags } from "./langPath.js";
+import { hreflangTags, langPath } from "./langPath.js";
+import { relatedGuideSlugs } from "../../src/content/guideCategories.js";
 import { RESTRICT_PAGE_LANG_INDEXING, INDEXABLE_PAGE_LANGS } from "../../src/lib/indexableGames.js";
 import PAGE_ko_about from "../../src/content/pages/ko/about.js";
 import PAGE_ko_privacy from "../../src/content/pages/ko/privacy.js";
@@ -482,7 +483,9 @@ export function guideJsonLd(lang, slug, mod) {
       inLanguage: lang,
       ...(mod.date ? { datePublished: mod.date } : {}),
       ...(mod.updated || mod.date ? { dateModified: mod.updated || mod.date } : {}),
-      author: { "@type": "Person", name: translate(lang, "author.name") },
+      // 글쓴이는 필명(운영자)이라 사람(Person)이 아니라 사이트(Organization)로 두고, 소개 페이지로 잇는다.
+      author: { "@type": "Organization", name: "Lowstamp", url: SITE + langPath(lang, "/about") },
+      image: `${SITE}/og-${lang}.jpg`,
       publisher: { "@type": "Organization", name: "Lowstamp", url: SITE },
       mainEntityOfPage: url,
       url,
@@ -492,6 +495,16 @@ export function guideJsonLd(lang, slug, mod) {
     .filter((b) => b && b.type === "faq")
     .flatMap((b) => b.items || [])
     .filter((it) => it && it.q && it.a);
+  // 빵부스러기(홈 › 가이드 › 글) — 화면의 빵부스러기와 같은 3단계.
+  out.push({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: translate(lang, "nav.home"), item: SITE + langPath(lang, "/") },
+      { "@type": "ListItem", position: 2, name: translate(lang, "nav.guide"), item: SITE + langPath(lang, "/guide") },
+      { "@type": "ListItem", position: 3, name: mod.title, item: url },
+    ],
+  });
   if (faq.length) {
     out.push({
       "@context": "https://schema.org",
@@ -613,4 +626,28 @@ export function renderContent(shell, { lang, pathname, mod, fallbackTitle, bodyH
   }
 
   return rw.transform(shell);
+}
+
+// 가이드 글의 봇용 본문(#root 안 noscript): 빵부스러기 + 제목 + 글쓴이(소개 링크)·갱신일 + 본문 + 관련 글.
+// 클라이언트 GuideArticle.jsx 와 같은 구성이라 로봇에게도 글끼리·소개 페이지로 가는 링크가 보인다.
+export function guideBodyHtml(lang, slug, mod) {
+  const t = (k, v) => translate(lang, k, v);
+  const crumbs =
+    `<nav aria-label="${esc(t("guide.crumbAria"))}"><a href="/">${esc(t("nav.home"))}</a> › ` +
+    `<a href="/guide">${esc(t("nav.guide"))}</a> › <span>${esc(mod.title)}</span></nav>`;
+  const author = `<a href="/about" rel="author">${esc(t("author.by", { name: t("author.name") }))}</a>`;
+  const dateTxt = mod.updated && mod.updated !== mod.date ? t("guide.updated", { d: mod.updated }) : mod.date || "";
+  const byline = `<p>${author}${dateTxt ? " · " + esc(dateTxt) : ""}</p>`;
+  const rel = relatedGuideSlugs(slug, 3).map((s) => getGuide(lang, s)).filter((g) => g && g.slug && g.title);
+  const related = rel.length
+    ? `<nav aria-label="${esc(t("guide.related"))}"><h2>${esc(t("guide.related"))}</h2><ul>${rel
+        .map((g) => `<li><a href="/guide/${esc(g.slug)}">${esc(g.title)}</a></li>`)
+        .join("")}</ul></nav>`
+    : "";
+  return crumbs + `<h1>${esc(mod.title)}</h1>` + byline + renderBody(mod) + related;
+}
+
+// 가이드 목록(/guide)의 제목·설명 — 언어별 사전에서. (예전엔 영어 기본 문장이 모든 언어에 나갔다.)
+export function guideHubMeta(lang) {
+  return { title: translate(lang, "guide.indexTitle"), description: translate(lang, "guide.indexMetaDesc") };
 }

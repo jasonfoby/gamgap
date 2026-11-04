@@ -71,3 +71,17 @@ export function coverGradient(name) {
 export function coverInitial(name) {
   return String(name || "").trim().charAt(0) || "?";
 }
+
+// "2026-11-05" 같은 날짜를 언어에 맞게 '연 월 일'로. ko: "2026년 11월 5일" / 그 외: "Nov 5, 2026" 등. 일(日)이 없으면 ym()으로.
+export function ymd(d) {
+  if (!d) return "";
+  const m = String(d).match(/^(\d{4})-(\d{1,2})-(\d{1,2})/);
+  if (!m) return ym(d);
+  if (_lang === "ko") return `${m[1]}년 ${Number(m[2])}월 ${Number(m[3])}일`;
+  try {
+    const dt = new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3]));
+    return dt.toLocaleDateString(LOCALE[_lang] || "en-US", { year: "numeric", month: "short", day: "numeric" });
+  } catch {
+    return `${m[1]}-${m[2]}-${m[3]}`;
+  }
+}

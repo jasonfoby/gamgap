@@ -359,7 +359,8 @@ export async function onRequest(context) {
         if (noindex) e.append(`<meta name="robots" content="noindex,follow">`, { html: true });
         // 언어판 안내(langPath.js). 제한 중에는 색인하는 영어·한국어판만 짝지어 알린다.
         else e.append(hreflangTags(`/game/${game.appid}`, RESTRICT_GAME_INDEXING ? INDEXABLE_LANGS : undefined), { html: true });
-        e.append(`<script type="application/ld+json">${esc(jsonld).replace(/&quot;/g, '"')}</script>`, { html: true });
+        // 값 안의 '<' 만 막는다(예전엔 esc() 때문에 'Dungeons & Dragons' 가 'Dungeons &amp; Dragons' 로 구조화 데이터에 남았다).
+        e.append(`<script type="application/ld+json">${jsonld.replace(/</g, "\\u003c")}</script>`, { html: true });
       },
     })
     .transform(shell);

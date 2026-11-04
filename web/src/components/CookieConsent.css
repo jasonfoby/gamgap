@@ -62,19 +62,14 @@
   cursor: pointer;
   transition: filter 0.12s, background 0.12s;
 }
-.cc-deny {
-  color: #B4C2CF;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--line);
-}
-.cc-deny:hover {
-  background: rgba(255, 255, 255, 0.09);
-}
+/* 거절·동의 두 버튼은 같은 모양·같은 비중으로 둔다(한쪽만 강조하면 동의를 유도하는 배너로 읽힌다 — 구글 동의 정책). */
+.cc-deny,
 .cc-allow {
   color: var(--ink);
   background: #D8D2C0;
   border: 1px solid #D8D2C0;
 }
+.cc-deny:hover,
 .cc-allow:hover {
   filter: brightness(0.95);
 }

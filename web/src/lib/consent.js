@@ -37,3 +37,12 @@ export function setConsent(value) {
     // gtag가 아직 없거나 광고 차단기로 막혀도 조용히 넘어간다.
   }
 }
+
+// 푸터의 '쿠키 설정' 버튼이 부른다: 동의 배너를 다시 열어 선택을 바꿀 수 있게 한다(CookieConsent 가 이 이벤트를 듣는다).
+export function reopenConsent() {
+  try {
+    if (typeof window !== "undefined") window.dispatchEvent(new Event("lowstamp:consent-open"));
+  } catch {
+    // 이벤트를 못 보내는 환경이면 조용히 넘어간다.
+  }
+}

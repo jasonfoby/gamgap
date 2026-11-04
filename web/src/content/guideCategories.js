@@ -58,3 +58,21 @@ export function groupGuides(guides) {
   if (leftover.length) out.push({ labelKey: "guideCat.more", items: leftover });
   return out;
 }
+
+// 이 글과 '함께 읽으면 좋은 글' slug n개. 같은 묶음(GUIDE_CATEGORIES)에서 이 글 다음 순서부터 돌려가며 고르고,
+// 모자라면 다른 묶음 앞쪽에서 채운다(글마다 이웃이 달라지게). 클라이언트(GuideArticle.jsx)와 봇용 본문(functions)이 같이 쓴다.
+export function relatedGuideSlugs(slug, n = 3) {
+  const out = [];
+  const cat = GUIDE_CATEGORIES.find((c) => c.slugs.includes(slug));
+  if (cat) {
+    const i = cat.slugs.indexOf(slug);
+    for (let k = 1; k < cat.slugs.length && out.length < n; k++) out.push(cat.slugs[(i + k) % cat.slugs.length]);
+  }
+  for (const c of GUIDE_CATEGORIES) {
+    for (const s of c.slugs) {
+      if (out.length >= n) break;
+      if (s !== slug && !out.includes(s)) out.push(s);
+    }
+  }
+  return out.slice(0, n);
+}
